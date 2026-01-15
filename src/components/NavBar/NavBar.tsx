@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
@@ -122,28 +122,25 @@ const NavBar = () => {
           {/* Navigation Links - Desktop */}
           <div className="hidden md:block">
             <div className="flex items-center space-x-2">
-              {NavBarData.data.map((item, index) => (
-                <>
-                {item.isActive && (
-                    <Link
+              {NavBarData.data.map((item, index) =>
+                item.isActive && (
+                  <Link
                     key={item.name + index}
                     href={item.isDisabled ? "#" : item.href}
                     className={item.isDisabled ? getDesktopLinkClasses({ color: "disabled" }) : getDesktopLinkClasses(item)}
                     aria-disabled={item.isDisabled}
                     onClick={item.isDisabled ? (e) => e.preventDefault() : undefined}
-                >
-                  {item.name}
-                </Link>
-                )}
-                </>
-              ))}
+                  >
+                    {item.name}
+                  </Link>
+                )
+              )}
               <ThemeSwitcher />
             </div>
           </div>
 
           {/* Mobile menu button */}
           <div className="flex items-center md:hidden space-x-2">
-            <ThemeSwitcher />
             <button
               onClick={toggleMenu}
               className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-red-400 transition-colors duration-200"
@@ -170,14 +167,21 @@ const NavBar = () => {
       >
         <div className="px-4 py-3 space-y-1">
           {NavBarData.data.map((item, index) => (
-            <Link
-              key={item.name + index}
-              href={item.isDisabled ? "#" : item.href}
-              onClick={item.isDisabled ? (e) => e.preventDefault() : closeMenu}
-              className={item.isDisabled ? getMobileLinkClasses({ color: "disabled" }) : getMobileLinkClasses(item)}
-            >
-              {item.name}
-            </Link>
+            <React.Fragment key={item.name + index}>
+              {index === NavBarData.data.length - 1 && (
+                <div className="flex items-center justify-between px-4 py-3 rounded-md text-gray-700 dark:text-gray-300 font-medium">
+                  <span>Appearance</span>
+                  <ThemeSwitcher />
+                </div>
+              )}
+              <Link
+                href={item.isDisabled ? "#" : item.href}
+                onClick={item.isDisabled ? (e) => e.preventDefault() : closeMenu}
+                className={item.isDisabled ? getMobileLinkClasses({ color: "disabled" }) : getMobileLinkClasses(item)}
+              >
+                {item.name}
+              </Link>
+            </React.Fragment>
           ))}
         </div>
       </div>

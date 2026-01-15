@@ -1,0 +1,16 @@
+{
+    "Company":{
+        "Name":"TCM物流"
+    },
+    "Home":{
+        "welcome":"歡迎來到"
+    },
+    "NavBar":{
+        "title": "TCM物流"
+    },
+    "Common":{
+        "english": "英文",
+        "traditional_chinese": "繁體中文",
+        "select_language": "選擇語言"
+    }
+}

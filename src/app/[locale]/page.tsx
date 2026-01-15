@@ -1,7 +1,10 @@
 // import Image from "next/image";
 
-const HomePage = () => {
-  const companyName = "TCM Logistic Inc.";
+import { getTranslations } from "next-intl/server";
+
+const HomePage = async () => {
+  const translateCompany = await getTranslations('Company');
+    const translateHome = await getTranslations('Home');
 
   return (
     <div className="min-h-screen bg-white">
@@ -9,7 +12,7 @@ const HomePage = () => {
         {/* Hero Section */}
         <div className="text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900">
-            Welcome to <span className="text-red-600">{companyName}</span>
+            {translateHome('welcome')} <span className="text-red-600">{translateCompany('Name')}</span> 
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
             Your trusted partner in logistics solutions. We deliver excellence

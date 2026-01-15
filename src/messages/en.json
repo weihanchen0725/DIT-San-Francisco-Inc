@@ -1,0 +1,16 @@
+{
+    "Company":{
+        "Name":"TCM Logistics"
+    },
+    "Home":{
+        "welcome":"Welcome to"
+    },
+    "NavBar":{
+        "title": "TCM Logistics"
+    },
+    "Common":{
+        "english": "English",
+        "traditional_chinese": "Traditional Chinese",
+        "select_language": "Select language"
+    }
+}

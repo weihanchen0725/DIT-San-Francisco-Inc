@@ -3,7 +3,8 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import Providers from "@/components/Providers/Providers";
+import ClientProviders from "@/components/Providers/ClientProviders";
+import ServerProviders from "@/components/Providers/ServerProviders";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -80,22 +81,28 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://example.com"), // Replace with your actual domain
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  const { locale } = await params;
+  
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head />
       <body
         className={`${roboto.variable} font-sans antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col transition-colors duration-200`}
       >
-        <Providers>
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </Providers>
+        <ServerProviders>
+          <ClientProviders>
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </ClientProviders>
+        </ServerProviders>
       </body>
     </html>
   );

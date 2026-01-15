@@ -7,7 +7,7 @@ interface ProvidersProps {
     children: React.ReactNode;
 }
 
-const Providers = ({ children }: ProvidersProps) => {
+const ClientProviders = ({ children }: ProvidersProps) => {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -16,6 +16,7 @@ const Providers = ({ children }: ProvidersProps) => {
         setMounted(true);
     }, []);
 
+    // 
     if (!mounted) {
         return (
             <>{children}</>
@@ -30,9 +31,9 @@ const Providers = ({ children }: ProvidersProps) => {
             disableTransitionOnChange={false}
             storageKey="tcm-theme"
             >
-            {children}
+                {children}
         </ThemeProvider>
     );  
 };
 
-export default Providers;
+export default ClientProviders;
