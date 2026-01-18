@@ -26,7 +26,10 @@ const customIcon = new L.DivIcon({
 });
 
 const Map = () => {
-  const position: LatLngExpression = [37.47937797375581, -121.9444590947314];
+    // Fremont, CA coordinates
+    const position: LatLngExpression = [37.47937797375581, -121.9444590947314];
+    // 
+    const googleMapURL = 'https://maps.app.goo.gl/Gmt7Y9h18K2Hk6xC8';
 
   return (
     <div className="relative rounded-b-2xl overflow-hidden">
@@ -51,7 +54,7 @@ const Map = () => {
               <h3 className="font-bold text-brand-navy text-base mb-1">DIT San Francisco Inc.</h3>
               <p className="text-sm text-gray-600 mb-2">46750 Fremont Blvd #200<br/>Fremont, CA 94538</p>
               <a
-                href="https://maps.google.com/?q=46750+Fremont+Blvd+200+Fremont+CA+94538"
+                href={googleMapURL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-sm font-medium text-brand-yellow hover:underline"
@@ -76,7 +79,7 @@ const Map = () => {
           <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Fremont, CA</span>
         </div>
         <a
-          href="https://maps.google.com/?q=46750+Fremont+Blvd+200+Fremont+CA+94538"
+          href={googleMapURL}
           target="_blank"
           rel="noopener noreferrer"
           className="text-xs font-medium text-brand-yellow hover:text-brand-yellow-hover transition-colors flex items-center gap-1"
