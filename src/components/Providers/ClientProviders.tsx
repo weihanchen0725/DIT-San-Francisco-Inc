@@ -29,7 +29,7 @@ const ClientProviders = ({ children }: ProvidersProps) => {
             defaultTheme="light"
             enableSystem={true}
             disableTransitionOnChange={false}
-            storageKey="tcm-theme"
+            storageKey="dit-theme"
             >
                 {children}
         </ThemeProvider>

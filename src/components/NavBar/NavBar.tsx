@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 // import Image from "next/image";
-// import CompanyLogo from '../../assets/images/tcm_logistic_logo.svg'
+// import CompanyLogo from '../../assets/icons/DITLogo.svg'
 import NavBarData from './NavBarData.json'
 import { useTranslations } from "next-intl";
 import Image from "next/image";
