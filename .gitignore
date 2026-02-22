@@ -61,3 +61,29 @@ next-env.d.ts
 .cache/
 .temp/
 .tmp/
+
+# Monorepo apps
+# Client (Next.js)
+/client/node_modules/
+/client/.next/
+/client/out/
+/client/build/
+/client/.swc/
+/client/coverage/
+/client/.nyc_output/
+/client/*.tsbuildinfo
+/client/next-env.d.ts
+/client/.vercel/
+
+# Server (Strapi)
+/server/node_modules/
+/server/dist/
+/server/build/
+/server/.cache/
+/server/.tmp/
+/server/.strapi/
+/server/.strapi-updater.json
+
+# Server runtime uploads
+/server/public/uploads/*
+!/server/public/uploads/.gitkeep
