@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_layout_headers",
+  "info": {
+    "displayName": "Header"
+  },
+  "options": {},
+  "attributes": {
+    "Logo": {
+      "type": "component",
+      "component": "elements.logo",
+      "repeatable": false
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Navigations": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": true
+    },
+    "CTA": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
