@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Roboto } from "next/font/google";
-import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import ClientProviders from "@/components/Providers/ClientProviders";
 import ServerProviders from "@/components/Providers/ServerProviders";
+import './globals.scss';
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -14,9 +14,11 @@ const roboto = Roboto({
 });
 
 // Site configuration - update these values for production
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://ditsanfrancisco.com";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://ditsanfrancisco.com";
 const COMPANY_NAME = "DIT San Francisco Inc.";
-const COMPANY_DESCRIPTION = "DIT San Francisco Inc. is a leading logistics management company providing efficient shipping, tracking, warehousing, and supply chain solutions in the San Francisco Bay Area.";
+const COMPANY_DESCRIPTION =
+  "DIT San Francisco Inc. is a leading logistics management company providing efficient shipping, tracking, warehousing, and supply chain solutions in the San Francisco Bay Area.";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -105,13 +107,9 @@ export const metadata: Metadata = {
     // creator: "@ditsanfrancisco", // Add your Twitter handle
   },
   icons: {
-    icon: [
-      { url: "/DITLogo.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/DITLogo.svg", type: "image/svg+xml" }],
     shortcut: "/DITLogo.svg",
-    apple: [
-      { url: "/DITLogo.svg", type: "image/svg+xml" },
-    ],
+    apple: [{ url: "/DITLogo.svg", type: "image/svg+xml" }],
   },
   manifest: "/site.webmanifest",
   category: "business",
@@ -200,11 +198,15 @@ export default async function RootLayout({
       <head>
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+
         {/* DNS prefetch for analytics (uncomment when adding analytics) */}
         {/* <link rel="dns-prefetch" href="https://www.googletagmanager.com" /> */}
-        
+
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
@@ -220,12 +222,17 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`${roboto.variable} font-sans antialiased bg-white dark:bg-[#0a0a1a] text-brand-navy dark:text-white min-h-screen flex flex-col transition-colors duration-200`}
+        className={`${roboto.variable} font-sans antialiased app_body`}
       >
         <ServerProviders>
           <ClientProviders>
             <Header />
-            <main className="flex-grow" id="main-content">{children}</main>
+            <main
+              id="main-content"
+              className="app_main page_container"
+            >
+              {children}
+            </main>
             <Footer />
           </ClientProviders>
         </ServerProviders>

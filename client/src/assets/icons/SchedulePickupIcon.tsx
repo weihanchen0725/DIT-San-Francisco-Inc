@@ -18,13 +18,7 @@ const SchedulePickupIcon = ({ className = "w-6 h-6", size }: IconProps) => (
       d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
     />
     {/* Clock/time indicator */}
-    <circle
-      cx="17"
-      cy="17"
-      r="4"
-      strokeWidth={2}
-      fill="white"
-    />
+    <circle cx="17" cy="17" r="4" strokeWidth={2} fill="white" />
     <path
       strokeLinecap="round"
       strokeLinejoin="round"

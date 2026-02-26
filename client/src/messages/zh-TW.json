@@ -1,113 +1,113 @@
 {
-    "Company":{
-        "Name":"DIT San Francisco Inc."
-    },
-    "Home":{
-        "welcome":"歡迎來到",
-        "description": "您可信賴的物流解決方案夥伴。我們以每一次的運輸交付卓越。",
-        "our_services":"我們的服務",
-        "contact":"聯絡我們",
-        "fast_delivery_title":"快速交付",
-        "fast_delivery_desc":"我們確保您的包裹準時到達，每一次皆是如此。",
-        "secure_handling_title":"可靠的服務",
-        "secure_handling_desc":"為您的業務需求提供快速且可靠的運輸解決方案。",
-        "global_reach_title":"全球覆蓋",
-        "global_reach_desc":"全球物流網絡，隨時為您服務。"
-    },
-    "About":{
-        "title":"關於我們",
-        "description":"我們是一家領先的物流管理公司，致力於提供高效的運輸、追蹤、倉儲和供應鏈解決方案。我們秉持卓越與客戶滿意的承諾，努力優化您的物流運營，提供無與倫比的服務。"
-    },
-    "Services":{
-        "title":"我們的服務",
-        "description":"我們提供廣泛的物流解決方案，以滿足您的業務需求。",
-        "freight_shipping_title":"貨運服務",
-        "freight_shipping_desc":"為各類貨物提供可靠且高效的貨運服務。",
-        "warehousing_title":"倉儲服務",
-        "warehousing_desc":"安全且可擴展的倉儲解決方案，有效管理您的庫存。",
-        "supply_chain_management_title":"供應鏈管理",
-        "supply_chain_management_desc":"全面的供應鏈管理服務，優化您的運營。",
-        "tracking_solutions_title":"追蹤解決方案",
-        "tracking_solutions_desc":"先進的追蹤解決方案，讓您實時掌握貨運狀態。"
-    },
-    "Tools":{
-        "title":"工具",
-        "description":"探索我們的物流工具套件，提升您的運輸體驗。",
-        "tracking_title":"追蹤系統",
-        "tracking_desc":"先進的追蹤系統，實時監控您的貨運狀態。",
-        "inventory_management_title":"庫存管理",
-        "inventory_management_desc":"高效的工具，管理並優化您的庫存水平。",
-        "cost_calculator_title":"成本計算器",
-        "cost_calculator_desc":"快速且準確地估算您的運輸成本。",
-        "schedule_pickup_title":"預約取件",
-        "schedule_pickup_desc":"方便地在線預約您的貨運取件。",
-        "route_optimization_title":"路線優化器",
-        "route_optimization_desc":"優化您的配送路線，達到最高效率。"
-    },
-    "News":{
-        "title":"最新消息",
-        "description":"隨時掌握DIT San Francisco Inc.的最新消息和更新。"
-    },
-    "Contact":{
-        "title_1":"聯絡",
-        "title_2":"我們",
-        "description":"有任何問題或需要協助？請聯繫我們的團隊尋求支援。",
-        "name_placeholder":"您的姓名",
-        "email_placeholder":"您的電子郵件",
-        "message_placeholder":"您的訊息",
-        "send_button":"發送訊息",
-        "email_title":"電子郵件",
-        "phone_title":"電話",
-        "address_title":"地址",
-        "business_hours_title":"營業時間",
-        "first_name_error":"請輸入名字。",
-        "last_name_error":"請輸入姓氏。",
-        "email_error":"請輸入有效的電子郵件地址。",
-        "message_error":"訊息不能為空。",
-        "success_message":"您的訊息已成功發送！",
-        "error_message":"發送訊息時發生錯誤，請稍後再試。",
-        "first_name_label":"名字",
-        "last_name_label":"姓氏",
-        "email_label":"電子郵件地址",
-        "phone_label":"電話號碼",
-        "company_label":"公司",
-        "country_label":"國家",
-        "state_label":"州/省",
-        "city_label":"城市",
-        "subject_label":"主旨",
-        "message_label":"訊息",
-        "optional_tag":"(選填)"
-    },
-    "NavBar":{
-        "title": "DIT San Francisco Inc.",
-        "Appearance": "外觀",
-        "Home": "首頁",
-        "About": "關於我們",
-        "Services": "服務",
-        "Tools": "工具",
-        "News": "新聞",
-        "Contact": "聯絡我們"
-    },
-    "Common":{
-        "english": "英文",
-        "traditional_chinese": "繁體中文",
-        "select_language": "選擇語言",
-        "all_rights_reserved": "版權所有",
-        "privacy": "隱私政策",
-        "terms": "服務條款"
-    },
-    "OpenIndicator":{
-        "open": "營業中",
-        "closed": "休息中",
-        "closes_soon": "即將打烊",
-        "business_hours": "營業時間",
-        "today": "今天",
-        "sunday": "週日",
-        "monday": "週一",
-        "tuesday": "週二",
-        "wednesday": "週三",
-        "thursday": "週四",
-        "friday": "週五",
-        "saturday": "週六"
-    }
+  "Company": {
+    "Name": "DIT San Francisco Inc."
+  },
+  "Home": {
+    "welcome": "歡迎來到",
+    "description": "您可信賴的物流解決方案夥伴。我們以每一次的運輸交付卓越。",
+    "our_services": "我們的服務",
+    "contact": "聯絡我們",
+    "fast_delivery_title": "快速交付",
+    "fast_delivery_desc": "我們確保您的包裹準時到達，每一次皆是如此。",
+    "secure_handling_title": "可靠的服務",
+    "secure_handling_desc": "為您的業務需求提供快速且可靠的運輸解決方案。",
+    "global_reach_title": "全球覆蓋",
+    "global_reach_desc": "全球物流網絡，隨時為您服務。"
+  },
+  "About": {
+    "title": "關於我們",
+    "description": "我們是一家領先的物流管理公司，致力於提供高效的運輸、追蹤、倉儲和供應鏈解決方案。我們秉持卓越與客戶滿意的承諾，努力優化您的物流運營，提供無與倫比的服務。"
+  },
+  "Services": {
+    "title": "我們的服務",
+    "description": "我們提供廣泛的物流解決方案，以滿足您的業務需求。",
+    "freight_shipping_title": "貨運服務",
+    "freight_shipping_desc": "為各類貨物提供可靠且高效的貨運服務。",
+    "warehousing_title": "倉儲服務",
+    "warehousing_desc": "安全且可擴展的倉儲解決方案，有效管理您的庫存。",
+    "supply_chain_management_title": "供應鏈管理",
+    "supply_chain_management_desc": "全面的供應鏈管理服務，優化您的運營。",
+    "tracking_solutions_title": "追蹤解決方案",
+    "tracking_solutions_desc": "先進的追蹤解決方案，讓您實時掌握貨運狀態。"
+  },
+  "Tools": {
+    "title": "工具",
+    "description": "探索我們的物流工具套件，提升您的運輸體驗。",
+    "tracking_title": "追蹤系統",
+    "tracking_desc": "先進的追蹤系統，實時監控您的貨運狀態。",
+    "inventory_management_title": "庫存管理",
+    "inventory_management_desc": "高效的工具，管理並優化您的庫存水平。",
+    "cost_calculator_title": "成本計算器",
+    "cost_calculator_desc": "快速且準確地估算您的運輸成本。",
+    "schedule_pickup_title": "預約取件",
+    "schedule_pickup_desc": "方便地在線預約您的貨運取件。",
+    "route_optimization_title": "路線優化器",
+    "route_optimization_desc": "優化您的配送路線，達到最高效率。"
+  },
+  "News": {
+    "title": "最新消息",
+    "description": "隨時掌握DIT San Francisco Inc.的最新消息和更新。"
+  },
+  "Contact": {
+    "title_1": "聯絡",
+    "title_2": "我們",
+    "description": "有任何問題或需要協助？請聯繫我們的團隊尋求支援。",
+    "name_placeholder": "您的姓名",
+    "email_placeholder": "您的電子郵件",
+    "message_placeholder": "您的訊息",
+    "send_button": "發送訊息",
+    "email_title": "電子郵件",
+    "phone_title": "電話",
+    "address_title": "地址",
+    "business_hours_title": "營業時間",
+    "first_name_error": "請輸入名字。",
+    "last_name_error": "請輸入姓氏。",
+    "email_error": "請輸入有效的電子郵件地址。",
+    "message_error": "訊息不能為空。",
+    "success_message": "您的訊息已成功發送！",
+    "error_message": "發送訊息時發生錯誤，請稍後再試。",
+    "first_name_label": "名字",
+    "last_name_label": "姓氏",
+    "email_label": "電子郵件地址",
+    "phone_label": "電話號碼",
+    "company_label": "公司",
+    "country_label": "國家",
+    "state_label": "州/省",
+    "city_label": "城市",
+    "subject_label": "主旨",
+    "message_label": "訊息",
+    "optional_tag": "(選填)"
+  },
+  "NavBar": {
+    "title": "DIT San Francisco Inc.",
+    "Appearance": "外觀",
+    "Home": "首頁",
+    "About": "關於我們",
+    "Services": "服務",
+    "Tools": "工具",
+    "News": "新聞",
+    "Contact": "聯絡我們"
+  },
+  "Common": {
+    "english": "英文",
+    "traditional_chinese": "繁體中文",
+    "select_language": "選擇語言",
+    "all_rights_reserved": "版權所有",
+    "privacy": "隱私政策",
+    "terms": "服務條款"
+  },
+  "OpenIndicator": {
+    "open": "營業中",
+    "closed": "休息中",
+    "closes_soon": "即將打烊",
+    "business_hours": "營業時間",
+    "today": "今天",
+    "sunday": "週日",
+    "monday": "週一",
+    "tuesday": "週二",
+    "wednesday": "週三",
+    "thursday": "週四",
+    "friday": "週五",
+    "saturday": "週六"
+  }
 }

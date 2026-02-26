@@ -1,0 +1,87 @@
+@mixin register_root_variables {
+  :root {
+    --primary-color: #fc0;
+    --primary-color-hover: #e6b800;
+    --primary-color-light: #fff3b3;
+    --primary-color-dark: #b38f00;
+    --secondary-color: #1c1c1e;
+    --secondary-color-hover: #333333;
+    --secondary-color-light: #4d4d4d;
+    --secondary-color-dark: #000000;
+    --background-color: #ffffff;
+
+    --screen-xs: 30rem;
+    --screen-sm: 40rem;
+    --screen-md: 48rem;
+    --screen-lg: 64rem;
+    --screen-xl: 80rem;
+
+    --max-height: 100vh;
+    --max-width: 100vw;
+
+    --color-primary: #ffcc00;
+    --color-primary-hover: #e6b800;
+    --color-primary-light: #fff3b3;
+
+    --color-text-primary: #000a3c;
+    --color-text-secondary: #999999;
+    --color-text-light: #ffffff;
+
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #f8f9fa;
+    --color-bg-accent: #ffcc00;
+
+    --color-border: #e5e7eb;
+    --color-border-light: #f3f4f6;
+  }
+}
+
+@mixin register_dark_variables {
+  .dark {
+    --color-primary: #ffcc00;
+    --color-primary-hover: #ffd633;
+    --color-primary-light: rgba(255, 204, 0, 0.15);
+
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #a3a3a3;
+    --color-text-light: #000a3c;
+
+    --color-bg-primary: #0a0a1a;
+    --color-bg-secondary: #111127;
+    --color-bg-accent: #ffcc00;
+
+    --color-border: #2a2a4a;
+    --color-border-light: #1f1f3a;
+  }
+}
+
+@mixin register_theme_tokens {
+  @theme {
+    --color-brand-yellow: #ffcc00;
+    --color-brand-yellow-hover: #e6b800;
+    --color-brand-yellow-light: #fff3b3;
+    --color-brand-navy: #000a3c;
+    --color-brand-navy-light: #001a6e;
+    --color-brand-gray: #999999;
+  }
+}
+
+$primary-color: var(--primary-color);
+$primary-color-hover: var(--primary-color-hover);
+$primary-color-light: var(--primary-color-light);
+$primary-color-dark: var(--primary-color-dark);
+$secondary-color: var(--secondary-color);
+$secondary-color-hover: var(--secondary-color-hover);
+$secondary-color-light: var(--secondary-color-light);
+$secondary-color-dark: var(--secondary-color-dark);
+
+$breakpoints: (
+  xs: var(--screen-xs),
+  sm: var(--screen-sm),
+  md: var(--screen-md),
+  lg: var(--screen-lg),
+  xl: var(--screen-xl),
+);
+
+$max-height: var(--max-height);
+$max-width: var(--max-width);

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import L, { type LatLngExpression } from "leaflet";
@@ -26,16 +26,16 @@ const customIcon = new L.DivIcon({
 });
 
 const Map = () => {
-    // Fremont, CA coordinates
-    const position: LatLngExpression = [37.47937797375581, -121.9444590947314];
-    // 
-    const googleMapURL = 'https://maps.app.goo.gl/Gmt7Y9h18K2Hk6xC8';
+  // Fremont, CA coordinates
+  const position: LatLngExpression = [37.47937797375581, -121.9444590947314];
+  //
+  const googleMapURL = "https://maps.app.goo.gl/Gmt7Y9h18K2Hk6xC8";
 
   return (
     <div className="relative rounded-b-2xl overflow-hidden">
       {/* Map overlay gradient for sleek look */}
       <div className="absolute inset-0 pointer-events-none z-10 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
-      
+
       <MapContainer
         center={position}
         zoom={15}
@@ -51,8 +51,14 @@ const Map = () => {
         <Marker position={position} icon={customIcon}>
           <Popup className="custom-popup">
             <div className="p-1">
-              <h3 className="font-bold text-brand-navy text-base mb-1">DIT San Francisco Inc.</h3>
-              <p className="text-sm text-gray-600 mb-2">46750 Fremont Blvd #200<br/>Fremont, CA 94538</p>
+              <h3 className="font-bold text-brand-navy text-base mb-1">
+                DIT San Francisco Inc.
+              </h3>
+              <p className="text-sm text-gray-600 mb-2">
+                46750 Fremont Blvd #200
+                <br />
+                Fremont, CA 94538
+              </p>
               <a
                 href={googleMapURL}
                 target="_blank"
@@ -60,8 +66,18 @@ const Map = () => {
                 className="inline-flex items-center gap-1 text-sm font-medium text-brand-yellow hover:underline"
               >
                 Get Directions
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
                 </svg>
               </a>
             </div>
@@ -76,7 +92,9 @@ const Map = () => {
             <span className="absolute inline-flex h-2 w-2 rounded-full bg-green-400 opacity-75 animate-ping"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
           </span>
-          <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Fremont, CA</span>
+          <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
+            Fremont, CA
+          </span>
         </div>
         <a
           href={googleMapURL}
@@ -85,13 +103,23 @@ const Map = () => {
           className="text-xs font-medium text-brand-yellow hover:text-brand-yellow-hover transition-colors flex items-center gap-1"
         >
           Open in Maps
-          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          <svg
+            className="w-3 h-3"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M14 5l7 7m0 0l-7 7m7-7H3"
+            />
           </svg>
         </a>
       </div>
     </div>
   );
-}
+};
 
 export default Map;

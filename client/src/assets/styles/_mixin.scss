@@ -1,0 +1,93 @@
+@import "./variables";
+
+@mixin flex-layout(
+  $direction: row,
+  $align: center,
+  $justify: flex-start,
+  $wrap: nowrap
+) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+}
+
+@mixin respond($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @error "Unknown breakpoint: #{$breakpoint}. Use one of #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin cq-max($width) {
+  @container (max-width: $width) {
+    @content;
+  }
+}
+
+// Flex Row
+@mixin flex-row-start-center {
+  @include flex-layout(row, center, flex-start);
+}
+@mixin flex-row-center-center {
+  @include flex-layout(row, center, center);
+}
+@mixin flex-row-end-center {
+  @include flex-layout(row, center, flex-end);
+}
+// Flex Row Start
+@mixin flex-row-start-start {
+  @include flex-layout(row, flex-start, flex-start);
+}
+@mixin flex-row-center-start {
+  @include flex-layout(row, flex-start, center);
+}
+@mixin flex-row-end-start {
+  @include flex-layout(row, flex-start, flex-end);
+}
+// Flex Row End
+@mixin flex-row-start-end {
+  @include flex-layout(row, flex-end, flex-start);
+}
+@mixin flex-row-center-end {
+  @include flex-layout(row, flex-end, center);
+}
+@mixin flex-row-end-end {
+  @include flex-layout(row, flex-end, flex-end);
+}
+
+// Flex Column
+@mixin flex-column-start-center {
+  @include flex-layout(column, center, flex-start);
+}
+
+@mixin flex-column-center-center {
+  @include flex-layout(column, center, center);
+}
+@mixin flex-column-end-center {
+  @include flex-layout(column, center, flex-end);
+}
+// Flex Column Start
+@mixin flex-column-start-start {
+  @include flex-layout(column, flex-start, flex-start);
+}
+@mixin flex-column-center-start {
+  @include flex-layout(column, flex-start, center);
+}
+@mixin flex-column-end-start {
+  @include flex-layout(column, flex-start, flex-end);
+}
+// Flex Column End
+@mixin flex-column-start-end {
+  @include flex-layout(column, flex-end, flex-start);
+}
+@mixin flex-column-center-end {
+  @include flex-layout(column, flex-end, center);
+}
+@mixin flex-column-end-end {
+  @include flex-layout(column, flex-end, flex-end);
+}

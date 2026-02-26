@@ -1,0 +1,94 @@
+@import "../../assets/styles/mixin";
+
+.ctaBar{
+    @include flex-row-center-center;
+    padding: 1rem;
+
+    &_list{
+        @include flex-row-center-center;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 1.5rem;
+
+        & > li {
+            @include flex-row-center-center;
+            flex: 0 1 auto;
+        }
+    }
+
+    &_button{
+        @include flex-row-center-center;
+        text-decoration: none;
+        white-space: nowrap;
+        border: 0.0625rem solid transparent;
+        border-radius: 0.5rem;
+        padding: 0.625rem 1rem;
+        font-weight: 600;
+        line-height: 1.2;
+        transition: all 0.25s ease;
+
+        &:focus-visible {
+            outline: 0.125rem solid $primary-color;
+            outline-offset: 0.125rem;
+        }
+
+        &[aria-disabled='true'] {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+    }
+
+    &_button_primary {
+        background-color: $primary-color;
+        color: $secondary-color;
+
+        &:hover {
+            background-color: $primary-color-hover;
+        }
+    }
+
+    &_button_secondary {
+        background-color: transparent;
+        border-color: $primary-color;
+        color: $secondary-color;
+
+        &:hover {
+            background-color: $primary-color-light;
+        }
+    }
+
+    @include respond(md) {
+        padding: 0.75rem;
+
+        &_list {
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        &_button {
+            padding: 0.5625rem 0.875rem;
+            font-size: 0.9375rem;
+        }
+    }
+
+    @include cq-max(34rem) {
+        &_list {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0.625rem;
+
+            & > li {
+                width: 100%;
+            }
+        }
+
+        &_button {
+            width: 100%;
+            justify-content: center;
+            white-space: normal;
+            text-align: center;
+        }
+    }
+}

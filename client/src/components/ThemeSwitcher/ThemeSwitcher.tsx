@@ -42,7 +42,7 @@ const ThemeSwitcher = () => {
       {/* Icons on the track */}
       <Sun className="absolute left-1.5 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-yellow" />
       <Moon className="absolute right-1.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-      
+
       {/* Toggle knob */}
       <div
         className={`w-6 h-6 rounded-full bg-white shadow-md transform transition-transform duration-300 flex items-center justify-center ${

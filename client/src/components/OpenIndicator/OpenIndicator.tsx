@@ -39,7 +39,9 @@ const timeToMinutes = (time: string): number => {
   return hours * 60 + minutes;
 };
 
-const getNextOpenDay = (currentDayIndex: number): { day: string; hours: { open: string; close: string } } | null => {
+const getNextOpenDay = (
+  currentDayIndex: number,
+): { day: string; hours: { open: string; close: string } } | null => {
   for (let i = 1; i <= 7; i++) {
     const nextDayIndex = (currentDayIndex + i) % 7;
     const nextDay = dayOrder[nextDayIndex];
@@ -103,7 +105,8 @@ const getOpenStatus = (): OpenStatus => {
     // After closing
     const nextOpen = getNextOpenDay(currentDayIndex);
     if (nextOpen) {
-      const isTomorrow = (currentDayIndex + 1) % 7 === dayOrder.indexOf(nextOpen.day);
+      const isTomorrow =
+        (currentDayIndex + 1) % 7 === dayOrder.indexOf(nextOpen.day);
       return {
         isOpen: false,
         statusText: "Closed",
@@ -147,7 +150,10 @@ const OpenIndicator = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsExpanded(false);
       }
     };
@@ -286,8 +292,8 @@ const OpenIndicator = () => {
                         isToday
                           ? "font-semibold text-brand-navy dark:text-white"
                           : hours
-                          ? "text-gray-600 dark:text-gray-400"
-                          : "text-red-500 dark:text-red-400"
+                            ? "text-gray-600 dark:text-gray-400"
+                            : "text-red-500 dark:text-red-400"
                       }`}
                     >
                       {hours

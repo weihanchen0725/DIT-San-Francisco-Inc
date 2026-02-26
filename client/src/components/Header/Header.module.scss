@@ -1,0 +1,72 @@
+@import "../../assets/styles/mixin";
+
+.header {
+  @include flex-row-start-center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  container-type: inline-size;
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem);
+  border-bottom: 1px solid #e5e7eb; /* Tailwind's gray-200 */
+
+  > * {
+    min-width: 0;
+  }
+
+  &_content {
+    @include flex-row-center-end;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+
+  &_contact {
+    @include flex-row-center-center;
+    margin-left: auto;
+    min-width: 0;
+    white-space: nowrap;
+    gap: 0.5rem;
+  }
+
+  @include cq-max(960px) {
+    &_content,
+    &_contact {
+      width: 100%;
+    }
+
+    &_content,
+    &_contact {
+      justify-content: flex-start;
+    }
+
+    &_contact {
+      margin-left: 0;
+    }
+  }
+
+  @include cq-max(640px) {
+    gap: 0.5rem 0.75rem;
+
+    &_content,
+    &_contact {
+      gap: 0.375rem;
+    }
+
+    &_contact {
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  @include respond(md) {
+    padding-inline: 1rem;
+
+    &_content,
+    &_contact {
+      width: 100%;
+    }
+
+    &_contact {
+      margin-left: 0;
+      justify-content: flex-start;
+    }
+  }
+}

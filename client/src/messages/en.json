@@ -1,113 +1,113 @@
 {
-    "Company":{
-        "Name":"DIT San Francisco Inc."
-    },
-    "Home":{
-        "welcome":"Welcome to",
-        "description": "Your trusted partner in logistics solutions. We deliver excellence with every shipment.",
-        "our_services":"Our Services",
-        "contact":"Get in Touch",
-        "fast_delivery_title":"Fast Delivery",
-        "fast_delivery_desc":"We ensure your packages arrive on time, every time.",
-        "secure_handling_title":"Reliable Service",
-        "secure_handling_desc":"Quick and reliable shipping solutions for your business needs.",
-        "global_reach_title":"Global Reach",
-        "global_reach_desc":"Worldwide logistics network to serve you anywhere."
-    },
-    "About":{
-        "title":"About US",
-        "description":"We are a leading logistics management company dedicated to providing efficient shipping, tracking, warehousing, and supply chain solutions. With a commitment to excellence and customer satisfaction, we strive to optimize your logistics operations and deliver unparalleled service."
-    },
-    "Services":{
-        "title":"Our Services",
-        "description":"We offer a wide range of logistics solutions to meet your business needs.",
-        "freight_shipping_title":"Freight Shipping",
-        "freight_shipping_desc":"Reliable and efficient freight shipping services for all types of cargo.",
-        "warehousing_title":"Warehousing",
-        "warehousing_desc":"Secure and scalable warehousing solutions to manage your inventory effectively.",
-        "supply_chain_management_title":"Supply Chain Management",
-        "supply_chain_management_desc":"Comprehensive supply chain management services to streamline your operations.",
-        "tracking_solutions_title":"Tracking Solutions",
-        "tracking_solutions_desc":"Advanced tracking solutions to keep you informed about your shipments in real-time."
-    },
-    "Tools":{
-        "title":"Tools",
-        "description":"Explore our suite of logistics tools designed to enhance your shipping experience.",
-        "tracking_title":"Tracking System",
-        "tracking_desc":"Advanced tracking system to monitor your shipments in real-time.",
-        "inventory_management_title":"Inventory Management",
-        "inventory_management_desc":"Efficient tools to manage and optimize your inventory levels.",
-        "cost_calculator_title":"Cost Calculator",
-        "cost_calculator_desc":"Estimate your shipping costs quickly and accurately.",
-        "schedule_pickup_title":"Schedule a Pickup",
-        "schedule_pickup_desc":"Conveniently schedule pickups for your shipments online.",
-        "route_optimization_title":"Route Optimization",
-        "route_optimization_desc":"Optimize your delivery routes for maximum efficiency."
-    },
-    "News":{
-        "title":"Latest News",
-        "description":"Stay updated with the latest news and updates from DIT San Francisco Inc."
-    },
-    "NavBar":{
-        "title": "DIT San Francisco Inc.",
-        "Appearance": "Appearance",
-        "Home": "Home",
-        "About": "About",
-        "Services": "Services",
-        "Tools": "Tools",
-        "News": "News",
-        "Contact": "Contact"
-    },
-    "Contact":{
-        "title_1": "Contact ",
-        "title_2": "Us",
-        "description":"Have questions or need assistance? Reach out to our team for support.",
-        "name_placeholder":"Your Name",
-        "email_placeholder":"Your Email",
-        "message_placeholder":"Your Message",
-        "send_button":"Send Message",
-        "email_title":"Email",
-        "phone_title":"Phone",
-        "address_title":"Address",
-        "business_hours_title":"Business Hours",
-        "first_name_error":"First name is required.",
-        "last_name_error":"Last name is required.",
-        "email_error":"Please enter a valid email address.",
-        "message_error":"Message cannot be empty.",
-        "success_message":"Your message has been sent successfully!",
-        "error_message":"There was an error sending your message. Please try again later.",
-        "first_name_label":"First Name",
-        "last_name_label":"Last Name",
-        "email_label":"Email Address",
-        "phone_label":"Phone Number",
-        "company_label":"Company",
-        "country_label":"Country",
-        "state_label":"State/Province",
-        "city_label":"City",
-        "subject_label":"Subject",
-        "message_label":"Message",
-        "optional_tag":"(Optional)"
-    },
-    "Common":{
-        "english": "English",
-        "traditional_chinese": "Traditional Chinese",
-        "select_language": "Select language",
-        "all_rights_reserved": "All rights reserved",
-        "privacy": "Privacy Policy",
-        "terms": "Terms of Service"
-    },
-    "OpenIndicator":{
-        "open": "Open",
-        "closed": "Closed",
-        "closes_soon": "Closes soon",
-        "business_hours": "Business Hours",
-        "today": "Today",
-        "sunday": "Sunday",
-        "monday": "Monday",
-        "tuesday": "Tuesday",
-        "wednesday": "Wednesday",
-        "thursday": "Thursday",
-        "friday": "Friday",
-        "saturday": "Saturday"
-    }
+  "Company": {
+    "Name": "DIT San Francisco Inc."
+  },
+  "Home": {
+    "welcome": "Welcome to",
+    "description": "Your trusted partner in logistics solutions. We deliver excellence with every shipment.",
+    "our_services": "Our Services",
+    "contact": "Get in Touch",
+    "fast_delivery_title": "Fast Delivery",
+    "fast_delivery_desc": "We ensure your packages arrive on time, every time.",
+    "secure_handling_title": "Reliable Service",
+    "secure_handling_desc": "Quick and reliable shipping solutions for your business needs.",
+    "global_reach_title": "Global Reach",
+    "global_reach_desc": "Worldwide logistics network to serve you anywhere."
+  },
+  "About": {
+    "title": "About US",
+    "description": "We are a leading logistics management company dedicated to providing efficient shipping, tracking, warehousing, and supply chain solutions. With a commitment to excellence and customer satisfaction, we strive to optimize your logistics operations and deliver unparalleled service."
+  },
+  "Services": {
+    "title": "Our Services",
+    "description": "We offer a wide range of logistics solutions to meet your business needs.",
+    "freight_shipping_title": "Freight Shipping",
+    "freight_shipping_desc": "Reliable and efficient freight shipping services for all types of cargo.",
+    "warehousing_title": "Warehousing",
+    "warehousing_desc": "Secure and scalable warehousing solutions to manage your inventory effectively.",
+    "supply_chain_management_title": "Supply Chain Management",
+    "supply_chain_management_desc": "Comprehensive supply chain management services to streamline your operations.",
+    "tracking_solutions_title": "Tracking Solutions",
+    "tracking_solutions_desc": "Advanced tracking solutions to keep you informed about your shipments in real-time."
+  },
+  "Tools": {
+    "title": "Tools",
+    "description": "Explore our suite of logistics tools designed to enhance your shipping experience.",
+    "tracking_title": "Tracking System",
+    "tracking_desc": "Advanced tracking system to monitor your shipments in real-time.",
+    "inventory_management_title": "Inventory Management",
+    "inventory_management_desc": "Efficient tools to manage and optimize your inventory levels.",
+    "cost_calculator_title": "Cost Calculator",
+    "cost_calculator_desc": "Estimate your shipping costs quickly and accurately.",
+    "schedule_pickup_title": "Schedule a Pickup",
+    "schedule_pickup_desc": "Conveniently schedule pickups for your shipments online.",
+    "route_optimization_title": "Route Optimization",
+    "route_optimization_desc": "Optimize your delivery routes for maximum efficiency."
+  },
+  "News": {
+    "title": "Latest News",
+    "description": "Stay updated with the latest news and updates from DIT San Francisco Inc."
+  },
+  "NavBar": {
+    "title": "DIT San Francisco Inc.",
+    "Appearance": "Appearance",
+    "Home": "Home",
+    "About": "About",
+    "Services": "Services",
+    "Tools": "Tools",
+    "News": "News",
+    "Contact": "Contact"
+  },
+  "Contact": {
+    "title_1": "Contact ",
+    "title_2": "Us",
+    "description": "Have questions or need assistance? Reach out to our team for support.",
+    "name_placeholder": "Your Name",
+    "email_placeholder": "Your Email",
+    "message_placeholder": "Your Message",
+    "send_button": "Send Message",
+    "email_title": "Email",
+    "phone_title": "Phone",
+    "address_title": "Address",
+    "business_hours_title": "Business Hours",
+    "first_name_error": "First name is required.",
+    "last_name_error": "Last name is required.",
+    "email_error": "Please enter a valid email address.",
+    "message_error": "Message cannot be empty.",
+    "success_message": "Your message has been sent successfully!",
+    "error_message": "There was an error sending your message. Please try again later.",
+    "first_name_label": "First Name",
+    "last_name_label": "Last Name",
+    "email_label": "Email Address",
+    "phone_label": "Phone Number",
+    "company_label": "Company",
+    "country_label": "Country",
+    "state_label": "State/Province",
+    "city_label": "City",
+    "subject_label": "Subject",
+    "message_label": "Message",
+    "optional_tag": "(Optional)"
+  },
+  "Common": {
+    "english": "English",
+    "traditional_chinese": "Traditional Chinese",
+    "select_language": "Select language",
+    "all_rights_reserved": "All rights reserved",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "OpenIndicator": {
+    "open": "Open",
+    "closed": "Closed",
+    "closes_soon": "Closes soon",
+    "business_hours": "Business Hours",
+    "today": "Today",
+    "sunday": "Sunday",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday"
+  }
 }

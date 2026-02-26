@@ -1,7 +1,10 @@
 import React from "react";
 import IconProps from "../../types/IconProps";
 
-const InventoryManagementIcon = ({ className = "w-6 h-6", size }: IconProps) => (
+const InventoryManagementIcon = ({
+  className = "w-6 h-6",
+  size,
+}: IconProps) => (
   <svg
     className={className}
     width={size}

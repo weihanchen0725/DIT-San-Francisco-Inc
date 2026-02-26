@@ -1,86 +1,60 @@
-@import "tailwindcss";
-@import "leaflet/dist/leaflet.css";
+@import 'tailwindcss';
+@import 'leaflet/dist/leaflet.css';
+@import '../../assets/styles/variables';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Custom Color Scheme */
-:root {
-  /* Primary - Bright Yellow */
-  --color-primary: #ffcc00;
-  --color-primary-hover: #e6b800;
-  --color-primary-light: #fff3b3;
-  
-  /* Text Colors */
-  --color-text-primary: #000a3c;
-  --color-text-secondary: #999999;
-  --color-text-light: #ffffff;
-  
-  /* Background Colors */
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #f8f9fa;
-  --color-bg-accent: #ffcc00;
-  
-  /* Border Colors */
-  --color-border: #e5e7eb;
-  --color-border-light: #f3f4f6;
+@include register_root_variables;
+@include register_dark_variables;
+@include register_theme_tokens;
+
+.app_body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.dark {
-  /* Primary - Bright Yellow (slightly muted for dark mode) */
-  --color-primary: #ffcc00;
-  --color-primary-hover: #ffd633;
-  --color-primary-light: rgba(255, 204, 0, 0.15);
-  
-  /* Text Colors */
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #a3a3a3;
-  --color-text-light: #000a3c;
-  
-  /* Background Colors */
-  --color-bg-primary: #0a0a1a;
-  --color-bg-secondary: #111127;
-  --color-bg-accent: #ffcc00;
-  
-  /* Border Colors */
-  --color-border: #2a2a4a;
-  --color-border-light: #1f1f3a;
+.app_main {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
 }
 
-/* Custom utility classes */
-@theme {
-  --color-brand-yellow: #ffcc00;
-  --color-brand-yellow-hover: #e6b800;
-  --color-brand-yellow-light: #fff3b3;
-  --color-brand-navy: #000a3c;
-  --color-brand-navy-light: #001a6e;
-  --color-brand-gray: #999999;
+.page_container {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 2rem);
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Focus styles for accessibility */
 *:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
-/* Custom selection color */
 ::selection {
   background-color: var(--color-primary);
   color: var(--color-text-primary);
 }
 
-/* Leaflet Map Customizations */
 .leaflet-container {
   font-family: inherit;
 }
 
 .leaflet-popup-content-wrapper {
   border-radius: 12px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
   padding: 0;
   overflow: hidden;
 }

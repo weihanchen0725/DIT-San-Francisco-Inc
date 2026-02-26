@@ -1,10 +1,10 @@
 {
-    "data": {
-        "address_1": "46750 Fremont Blvd #200",
-        "address_2": "Fremont, CA 94538",
-        "phone": "+1 (510)-771-9968",
-        "email": "contact@ditsanfrancisco.com",
-        "business_hours": "Mon - Fri: 7:00 AM - 5:30 PM",
-        "linkedin": "https://www.linkedin.com/company/dit-sfo/"
-    }
+  "data": {
+    "address_1": "46750 Fremont Blvd #200",
+    "address_2": "Fremont, CA 94538",
+    "phone": "+1 (510)-771-9968",
+    "email": "contact@ditsanfrancisco.com",
+    "business_hours": "Mon - Fri: 7:00 AM - 5:30 PM",
+    "linkedin": "https://www.linkedin.com/company/dit-sfo/"
+  }
 }
