@@ -7,7 +7,7 @@ import Tools from "@/components/Tools/Tools";
 
 const HomePage = async () => {
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0a0a1a]">
+    <div>
         <Home />
         <About />
         <Services />

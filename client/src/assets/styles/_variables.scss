@@ -33,6 +33,15 @@
 
     --color-border: #e5e7eb;
     --color-border-light: #f3f4f6;
+
+    --gradiant-backup-bg-color: #A6A6A6;
+    --gradiant-primary-bg-color: radial-gradient(
+    circle at 30% 50%,
+    #E8E8E8 0%,    /* Starts with a definitive light grey, zero pure white */
+    #D1D1D1 35%,   /* Steps down to a mid-light grey */
+    #BDBDBD 70%,   /* Transitions into a deeper grey */
+    #A6A6A6 100%   /* Dark grey at the edges to ensure the gradient is highly visible */
+  );
   }
 }
 
