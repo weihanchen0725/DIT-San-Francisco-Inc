@@ -13,12 +13,12 @@ const Home = async () => {
   return (
     <section id="home" className={homeClass.home}>
       {/* Hero Section */}
-      <div className="text-center">
+      <div className={homeClass.hero}>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-navy dark:text-white tracking-tight">
           {translateHome("welcome")}{" "}
           <span className="text-brand-yellow">{translateCompany("Name")}</span>
         </h1>
-        <p className="mt-6 text-lg sm:text-xl text-brand-gray dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        <p>
           {translateHome("description")}
         </p>
 
@@ -40,7 +40,7 @@ const Home = async () => {
       </div>
 
       {/* Features Section */}
-      <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <Features
           icon={<FastDeliveryIcon className="w-8 h-8 text-brand-yellow" />}
           title={translateHome("fast_delivery_title")}

@@ -1,5 +1,9 @@
 @import "@/assets/styles/variables.scss";
+@import "../../assets/styles/mixin";
 
 .home {
   height: $max-height;
+  @include flex-column-center-start;
+}
+.hero{
 }

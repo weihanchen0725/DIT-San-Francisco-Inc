@@ -1,0 +1,58 @@
+.languageSwitcher {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.25rem;
+	white-space: nowrap;
+
+	&_icon {
+		width: 0.875rem;
+		height: 0.875rem;
+		color: #d1d5db;
+		transition: color 180ms ease;
+	}
+
+	&_select {
+		margin-left: 0.25rem;
+		padding: 0.125rem 0;
+		border: 0;
+		appearance: none;
+		background: transparent;
+		color: #d1d5db;
+		font-size: 0.75rem;
+		line-height: 1;
+		cursor: pointer;
+		transition: color 180ms ease;
+
+		&:hover,
+		&:focus-visible {
+			color: var(--color-primary);
+		}
+
+		&:focus-visible {
+			outline: none;
+		}
+	}
+
+	&_option {
+		background-color: var(--color-bg-primary);
+		color: var(--color-text-primary);
+	}
+}
+
+:global(.dark) {
+	.languageSwitcher {
+		&_icon {
+			color: #6b7280;
+		}
+
+		&_select {
+			color: #9ca3af;
+		}
+
+		&_option {
+			background-color: #0a0a1a;
+			color: #d1d5db;
+		}
+	}
+}

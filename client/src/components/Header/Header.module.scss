@@ -2,19 +2,52 @@
 
 .header {
   @include flex-row-start-center;
+  position: sticky;
+  top: 0;
+  // Keep in sync with `HeaderClient` threshold: scrolled style starts after 1rem.
+  margin-top: 1rem;
   flex-wrap: wrap;
   gap: 0.75rem 1rem;
   container-type: inline-size;
-  padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem);
-  background: hsla(50,100%,100%,0.4);
+  // Interpolate from current responsive padding to target 0.5rem 1rem.
+  padding-block: calc(
+    var(--header-padding-block-start, clamp(0.75rem, 2vw, 1rem)) +
+      (0.5rem - var(--header-padding-block-start, clamp(0.75rem, 2vw, 1rem))) *
+      var(--header-scroll-progress, 0)
+  );
+  padding-inline: calc(
+    var(--header-padding-inline-start, clamp(1rem, 4vw, 2rem)) +
+      (1rem - var(--header-padding-inline-start, clamp(1rem, 4vw, 2rem))) *
+      var(--header-scroll-progress, 0)
+  );
+  // Scroll-driven color ramp: 0 = transparent, 1 = fully opaque #fc0.
+  background-color: rgb(255 204 0 / var(--header-scroll-progress, 0));
   border-bottom: 1px solid
     color-mix(in srgb, var(--color-border) 75%, transparent);
-  backdrop-filter: saturate(160%) blur(10px);
-  -webkit-backdrop-filter: saturate(160%) blur(10px);
+  // Scroll-driven blur ramp: 0 = none, 1 = saturate(160%) blur(10px).
+  backdrop-filter: saturate(var(--header-backdrop-saturate, 100%))
+    blur(var(--header-backdrop-blur, 0px));
+  -webkit-backdrop-filter: saturate(var(--header-backdrop-saturate, 100%))
+    blur(var(--header-backdrop-blur, 0px));
+  // Scroll-driven shadow ramp: 0 = no shadow, 1 = full requested shadow values.
   box-shadow:
-    inset 0 1px 0 color-mix(in srgb, #ffffff 35%, transparent),
-    0 8px 24px color-mix(in srgb, var(--color-border) 30%, transparent);
-  
+    inset 0 1px 0
+      rgb(255 255 255 / var(--header-shadow-highlight-opacity, 0)),
+    0 8px 24px
+      color-mix(
+        in srgb,
+        var(--color-border) var(--header-shadow-depth-mix, 0%),
+        transparent
+      );
+  // Smooth interpolation for scroll-driven background, blur, and shadow values.
+  transition:
+    padding 220ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    backdrop-filter 220ms ease,
+    -webkit-backdrop-filter 220ms ease;
+
 
   > * {
     min-width: 0;
@@ -65,8 +98,6 @@
   }
 
   @include respond(md) {
-    padding-inline: 1rem;
-
     &_content,
     &_contact {
       width: 100%;

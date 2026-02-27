@@ -2,11 +2,7 @@ import GetHeader from "@/services/Global/GetHeader/GetHeader";
 import { notFound } from "next/navigation";
 import GetBaseURL from "@/services/GetBaseURL";
 
-import headerClass from "./Header.module.scss";
-import NavBar from "../NavBar/NavBar";
-import Link from "next/link";
-import CTABar from "../CTABar/CTABar";
-import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import HeaderClient from "./HeaderClient";
 
 // Define the type for the header data
 
@@ -18,6 +14,7 @@ const dataLoader = async () => {
 };
 
 const Header = async () => {
+  // Server component: fetch CMS-backed header data once per request/render.
   const { header: headerData }: { header: HeaderProps } = await dataLoader();
   const logoPath = headerData?.Logo?.image?.url;
   const logoUrl = logoPath
@@ -26,23 +23,8 @@ const Header = async () => {
       : GetBaseURL(logoPath)
     : "";
 
-  return (
-    <header className={headerClass.header}>
-      <div className={headerClass.header_content}>
-        {logoUrl ? (
-          <img
-            src={logoUrl}
-            alt={headerData.Logo?.image?.alternativeText ?? "Logo"}
-            className="h-16 w-auto"
-          />
-        ) : null}
-        <span>({headerData?.Name})</span>
-      </div>
-      <NavBar NavigationList={headerData?.Navigations ?? []} />
-      <CTABar ctaLinks={headerData?.CTA ?? []} />
-      <ThemeSwitcher />
-    </header>
-  );
+  // Client component handles browser-only concerns (scroll state + animation).
+  return <HeaderClient headerData={headerData} logoUrl={logoUrl} />;
 };
 
 export default Header;

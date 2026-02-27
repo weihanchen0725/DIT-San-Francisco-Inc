@@ -11,9 +11,10 @@
 .app_body {
   min-height: 100vh;
   display: flex;
+  position: relative;
   flex-direction: column;
-  //   background-color: var(--color-bg-primary);
-background-color: var(--gradiant-backup-bg-color);
+  // background-color: var(--color-bg-primary);
+  // background-color: var(--gradiant-backup-bg-color);
   background-color: var(--gradiant-primary-bg-color);
   color: var(--color-text-primary);
   transition:
@@ -29,9 +30,9 @@ background-color: var(--gradiant-backup-bg-color);
 
 .page_container {
   width: 100%;
-  max-width: 80rem;
-  margin-inline: auto;
-  padding-inline: clamp(1rem, 3vw, 2rem);
+  // max-width: 80rem;
+  // margin-inline: auto;
+  // padding-inline: clamp(1rem, 3vw, 2rem);
 }
 
 html {
