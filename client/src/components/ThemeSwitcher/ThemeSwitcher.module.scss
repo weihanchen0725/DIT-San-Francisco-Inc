@@ -1,0 +1,85 @@
+@import "@/assets/styles/variables.scss";
+@import "../../assets/styles/mixin.scss";
+
+.themeSwitcher {
+	position: relative;
+	width: 4rem;
+	height: 2rem;
+	padding: 0.25rem;
+	border: 0;
+	border-radius: 9999px;
+	background-color: color-mix(in srgb, $secondary-color-light 28%, transparent);
+	cursor: pointer;
+	transition: background-color 300ms ease;
+
+	&:focus-visible {
+		outline: 2px solid $primary-color;
+		outline-offset: 2px;
+	}
+
+	&_dark {
+		background-color: $secondary-color;
+	}
+
+	&_skeleton {
+		position: relative;
+		width: 4rem;
+		height: 2rem;
+		padding: 0.25rem;
+		border-radius: 9999px;
+		background-color: color-mix(in srgb, $secondary-color-light 28%, transparent);
+	}
+
+	&_trackIconSun,
+	&_trackIconMoon {
+		position: absolute;
+		top: 50%;
+		width: 1rem;
+		height: 1rem;
+		transform: translateY(-50%);
+		pointer-events: none;
+	}
+
+	&_trackIconSun {
+		left: 0.375rem;
+		color: $primary-color;
+	}
+
+	&_trackIconMoon {
+		right: 0.375rem;
+		color: $secondary-color-light;
+	}
+
+	&_knob {
+		@include flex-row-center-center;
+		width: 1.5rem;
+		height: 1.5rem;
+		border-radius: 9999px;
+		background-color: var(--color-bg-primary);
+		box-shadow: 0 0.125rem 0.5rem color-mix(in srgb, $secondary-color 25%, transparent);
+		transform: translateX(0);
+		transition: transform 300ms ease;
+	}
+
+	&_knobDark {
+		transform: translateX(2rem);
+	}
+
+	&_knobIconLight,
+	&_knobIconDark {
+		width: 1rem;
+		height: 1rem;
+	}
+
+	&_knobIconLight {
+		color: $primary-color;
+	}
+
+	&_knobIconDark {
+		color: $secondary-color;
+	}
+
+    &_columnMode {
+        @include flex-row-between-center;
+    }
+}

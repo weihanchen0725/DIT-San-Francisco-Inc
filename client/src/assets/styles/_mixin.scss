@@ -59,7 +59,9 @@
 @mixin flex-row-end-end {
   @include flex-layout(row, flex-end, flex-end);
 }
-
+@mixin flex-row-between-center {
+  @include flex-layout(row, center, space-between);
+}
 // Flex Column
 @mixin flex-column-start-center {
   @include flex-layout(column, center, flex-start);

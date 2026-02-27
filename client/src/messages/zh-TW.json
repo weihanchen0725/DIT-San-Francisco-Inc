@@ -89,8 +89,8 @@
     "Contact": "聯絡我們"
   },
   "Common": {
-    "english": "英文",
-    "traditional_chinese": "繁體中文",
+    "en": "英文",
+    "zh-TW": "繁體中文",
     "select_language": "選擇語言",
     "all_rights_reserved": "版權所有",
     "privacy": "隱私政策",

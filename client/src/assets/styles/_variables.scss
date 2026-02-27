@@ -5,9 +5,9 @@
     --primary-color-light: #fff3b3;
     --primary-color-dark: #b38f00;
     --secondary-color: #0A192F;
-    --secondary-color-hover: #333333;
-    --secondary-color-light: #4d4d4d;
-    --secondary-color-dark: #000000;
+    --secondary-color-hover: #13264a;
+    --secondary-color-light: #2b466f;
+    --secondary-color-dark: #060f1f;
     --background-color: #ffffff;
 
     --screen-xs: 30rem;
@@ -83,6 +83,7 @@ $secondary-color: var(--secondary-color);
 $secondary-color-hover: var(--secondary-color-hover);
 $secondary-color-light: var(--secondary-color-light);
 $secondary-color-dark: var(--secondary-color-dark);
+$border-color: var(--color-border);
 
 $breakpoints: (
   xs: var(--screen-xs),

@@ -45,6 +45,21 @@
         }
       }
     }
+
+    &.column {
+      @include flex-column-start-start;
+      gap: 0.5rem;
+
+      & > li{
+        width: 100%;
+
+        & > a {
+          @include flex-row-center-center;
+          width: 100%;
+          padding: .5rem 1rem;
+        }
+      }
+    }
   }
 
   @include respond(lg) {

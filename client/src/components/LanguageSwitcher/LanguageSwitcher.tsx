@@ -2,21 +2,25 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
-import { ChangeEvent, useCallback } from "react";
-import { Globe } from "lucide-react";
+import React, { ChangeEvent, useCallback } from "react";
+import { ChevronDown, Globe } from "lucide-react";
 
 import styles from "./LanguageSwitcher.module.scss";
 
 // Supported languages configuration - easy to extend
 const SUPPORTED_LANGUAGES = [
-  { code: "en", label: "english" },
-  { code: "zh-TW", label: "traditional_chinese" },
+  { code: "en", label: "en" },
+  { code: "zh-TW", label: "zh-TW" },
   // Add more languages here as needed
 ] as const;
 
 type LanguageCode = (typeof SUPPORTED_LANGUAGES)[number]["code"];
 
-const LanguageSwitcher = () => {
+interface LanguageSwitherProps {
+  styleMode?: "row" | "column";
+}
+
+const LanguageSwitcher = ({ styleMode = "row" }: LanguageSwitherProps) => {
   const translateCommon = useTranslations("Common");
   const locale = useLocale() as LanguageCode;
   const router = useRouter();
@@ -33,26 +37,63 @@ const LanguageSwitcher = () => {
   );
 
   return (
-    <span className={styles.languageSwitcher}>
-      <Globe className={styles.languageSwitcher_icon} />
-      <select
-        id="language-select"
-        value={locale}
-        onChange={handleLanguageChange}
-        className={styles.languageSwitcher_select}
-        aria-label={translateCommon("select_language")}
-      >
-        {SUPPORTED_LANGUAGES.map((lang) => (
-          <option
-            key={lang.code}
-            value={lang.code}
-            className={styles.languageSwitcher_option}
-          >
-            {translateCommon(lang.label)}
-          </option>
-        ))}
-      </select>
+    <React.Fragment>
+      {
+        styleMode === "row" ? (
+          <span className={`${styles.languageSwitcher}`}>
+            <Globe className={styles.languageSwitcher_icon} />
+            <span className={styles.languageSwitcher_selectWrap}>
+              <select
+          id="language-select"
+          value={locale}
+          onChange={handleLanguageChange}
+          className={styles.languageSwitcher_select}
+          aria-label={translateCommon("select_language")}
+        >
+          {SUPPORTED_LANGUAGES.map((lang) => (
+            <option
+              key={lang.code}
+              value={lang.code}
+              className={styles.languageSwitcher_option}
+            >
+              {translateCommon(lang.label).toUpperCase()}
+            </option>
+          ))}
+        </select>
+        <ChevronDown className={styles.languageSwitcher_chevron} />
+      </span>
     </span>
+        ) : (
+          <span className={`${styles.languageSwitcher}`}>
+            <span>Language</span>
+            <div className={`${styles.languageSwitcher_columnMode}`}>
+              <Globe className={styles.languageSwitcher_icon} />
+            <span className={styles.languageSwitcher_selectWrap}>
+              <select
+                id="language-select"
+                value={locale}
+                onChange={handleLanguageChange}
+                className={styles.languageSwitcher_select}
+                aria-label={translateCommon("select_language")}
+              >
+                {SUPPORTED_LANGUAGES.map((lang) => (
+                  <option
+                    key={lang.code}
+                    value={lang.code}
+                    className={styles.languageSwitcher_option}
+                  >
+                    {translateCommon(lang.label).toUpperCase()}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className={styles.languageSwitcher_chevron} />
+            </span>
+            </div>
+          </span>
+        )
+      }
+    </React.Fragment>
+    
   );
 };
 

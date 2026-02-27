@@ -89,8 +89,8 @@
     "optional_tag": "(Optional)"
   },
   "Common": {
-    "english": "English",
-    "traditional_chinese": "Traditional Chinese",
+    "en": "en",
+    "zh-TW": "zh-TW",
     "select_language": "Select language",
     "all_rights_reserved": "All rights reserved",
     "privacy": "Privacy Policy",
