@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "Key": "tracking",
+    "Value": "/tools",
+    "isActive": true,
+    "isEnabled": true,
+    "isExternal": false
+  },
+  {
+    "id": "2",
+    "Key": "join_us",
+    "Value": "/contact",
+    "isActive": true,
+    "isEnabled": true,
+    "isExternal": false
+  }
+]

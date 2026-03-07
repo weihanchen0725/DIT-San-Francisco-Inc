@@ -1,0 +1,13 @@
+{
+  "id": "1",
+  "Name": "location",
+  "Logo": {
+    "id": "1",
+    "image": {
+      "id": "1",
+      "url": "",
+      "alternativeText": "alternativeText"
+    },
+    "logoText": "DIT San Francisco Inc."
+  }
+}

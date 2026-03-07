@@ -19,18 +19,18 @@ Today, Strapi is scaffolded and has content types configured, but the frontend c
 ### Core server config
 
 - `server/config/server.ts`
-	- Host from `HOST` (default `0.0.0.0`)
-	- Port from `PORT` (default `1337`)
+  - Host from `HOST` (default `0.0.0.0`)
+  - Port from `PORT` (default `1337`)
 - `server/config/database.ts`
-	- Database client from `DATABASE_CLIENT` (default `sqlite`)
-	- SQLite DB path defaults to `.tmp/data.db`
-	- Also supports `mysql` and `postgres`
+  - Database client from `DATABASE_CLIENT` (default `sqlite`)
+  - SQLite DB path defaults to `.tmp/data.db`
+  - Also supports `mysql` and `postgres`
 - `server/config/middlewares.ts`
-	- Includes `strapi::cors`, `strapi::security`, `strapi::body`, etc.
+  - Includes `strapi::cors`, `strapi::security`, `strapi::body`, etc.
 - `server/config/api.ts`
-	- REST defaults: `defaultLimit: 25`, `maxLimit: 100`, `withCount: true`
+  - REST defaults: `defaultLimit: 25`, `maxLimit: 100`, `withCount: true`
 - `server/config/admin.ts`
-	- Admin auth + API token salts/secrets are env-driven
+  - Admin auth + API token salts/secrets are env-driven
 
 ### Environment variables
 
@@ -59,7 +59,7 @@ Create `server/.env` from this example for local dev.
 - Kind: `singleType`
 - Draft/publish: enabled
 - Attributes:
-	- `Header` (component: `layout.header`)
+  - `Header` (component: `layout.header`)
 
 ## `home-page` (single type)
 
@@ -68,21 +68,21 @@ Create `server/.env` from this example for local dev.
 - Draft/publish: enabled
 - I18n: enabled
 - Attributes:
-	- `title` (localized string)
-	- `description` (localized text)
+  - `title` (localized string)
+  - `description` (localized text)
 
 ### Related components
 
 - `server/src/components/layout/header.json`
-	- `Logo` (component: `elements.logo`)
-	- `Name` (string)
-	- `Navigations` (repeatable component: `elements.link`)
-	- `CTA` (repeatable component: `elements.link`)
+  - `Logo` (component: `elements.logo`)
+  - `Name` (string)
+  - `Navigations` (repeatable component: `elements.link`)
+  - `CTA` (repeatable component: `elements.link`)
 - `server/src/components/elements/logo.json`
-	- `image` (media)
-	- `logoText` (string)
+  - `image` (media)
+  - `logoText` (string)
 - `server/src/components/elements/link.json`
-	- `Key`, `Value`, `isActive`, `isEnabled`, `isExternal`
+  - `Key`, `Value`, `isActive`, `isEnabled`, `isExternal`
 
 ---
 
@@ -91,11 +91,11 @@ Create `server/.env` from this example for local dev.
 Each content type has Strapi core wiring:
 
 - `server/src/api/*/routes/*.ts`
-	- Uses `factories.createCoreRouter(...)`
+  - Uses `factories.createCoreRouter(...)`
 - `server/src/api/*/controllers/*.ts`
-	- Uses `factories.createCoreController(...)`
+  - Uses `factories.createCoreController(...)`
 - `server/src/api/*/services/*.ts`
-	- Uses `factories.createCoreService(...)`
+  - Uses `factories.createCoreService(...)`
 
 This means your current API behavior is standard Strapi REST behavior (no custom controller logic yet).
 
@@ -175,17 +175,17 @@ Create `client/src/lib/strapi.ts`:
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
 
 export async function getGlobal(locale = 'en') {
-	const url = `${STRAPI_URL}/api/global?populate=*&locale=${locale}`;
-	const res = await fetch(url, { next: { revalidate: 60 } });
-	if (!res.ok) throw new Error(`Failed to fetch global: ${res.status}`);
-	return res.json();
+  const url = `${STRAPI_URL}/api/global?populate=*&locale=${locale}`;
+  const res = await fetch(url, { next: { revalidate: 60 } });
+  if (!res.ok) throw new Error(`Failed to fetch global: ${res.status}`);
+  return res.json();
 }
 
 export async function getHomePage(locale = 'en') {
-	const url = `${STRAPI_URL}/api/home-page?populate=*&locale=${locale}`;
-	const res = await fetch(url, { next: { revalidate: 60 } });
-	if (!res.ok) throw new Error(`Failed to fetch home page: ${res.status}`);
-	return res.json();
+  const url = `${STRAPI_URL}/api/home-page?populate=*&locale=${locale}`;
+  const res = await fetch(url, { next: { revalidate: 60 } });
+  if (!res.ok) throw new Error(`Failed to fetch home page: ${res.status}`);
+  return res.json();
 }
 ```
 
