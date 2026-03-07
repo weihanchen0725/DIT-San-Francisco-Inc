@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import navClass from "./NavBar.module.scss";
+import { useTranslations } from "next-intl";
 
 interface NavBarProps {
   NavigationList?: LinkProps[];
@@ -8,6 +11,8 @@ interface NavBarProps {
 
 // This is a simplified version of the NavBar component. You can expand it with the logic from NavBar.v01.tsx as needed.
 const NavBar = ({ NavigationList, styleMode = "row" }: NavBarProps) => {
+  const translateNavBar = useTranslations('NavBar');
+
   return (
     <nav className={navClass.nav}>
       {/* Add your navigation items here */}
@@ -22,7 +27,7 @@ const NavBar = ({ NavigationList, styleMode = "row" }: NavBarProps) => {
                   target={item?.isExternal ? "_blank" : "_self"}
                   rel={item?.isExternal ? "noopener noreferrer" : undefined}
                 >
-                  {item?.Key}
+                  {translateNavBar(item?.Key?.toLowerCase() ?? "")}
                 </a>
               </li>
             )}

@@ -50,13 +50,17 @@
   },
   "NavBar": {
     "title": "DIT San Francisco Inc.",
-    "Appearance": "Appearance",
-    "Home": "Home",
-    "About": "About",
-    "Services": "Services",
-    "Tools": "Tools",
-    "News": "News",
-    "Contact": "Contact"
+    "appearance": "Appearance",
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "tools": "Tools",
+    "news": "News",
+    "contact": "Contact"
+  },
+  "CTABar":{
+    "tracking": "Tracking",
+    "join_us": "Join Us"
   },
   "Contact": {
     "title_1": "Contact ",

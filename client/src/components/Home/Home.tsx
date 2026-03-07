@@ -6,6 +6,8 @@ import SecureHandleIcon from "@/assets/icons/SecureHandleIcon";
 import GlobalReachIcon from "@/assets/icons/GlobalReachIcon";
 import homeClass from './Home.module.scss';
 
+import cargoShip from '../../assets/images/cargo_ship.svg';
+
 const Home = async () => {
   const translateCompany = await getTranslations("Company");
   const translateHome = await getTranslations("Home");
@@ -39,8 +41,11 @@ const Home = async () => {
         </div>
       </div>
 
+      <div>
+      </div>
+
       {/* Features Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <Features
           icon={<FastDeliveryIcon className="w-8 h-8 text-brand-yellow" />}
           title={translateHome("fast_delivery_title")}
@@ -56,7 +61,7 @@ const Home = async () => {
           title={translateHome("global_reach_title")}
           description={translateHome("global_reach_desc")}
         />
-      </div>
+      </div> */}
     </section>
   );
 };

@@ -80,13 +80,17 @@
   },
   "NavBar": {
     "title": "DIT San Francisco Inc.",
-    "Appearance": "外觀",
-    "Home": "首頁",
-    "About": "關於我們",
-    "Services": "服務",
-    "Tools": "工具",
-    "News": "新聞",
-    "Contact": "聯絡我們"
+    "appearance": "外觀",
+    "home": "首頁",
+    "about": "關於我們",
+    "services": "服務",
+    "tools": "工具",
+    "news": "新聞",
+    "contact": "聯絡我們"
+  },
+  "CTABar":{
+    "tracking": "追蹤",
+    "join_us": "加入我們"
   },
   "Common": {
     "en": "英文",

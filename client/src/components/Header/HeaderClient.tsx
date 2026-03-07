@@ -209,19 +209,18 @@ const HeaderClient = ({ headerData, logoUrl }: HeaderClientProps) => {
   }, [isMenuOpen]);
 
   return (
-    <header ref={headerRef} className={headerClass.header}>
+    <header
+      ref={headerRef}
+      className={`${headerClass.header} ${isMenuOpen ? headerClass.header_menuOpen : ""}`}
+    >
       {/* Brand — always visible (name hides at very narrow widths via CSS) */}
       <div className={headerClass.header_content}>
-        {logoUrl ? (
-          <img
-            src={logoUrl}
+        <img
+            src={logoUrl ?? ""}
             alt={headerData.Logo?.image?.alternativeText ?? "Logo"}
             className={headerClass.header_logo}
           />
-        ) : null}
-        {collapseTier < 3 ? (
           <span className={headerClass.header_name}>({headerData?.Name})</span>
-        ) : null}
       </div>
 
       {collapseTier < 2 ? (
@@ -232,14 +231,15 @@ const HeaderClient = ({ headerData, logoUrl }: HeaderClientProps) => {
 
       {collapseTier < 1 ? (
         <div className={headerClass.header_contact}>
-          <CTABar ctaLinks={headerData?.CTA ?? []} />
+          <CTABar />
           <ThemeSwitcher />
           <LanguageSwitcher />
         </div>
       ) : null}
 
       {collapseTier > 0 ? (
-        <button
+        <div className={`${headerClass.header_menuButtonWrapper} ${collapseTier > 1 ? headerClass.narrow : ""}`}>
+            <button
           ref={menuButtonRef}
           type="button"
           className={headerClass.header_menuButton}
@@ -250,6 +250,7 @@ const HeaderClient = ({ headerData, logoUrl }: HeaderClientProps) => {
         >
           {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
         </button>
+        </div>
       ) : null}
 
       {/* Dropdown panel — render only while menu is open */}
@@ -270,7 +271,7 @@ const HeaderClient = ({ headerData, logoUrl }: HeaderClientProps) => {
           ) : null}
           {collapseTier >= 1 ? (
             <div className={headerClass.header_menuPanelContact}>
-              <CTABar ctaLinks={headerData?.CTA ?? []} styleMode="column" />
+              <CTABar styleMode="column" />
               <ThemeSwitcher styleMode="column" />
               <LanguageSwitcher styleMode="column" />
             </div>
