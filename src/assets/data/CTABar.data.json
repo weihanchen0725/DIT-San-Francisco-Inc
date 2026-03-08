@@ -2,15 +2,15 @@
   {
     "id": "1",
     "Key": "tracking",
-    "Value": "/tools",
+    "Value": "https://ditus.gofreight.co/tracking/login",
     "isActive": true,
     "isEnabled": true,
-    "isExternal": false
+    "isExternal": true
   },
   {
     "id": "2",
     "Key": "join_us",
-    "Value": "/contact",
+    "Value": "#contact",
     "isActive": true,
     "isEnabled": true,
     "isExternal": false

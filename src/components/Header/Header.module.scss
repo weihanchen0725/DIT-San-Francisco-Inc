@@ -54,6 +54,8 @@ $menu-ease-duration: 180ms;
     backdrop-filter $header-ease-duration ease,
     -webkit-backdrop-filter $header-ease-duration ease;
 
+    z-index: 10;
+
   &_menuOpen {
     box-shadow:
       0 2px 8px rgb(6 15 31 / calc(0.08 * var(--header-scroll-progress, 0))),

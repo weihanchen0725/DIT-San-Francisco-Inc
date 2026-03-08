@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <title>3D Isometric Cargo Ship - Flipped Direction</title>
+
+  <defs>
+    <g id="c-red">
+      <polygon points="0,0 24,0 24,-12 0,-12" fill="#E03131"/>
+      <polygon points="0,-12 24,-12 36,-18 12,-18" fill="#F75656"/>
+      <polygon points="24,0 36,-6 36,-18 24,-12" fill="#8A1B1B"/>
+      <line x1="4" y1="-0.5" x2="4" y2="-11.5" stroke="#B02525" stroke-width="0.6"/>
+      <line x1="8" y1="-0.5" x2="8" y2="-11.5" stroke="#B02525" stroke-width="0.6"/>
+      <line x1="12" y1="-0.5" x2="12" y2="-11.5" stroke="#B02525" stroke-width="0.6"/>
+      <line x1="16" y1="-0.5" x2="16" y2="-11.5" stroke="#B02525" stroke-width="0.6"/>
+      <line x1="20" y1="-0.5" x2="20" y2="-11.5" stroke="#B02525" stroke-width="0.6"/>
+      <line x1="12" y1="-0.5" x2="12" y2="-11.5" stroke="#701313" stroke-width="0.7" opacity="0.6"/>
+      <rect x="1.4" y="-9.5" width="2.2" height="1.6" rx="0.3" fill="#C92A2A" stroke="#F8D0D0" stroke-width="0.35"/>
+      <rect x="1.4" y="-4.5" width="2.2" height="1.6" rx="0.3" fill="#C92A2A" stroke="#F8D0D0" stroke-width="0.35"/>
+      <rect x="20.4" y="-9.5" width="2.2" height="1.6" rx="0.3" fill="#C92A2A" stroke="#F8D0D0" stroke-width="0.35"/>
+      <rect x="20.4" y="-4.5" width="2.2" height="1.6" rx="0.3" fill="#C92A2A" stroke="#F8D0D0" stroke-width="0.35"/>
+      <line x1="27" y1="-6.3" x2="27" y2="-17.7" stroke="#9E2121" stroke-width="0.6"/>
+      <line x1="30" y1="-6.3" x2="30" y2="-17.7" stroke="#9E2121" stroke-width="0.6"/>
+      <line x1="33" y1="-6.3" x2="33" y2="-17.7" stroke="#9E2121" stroke-width="0.6"/>
+      <line x1="2" y1="-12.5" x2="14" y2="-18.5" stroke="#FAD4D4" stroke-width="0.6" opacity="0.6"/>
+      <line x1="6" y1="-12.5" x2="18" y2="-18.5" stroke="#FAD4D4" stroke-width="0.6" opacity="0.5"/>
+      <line x1="10" y1="-12.5" x2="22" y2="-18.5" stroke="#FAD4D4" stroke-width="0.6" opacity="0.4"/>
+      <polygon points="1,-12.2 11,-12.2 23,-18 13,-18" fill="#FFFFFF" opacity="0.18"/>
+      <polyline points="0,0 24,0 36,-6" fill="none" stroke="#FF7B7B" stroke-width="0.7" opacity="0.6"/>
+      <polyline points="0,0 0,-12 12,-18" fill="none" stroke="#F03E3E" stroke-width="0.6" opacity="0.6"/>
+      <line x1="0" y1="-12" x2="24" y2="-12" stroke="#C92A2A" stroke-width="0.5"/>
+      <line x1="24" y1="-12" x2="36" y2="-18" stroke="#F03E3E" stroke-width="0.5"/>
+    </g>
+
+    <g id="c-blu">
+      <polygon points="0,0 24,0 24,-12 0,-12" fill="#1971C2"/>
+      <polygon points="0,-12 24,-12 36,-18 12,-18" fill="#3B8FE8"/>
+      <polygon points="24,0 36,-6 36,-18 24,-12" fill="#0E3A63"/>
+      <line x1="4" y1="-0.5" x2="4" y2="-11.5" stroke="#135796" stroke-width="0.6"/>
+      <line x1="8" y1="-0.5" x2="8" y2="-11.5" stroke="#135796" stroke-width="0.6"/>
+      <line x1="12" y1="-0.5" x2="12" y2="-11.5" stroke="#135796" stroke-width="0.6"/>
+      <line x1="16" y1="-0.5" x2="16" y2="-11.5" stroke="#135796" stroke-width="0.6"/>
+      <line x1="20" y1="-0.5" x2="20" y2="-11.5" stroke="#135796" stroke-width="0.6"/>
+      <line x1="12" y1="-0.5" x2="12" y2="-11.5" stroke="#0A2A4A" stroke-width="0.7" opacity="0.6"/>
+      <rect x="1.4" y="-9.5" width="2.2" height="1.6" rx="0.3" fill="#1864AB" stroke="#9CC6F5" stroke-width="0.35"/>
+      <rect x="1.4" y="-4.5" width="2.2" height="1.6" rx="0.3" fill="#1864AB" stroke="#9CC6F5" stroke-width="0.35"/>
+      <rect x="20.4" y="-9.5" width="2.2" height="1.6" rx="0.3" fill="#1864AB" stroke="#9CC6F5" stroke-width="0.35"/>
+      <rect x="20.4" y="-4.5" width="2.2" height="1.6" rx="0.3" fill="#1864AB" stroke="#9CC6F5" stroke-width="0.35"/>
+      <line x1="27" y1="-6.3" x2="27" y2="-17.7" stroke="#104E8A" stroke-width="0.6"/>
+      <line x1="30" y1="-6.3" x2="30" y2="-17.7" stroke="#104E8A" stroke-width="0.6"/>
+      <line x1="33" y1="-6.3" x2="33" y2="-17.7" stroke="#104E8A" stroke-width="0.6"/>
+      <line x1="2" y1="-12.5" x2="14" y2="-18.5" stroke="#C4E1FF" stroke-width="0.6" opacity="0.7"/>
+      <line x1="6" y1="-12.5" x2="18" y2="-18.5" stroke="#C4E1FF" stroke-width="0.6" opacity="0.6"/>
+      <line x1="10" y1="-12.5" x2="22" y2="-18.5" stroke="#C4E1FF" stroke-width="0.6" opacity="0.5"/>
+      <polygon points="1,-12.2 11,-12.2 23,-18 13,-18" fill="#FFFFFF" opacity="0.18"/>
+      <polyline points="0,0 24,0 36,-6" fill="none" stroke="#5CA8FF" stroke-width="0.7" opacity="0.6"/>
+      <polyline points="0,0 0,-12 12,-18" fill="none" stroke="#228BE6" stroke-width="0.6" opacity="0.6"/>
+      <line x1="0" y1="-12" x2="24" y2="-12" stroke="#1864AB" stroke-width="0.5"/>
+      <line x1="24" y1="-12" x2="36" y2="-18" stroke="#228BE6" stroke-width="0.5"/>
+    </g>
+
+    <g id="c-grn">
+      <polygon points="0,0 24,0 24,-12 0,-12" fill="#2F9E44"/>
+      <polygon points="0,-12 24,-12 36,-18 12,-18" fill="#4FD469"/>
+      <polygon points="24,0 36,-6 36,-18 24,-12" fill="#1A5224"/>
+      <line x1="4" y1="-0.5" x2="4" y2="-11.5" stroke="#247A35" stroke-width="0.6"/>
+      <line x1="8" y1="-0.5" x2="8" y2="-11.5" stroke="#247A35" stroke-width="0.6"/>
+      <line x1="12" y1="-0.5" x2="12" y2="-11.5" stroke="#247A35" stroke-width="0.6"/>
+      <line x1="16" y1="-0.5" x2="16" y2="-11.5" stroke="#247A35" stroke-width="0.6"/>
+      <line x1="20" y1="-0.5" x2="20" y2="-11.5" stroke="#247A35" stroke-width="0.6"/>
+      <line x1="12" y1="-0.5" x2="12" y2="-11.5" stroke="#123D1A" stroke-width="0.7" opacity="0.6"/>
+      <rect x="1.4" y="-9.5" width="2.2" height="1.6" rx="0.3" fill="#2B8A3E" stroke="#B7F6C3" stroke-width="0.35"/>
+      <rect x="1.4" y="-4.5" width="2.2" height="1.6" rx="0.3" fill="#2B8A3E" stroke="#B7F6C3" stroke-width="0.35"/>
+      <rect x="20.4" y="-9.5" width="2.2" height="1.6" rx="0.3" fill="#2B8A3E" stroke="#B7F6C3" stroke-width="0.35"/>
+      <rect x="20.4" y="-4.5" width="2.2" height="1.6" rx="0.3" fill="#2B8A3E" stroke="#B7F6C3" stroke-width="0.35"/>
+      <line x1="27" y1="-6.3" x2="27" y2="-17.7" stroke="#206B30" stroke-width="0.6"/>
+      <line x1="30" y1="-6.3" x2="30" y2="-17.7" stroke="#206B30" stroke-width="0.6"/>
+      <line x1="33" y1="-6.3" x2="33" y2="-17.7" stroke="#206B30" stroke-width="0.6"/>
+      <line x1="2" y1="-12.5" x2="14" y2="-18.5" stroke="#C8FFD2" stroke-width="0.6" opacity="0.7"/>
+      <line x1="6" y1="-12.5" x2="18" y2="-18.5" stroke="#C8FFD2" stroke-width="0.6" opacity="0.6"/>
+      <line x1="10" y1="-12.5" x2="22" y2="-18.5" stroke="#C8FFD2" stroke-width="0.6" opacity="0.5"/>
+      <polygon points="1,-12.2 11,-12.2 23,-18 13,-18" fill="#FFFFFF" opacity="0.18"/>
+      <polyline points="0,0 24,0 36,-6" fill="none" stroke="#74E39D" stroke-width="0.7" opacity="0.6"/>
+      <polyline points="0,0 0,-12 12,-18" fill="none" stroke="#40C057" stroke-width="0.6" opacity="0.6"/>
+      <line x1="0" y1="-12" x2="24" y2="-12" stroke="#2B8A3E" stroke-width="0.5"/>
+      <line x1="24" y1="-12" x2="36" y2="-18" stroke="#40C057" stroke-width="0.5"/>
+    </g>
+
+    <g id="c-ylw">
+      <polygon points="0,0 24,0 24,-12 0,-12" fill="#F59F00"/>
+      <polygon points="0,-12 24,-12 36,-18 12,-18" fill="#FFD24D"/>
+      <polygon points="24,0 36,-6 36,-18 24,-12" fill="#964B00"/>
+      <line x1="4" y1="-0.5" x2="4" y2="-11.5" stroke="#C27D00" stroke-width="0.6"/>
+      <line x1="8" y1="-0.5" x2="8" y2="-11.5" stroke="#C27D00" stroke-width="0.6"/>
+      <line x1="12" y1="-0.5" x2="12" y2="-11.5" stroke="#C27D00" stroke-width="0.6"/>
+      <line x1="16" y1="-0.5" x2="16" y2="-11.5" stroke="#C27D00" stroke-width="0.6"/>
+      <line x1="20" y1="-0.5" x2="20" y2="-11.5" stroke="#C27D00" stroke-width="0.6"/>
+      <line x1="12" y1="-0.5" x2="12" y2="-11.5" stroke="#7A3D00" stroke-width="0.7" opacity="0.6"/>
+      <rect x="1.4" y="-9.5" width="2.2" height="1.6" rx="0.3" fill="#E67700" stroke="#FFE3B0" stroke-width="0.35"/>
+      <rect x="1.4" y="-4.5" width="2.2" height="1.6" rx="0.3" fill="#E67700" stroke="#FFE3B0" stroke-width="0.35"/>
+      <rect x="20.4" y="-9.5" width="2.2" height="1.6" rx="0.3" fill="#E67700" stroke="#FFE3B0" stroke-width="0.35"/>
+      <rect x="20.4" y="-4.5" width="2.2" height="1.6" rx="0.3" fill="#E67700" stroke="#FFE3B0" stroke-width="0.35"/>
+      <line x1="27" y1="-6.3" x2="27" y2="-17.7" stroke="#B37300" stroke-width="0.6"/>
+      <line x1="30" y1="-6.3" x2="30" y2="-17.7" stroke="#B37300" stroke-width="0.6"/>
+      <line x1="33" y1="-6.3" x2="33" y2="-17.7" stroke="#B37300" stroke-width="0.6"/>
+      <line x1="2" y1="-12.5" x2="14" y2="-18.5" stroke="#FFE9A6" stroke-width="0.6" opacity="0.7"/>
+      <line x1="6" y1="-12.5" x2="18" y2="-18.5" stroke="#FFE9A6" stroke-width="0.6" opacity="0.6"/>
+      <line x1="10" y1="-12.5" x2="22" y2="-18.5" stroke="#FFE9A6" stroke-width="0.6" opacity="0.5"/>
+      <polygon points="1,-12.2 11,-12.2 23,-18 13,-18" fill="#FFFFFF" opacity="0.2"/>
+      <polyline points="0,0 24,0 36,-6" fill="none" stroke="#FFD666" stroke-width="0.7" opacity="0.6"/>
+      <polyline points="0,0 0,-12 12,-18" fill="none" stroke="#FCC419" stroke-width="0.6" opacity="0.6"/>
+      <line x1="0" y1="-12" x2="24" y2="-12" stroke="#E67700" stroke-width="0.5"/>
+      <line x1="24" y1="-12" x2="36" y2="-18" stroke="#FCC419" stroke-width="0.5"/>
+    </g>
+
+    <g id="c-wht">
+      <polygon points="0,0 24,0 24,-12 0,-12" fill="#E9ECEF"/>
+      <polygon points="0,-12 24,-12 36,-18 12,-18" fill="#FFFFFF"/>
+      <polygon points="24,0 36,-6 36,-18 24,-12" fill="#6C757D"/>
+      <line x1="4" y1="-0.5" x2="4" y2="-11.5" stroke="#ADB5BD" stroke-width="0.6"/>
+      <line x1="8" y1="-0.5" x2="8" y2="-11.5" stroke="#ADB5BD" stroke-width="0.6"/>
+      <line x1="12" y1="-0.5" x2="12" y2="-11.5" stroke="#ADB5BD" stroke-width="0.6"/>
+      <line x1="16" y1="-0.5" x2="16" y2="-11.5" stroke="#ADB5BD" stroke-width="0.6"/>
+      <line x1="20" y1="-0.5" x2="20" y2="-11.5" stroke="#ADB5BD" stroke-width="0.6"/>
+      <line x1="12" y1="-0.5" x2="12" y2="-11.5" stroke="#495057" stroke-width="0.7" opacity="0.6"/>
+      <rect x="1.4" y="-9.5" width="2.2" height="1.6" rx="0.3" fill="#CED4DA" stroke="#FFFFFF" stroke-width="0.35"/>
+      <rect x="1.4" y="-4.5" width="2.2" height="1.6" rx="0.3" fill="#CED4DA" stroke="#FFFFFF" stroke-width="0.35"/>
+      <rect x="20.4" y="-9.5" width="2.2" height="1.6" rx="0.3" fill="#CED4DA" stroke="#FFFFFF" stroke-width="0.35"/>
+      <rect x="20.4" y="-4.5" width="2.2" height="1.6" rx="0.3" fill="#CED4DA" stroke="#FFFFFF" stroke-width="0.35"/>
+      <line x1="27" y1="-6.3" x2="27" y2="-17.7" stroke="#99A1A8" stroke-width="0.6"/>
+      <line x1="30" y1="-6.3" x2="30" y2="-17.7" stroke="#99A1A8" stroke-width="0.6"/>
+      <line x1="33" y1="-6.3" x2="33" y2="-17.7" stroke="#99A1A8" stroke-width="0.6"/>
+      <line x1="2" y1="-12.5" x2="14" y2="-18.5" stroke="#FFFFFF" stroke-width="0.6" opacity="0.7"/>
+      <line x1="6" y1="-12.5" x2="18" y2="-18.5" stroke="#FFFFFF" stroke-width="0.6" opacity="0.6"/>
+      <line x1="10" y1="-12.5" x2="22" y2="-18.5" stroke="#FFFFFF" stroke-width="0.6" opacity="0.5"/>
+      <polygon points="1,-12.2 11,-12.2 23,-18 13,-18" fill="#FFFFFF" opacity="0.25"/>
+      <polyline points="0,0 24,0 36,-6" fill="none" stroke="#FFFFFF" stroke-width="0.7" opacity="0.6"/>
+      <polyline points="0,0 0,-12 12,-18" fill="none" stroke="#CED4DA" stroke-width="0.6" opacity="0.6"/>
+      <line x1="0" y1="-12" x2="24" y2="-12" stroke="#CED4DA" stroke-width="0.5"/>
+      <line x1="24" y1="-12" x2="36" y2="-18" stroke="#F8F9FA" stroke-width="0.5"/>
+    </g>
+
+    <g id="st-1">
+      <use href="#c-red" y="0"/><use href="#c-blu" y="-12"/><use href="#c-ylw" y="-24"/>
+      <use href="#c-wht" y="-36"/><use href="#c-grn" y="-48"/><use href="#c-red" y="-60"/><use href="#c-blu" y="-72"/>
+    </g>
+    <g id="st-2">
+      <use href="#c-grn" y="0"/><use href="#c-wht" y="-12"/><use href="#c-blu" y="-24"/>
+      <use href="#c-red" y="-36"/><use href="#c-ylw" y="-48"/><use href="#c-grn" y="-60"/>
+    </g>
+    <g id="st-3">
+      <use href="#c-blu" y="0"/><use href="#c-ylw" y="-12"/><use href="#c-grn" y="-24"/>
+      <use href="#c-red" y="-36"/><use href="#c-blu" y="-48"/><use href="#c-wht" y="-60"/>
+      <use href="#c-ylw" y="-72"/><use href="#c-red" y="-84"/>
+    </g>
+    <g id="st-4">
+      <use href="#c-wht" y="0"/><use href="#c-red" y="-12"/><use href="#c-ylw" y="-24"/>
+      <use href="#c-grn" y="-36"/><use href="#c-blu" y="-48"/><use href="#c-red" y="-60"/>
+    </g>
+
+    <g id="bay-A">
+      <use href="#st-1" x="48" y="-24"/> <use href="#st-2" x="36" y="-18"/> <use href="#st-3" x="24" y="-12"/> <use href="#st-4" x="12" y="-6"/>  <use href="#st-1" x="0" y="0"/>
+    </g>
+    <g id="bay-B">
+      <use href="#st-3" x="48" y="-24"/> <use href="#st-4" x="36" y="-18"/> <use href="#st-1" x="24" y="-12"/> <use href="#st-2" x="12" y="-6"/> <use href="#st-3" x="0" y="0"/>
+    </g>
+    <g id="bay-C">
+      <use href="#st-2" x="48" y="-24"/> <use href="#st-1" x="36" y="-18"/> <use href="#st-4" x="24" y="-12"/> <use href="#st-3" x="12" y="-6"/> <use href="#st-2" x="0" y="0"/>
+    </g>
+  </defs>
+
+  <g transform="translate(1200, 0) scale(-1, 1)">
+    
+    <g transform="translate(600, 337.5) rotate(-11.25) translate(-600, -265)">
+      <polygon points="260,420 1020,420 1080,390 320,390" fill="#000000" opacity="0.08"/>
+      <polygon points="275,410 990,410 1050,380 335,380" fill="#000000" opacity="0.05"/>
+
+      <polygon points="315,345 1060,345 1060,370 340,370" fill="#9B111E"/> 
+      <polygon points="260,290 1060,290 1060,345 315,345" fill="#0F203B"/> 
+      <polygon points="255,375 315,345 340,370 280,400" fill="#E03131"/> 
+      <polygon points="200,320 260,290 315,345 255,375" fill="#224A80"/> 
+      <polygon points="1000,375 1060,345 1060,370 1000,400" fill="#7A0D18"/> 
+      <polygon points="1000,320 1060,290 1060,345 1000,375" fill="#0A1629"/> 
+      <polygon points="200,320 1000,320 1060,290 260,290" fill="#B03D30"/> 
+      <polygon points="203,319 998,319 1055,291 263,291" fill="none" stroke="#D95A47" stroke-width="1.5"/>
+      <polygon points="255,375 1000,375 1000,400 280,400" fill="#C92A2A"/> 
+      <polygon points="200,320 1000,320 1000,375 255,375" fill="#183153"/> 
+      <polygon points="255,374 1000,374 1000,376 257,376" fill="#FFFFFF" opacity="0.8"/> 
+      <line x1="200" y1="320" x2="1000" y2="320" stroke="#385F94" stroke-width="2"/>
+
+      <use href="#bay-B" x="972" y="320"/>
+      <use href="#bay-A" x="946" y="320"/>
+
+      <g id="superstructure">
+        <polygon points="860,320 930,320 990,290 920,290" fill="#CED4DA"/>
+        <polygon points="920,290 990,290 990,220 920,220" fill="#E9ECEF"/>
+        <polygon points="860,320 920,290 920,220 860,250" fill="#ADB5BD"/>
+        <polygon points="860,320 930,320 930,250 860,250" fill="#F8F9FA"/>
+        <polygon points="850,250 940,250 1000,220 910,220" fill="#FFFFFF"/>
+        <polygon points="850,260 940,260 940,250 850,250" fill="#E9ECEF"/>
+        <polygon points="850,260 910,230 910,220 850,250" fill="#CED4DA"/>
+        <polygon points="855,255 935,255 935,252 855,252" fill="#212529"/>
+        <polygon points="852,256 906,229 906,226 852,253" fill="#343A40"/>
+        <line x1="900" y1="250" x2="900" y2="180" stroke="#ADB5BD" stroke-width="2"/>
+        <line x1="890" y1="210" x2="910" y2="210" stroke="#6C757D" stroke-width="1.5"/>
+        <polygon points="930,220 960,220 960,160 930,160" fill="#F59F00"/>
+        <polygon points="930,220 990,190 990,130 930,160" fill="#E67700"/>
+        <polygon points="930,160 960,160 1020,130 990,130" fill="#FCC419"/>
+        <polygon points="935,165 955,165 1015,135 995,135" fill="#343A40"/>
+      </g>
+
+      <use href="#bay-C" x="830" y="320"/> <use href="#bay-A" x="804" y="320"/> <use href="#bay-B" x="778" y="320"/> <use href="#bay-C" x="752" y="320"/>
+      <use href="#bay-A" x="726" y="320"/> <use href="#bay-B" x="700" y="320"/> <use href="#bay-C" x="674" y="320"/> <use href="#bay-A" x="648" y="320"/>
+      <use href="#bay-B" x="622" y="320"/> <use href="#bay-C" x="596" y="320"/> <use href="#bay-A" x="570" y="320"/> <use href="#bay-B" x="544" y="320"/>
+      <use href="#bay-C" x="518" y="320"/> <use href="#bay-A" x="492" y="320"/> <use href="#bay-B" x="466" y="320"/> <use href="#bay-C" x="440" y="320"/>
+      <use href="#bay-A" x="414" y="320"/> <use href="#bay-B" x="388" y="320"/> <use href="#bay-C" x="362" y="320"/> <use href="#bay-A" x="336" y="320"/>
+      <use href="#bay-B" x="310" y="320"/> <use href="#bay-C" x="284" y="320"/> <use href="#bay-A" x="258" y="320"/> <use href="#bay-B" x="232" y="320"/>
+    </g>
+  </g>
+</svg>

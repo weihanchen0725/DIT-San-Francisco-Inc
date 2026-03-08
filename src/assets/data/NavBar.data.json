@@ -2,7 +2,7 @@
   {
     "id": "1",
     "Key": "home",
-    "Value": "/",
+    "Value": "#",
     "isActive": true,
     "isEnabled": true,
     "isExternal": false
@@ -10,7 +10,7 @@
   {
     "id": "2",
     "Key": "about",
-    "Value": "/about",
+    "Value": "#about",
     "isActive": true,
     "isEnabled": true,
     "isExternal": false
@@ -18,7 +18,7 @@
   {
     "id": "3",
     "Key": "services",
-    "Value": "/services",
+    "Value": "#services",
     "isActive": true,
     "isEnabled": true,
     "isExternal": false
@@ -26,7 +26,7 @@
   {
     "id": "4",
     "Key": "tools",
-    "Value": "/tools",
+    "Value": "#tools",
     "isActive": true,
     "isEnabled": true,
     "isExternal": false
@@ -34,7 +34,7 @@
   {
     "id": "5",
     "Key": "news",
-    "Value": "/news",
+    "Value": "#news",
     "isActive": true,
     "isEnabled": true,
     "isExternal": false
@@ -42,7 +42,7 @@
   {
     "id": "6",
     "Key": "contact",
-    "Value": "/contact",
+    "Value": "#contact",
     "isActive": true,
     "isEnabled": true,
     "isExternal": false
