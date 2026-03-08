@@ -66,6 +66,12 @@
     "tracking": "Tracking",
     "join_us": "Join Us"
   },
+  "Theme": {
+    "caption": "Theme"
+  },
+  "Language": {
+    "caption": "Language"
+  },
   "Contact": {
     "title_1": "Contact ",
     "title_2": "Us",

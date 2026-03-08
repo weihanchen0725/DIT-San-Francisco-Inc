@@ -4,6 +4,7 @@ import { useTheme } from 'next-themes';
 import React, { useEffect, useState } from 'react';
 import { Sun, Moon } from 'lucide-react';
 import themeSwitcherClass from './ThemeSwitcher.module.scss';
+import { useTranslations } from 'next-intl';
 
 interface ThemeSwitcherProps {
   styleMode?: 'row' | 'column';
@@ -12,7 +13,7 @@ interface ThemeSwitcherProps {
 const ThemeSwitcher = ({ styleMode = 'row' }: ThemeSwitcherProps) => {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-
+  const themeTranslate = useTranslations('Theme');
   // Prevent hydration mismatch
   useEffect(() => {
     setMounted(true);
@@ -65,7 +66,7 @@ const ThemeSwitcher = ({ styleMode = 'row' }: ThemeSwitcherProps) => {
         </button>
       ) : (
         <div className={themeSwitcherClass.themeSwitcher_columnMode}>
-          <span>Theme</span>
+          <span>{themeTranslate('caption')}</span>
           <button
             onClick={toggleTheme}
             className={`${themeSwitcherClass.themeSwitcher} ${

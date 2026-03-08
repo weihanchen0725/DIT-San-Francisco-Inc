@@ -25,7 +25,7 @@ const LanguageSwitcher = ({ styleMode = 'row' }: LanguageSwitherProps) => {
   const locale = useLocale() as LanguageCode;
   const router = useRouter();
   const pathName = usePathname();
-
+  const languageTranslate = useTranslations('Language');
   // Handle language change by updating the URL path
   const handleLanguageChange = useCallback(
     (event: ChangeEvent<HTMLSelectElement>) => {
@@ -64,7 +64,7 @@ const LanguageSwitcher = ({ styleMode = 'row' }: LanguageSwitherProps) => {
         </span>
       ) : (
         <span className={`${styles.languageSwitcher}`}>
-          <span>Language</span>
+          <span>{languageTranslate('caption')}</span>
           <div className={`${styles.languageSwitcher_columnMode}`}>
             <Globe className={styles.languageSwitcher_icon} />
             <span className={styles.languageSwitcher_selectWrap}>

@@ -96,6 +96,12 @@
     "tracking": "追蹤",
     "join_us": "加入我們"
   },
+  "Theme": {
+    "caption": "外觀"
+  },
+  "Language": {
+    "caption": "語言"
+  },
   "Common": {
     "en": "英文",
     "zh-TW": "繁體中文",
