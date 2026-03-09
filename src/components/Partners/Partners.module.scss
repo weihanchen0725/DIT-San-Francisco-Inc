@@ -1,0 +1,9 @@
+@import '@/assets/styles/variables';
+@import '../../assets/styles/mixin';
+
+.partners {
+  @include flex-row-start-center;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+  height: 3rem;
+}

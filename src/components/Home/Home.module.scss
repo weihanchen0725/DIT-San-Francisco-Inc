@@ -4,11 +4,11 @@
 .home {
   min-height: $max-height;
   @include flex-column-center-start;
-  padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 5vw, 2rem);
+  // padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 5vw, 2rem);
   overflow: hidden;
   background-color: #fdfcf7;
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(255, 204, 0, 0.08) 0px, transparent 50%), 
+  background-image:
+    radial-gradient(at 0% 0%, rgba(255, 204, 0, 0.08) 0px, transparent 50%),
     radial-gradient(at 100% 100%, rgba(255, 255, 255, 1) 0px, transparent 50%);
 }
 
@@ -22,26 +22,52 @@
   @media (max-width: 768px) {
     flex-direction: column;
   }
-}
 
-.hero_content {
-  flex: 1 1 45%;
-  min-width: 0;
-  @include flex-column-start-start;
-  gap: 1.5rem;
-  z-index: 1;
-}
+  &_title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 700;
+    color: $secondary-color;
+    line-height: 1.2;
+    @include flex-column-center-start;
 
-.hero_images {
-  flex: 1 1 50%;
-  min-width: 0;
-  position: relative;
-  // Height drives the collage canvas
-  height: clamp(320px, 55vh, 560px);
+    &_1 {
+      color: $primary-color;
+    }
+  }
 
-  @media (max-width: 768px) {
-    width: 100%;
-    height: 280px;
+  &_content {
+    flex: 1 1 45%;
+    min-width: 0;
+    @include flex-column-start-start;
+    gap: 1.5rem;
+    z-index: 1;
+
+    & .ctaBar {
+      & .ctaButton {
+        border: 1px solid $primary-color;
+        padding: 0.75rem 1.5rem;
+        color: $secondary-color;
+        background-color: $primary-color;
+
+        &:hover {
+          background-color: $primary-color-hover;
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+
+  &_images {
+    flex: 1 1 50%;
+    min-width: 0;
+    position: relative;
+    // Height drives the collage canvas
+    height: clamp(320px, 55vh, 560px);
+
+    @media (max-width: 768px) {
+      width: 100%;
+      height: 280px;
+    }
   }
 }
 

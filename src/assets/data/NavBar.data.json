@@ -2,7 +2,7 @@
   {
     "id": "1",
     "Key": "home",
-    "Value": "#",
+    "Value": "#home",
     "isActive": true,
     "isEnabled": true,
     "isExternal": false

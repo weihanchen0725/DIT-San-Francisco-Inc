@@ -16,11 +16,11 @@ const SUPPORTED_LANGUAGES = [
 
 type LanguageCode = (typeof SUPPORTED_LANGUAGES)[number]['code'];
 
-interface LanguageSwitherProps {
+interface LanguageSwitcherProps {
   styleMode?: 'row' | 'column';
 }
 
-const LanguageSwitcher = ({ styleMode = 'row' }: LanguageSwitherProps) => {
+const LanguageSwitcher = ({ styleMode = 'row' }: LanguageSwitcherProps) => {
   const translateCommon = useTranslations('Common');
   const locale = useLocale() as LanguageCode;
   const router = useRouter();

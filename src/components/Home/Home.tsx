@@ -19,24 +19,21 @@ const Home = async () => {
       <div className={homeClass.hero}>
         {/* Left — text content */}
         <div className={homeClass.hero_content}>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-navy dark:text-white tracking-tight">
+          <h1 className={homeClass.hero_title}>
             {translateHome('welcome')}{' '}
-            <span className="text-brand-yellow">{translateCompany('Name')}</span>
+            <span className={homeClass.hero_title_1}>{translateCompany('Name')}</span>
           </h1>
           <p>{translateHome('description')}</p>
 
           {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <Link
+          <div className={homeClass.ctaBar}>
+            {/* <Link
               href="/services"
               className="px-8 py-4 rounded-lg bg-brand-yellow text-brand-navy font-semibold hover:bg-brand-yellow-hover shadow-lg hover:shadow-xl transition-all duration-200"
             >
               {translateHome('our_services')}
-            </Link>
-            <Link
-              href="/contact"
-              className="px-8 py-4 rounded-lg border-2 border-brand-navy dark:border-brand-yellow text-brand-navy dark:text-brand-yellow font-semibold hover:bg-brand-navy hover:text-white dark:hover:bg-brand-yellow dark:hover:text-brand-navy transition-all duration-200"
-            >
+            </Link> */}
+            <Link href="#contact" className={homeClass.ctaButton}>
               {translateHome('contact')}
             </Link>
           </div>
@@ -45,15 +42,25 @@ const Home = async () => {
         {/* Right — image collage (scroll-driven parallax via HomeParallax) */}
         <HomeParallax>
           {/* Plane: top of the stack — flies upward on scroll */}
-          <Image src={cargoPlane} alt="Cargo Plane" className={`${homeClass.image} ${homeClass.cargoPlane}`} />
+          <Image
+            src={cargoPlane}
+            alt="Cargo Plane"
+            className={`${homeClass.image} ${homeClass.cargoPlane}`}
+          />
           {/* Golden Gate: centre backdrop — static */}
-          <Image src={goldenGate} alt="Golden Gate" className={`${homeClass.image} ${homeClass.goldenGate}`} />
+          <Image
+            src={goldenGate}
+            alt="Golden Gate"
+            className={`${homeClass.image} ${homeClass.goldenGate}`}
+          />
           {/* Ship: below the golden gate — sails downward on scroll */}
-          <Image src={cargoShip} alt="Cargo Ship" className={`${homeClass.image} ${homeClass.cargoShip}`} />
+          <Image
+            src={cargoShip}
+            alt="Cargo Ship"
+            className={`${homeClass.image} ${homeClass.cargoShip}`}
+          />
         </HomeParallax>
       </div>
-
-      
 
       {/* Features Section */}
       {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

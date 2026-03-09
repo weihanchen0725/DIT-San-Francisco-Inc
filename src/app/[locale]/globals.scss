@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'leaflet/dist/leaflet.css';
+@import '../../assets/styles/modern_reset';
 @import '../../assets/styles/variables';
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -127,4 +128,9 @@ html {
 
 .dark .leaflet-control-attribution a {
   color: #ffcc00 !important;
+}
+
+section {
+  scroll-margin-top: 7rem;
+  padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 5vw, 2rem);
 }

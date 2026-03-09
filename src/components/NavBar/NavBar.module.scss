@@ -19,6 +19,12 @@
       white-space: nowrap;
       flex: 1;
 
+      &.active {
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+
       &::after {
         content: '';
         position: absolute;

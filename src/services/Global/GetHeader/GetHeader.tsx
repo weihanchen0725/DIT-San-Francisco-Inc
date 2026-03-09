@@ -1,7 +1,7 @@
 import GetGlobalPath from '../GetGlobalPath';
+import qs from 'qs';
 
 const GetHeader = async () => {
-  const qs = require('qs');
   const params = {
     populate: {
       Header: {

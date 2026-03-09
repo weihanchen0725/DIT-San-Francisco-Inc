@@ -1,0 +1,185 @@
+/*
+ * Modern CSS Reset
+ * Purpose: establish a predictable, accessible, production-ready baseline.
+ * Notes:
+ * - Keeps UA behavior where it is beneficial.
+ * - Avoids overly destructive resets that harm accessibility.
+ * - Designed for app-wide usage before component styles.
+ */
+
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  hanging-punctuation: first last;
+  tab-size: 2;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+p,
+li,
+figcaption {
+  text-wrap: pretty;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+ul,
+ol {
+  padding-left: 1.5em;
+}
+
+img,
+picture,
+svg,
+canvas,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+img,
+picture,
+video,
+canvas {
+  height: auto;
+}
+
+svg {
+  flex-shrink: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  cursor: pointer;
+}
+
+button:disabled,
+[type='button']:disabled,
+[type='reset']:disabled,
+[type='submit']:disabled {
+  cursor: not-allowed;
+}
+
+textarea {
+  resize: vertical;
+  resize: block;
+}
+
+select {
+  background-color: transparent;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+}
+
+a:not([class]) {
+  color: currentColor;
+  text-decoration-skip-ink: auto;
+}
+
+:target {
+  scroll-margin-block: 7rem;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid currentColor;
+  opacity: 0.2;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+dialog {
+  max-width: min(100% - 2rem, 40rem);
+  max-height: calc(100% - 2rem);
+}
+
+dialog::backdrop {
+  background: rgb(0 0 0 / 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
