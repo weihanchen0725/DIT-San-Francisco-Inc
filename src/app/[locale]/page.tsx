@@ -1,4 +1,5 @@
 import About from '@/components/About/About';
+import Clients from '@/components/Clients/Clients';
 import Contact from '@/components/Contact/Contact';
 import Home from '@/components/Home/Home';
 import News from '@/components/News/News';
@@ -16,6 +17,7 @@ const HomePage = async () => {
       <Services />
       <Tools />
       <News />
+      <Clients />
       <Contact />
     </React.Fragment>
   );
