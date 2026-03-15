@@ -1,0 +1,6 @@
+@import '@/assets/styles/variables.scss';
+@import '../../../../assets/styles/mixin';
+
+.dictionary-layout{
+    @include flex-column-center-center;
+}

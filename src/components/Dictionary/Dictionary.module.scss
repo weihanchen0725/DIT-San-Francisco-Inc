@@ -1,0 +1,54 @@
+@import '@/assets/styles/variables.scss';
+@import '../../assets/styles/mixin';
+
+.dictionary-list {
+  @include flex-column-start-start;
+  gap: 1.5rem;
+
+  & h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: $secondary-color;
+    margin-top: 1rem;
+    border-bottom: 0.25rem solid $primary-color;
+    width: 100%;
+  }
+
+  & .dictionary-item{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    border: 1px solid $border-color;
+    padding: 1rem 2rem;
+
+    & h3{
+      font-size: 1rem;
+      font-weight: 700;
+      @include flex-row-start-center;
+      color: $secondary-color;
+    }
+
+    & .dictionary-category{
+      @include flex-row-end-center;
+    }
+
+    & .dictionary-definition{
+      grid-column: span 2;
+    }
+
+    & .dictionary-related-terms{
+      padding: 0;
+      @include flex-row-start-center;
+      gap: 0.25rem;
+      
+      & li{
+        @include flex-row-center-center;
+        padding: 0.125rem;
+        border: 1px solid $border-color;
+        border-radius: 0.25rem;
+        color: $secondary-color-light;
+        font-size: 0.75rem;
+      }
+    }
+  }
+}

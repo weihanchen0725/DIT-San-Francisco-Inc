@@ -1,0 +1,1916 @@
+{
+  "dictionary": {
+    "3pl": {
+      "term": "3PL (第三方物流)",
+      "category": "供應鏈管理",
+      "status": "業界通用",
+      "alternateNames": "Third-Party Logistics",
+      "definition": "將運輸、倉儲與訂單履行等物流作業外包給專業的外部供應商。",
+      "relatedTerms": ["4PL", "Freight Forwarder", "WMS"]
+    },
+    "4pl": {
+      "term": "4PL (第四方物流)",
+      "category": "供應鏈管理",
+      "status": "業界通用",
+      "alternateNames": "Fourth-Party Logistics",
+      "definition": "在網路或供應鏈層級協調管理多個物流服務及供應商的服務提供者。",
+      "relatedTerms": ["3PL", "Control Tower", "TMS"]
+    },
+    "abi": {
+      "term": "ABI (自動報關介面)",
+      "category": "海關 / 報關",
+      "status": "官方特定語境",
+      "alternateNames": "Automated Broker Interface",
+      "definition": "美國海關 (CBP) 系統介面，供報關行與申報人以電子方式傳輸海關數據。",
+      "relatedTerms": ["ACE", "Customs Broker"]
+    },
+    "accessorial_charge": {
+      "term": "Accessorial Charge (附加費 / 雜費)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "Accessorial Service",
+      "definition": "基本運費以外的服務收費，例如延滯費、包裝費或特殊處理費。",
+      "relatedTerms": ["Basic Freight", "Surcharge"]
+    },
+    "ace": {
+      "term": "ACE (自動商業環境系統)",
+      "category": "海關 / 報關",
+      "status": "官方特定語境",
+      "alternateNames": "Automated Commercial Environment",
+      "definition": "美國海關 (CBP) 處理進出口、艙單及合作政府機構數據的主要貿易平台。",
+      "relatedTerms": ["ABI", "ISF"]
+    },
+    "aci": {
+      "term": "ACI (預先商業資訊)",
+      "category": "海關 / 報關",
+      "status": "區域性用語",
+      "alternateNames": "Advance Commercial Information",
+      "definition": "加拿大的預先貨物與運輸工具申報計畫，要求在貨物抵達前進行海關與安全申報。",
+      "relatedTerms": ["ENS", "ICS2", "AMS"]
+    },
+    "acquiescence": {
+      "term": "Acquiescence (默示同意)",
+      "category": "法律與財務",
+      "status": "官方特定語境",
+      "alternateNames": "",
+      "definition": "在未提出異議的情況下接受或簽署提單，即表示對條款的默示同意。",
+      "relatedTerms": ["Protest"]
+    },
+    "active_packaging": {
+      "term": "Active Packaging (主動溫控包裝)",
+      "category": "冷鏈與醫藥",
+      "status": "業界通用",
+      "alternateNames": "Active Temperature Control",
+      "definition": "配備機械或電子系統（如壓縮機）的溫控包裝，以維持嚴格的溫度範圍。",
+      "relatedTerms": ["Cold Chain", "Data Logger"]
+    },
+    "ad_valorem": {
+      "term": "Ad Valorem (從價費率)",
+      "category": "費用與附加費",
+      "status": "官方現行",
+      "alternateNames": "According to Value",
+      "definition": "根據貨物申報價值的一定比例所收取的運費或關稅。",
+      "relatedTerms": ["Customs Valuation", "Duty"]
+    },
+    "aeo": {
+      "term": "AEO (優質企業認證)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "Authorized Economic Operator",
+      "definition": "全球認可的認證，表明該企業的供應鏈安全且符合海關規範。",
+      "relatedTerms": ["Customs Clearance"]
+    },
+    "aes": {
+      "term": "AES (自動出口系統)",
+      "category": "海關 / 報關",
+      "status": "官方特定語境",
+      "alternateNames": "Automated Export System",
+      "definition": "美國用於出口數據（包含 EEI 申報）的電子申報系統。",
+      "relatedTerms": ["EEI", "Exporter of Record"]
+    },
+    "air_waybill": {
+      "term": "Air Waybill / AWB (空運提單)",
+      "category": "空運",
+      "status": "官方現行",
+      "alternateNames": "AWB",
+      "definition": "託運人與航空公司之間的不可轉讓空運契約證明文件。",
+      "relatedTerms": ["eAWB", "HAWB", "MAWB"]
+    },
+    "all_in_rate": {
+      "term": "All-in Rate (全包運費)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "All Inclusive Rate",
+      "definition": "包含基本運費及指定標準附加費在內的單一總報價。",
+      "relatedTerms": ["Basic Freight", "Surcharge"]
+    },
+    "all_risk_insurance": {
+      "term": "All-Risk Insurance (全險 / 貨物運輸險)",
+      "category": "法律與財務",
+      "status": "業界通用",
+      "alternateNames": "Cargo Insurance",
+      "definition": "範圍最廣的貨物保險，涵蓋外來原因造成的實體損失或損壞。",
+      "relatedTerms": ["General Average", "Subrogation"]
+    },
+    "ams": {
+      "term": "AMS (自動艙單系統)",
+      "category": "海關 / 報關",
+      "status": "官方特定語境",
+      "alternateNames": "Automated Manifest System",
+      "definition": "美國海關 (CBP) 用於申報預先貨物資訊的電子艙單系統。",
+      "relatedTerms": ["ISF", "ACE", "ABI"]
+    },
+    "anti_dumping_duty": {
+      "term": "Anti-Dumping Duty (反傾銷稅)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "ADD",
+      "definition": "根據貿易救濟法規，對被認定以低於公平價值銷售的進口商品所徵收的額外關稅。",
+      "relatedTerms": ["Countervailing Duty", "Duty"]
+    },
+    "api": {
+      "term": "API (應用程式介面)",
+      "category": "物流科技",
+      "status": "業界通用",
+      "alternateNames": "Application Programming Interface",
+      "definition": "現代軟體中介，允許物流系統即時交換數據。",
+      "relatedTerms": ["EDI", "DCSA", "TMS"]
+    },
+    "arrival_notice": {
+      "term": "Arrival Notice (到貨通知)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "Arrival Advice",
+      "definition": "運送人於船舶/航班抵達前發送給受貨人的通知，詳列費用與提單資訊。",
+      "relatedTerms": ["Advice of Shipment", "ETA"]
+    },
+    "asn": {
+      "term": "ASN (預先出貨通知)",
+      "category": "物流科技",
+      "status": "業界通用",
+      "alternateNames": "Advance Ship Notice",
+      "definition": "託運人發送的 EDI 訊息，用於通知受貨人即將到來的交貨資訊。",
+      "relatedTerms": ["EDI", "WMS"]
+    },
+    "ata": {
+      "term": "ATA (實際抵達時間)",
+      "category": "縮寫",
+      "status": "業界通用",
+      "alternateNames": "Actual Time of Arrival",
+      "definition": "船舶、航班或貨物實際抵達指定地點的紀錄時間。",
+      "relatedTerms": ["ETA", "ATD", "ETD"]
+    },
+    "ata_carnet": {
+      "term": "ATA Carnet (貨物暫准通關證)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "Carnet",
+      "definition": "允許符合條件的貨物免稅暫時進口與復出口的國際海關文件。",
+      "relatedTerms": ["Customs Clearance"]
+    },
+    "atd": {
+      "term": "ATD (實際開航時間)",
+      "category": "縮寫",
+      "status": "業界通用",
+      "alternateNames": "Actual Time of Departure",
+      "definition": "船舶、航班或貨物實際離開指定地點的紀錄時間。",
+      "relatedTerms": ["ETD", "ATA", "ETA"]
+    },
+    "baf": {
+      "term": "BAF (燃油附加費)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "Bunker Adjustment Factor",
+      "definition": "運送人為反映燃油成本波動，在基本運費外加收的附加費。",
+      "relatedTerms": ["LSS", "CAF"]
+    },
+    "bank_guarantee": {
+      "term": "Bank Guarantee (銀行擔保書)",
+      "category": "法律與財務",
+      "status": "官方現行",
+      "alternateNames": "",
+      "definition": "由銀行開立以擔保義務的保證書，常用於放貨或海關業務。",
+      "relatedTerms": ["Letter of Indemnity"]
+    },
+    "bareboat_charter": {
+      "term": "Bareboat Charter (裸船租賃)",
+      "category": "海運",
+      "status": "官方現行",
+      "alternateNames": "Demise Charter",
+      "definition": "船東僅提供船舶的租船契約；租船人負責配備船員與貨物。",
+      "relatedTerms": ["Time Charter", "Voyage Charter"]
+    },
+    "basic_freight": {
+      "term": "Basic Freight (基本運費)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "Base Rate",
+      "definition": "不含任何雜費、當地費用或附加費的純運輸費用。",
+      "relatedTerms": ["All-in Rate", "Surcharge"]
+    },
+    "belly_cargo": {
+      "term": "Belly Cargo (腹艙貨物 / 客機機腹貨)",
+      "category": "空運",
+      "status": "業界通用",
+      "alternateNames": "Lower Deck Cargo",
+      "definition": "裝載於客機下層甲板（腹艙）而非全貨機的貨物。",
+      "relatedTerms": ["ULD", "Freighter"]
+    },
+    "berth_terms": {
+      "term": "Berth Terms (泊位條款 / 班輪條款)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "Liner Terms",
+      "definition": "一種報價表達方式，說明裝卸費用是否包含在泊位作業內。",
+      "relatedTerms": ["FIO", "Stevedore"]
+    },
+    "bill_of_lading": {
+      "term": "Bill of Lading / B/L (海運提單)",
+      "category": "單據 / 文件",
+      "status": "官方現行",
+      "alternateNames": "BOL, B/L",
+      "definition": "證明運輸契約與貨物收據/裝船的海運文件。",
+      "relatedTerms": ["Waybill", "Master BL", "House BL"]
+    },
+    "blank_sailing": {
+      "term": "Blank Sailing (空班 / 減班)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "Void Sailing",
+      "definition": "船公司取消預定的港口停靠或整趟航程的情況。",
+      "relatedTerms": ["Rolled Cargo", "Feeder Vessel"]
+    },
+    "blind_shipment": {
+      "term": "Blind Shipment (盲目出貨 / 三角貿易出貨)",
+      "category": "貨運承攬",
+      "status": "業界通用",
+      "alternateNames": "Blind Drop",
+      "definition": "透過第三方安排，讓供應商與收貨人互相不知曉對方身分以保護商業機密的出貨方式。",
+      "relatedTerms": ["Switch Bill of Lading", "Dropshipping"]
+    },
+    "bobtail": {
+      "term": "Bobtail (單車頭行駛)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "半掛式拖車頭在未連接拖車底盤的情況下於公路上行駛。",
+      "relatedTerms": ["Drayage", "Chassis"]
+    },
+    "bonded_warehouse": {
+      "term": "Bonded Warehouse (保稅倉庫)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "Customs Bonded Warehouse",
+      "definition": "經海關核准設立，供進口貨物在查驗及完稅前存放的設施。",
+      "relatedTerms": ["FTZ", "Customs Bond"]
+    },
+    "booking_number": {
+      "term": "Booking Number (訂艙號碼 / S/O 號碼)",
+      "category": "貨運承攬",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "分配給貨物訂艙的參考編號，用於追蹤與作業處理。",
+      "relatedTerms": ["Booking", "Shipping Instructions"]
+    },
+    "breakbulk": {
+      "term": "Breakbulk / BB (散雜貨)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "Break-bulk Cargo",
+      "definition": "因尺寸或性質無法裝櫃，以單件實體散裝運送的貨物。",
+      "relatedTerms": ["Bulk Cargo", "OOG", "Project Cargo"]
+    },
+    "bulk_cargo": {
+      "term": "Bulk Cargo (散裝貨)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "未經包裝直接裝入船艙或儲槽的貨物，如穀物、礦石或原油。",
+      "relatedTerms": ["Breakbulk", "Charter Party"]
+    },
+    "cabotage": {
+      "term": "Cabotage (沿海航行權 / 境內運輸權)",
+      "category": "倉儲與內陸運輸",
+      "status": "官方現行",
+      "alternateNames": "",
+      "definition": "外國運輸業者在同一國家內兩個地點之間進行的貨物運輸。",
+      "relatedTerms": ["Jones Act"]
+    },
+    "caf": {
+      "term": "CAF (幣值調整附加費)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "Currency Adjustment Factor",
+      "definition": "為彌補國際匯率波動對運費成本影響而加收的附加費。",
+      "relatedTerms": ["BAF", "Surcharge"]
+    },
+    "cbam": {
+      "term": "CBAM (碳邊境調整機制)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "Carbon Border Adjustment Mechanism",
+      "definition": "歐盟碳邊境機制 (2026)，要求高碳排產品進口商購買碳憑證。",
+      "relatedTerms": ["ETS"]
+    },
+    "certificate_of_origin": {
+      "term": "Certificate of Origin (原產地證明)",
+      "category": "單據 / 文件",
+      "status": "官方現行",
+      "alternateNames": "COO",
+      "definition": "證明出口貨物完全取得或製造於特定國家的文件。",
+      "relatedTerms": ["Commercial Invoice", "Preferential Origin"]
+    },
+    "cfs": {
+      "term": "CFS (併櫃貨接收站)",
+      "category": "港口與碼頭",
+      "status": "業界通用",
+      "alternateNames": "Container Freight Station",
+      "definition": "在碼頭或海關監管下，負責接收散貨並合併裝櫃或拆箱的集散站。",
+      "relatedTerms": ["CY", "LCL"]
+    },
+    "cfr": {
+      "term": "CFR (運費在內交貨)",
+      "category": "國貿條規 (Incoterms)",
+      "status": "官方現行",
+      "alternateNames": "Cost and Freight",
+      "definition": "賣方支付至目的港的成本與運費；風險於貨物裝上船時轉移。",
+      "relatedTerms": ["CIF", "CPT"]
+    },
+    "chargeable_weight": {
+      "term": "Chargeable Weight (計費重量)",
+      "category": "空運",
+      "status": "業界通用",
+      "alternateNames": "DIM",
+      "definition": "用於計算空運費用的重量，取貨物實際毛重與體積重量兩者中的較大者。",
+      "relatedTerms": ["Volumetric Weight", "Gross Weight"]
+    },
+    "chassis": {
+      "term": "Chassis (貨櫃拖車架 / 板車)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "附有車輪的框架，用於在碼頭、集散站與客戶之間透過公路運送貨櫃。",
+      "relatedTerms": ["Drayage", "Chassis Split"]
+    },
+    "chassis_split": {
+      "term": "Chassis Split (板車分離費)",
+      "category": "倉儲與內陸運輸",
+      "status": "區域性用語",
+      "alternateNames": "",
+      "definition": "因拖車架與貨櫃不在同一地點，需額外派車提取或歸還拖車架所產生的內陸費用。",
+      "relatedTerms": ["Chassis", "Drayage"]
+    },
+    "cif": {
+      "term": "CIF (運費保險費在內交貨)",
+      "category": "國貿條規 (Incoterms)",
+      "status": "官方現行",
+      "alternateNames": "Cost Insurance and Freight",
+      "definition": "賣方支付至目的港的成本、運費及最低限度的保險費。",
+      "relatedTerms": ["FOB", "CIP"]
+    },
+    "cip": {
+      "term": "CIP (運費保險費付至)",
+      "category": "國貿條規 (Incoterms)",
+      "status": "官方現行",
+      "alternateNames": "Carriage and Insurance Paid To",
+      "definition": "賣方支付運費及最高限度保險費至目的地；風險於交給第一運送人時轉移。",
+      "relatedTerms": ["CIF", "CPT"]
+    },
+    "ckd": {
+      "term": "CKD (全散裝料)",
+      "category": "汽車與製造",
+      "status": "業界通用",
+      "alternateNames": "Completely Knocked Down",
+      "definition": "一種製造/運輸方式，產品以全散件形式運送，於目的國組裝以降低關稅。",
+      "relatedTerms": ["SKD", "Milk Run"]
+    },
+    "clean_bill_of_lading": {
+      "term": "Clean Bill of Lading (清潔提單)",
+      "category": "單據 / 文件",
+      "status": "官方特定語境",
+      "alternateNames": "",
+      "definition": "提單上未明確註記包裝不良或貨物損壞狀況的提單。",
+      "relatedTerms": ["Apparent Good Order"]
+    },
+    "coc": {
+      "term": "COC (船公司自備櫃)",
+      "category": "設備",
+      "status": "業界通用",
+      "alternateNames": "Carrier-Owned Container",
+      "definition": "由運送人（船公司）擁有或控制，而非由託運人提供的貨櫃。",
+      "relatedTerms": ["SOC", "Container"]
+    },
+    "cofc": {
+      "term": "COFC (平車裝載貨櫃)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "Container On Flat Car",
+      "definition": "一種鐵路運輸方式，貨櫃不帶拖車底盤直接裝載於鐵路平車上。",
+      "relatedTerms": ["TOFC", "Intermodal", "Double Stack"]
+    },
+    "cogsa": {
+      "term": "COGSA (海運貨物運輸法)",
+      "category": "法律與法規",
+      "status": "官方特定語境",
+      "alternateNames": "Carriage of Goods by Sea Act",
+      "definition": "規範海運託運人與運送人之間權利、責任與賠償責任限制的美國法規。",
+      "relatedTerms": ["Hague Rules", "FMC"]
+    },
+    "cold_chain": {
+      "term": "Cold Chain (冷鏈)",
+      "category": "冷鏈與醫藥",
+      "status": "業界通用",
+      "alternateNames": "Temperature-Controlled Supply Chain",
+      "definition": "確保易腐貨物從產地到目的地品質與安全的不間斷溫控供應鏈。",
+      "relatedTerms": ["Reefer", "GDP", "Active Packaging"]
+    },
+    "commercial_invoice": {
+      "term": "Commercial Invoice (商業發票)",
+      "category": "單據 / 文件",
+      "status": "官方現行",
+      "alternateNames": "CI",
+      "definition": "描述銷售交易的關鍵貿易文件，海關用以核估關稅與稅捐。",
+      "relatedTerms": ["Packing List", "HS Code"]
+    },
+    "consignee": {
+      "term": "Consignee (受貨人)",
+      "category": "單據 / 文件",
+      "status": "官方特定語境",
+      "alternateNames": "",
+      "definition": "運輸文件上指定有權接收貨物的一方。",
+      "relatedTerms": ["Consignor", "Notify Party"]
+    },
+    "consignor": {
+      "term": "Consignor (託運人 / 發貨人)",
+      "category": "單據 / 文件",
+      "status": "官方特定語境",
+      "alternateNames": "Shipper",
+      "definition": "在運輸文件語境中，發送或交運貨物的一方。",
+      "relatedTerms": ["Consignee", "Exporter of Record"]
+    },
+    "consolidator": {
+      "term": "Consolidator (併箱業者)",
+      "category": "貨運承攬",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "將多位託運人的貨物合併成一票併櫃 (LCL) 貨物發運的業者。",
+      "relatedTerms": ["LCL", "NVOCC"]
+    },
+    "controlled_atmosphere": {
+      "term": "Controlled Atmosphere / CA (氣調貨櫃)",
+      "category": "農業與易腐品",
+      "status": "官方特定語境",
+      "alternateNames": "CA Container",
+      "definition": "能調節氧氣與二氧化碳濃度的特種冷凍櫃，大幅減緩水果熟成。",
+      "relatedTerms": ["Reefer", "Cold Chain"]
+    },
+    "control_tower": {
+      "term": "Control Tower (控制塔)",
+      "category": "供應鏈管理",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "集中的可視化功能，用於跨供應商與運輸模式監控與管理物流作業。",
+      "relatedTerms": ["4PL", "TMS"]
+    },
+    "corner_casting": {
+      "term": "Corner Casting (貨櫃角柱 / 角件)",
+      "category": "設備",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "貨櫃角落的強化配件，用於吊掛、固定與堆疊作業。",
+      "relatedTerms": ["Twist Locks", "Container"]
+    },
+    "countervailing_duty": {
+      "term": "Countervailing Duty (平衡稅 / 反補貼稅)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "CVD",
+      "definition": "為抵銷外國政府補貼而依據貿易救濟法規徵收的額外關稅。",
+      "relatedTerms": ["Anti-Dumping Duty", "Duty"]
+    },
+    "cpt": {
+      "term": "CPT (運費付至)",
+      "category": "國貿條規 (Incoterms)",
+      "status": "官方現行",
+      "alternateNames": "Carriage Paid To",
+      "definition": "賣方支付運至指定目的地的運費；風險於交給第一運送人時轉移。",
+      "relatedTerms": ["CIP", "CFR", "FCA"]
+    },
+    "cross_docking": {
+      "term": "Cross-Docking (越庫作業)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "將貨物從進貨拖車卸下後，幾乎不經儲存直接裝上出貨拖車的作業。",
+      "relatedTerms": ["WMS", "Consolidation"]
+    },
+    "customs_broker": {
+      "term": "Customs Broker (報關行)",
+      "category": "海關 / 報關",
+      "status": "官方特定語境",
+      "alternateNames": "Customhouse Broker",
+      "definition": "領有執照，代表貿易商準備並提交海關文件與申報的仲介機構。",
+      "relatedTerms": ["Customs Clearance", "ABI"]
+    },
+    "customs_clearance": {
+      "term": "Customs Clearance (報關 / 清關)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "Clearance",
+      "definition": "完成將貨物置於特定海關程序下所需的海關手續。",
+      "relatedTerms": ["Customs Release", "Customs Declaration"]
+    },
+    "customs_entry": {
+      "term": "Customs Entry (海關進口申報)",
+      "category": "海關 / 報關",
+      "status": "官方特定語境",
+      "alternateNames": "Entry",
+      "definition": "用於針對特定海關程序申報進口貨物的文件（主要為美國實務）。",
+      "relatedTerms": ["ACE", "Importer of Record"]
+    },
+    "customs_release": {
+      "term": "Customs Release (海關放行)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "Release of Goods",
+      "definition": "海關允許將正在清關的貨物交由相關人員處置的動作。",
+      "relatedTerms": ["Customs Clearance"]
+    },
+    "customs_valuation": {
+      "term": "Customs Valuation (海關估價)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "",
+      "definition": "為計算關稅與稅捐而決定進口貨物海關價值的程序。",
+      "relatedTerms": ["Ad Valorem", "Commercial Invoice"]
+    },
+    "cut_off_time": {
+      "term": "Cut-off Time (結關時間 / 截單時間)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "Cargo Cutoff",
+      "definition": "貨物、文件或 VGM 必須在出發前提交的最後期限。",
+      "relatedTerms": ["Booking", "ETD", "VGM"]
+    },
+    "cy": {
+      "term": "CY (貨櫃場)",
+      "category": "港口與碼頭",
+      "status": "業界通用",
+      "alternateNames": "Container Yard",
+      "definition": "接收、儲存、調度或交付整裝貨櫃 (FCL) 的碼頭區域。",
+      "relatedTerms": ["CFS", "FCL"]
+    },
+    "d2c": {
+      "term": "D2C (直接面對消費者)",
+      "category": "電子商務與零售",
+      "status": "業界通用",
+      "alternateNames": "Direct-to-Consumer",
+      "definition": "品牌繞過第三方零售商，直接將產品銷售、包裝並運送給終端消費者的模式。",
+      "relatedTerms": ["E-Commerce", "Parcel Shipping"]
+    },
+    "dap": {
+      "term": "DAP (目的地交貨)",
+      "category": "國貿條規 (Incoterms)",
+      "status": "官方現行",
+      "alternateNames": "Delivered at Place",
+      "definition": "賣方於指定目的地交貨（準備卸貨狀態）；買方負責進口報關。",
+      "relatedTerms": ["DPU", "DDP"]
+    },
+    "data_logger": {
+      "term": "Data Logger (溫度記錄器)",
+      "category": "冷鏈與醫藥",
+      "status": "業界通用",
+      "alternateNames": "Temperature Monitor",
+      "definition": "放置於貨物內的電子設備，全程連續記錄溫度與濕度。",
+      "relatedTerms": ["Cold Chain", "PTI", "Reefer"]
+    },
+    "dcsa": {
+      "term": "DCSA (數位貨櫃航運協會)",
+      "category": "物流科技",
+      "status": "業界通用",
+      "alternateNames": "Digital Container Shipping Association",
+      "definition": "由船公司主導的標準機構，推動可互通的數位航運流程（如 eBL、API）。",
+      "relatedTerms": ["eBL", "API", "EDI"]
+    },
+    "ddp": {
+      "term": "DDP (完稅後交貨)",
+      "category": "國貿條規 (Incoterms)",
+      "status": "官方現行",
+      "alternateNames": "Delivered Duty Paid",
+      "definition": "賣方承擔運至目的地的所有費用與風險，包含出口/進口報關、關稅與稅捐。",
+      "relatedTerms": ["DAP", "EXW"]
+    },
+    "deadweight_tonnage": {
+      "term": "Deadweight Tonnage (載重噸位)",
+      "category": "海運",
+      "status": "官方現行",
+      "alternateNames": "DWT",
+      "definition": "衡量船舶安全載重量的指標，不包含船舶本身的空重。",
+      "relatedTerms": ["Draft", "Payload"]
+    },
+    "demurrage": {
+      "term": "Demurrage (場內貨櫃延滯費)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "Terminal Storage",
+      "definition": "貨櫃停留在碼頭內超過免租期後所產生的費用。",
+      "relatedTerms": ["Detention", "Free Time"]
+    },
+    "denied_party_screening": {
+      "term": "Denied Party Screening (拒絕往來名單篩查)",
+      "category": "海關 / 報關",
+      "status": "業界通用",
+      "alternateNames": "Restricted Party Screening",
+      "definition": "在進行交易前，比對制裁名單以確保合規的篩查程序。",
+      "relatedTerms": ["Sanctions Screening"]
+    },
+    "detention": {
+      "term": "Detention (場外貨櫃留置費)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "Per Diem",
+      "definition": "貨櫃設備在碼頭外（如客戶廠區）停留超過免租期所產生的費用。",
+      "relatedTerms": ["Demurrage", "Free Time", "Chassis"]
+    },
+    "dim_divisor": {
+      "term": "DIM Divisor (體積重量除數)",
+      "category": "空運與包裹",
+      "status": "業界通用",
+      "alternateNames": "Dimensional Divisor",
+      "definition": "承運人制定的數學除數，用於根據包裹體積計算體積重量。",
+      "relatedTerms": ["Dimensional Weight", "Parcel Shipping"]
+    },
+    "dimensional_weight": {
+      "term": "Dimensional Weight (體積重量)",
+      "category": "空運",
+      "status": "業界通用",
+      "alternateNames": "Dim Weight, Volumetric Weight",
+      "definition": "當貨物佔用空間大於其實際重量時，用以計價的計算重量。",
+      "relatedTerms": ["Chargeable Weight"]
+    },
+    "dnl": {
+      "term": "DNL (裝船禁令)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "Do Not Load",
+      "definition": "海關發出的嚴格指令，禁止運送人將特定貨櫃裝上船舶（如 ICS2 不符）。",
+      "relatedTerms": ["ENS", "ICS2"]
+    },
+    "dock_receipt": {
+      "term": "Dock Receipt (碼頭收據)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "在碼頭簽發、確認已收到貨物並作為簽發提單依據的收據。",
+      "relatedTerms": ["Mate's Receipt"]
+    },
+    "door_to_door": {
+      "term": "Door-to-Door (門到門)",
+      "category": "物流模式",
+      "status": "業界通用",
+      "alternateNames": "House-to-House",
+      "definition": "從起運地取貨到最終目的地交貨的全程運輸服務。",
+      "relatedTerms": ["Intermodal", "DDP"]
+    },
+    "double_stack": {
+      "term": "Double Stack (雙層貨櫃列車)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "Stack Train",
+      "definition": "可堆疊兩層貨櫃的鐵路列車配置，極大化鐵路運輸容量。",
+      "relatedTerms": ["Intermodal", "COFC"]
+    },
+    "dpu": {
+      "term": "DPU (目的地卸貨後交貨)",
+      "category": "國貿條規 (Incoterms)",
+      "status": "官方現行",
+      "alternateNames": "Delivered at Place Unloaded",
+      "definition": "賣方於指定目的地交貨並卸下貨物。",
+      "relatedTerms": ["DAP", "DDP"]
+    },
+    "draft": {
+      "term": "Draft (吃水深度)",
+      "category": "海運",
+      "status": "官方現行",
+      "alternateNames": "Draught",
+      "definition": "水線到船體底部的垂直距離，決定船舶可安全航行的最低水深。",
+      "relatedTerms": ["Deadweight Tonnage"]
+    },
+    "drayage": {
+      "term": "Drayage (內陸拖運 / 拖車費)",
+      "category": "倉儲與內陸運輸",
+      "status": "區域性用語",
+      "alternateNames": "Haulage, Cartage",
+      "definition": "在港口、鐵路場站與當地設施之間進行的短距離貨櫃拖運。",
+      "relatedTerms": ["Chassis", "Chassis Split"]
+    },
+    "drop_and_hook": {
+      "term": "Drop and Hook (甩掛作業)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "Drop Trailer",
+      "definition": "司機卸下滿載的拖車並立即掛上空拖車離開的卡車運輸作業。",
+      "relatedTerms": ["FTL", "Drayage"]
+    },
+    "dropshipping": {
+      "term": "Dropshipping (直運 / 代發貨)",
+      "category": "電子商務與零售",
+      "status": "業界通用",
+      "alternateNames": "Blind Drop",
+      "definition": "零售商不備庫存，由第三方直接將商品運送給消費者的訂單履行方式。",
+      "relatedTerms": ["Blind Shipment", "3PL"]
+    },
+    "dunnage": {
+      "term": "Dunnage (墊艙物料)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "運輸過程中用於固定、支撐、分隔或保護貨物的材料。",
+      "relatedTerms": ["VGM", "Cargo Securing"]
+    },
+    "duty": {
+      "term": "Duty (關稅)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "Import Duty",
+      "definition": "根據適用的關稅法規對進口貨物徵收的海關稅費。",
+      "relatedTerms": ["Ad Valorem", "HS Code"]
+    },
+    "duty_drawback": {
+      "term": "Duty Drawback (退稅)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "",
+      "definition": "在符合條件的出口或製造計畫下，退還或減免已繳納的關稅。",
+      "relatedTerms": ["Customs Clearance", "Bonded Warehouse"]
+    },
+    "eawb": {
+      "term": "eAWB (電子空運提單)",
+      "category": "空運",
+      "status": "官方特定語境",
+      "alternateNames": "Electronic Air Waybill",
+      "definition": "取代紙本 AWB 的航空貨運電子運輸契約。",
+      "relatedTerms": ["Air Waybill (AWB)"]
+    },
+    "ebl": {
+      "term": "eBL (電子海運提單)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "Electronic Bill of Lading",
+      "definition": "透過認可的數位架構簽發及轉讓的電子形式提單。",
+      "relatedTerms": ["DCSA", "Bill of Lading (B/L)"]
+    },
+    "edi": {
+      "term": "EDI (電子資料交換)",
+      "category": "物流科技",
+      "status": "官方現行",
+      "alternateNames": "Electronic Data Interchange",
+      "definition": "以標準電子格式在電腦之間交換商業文件的系統。",
+      "relatedTerms": ["API", "DCSA"]
+    },
+    "eei": {
+      "term": "EEI (電子出口資訊)",
+      "category": "海關 / 報關",
+      "status": "官方特定語境",
+      "alternateNames": "Electronic Export Information",
+      "definition": "針對符合條件的出口貨物，透過 AES 系統提交的美國出口申報數據。",
+      "relatedTerms": ["AES", "Exporter of Record"]
+    },
+    "ens": {
+      "term": "ENS (入境摘要報關單)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "Entry Summary Declaration",
+      "definition": "貨物進入歐盟海關領域前必須提交的預先安全申報 (ICS2)。",
+      "relatedTerms": ["ICS2"]
+    },
+    "eori": {
+      "term": "EORI (經濟營運者註冊及識別號碼)",
+      "category": "海關 / 報關",
+      "status": "官方特定語境",
+      "alternateNames": "Economic Operators Registration and Identification",
+      "definition": "歐盟用於在海關程序中識別經濟營運者的註冊號碼。",
+      "relatedTerms": ["ICS2"]
+    },
+    "eta": {
+      "term": "ETA (預計抵達時間)",
+      "category": "縮寫",
+      "status": "業界通用",
+      "alternateNames": "Estimated Time of Arrival",
+      "definition": "船舶、航班或貨物預計抵達的日期與時間。",
+      "relatedTerms": ["ETD", "ATA"]
+    },
+    "etd": {
+      "term": "ETD (預計開航時間)",
+      "category": "縮寫",
+      "status": "業界通用",
+      "alternateNames": "Estimated Time of Departure",
+      "definition": "船舶、航班或貨物預計離開的日期與時間。",
+      "relatedTerms": ["ETA", "ATD"]
+    },
+    "ets": {
+      "term": "ETS (歐盟排放交易體系)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "EU Emissions Trading System",
+      "definition": "與碳定價框架 (CBAM) 相互作用的歐盟碳排放交易計畫。",
+      "relatedTerms": ["CBAM"]
+    },
+    "exw": {
+      "term": "EXW (工廠交貨)",
+      "category": "國貿條規 (Incoterms)",
+      "status": "官方現行",
+      "alternateNames": "Ex Works",
+      "definition": "賣方在其所在地交貨；買方承擔自該處起的大部分費用與風險。",
+      "relatedTerms": ["FCA", "DDP"]
+    },
+    "fak": {
+      "term": "FAK (均一運費率)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "Freight All Kinds",
+      "definition": "不區分貨物種類，按貨櫃統一計價的運費定價方式。",
+      "relatedTerms": ["Basic Freight"]
+    },
+    "fas": {
+      "term": "FAS (船邊交貨)",
+      "category": "國貿條規 (Incoterms)",
+      "status": "官方現行",
+      "alternateNames": "Free Alongside Ship",
+      "definition": "賣方將貨物運至指定裝運港的船邊交貨即完成義務。",
+      "relatedTerms": ["FOB", "CFR"]
+    },
+    "fca": {
+      "term": "FCA (貨交運送人)",
+      "category": "國貿條規 (Incoterms)",
+      "status": "官方現行",
+      "alternateNames": "Free Carrier",
+      "definition": "賣方將貨物交給買方指定的運送人或在指定地點交貨。",
+      "relatedTerms": ["EXW", "FOB", "CPT"]
+    },
+    "fcl": {
+      "term": "FCL (整櫃)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "Full Container Load",
+      "definition": "單一託運人包下整個貨櫃空間的貨運安排。",
+      "relatedTerms": ["LCL", "CY"]
+    },
+    "feeder_vessel": {
+      "term": "Feeder Vessel (支線船 / 駁船)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "航行於小港口與樞紐港/母船之間，負責轉運貨物的船舶。",
+      "relatedTerms": ["Mother Vessel", "Transshipment"]
+    },
+    "feu": {
+      "term": "FEU (40呎標準貨櫃)",
+      "category": "測量",
+      "status": "官方現行",
+      "alternateNames": "Forty-foot Equivalent Unit",
+      "definition": "以40呎長貨櫃為基礎的貨櫃容量標準單位（等於兩個 TEU）。",
+      "relatedTerms": ["TEU", "Container"]
+    },
+    "fiata_fbl": {
+      "term": "FIATA FBL (FIATA 多式聯運提單)",
+      "category": "單據 / 文件",
+      "status": "官方特定語境",
+      "alternateNames": "Negotiable FIATA Multimodal Transport B/L",
+      "definition": "FIATA 體系下的可轉讓多式聯運文件。",
+      "relatedTerms": ["FIATA FWB", "Multimodal"]
+    },
+    "fifo": {
+      "term": "FIFO (先進先出)",
+      "category": "供應鏈管理",
+      "status": "業界通用",
+      "alternateNames": "First In, First Out",
+      "definition": "最先入庫的庫存優先處理或出貨的庫存管理方法。",
+      "relatedTerms": ["WMS", "Inventory"]
+    },
+    "fio": {
+      "term": "FIO (船方不負擔裝卸費)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "Free In and Out",
+      "definition": "運費報價不包含裝卸費用的租船或海運表達方式。",
+      "relatedTerms": ["Berth Terms", "Liner Terms"]
+    },
+    "flatbed": {
+      "term": "Flatbed (平板車)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "Flatbed Trailer",
+      "definition": "無兩側與車頂的開放式卡車拖車，用於超大或形狀不規則的貨物。",
+      "relatedTerms": ["OOG", "FTL"]
+    },
+    "fmc": {
+      "term": "FMC (美國聯邦海事委員會)",
+      "category": "法律與法規",
+      "status": "官方現行",
+      "alternateNames": "Federal Maritime Commission",
+      "definition": "負責監管美國對外貿易中特定海運事務的聯邦機構。",
+      "relatedTerms": ["NVOCC", "Service Contract"]
+    },
+    "fob": {
+      "term": "FOB (船上交貨)",
+      "category": "國貿條規 (Incoterms)",
+      "status": "官方現行",
+      "alternateNames": "Free On Board",
+      "definition": "賣方在指定裝運港將貨物裝上船即完成交貨（限海運/內陸水道）。",
+      "relatedTerms": ["FCA", "CIF"]
+    },
+    "free_time": {
+      "term": "Free Time (免租期)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "在開始計算延滯費或留置費前，允許免費使用碼頭儲存或設備的天數。",
+      "relatedTerms": ["Demurrage", "Detention"]
+    },
+    "freight_forwarder": {
+      "term": "Freight Forwarder (貨運承攬業 / 海空運承攬)",
+      "category": "貨運承攬",
+      "status": "業界通用",
+      "alternateNames": "Forwarder",
+      "definition": "為託運人安排運輸及服務，並可簽發承攬業提單的物流仲介。",
+      "relatedTerms": ["NVOCC", "House Bill of Lading"]
+    },
+    "freighter": {
+      "term": "Freighter (全貨機)",
+      "category": "空運",
+      "status": "業界通用",
+      "alternateNames": "Cargo Aircraft",
+      "definition": "專門設計或改裝用於載運貨物而非乘客的飛機。",
+      "relatedTerms": ["Belly Cargo", "Air Waybill (AWB)"]
+    },
+    "ftl": {
+      "term": "FTL (整車運輸)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "Full Truckload",
+      "definition": "充分利用卡車拖車整個空間或重量限制的公路運輸。",
+      "relatedTerms": ["LTL", "Linehaul"]
+    },
+    "ftz": {
+      "term": "FTZ (自由貿易區)",
+      "category": "海關 / 報關",
+      "status": "官方特定語境",
+      "alternateNames": "Foreign-Trade Zone",
+      "definition": "享有特殊海關待遇，允許貨物儲存或加工的指定區域。",
+      "relatedTerms": ["Bonded Warehouse", "Duty Drawback"]
+    },
+    "fumigation": {
+      "term": "Fumigation (燻蒸處理)",
+      "category": "農業與易腐品",
+      "status": "官方現行",
+      "alternateNames": "",
+      "definition": "使用致命氣體消滅貨櫃內害蟲的化學處理過程。",
+      "relatedTerms": ["Phytosanitary Certificate"]
+    },
+    "gdp": {
+      "term": "GDP (優良運銷規範)",
+      "category": "冷鏈與醫藥",
+      "status": "官方現行",
+      "alternateNames": "Good Distribution Practice",
+      "definition": "為確保人體用藥品正確配送的嚴格品質保證指南。",
+      "relatedTerms": ["Cold Chain", "Pharma Logistics"]
+    },
+    "general_average": {
+      "term": "General Average (共同海損)",
+      "category": "法律與財務",
+      "status": "官方現行",
+      "alternateNames": "",
+      "definition": "海事法規定，因拯救共同危險而自願作出的特殊犧牲由各方依比例分攤。",
+      "relatedTerms": ["Marine Insurance", "Subrogation"]
+    },
+    "genset": {
+      "term": "Genset (發電機組)",
+      "category": "設備",
+      "status": "業界通用",
+      "alternateNames": "Generator Set",
+      "definition": "在缺乏固定電源時，用於為冷凍貨櫃供電的發電設備。",
+      "relatedTerms": ["Reefer", "PTI"]
+    },
+    "gri": {
+      "term": "GRI (綜合費率上漲附加費)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "General Rate Increase",
+      "definition": "運送人宣布自特定生效日期起調漲的運費附加費。",
+      "relatedTerms": ["Spot Rate", "PSS"]
+    },
+    "gross_weight": {
+      "term": "Gross Weight (毛重)",
+      "category": "測量",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "包含包裝在內的貨物總重量，但不一定包含貨櫃本身的重量。",
+      "relatedTerms": ["Net Weight", "Tare Weight", "VGM"]
+    },
+    "hawb": {
+      "term": "HAWB (承攬業空運提單 / 分提單)",
+      "category": "空運",
+      "status": "業界通用",
+      "alternateNames": "House Air Waybill",
+      "definition": "貨運承攬業者針對單一空運貨物簽發給客戶的提單。",
+      "relatedTerms": ["MAWB", "Air Waybill (AWB)"]
+    },
+    "house_bill_of_lading": {
+      "term": "House Bill of Lading / HBL (承攬業提單)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "HBL, House B/L",
+      "definition": "通常由貨運承攬業者或 NVOCC 簽發給其客戶的海運提單。",
+      "relatedTerms": ["Master Bill of Lading", "NVOCC"]
+    },
+    "hs_code": {
+      "term": "HS Code (國際商品統一分類代碼)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "Harmonized System Code",
+      "definition": "國際統一的商品海關分類命名系統。",
+      "relatedTerms": ["Tariff Classification", "Duty"]
+    },
+    "iata": {
+      "term": "IATA (國際航空運輸協會)",
+      "category": "空運",
+      "status": "官方現行",
+      "alternateNames": "",
+      "definition": "制定主要航空貨運文件與作業標準的國際航空公司協會。",
+      "relatedTerms": ["Air Waybill (AWB)", "eAWB"]
+    },
+    "ics2": {
+      "term": "ICS2 (進口控制系統2)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "Import Control System 2",
+      "definition": "歐盟用於 ENS 及安全防護申報的升級版預先貨物資訊系統 (2026年強制執行)。",
+      "relatedTerms": ["ENS", "EORI"]
+    },
+    "imdg_code": {
+      "term": "IMDG Code (國際海運危險品準則)",
+      "category": "合規與安全",
+      "status": "官方現行",
+      "alternateNames": "",
+      "definition": "規範海運危險品運輸的國際準則。",
+      "relatedTerms": ["Dangerous Goods", "VGM"]
+    },
+    "importer_of_record": {
+      "term": "Importer of Record / IOR (進口登記人)",
+      "category": "海關 / 報關",
+      "status": "官方特定語境",
+      "alternateNames": "IOR",
+      "definition": "在法律上負責進口合規、申報、關稅及稅捐的當事人。",
+      "relatedTerms": ["Exporter of Record", "Customs Broker"]
+    },
+    "incoterms": {
+      "term": "Incoterms® (國貿條規)",
+      "category": "國貿條規 (Incoterms)",
+      "status": "官方現行",
+      "alternateNames": "Incoterms® 2020",
+      "definition": "國際商會 (ICC) 制定的貿易規則，用於分配買賣雙方的交貨義務、風險與成本。",
+      "relatedTerms": ["EXW", "FCA", "FOB"]
+    },
+    "intermodal": {
+      "term": "Intermodal (多式聯運)",
+      "category": "物流模式",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "使用多種運輸方式，但貨物在運送過程中始終保持在同一個裝載單元（貨櫃）內。",
+      "relatedTerms": ["Multimodal", "Drayage"]
+    },
+    "isf": {
+      "term": "ISF (進口商安全申報 10+2)",
+      "category": "海關 / 報關",
+      "status": "官方特定語境",
+      "alternateNames": "Importer Security Filing, 10+2",
+      "definition": "美國海關法規，要求特定海運進口貨物在裝船前提交預先安全申報。",
+      "relatedTerms": ["AMS", "Importer of Record"]
+    },
+    "jit": {
+      "term": "JIT (及時生產 / 零庫存管理)",
+      "category": "供應鏈管理",
+      "status": "業界通用",
+      "alternateNames": "Just-In-Time",
+      "definition": "使進貨直接配合生產排程，從而減少倉儲成本的庫存策略。",
+      "relatedTerms": ["VMI", "3PL"]
+    },
+    "kitting": {
+      "term": "Kitting (配套包裝)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "在接獲訂單前，於倉庫將各別單一品項組裝成準備出貨的套件。",
+      "relatedTerms": ["Pick and Pack", "WMS"]
+    },
+    "known_shipper": {
+      "term": "Known Shipper (已知託運人)",
+      "category": "空運",
+      "status": "官方特定語境",
+      "alternateNames": "",
+      "definition": "經安全機構審查核可，授權將貨物交由客機運送的託運人。",
+      "relatedTerms": ["Belly Cargo", "Security"]
+    },
+    "last_mile_delivery": {
+      "term": "Last-Mile Delivery (最後一哩配送)",
+      "category": "供應鏈管理",
+      "status": "業界通用",
+      "alternateNames": "Final Mile",
+      "definition": "供應鏈的最後階段，將貨物送達終端消費者。",
+      "relatedTerms": ["Proof of Delivery", "Parcel Shipping"]
+    },
+    "lcl": {
+      "term": "LCL (併櫃)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "Less than Container Load",
+      "definition": "多位託運人的貨物合併共用一個貨櫃空間的貨運安排。",
+      "relatedTerms": ["FCL", "CFS", "Consolidation"]
+    },
+    "letter_of_credit": {
+      "term": "Letter of Credit (信用狀)",
+      "category": "法律與財務",
+      "status": "官方現行",
+      "alternateNames": "L/C, Documentary Credit",
+      "definition": "銀行出具的承諾，在符合條款與單據條件的情況下保證付款。",
+      "relatedTerms": ["Commercial Invoice", "UCP"]
+    },
+    "letter_of_indemnity": {
+      "term": "Letter of Indemnity / LOI (保證書 / 切結書)",
+      "category": "法律與財務",
+      "status": "業界通用",
+      "alternateNames": "LOI",
+      "definition": "一方承諾賠償另一方特定損失的信函，常用於無單放貨等情況。",
+      "relatedTerms": ["Bank Guarantee", "Telex Release"]
+    },
+    "linehaul": {
+      "term": "Linehaul (幹線運輸)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "Line Haul",
+      "definition": "城市或場站之間的長途貨物運輸，相對於當地取件與配送。",
+      "relatedTerms": ["FTL", "LTL"]
+    },
+    "liner_terms": {
+      "term": "Liner Terms (班輪條款)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "指示定期航線運輸中裝卸費用如何分配的表達方式。",
+      "relatedTerms": ["Berth Terms", "FIO"]
+    },
+    "lss": {
+      "term": "LSS (低硫燃油附加費)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "Low Sulphur Surcharge",
+      "definition": "運送人為回收遵守低硫燃油法規的成本所收取的附加費。",
+      "relatedTerms": ["BAF", "Surcharge"]
+    },
+    "ltl": {
+      "term": "LTL (零擔運輸)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "Less than Truckload",
+      "definition": "貨量不足以裝滿一整台拖車，需與其他貨物合併運輸的卡車運輸。",
+      "relatedTerms": ["FTL", "Consolidation"]
+    },
+    "master_bill_of_lading": {
+      "term": "Master Bill of Lading / MBL (主提單)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "MBL, Master B/L",
+      "definition": "由海運運送人簽發，涵蓋運輸航段的海運提單。",
+      "relatedTerms": ["House Bill of Lading", "VOCC"]
+    },
+    "mawb": {
+      "term": "MAWB (主空運提單)",
+      "category": "空運",
+      "status": "業界通用",
+      "alternateNames": "Master Air Waybill",
+      "definition": "由航空公司為併裝貨物簽發的空運提單。",
+      "relatedTerms": ["HAWB", "Air Waybill (AWB)"]
+    },
+    "measurement_ton": {
+      "term": "Measurement Ton (體積噸 / 尺碼噸)",
+      "category": "測量",
+      "status": "業界通用",
+      "alternateNames": "Revenue Ton, CBM Basis",
+      "definition": "通常與特定貨物體積（如立方公尺）掛鉤的運費計價基礎。",
+      "relatedTerms": ["W/M", "Chargeable Weight"]
+    },
+    "milk_run": {
+      "term": "Milk Run (循環取貨)",
+      "category": "汽車與製造",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "按固定路線從多個供應商處收取零件並送交至單一工廠的運輸服務。",
+      "relatedTerms": ["JIT", "VMI"]
+    },
+    "mother_vessel": {
+      "term": "Mother Vessel (母船)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "負責長途主幹線運輸，由支線船轉運貨物上船的大型船舶。",
+      "relatedTerms": ["Feeder Vessel", "Transshipment"]
+    },
+    "multimodal": {
+      "term": "Multimodal (多式聯運)",
+      "category": "物流模式",
+      "status": "業界通用",
+      "alternateNames": "Combined Transport",
+      "definition": "在單一契約或協調安排下，涉及一種以上運輸方式的運輸。",
+      "relatedTerms": ["Intermodal", "FIATA FBL"]
+    },
+    "net_weight": {
+      "term": "Net Weight (淨重)",
+      "category": "測量",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "貨物本身的重量，不包含包裝與運輸設備。",
+      "relatedTerms": ["Gross Weight", "Tare Weight"]
+    },
+    "notify_party": {
+      "term": "Notify Party (到貨通知人)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "運輸文件上指定，在貨物抵達或發生事件時應被通知的一方。",
+      "relatedTerms": ["Consignee", "Arrival Notice"]
+    },
+    "nvocc": {
+      "term": "NVOCC (無船公共運送人)",
+      "category": "貨運承攬",
+      "status": "官方特定語境",
+      "alternateNames": "Non-Vessel-Operating Common Carrier",
+      "definition": "自身不營運船舶，但以運送人身分簽發提單的海運仲介業者。",
+      "relatedTerms": ["Freight Forwarder", "VOCC"]
+    },
+    "omnichannel": {
+      "term": "Omnichannel (全通路物流)",
+      "category": "電子商務與零售",
+      "status": "業界通用",
+      "alternateNames": "Omni-channel Logistics",
+      "definition": "跨越線上、行動裝置與實體店面無縫整合的同步訂單履行策略。",
+      "relatedTerms": ["D2C", "Retail Logistics"]
+    },
+    "oog": {
+      "term": "OOG (超高超寬貨物)",
+      "category": "設備",
+      "status": "業界通用",
+      "alternateNames": "Out of Gauge",
+      "definition": "超出標準貨櫃尺寸，需要特殊處理的貨物或設備。",
+      "relatedTerms": ["Breakbulk", "Flat Rack"]
+    },
+    "original_bill_of_lading": {
+      "term": "Original Bill of Lading / O.B.L. (正本提單)",
+      "category": "單據 / 文件",
+      "status": "官方特定語境",
+      "alternateNames": "Original B/L, OBL",
+      "definition": "放貨時必須繳回實體單據的正本海運提單。",
+      "relatedTerms": ["Express Release", "Telex Release"]
+    },
+    "otr": {
+      "term": "OTR (長途公路運輸)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "Over-The-Road",
+      "definition": "涉及長途行駛（經常跨越州或國界）的卡車運輸。",
+      "relatedTerms": ["FTL", "Linehaul"]
+    },
+    "packing_group": {
+      "term": "Packing Group (包裝類別)",
+      "category": "危險品與化學品",
+      "status": "官方現行",
+      "alternateNames": "PG",
+      "definition": "危險品運輸中表示物質危險程度的分類指標。",
+      "relatedTerms": ["Dangerous Goods", "UN Number"]
+    },
+    "packing_list": {
+      "term": "Packing List (裝箱單)",
+      "category": "單據 / 文件",
+      "status": "官方現行",
+      "alternateNames": "Export Packing List",
+      "definition": "詳列貨物內容、包裝、重量與尺寸的運輸文件。",
+      "relatedTerms": ["Commercial Invoice", "HS Code"]
+    },
+    "parcel_shipping": {
+      "term": "Parcel Shipping (包裹寄送)",
+      "category": "空運與包裹",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "主要用於電子商務，重量輕、裝箱的單件貨物寄送。",
+      "relatedTerms": ["Last-Mile Delivery", "Zone Pricing"]
+    },
+    "passive_packaging": {
+      "term": "Passive Packaging (被動溫控包裝)",
+      "category": "冷鏈與醫藥",
+      "status": "業界通用",
+      "alternateNames": "Passive Temperature Control",
+      "definition": "使用相變材料（保冷劑、乾冰）維持溫度的保溫包裝。",
+      "relatedTerms": ["Cold Chain", "Active Packaging"]
+    },
+    "payload": {
+      "term": "Payload (有效載荷 / 載貨量)",
+      "category": "測量",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "容許的貨物載重限制，或產生運費收入的貨物負載。",
+      "relatedTerms": ["Gross Weight", "Tare Weight"]
+    },
+    "per_diem": {
+      "term": "Per Diem (貨櫃日租費)",
+      "category": "費用與附加費",
+      "status": "區域性用語",
+      "alternateNames": "",
+      "definition": "按日計算的設備使用費（在北美通常指與留置費相關的貨櫃費用）。",
+      "relatedTerms": ["Detention", "Free Time"]
+    },
+    "phytosanitary_certificate": {
+      "term": "Phytosanitary Certificate (植物檢疫證明)",
+      "category": "農業與易腐品",
+      "status": "官方現行",
+      "alternateNames": "Phyto",
+      "definition": "證明植物產品未受管制有害生物感染的官方證明。",
+      "relatedTerms": ["Fumigation"]
+    },
+    "pick_and_pack": {
+      "term": "Pick and Pack (揀貨與包裝)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "從主紙箱中揀選單一品項，並針對特定訂單進行包裝的倉儲流程。",
+      "relatedTerms": ["WMS", "3PL", "SKU"]
+    },
+    "piggyback": {
+      "term": "Piggyback (駝背運輸 / 鐵公路聯運)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "T.O.F.C.",
+      "definition": "將公路拖車裝載於特製鐵路平車上的運輸方式。",
+      "relatedTerms": ["TOFC", "Unit Train"]
+    },
+    "place_of_delivery": {
+      "term": "Place of Delivery (交貨地)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "運送人依運輸契約完成貨物交付責任的指定地點。",
+      "relatedTerms": ["Place of Receipt", "Door-to-Door"]
+    },
+    "place_of_receipt": {
+      "term": "Place of Receipt (收貨地)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "POR",
+      "definition": "當運輸範圍大於海運港口時，運送人最初接收貨物的地點。",
+      "relatedTerms": ["Place of Delivery", "POL"]
+    },
+    "pod": {
+      "term": "POD (目的港 / 交付憑證)",
+      "category": "縮寫",
+      "status": "具歧義術語",
+      "alternateNames": "Port of Discharge, Proof of Delivery",
+      "definition": "在海運中可能指目的港 (Port of Discharge)，在內陸作業中指交貨憑證 (Proof of Delivery)。",
+      "relatedTerms": ["POL", "Proof of Delivery"]
+    },
+    "pol": {
+      "term": "POL (裝運港)",
+      "category": "縮寫",
+      "status": "業界通用",
+      "alternateNames": "Port of Loading",
+      "definition": "貨物裝上出口船舶或運輸工具的港口。",
+      "relatedTerms": ["POD", "POR"]
+    },
+    "pratique_certificate": {
+      "term": "Pratique Certificate (檢疫證 / 自由交通權)",
+      "category": "合規與安全",
+      "status": "官方現行",
+      "alternateNames": "Free Pratique",
+      "definition": "港口醫療當局於船舶抵達並確認無傳染病後，核發的通行許可。",
+      "relatedTerms": ["Quarantine"]
+    },
+    "project_cargo": {
+      "term": "Project Cargo (專案貨物)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "需要專門規劃、設備與處理的大型、超重或高價值貨物。",
+      "relatedTerms": ["Breakbulk", "OOG"]
+    },
+    "proof_of_delivery": {
+      "term": "Proof of Delivery / POD (交貨憑證)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "POD",
+      "definition": "證明受貨人或收件人已收到貨物的紀錄。",
+      "relatedTerms": ["POD", "Last-Mile Delivery"]
+    },
+    "protest": {
+      "term": "Protest (海事聲明書 / 船長抗議書)",
+      "category": "法律與財務",
+      "status": "官方現行",
+      "alternateNames": "Captain's Protest",
+      "definition": "船長為免除責任，針對惡劣天氣或事件所作的聲明。",
+      "relatedTerms": ["General Average"]
+    },
+    "pss": {
+      "term": "PSS (旺季附加費)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "Peak Season Surcharge",
+      "definition": "在需求旺季期間，為彌補市場或艙位壓力而徵收的附加費。",
+      "relatedTerms": ["GRI", "Spot Rate"]
+    },
+    "pti": {
+      "term": "PTI (裝船前檢驗)",
+      "category": "設備",
+      "status": "業界通用",
+      "alternateNames": "Pre-Trip Inspection",
+      "definition": "冷凍貨櫃使用前進行的檢查與測試，以確認運作正常。",
+      "relatedTerms": ["Reefer", "Genset"]
+    },
+    "quarantine": {
+      "term": "Quarantine (檢疫)",
+      "category": "合規與安全",
+      "status": "官方現行",
+      "alternateNames": "",
+      "definition": "對船舶實施的衛生法規與隔離觀察期，直到宣告無傳染病為止。",
+      "relatedTerms": ["Pratique Certificate"]
+    },
+    "quay_rent": {
+      "term": "Quay Rent (碼頭倉租)",
+      "category": "費用與附加費",
+      "status": "區域性用語",
+      "alternateNames": "",
+      "definition": "針對留在碼頭上的貨物/貨櫃所收取的倉儲相關費用（常見於歐洲）。",
+      "relatedTerms": ["Storage", "Demurrage"]
+    },
+    "reefer": {
+      "term": "Reefer (冷凍貨櫃)",
+      "category": "設備",
+      "status": "業界通用",
+      "alternateNames": "Refrigerated Container",
+      "definition": "具有溫控功能，用於運輸易腐或對溫度敏感貨物的貨櫃。",
+      "relatedTerms": ["PTI", "Genset", "Cold Chain"]
+    },
+    "release_note": {
+      "term": "Release Note (放貨通知)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "確認貨物可被放行或領取的證明文件。",
+      "relatedTerms": ["Delivery Order", "Customs Release"]
+    },
+    "reverse_logistics": {
+      "term": "Reverse Logistics (逆向物流)",
+      "category": "供應鏈管理",
+      "status": "業界通用",
+      "alternateNames": "Returns Management",
+      "definition": "與產品逆向流動相關的作業，包括退貨、回收與翻新。",
+      "relatedTerms": ["3PL", "WMS"]
+    },
+    "rolled_cargo": {
+      "term": "Rolled Cargo (甩櫃)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "未能趕上原定航次，被延後至後續航次的貨櫃。",
+      "relatedTerms": ["Blank Sailing", "ETD"]
+    },
+    "roll_on_roll_off": {
+      "term": "Roll-On/Roll-Off (滾裝船)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "RoRo",
+      "definition": "專為輪型貨物設計，可直接駛上/駛下船舶的運輸方式。",
+      "relatedTerms": ["Breakbulk", "Project Cargo"]
+    },
+    "rules_of_origin": {
+      "term": "Rules of Origin (原產地規則)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "",
+      "definition": "用於確定貨物原產地以適用海關或優惠待遇的法律規則。",
+      "relatedTerms": ["Preferential Origin", "Certificate of Origin"]
+    },
+    "sanctions_screening": {
+      "term": "Sanctions Screening (制裁名單篩查)",
+      "category": "海關 / 報關",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "針對制裁法律與名單審查交易與當事人的合規程序。",
+      "relatedTerms": ["Denied Party Screening"]
+    },
+    "sds": {
+      "term": "SDS (安全資料表)",
+      "category": "危險品與化學品",
+      "status": "官方現行",
+      "alternateNames": "Safety Data Sheet, MSDS",
+      "definition": "提供化學品特性、危害及安全處理詳細資訊的文件。",
+      "relatedTerms": ["Dangerous Goods", "IMDG Code"]
+    },
+    "sea_waybill": {
+      "term": "Sea Waybill (海運單)",
+      "category": "單據 / 文件",
+      "status": "官方特定語境",
+      "alternateNames": "Seaway Bill",
+      "definition": "證明運輸契約與收到貨物的不可轉讓海運文件（非物權憑證）。",
+      "relatedTerms": ["Bill of Lading (B/L)", "Express Release"]
+    },
+    "seal": {
+      "term": "Seal (貨櫃封條)",
+      "category": "合規與安全",
+      "status": "官方現行",
+      "alternateNames": "Container Seal",
+      "definition": "附有編號，用於固定貨櫃並確保貨物完整性的安全裝置。",
+      "relatedTerms": ["VGM", "Customs Inspection"]
+    },
+    "service_contract": {
+      "term": "Service Contract (服務契約)",
+      "category": "海運",
+      "status": "官方特定語境",
+      "alternateNames": "",
+      "definition": "託運人與運送人之間訂定議定運費、服務與承諾的契約。",
+      "relatedTerms": ["Spot Rate", "FMC"]
+    },
+    "shipper": {
+      "term": "Shipper (託運人 / 發貨人)",
+      "category": "單據 / 文件",
+      "status": "具歧義術語",
+      "alternateNames": "",
+      "definition": "運輸文件上指明的託運人（根據語境，可能與賣方/出口商不同）。",
+      "relatedTerms": ["Consignor", "Exporter of Record"]
+    },
+    "shippers_letter_of_instruction": {
+      "term": "Shipper's Letter of Instruction / SLI (託運人指示信)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "SLI",
+      "definition": "託運人指示承攬業如何處理貨物與相關申報的文件。",
+      "relatedTerms": ["Freight Forwarder", "Booking"]
+    },
+    "shippers_load_and_count": {
+      "term": "Shipper's Load and Count (託運人自裝自計)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "SLAC, STC",
+      "definition": "註記表明貨物由託運人裝載，運送人並未核實櫃內內容物。",
+      "relatedTerms": ["Stuffing", "Bill of Lading (B/L)"]
+    },
+    "shipping_instructions": {
+      "term": "Shipping Instructions / SI (提單指示 / S/I)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "SI",
+      "definition": "提交給運送人用於簽發文件與處理運輸的貨物與文件細節。",
+      "relatedTerms": ["Booking", "Bill of Lading (B/L)"]
+    },
+    "skd": {
+      "term": "SKD (半散裝料)",
+      "category": "汽車與製造",
+      "status": "業界通用",
+      "alternateNames": "Semi Knocked Down",
+      "definition": "產品在產地部分組裝，於目的地完成最後組裝的運輸方式。",
+      "relatedTerms": ["CKD", "Manufacturing Logistics"]
+    },
+    "sku": {
+      "term": "SKU (最小存貨單位)",
+      "category": "供應鏈管理",
+      "status": "業界通用",
+      "alternateNames": "Stock Keeping Unit",
+      "definition": "用於追蹤倉庫特定庫存品項的唯一字母數字識別碼。",
+      "relatedTerms": ["WMS", "Inventory"]
+    },
+    "sla": {
+      "term": "SLA (服務級別協議)",
+      "category": "物流科技",
+      "status": "業界通用",
+      "alternateNames": "Service Level Agreement",
+      "definition": "定義預期營運指標、運輸時間與罰則的合約。",
+      "relatedTerms": ["3PL", "TMS"]
+    },
+    "smart_container": {
+      "term": "Smart Container (智慧貨櫃)",
+      "category": "物流科技",
+      "status": "業界通用",
+      "alternateNames": "IoT Container",
+      "definition": "配備物聯網設備，可即時傳輸位置與溫度數據的貨櫃。",
+      "relatedTerms": ["DCSA", "Track and Trace"]
+    },
+    "soc": {
+      "term": "SOC (託運人自備櫃)",
+      "category": "設備",
+      "status": "業界通用",
+      "alternateNames": "Shipper-Owned Container",
+      "definition": "由託運人提供而非運送人提供的貨櫃。",
+      "relatedTerms": ["COC", "Container"]
+    },
+    "soc_limit": {
+      "term": "SoC Limit (電量限制)",
+      "category": "合規與安全",
+      "status": "官方特定語境",
+      "alternateNames": "State of Charge Limit",
+      "definition": "2026年安全法規，限制特定鋰/鈉離子電池在運輸中的最高電量不得超過30%。",
+      "relatedTerms": ["Sodium-Ion Batteries", "IMDG Code"]
+    },
+    "sodium_ion_batteries": {
+      "term": "Sodium-Ion Batteries (鈉離子電池 UN 3551/3552)",
+      "category": "合規與安全",
+      "status": "官方特定語境",
+      "alternateNames": "UN 3551, UN 3552",
+      "definition": "2026年於危險品規則中新分類的電池，要求嚴格的處理架構。",
+      "relatedTerms": ["Dangerous Goods", "IMDG Code"]
+    },
+    "solas": {
+      "term": "SOLAS (海上人命安全國際公約)",
+      "category": "合規與安全",
+      "status": "官方現行",
+      "alternateNames": "International Convention for the Safety of Life at Sea",
+      "definition": "支撐主要海事安全要求（包含 VGM）的 IMO 公約。",
+      "relatedTerms": ["VGM", "IMDG Code"]
+    },
+    "spot_rate": {
+      "term": "Spot Rate (即期運費 / 單票運費)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "針對單一貨物或短期報價的運費，不受長期合約約束。",
+      "relatedTerms": ["Contract Rate", "GRI"]
+    },
+    "straight_bill_of_lading": {
+      "term": "Straight Bill of Lading (記名提單)",
+      "category": "單據 / 文件",
+      "status": "官方特定語境",
+      "alternateNames": "",
+      "definition": "開立給指定受貨人的不可轉讓提單，通常不可轉讓。",
+      "relatedTerms": ["Order Bill of Lading", "Sea Waybill"]
+    },
+    "storage": {
+      "term": "Storage (倉儲費 / 倉租)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "貨物或貨櫃停留在碼頭/倉庫超過容許期限所收取的費用。",
+      "relatedTerms": ["Demurrage", "Quay Rent"]
+    },
+    "stripping": {
+      "term": "Stripping (拆櫃 / 卸櫃)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "Devanning, Unstuffing",
+      "definition": "將貨物從貨櫃或其他運輸設備中卸出的實體作業。",
+      "relatedTerms": ["Stuffing", "CFS"]
+    },
+    "stuffing": {
+      "term": "Stuffing (裝櫃)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "Vanning",
+      "definition": "將貨物裝入貨櫃或其他運輸設備的實體作業。",
+      "relatedTerms": ["Stripping", "VGM"]
+    },
+    "subrogation": {
+      "term": "Subrogation (代位求償權)",
+      "category": "法律與財務",
+      "status": "官方現行",
+      "alternateNames": "",
+      "definition": "保險公司在理賠後，向應負責的第三方追討損失的法定權利。",
+      "relatedTerms": ["All-Risk Insurance", "General Average"]
+    },
+    "surcharge": {
+      "term": "Surcharge (附加費)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "在基本運費之上，為回收特定成本或條件而加收的費用。",
+      "relatedTerms": ["BAF", "CAF", "PSS"]
+    },
+    "switch_bill_of_lading": {
+      "term": "Switch Bill of Lading (轉換提單)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "在受控情況下簽發的替代提單，用以反映修改後的商業資訊。",
+      "relatedTerms": ["Bill of Lading (B/L)", "Blind Shipment"]
+    },
+    "tare_weight": {
+      "term": "Tare Weight (皮重)",
+      "category": "測量",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "裝入貨物前，空貨櫃、棧板或包裝材料本身的重量。",
+      "relatedTerms": ["Gross Weight", "Net Weight", "VGM"]
+    },
+    "tariff": {
+      "term": "Tariff (運費表 / 稅則)",
+      "category": "費用與附加費",
+      "status": "官方特定語境",
+      "alternateNames": "",
+      "definition": "公布的運輸費率、費用與規則表，或指海關稅則。",
+      "relatedTerms": ["Service Contract", "Duty"]
+    },
+    "tariff_classification": {
+      "term": "Tariff Classification (稅則號別分類)",
+      "category": "海關 / 報關",
+      "status": "官方現行",
+      "alternateNames": "",
+      "definition": "使用相關術語 (HS) 將貨物歸類於適用關稅表的過程。",
+      "relatedTerms": ["HS Code", "Duty"]
+    },
+    "telex_release": {
+      "term": "Telex Release (電放)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "Surrendered B/L",
+      "definition": "運送人授權在未出示正本紙本提單的情況下放貨（提單已繳回）。",
+      "relatedTerms": ["Express Release", "Original Bill of Lading"]
+    },
+    "terminal_handling_charge": {
+      "term": "Terminal Handling Charge / THC (碼頭裝卸費)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "THC",
+      "definition": "在碼頭處理貨櫃或貨物所收取的費用。",
+      "relatedTerms": ["Wharfage", "Demurrage"]
+    },
+    "teu": {
+      "term": "TEU (20呎標準貨櫃)",
+      "category": "測量",
+      "status": "官方現行",
+      "alternateNames": "Twenty-foot Equivalent Unit",
+      "definition": "以20呎長貨櫃為基礎的貨櫃容量標準測量單位。",
+      "relatedTerms": ["FEU", "Container"]
+    },
+    "through_bill_of_lading": {
+      "term": "Through Bill of Lading (聯運提單)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "涵蓋超過一個航段或運輸模式，直至最終目的地的提單。",
+      "relatedTerms": ["Place of Delivery", "Multimodal"]
+    },
+    "through_rate": {
+      "term": "Through Rate (全程運費)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "涵蓋從起運地到最終目的地（跨越一個或多個航段）的單一運費。",
+      "relatedTerms": ["Door-to-Door", "Multimodal"]
+    },
+    "time_charter": {
+      "term": "Time Charter (論時租船)",
+      "category": "海運",
+      "status": "官方現行",
+      "alternateNames": "",
+      "definition": "按特定時間租用船舶的安排；船東提供船舶與船員。",
+      "relatedTerms": ["Bareboat Charter", "Voyage Charter"]
+    },
+    "tms": {
+      "term": "TMS (運輸管理系統)",
+      "category": "物流科技",
+      "status": "業界通用",
+      "alternateNames": "Transportation Management System",
+      "definition": "用於規劃、預訂、執行與監控運輸作業及運費的軟體。",
+      "relatedTerms": ["WMS", "API"]
+    },
+    "tofc": {
+      "term": "TOFC (平車裝載拖車)",
+      "category": "倉儲與內陸運輸",
+      "status": "業界通用",
+      "alternateNames": "Trailer On Flat Car, Piggyback",
+      "definition": "將公路卡車拖車直接裝載於鐵路平車上的鐵路運輸方式。",
+      "relatedTerms": ["COFC", "Piggyback", "Intermodal"]
+    },
+    "track_and_trace": {
+      "term": "Track and Trace (追蹤與查詢)",
+      "category": "物流科技",
+      "status": "業界通用",
+      "alternateNames": "Tracking",
+      "definition": "確定特定物品或貨櫃在供應鏈中目前與過去位置的過程。",
+      "relatedTerms": ["API", "Smart Container"]
+    },
+    "transshipment": {
+      "term": "Transshipment (轉運)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "貨物在前往目的地途中，從一艘船或運送人轉移至另一艘。",
+      "relatedTerms": ["Feeder Vessel", "Mother Vessel"]
+    },
+    "twist_locks": {
+      "term": "Twist Locks (扭鎖)",
+      "category": "設備",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "用於將貨櫃固定在車架、鐵路平車、船舶或堆疊時的機械鎖定裝置。",
+      "relatedTerms": ["Corner Casting", "Container"]
+    },
+    "uld": {
+      "term": "ULD (航空貨運板箱)",
+      "category": "空運",
+      "status": "官方現行",
+      "alternateNames": "Unit Load Device",
+      "definition": "標準化的航空棧板或貨櫃，用於在飛機上裝載及固定貨物。",
+      "relatedTerms": ["Air Freight", "Chargeable Weight"]
+    },
+    "un_number": {
+      "term": "UN Number (聯合國編號)",
+      "category": "危險品與化學品",
+      "status": "官方現行",
+      "alternateNames": "",
+      "definition": "聯合國分配的四位數字，用於在國際運輸中識別危險物質。",
+      "relatedTerms": ["Dangerous Goods", "Packing Group"]
+    },
+    "vgm": {
+      "term": "VGM (貨櫃總重驗證)",
+      "category": "合規與安全",
+      "status": "官方現行",
+      "alternateNames": "Verified Gross Mass",
+      "definition": "SOLAS 法規要求在裝船前必須驗證的整裝貨櫃總重量。",
+      "relatedTerms": ["SOLAS", "Gross Weight"]
+    },
+    "vmi": {
+      "term": "VMI (供應商管理庫存)",
+      "category": "汽車與製造",
+      "status": "業界通用",
+      "alternateNames": "Vendor Managed Inventory",
+      "definition": "由供應商負責管理與補充買方設施庫存的模式。",
+      "relatedTerms": ["JIT", "WMS"]
+    },
+    "vocc": {
+      "term": "VOCC (有船公共運送人)",
+      "category": "海運",
+      "status": "業界通用",
+      "alternateNames": "Vessel-Operating Common Carrier",
+      "definition": "實際營運船舶並提供海運服務的運送人。",
+      "relatedTerms": ["NVOCC", "Service Contract"]
+    },
+    "volumetric_weight": {
+      "term": "Volumetric Weight (體積重量)",
+      "category": "空運",
+      "status": "業界通用",
+      "alternateNames": "Volume Weight",
+      "definition": "根據貨物尺寸計算出的重量，用於空運計費。",
+      "relatedTerms": ["Dimensional Weight", "Chargeable Weight"]
+    },
+    "voyage_charter": {
+      "term": "Voyage Charter (程租船 / 論次租船)",
+      "category": "海運",
+      "status": "官方現行",
+      "alternateNames": "",
+      "definition": "為特定航次或貨物運輸而租用船舶的租船安排。",
+      "relatedTerms": ["Time Charter", "Bareboat Charter"]
+    },
+    "wm": {
+      "term": "W/M (重量或體積)",
+      "category": "費用與附加費",
+      "status": "業界通用",
+      "alternateNames": "Weight or Measure",
+      "definition": "一種運費計價基礎，取貨物重量或體積中產生較高運費者計價。",
+      "relatedTerms": ["Measurement Ton", "Chargeable Weight"]
+    },
+    "warehouse_receipt": {
+      "term": "Warehouse Receipt (倉單 / 倉儲收據)",
+      "category": "單據 / 文件",
+      "status": "業界通用",
+      "alternateNames": "",
+      "definition": "由倉庫簽發的收據，確認已依據明定條款接收指定貨物入庫儲存。",
+      "relatedTerms": ["FIATA FWR", "WMS"]
+    },
+    "waybill": {
+      "term": "Waybill (運單)",
+      "category": "單據 / 文件",
+      "status": "具歧義術語",
+      "alternateNames": "WB",
+      "definition": "非物權憑證的出貨文件通用術語（應註明為海運單或空運提單）。",
+      "relatedTerms": ["Sea Waybill", "Air Waybill (AWB)"]
+    },
+    "wharfage": {
+      "term": "Wharfage (碼頭使用費)",
+      "category": "費用與附加費",
+      "status": "區域性用語",
+      "alternateNames": "",
+      "definition": "針對在碼頭或岸壁區域處理的貨物或貨櫃所收取的港口/碼頭費用。",
+      "relatedTerms": ["THC", "Quay Rent"]
+    },
+    "wms": {
+      "term": "WMS (倉儲管理系統)",
+      "category": "物流科技",
+      "status": "業界通用",
+      "alternateNames": "Warehouse Management System",
+      "definition": "用於管理倉庫庫存、儲位、勞動力及訂單履行作業的軟體。",
+      "relatedTerms": ["TMS", "3PL"]
+    },
+    "zone_pricing": {
+      "term": "Zone Pricing (分區計價)",
+      "category": "空運與包裹",
+      "status": "業界通用",
+      "alternateNames": "Zone Rate",
+      "definition": "根據起運地與目的地之間的地理距離（區域）計算運費的定價系統。",
+      "relatedTerms": ["DIM Divisor", "Parcel Shipping"]
+    }
+  }
+}

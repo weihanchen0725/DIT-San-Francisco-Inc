@@ -1,0 +1,1916 @@
+{
+  "dictionary": {
+    "3pl": {
+      "term": "3PL",
+      "category": "Supply Chain Management",
+      "status": "Common Industry Usage",
+      "alternateNames": "Third-Party Logistics",
+      "definition": "Outsourcing transportation, warehousing, and fulfillment operations to a specialized provider.",
+      "relatedTerms": ["4PL", "Freight Forwarder", "WMS"]
+    },
+    "4pl": {
+      "term": "4PL",
+      "category": "Supply Chain Management",
+      "status": "Common Industry Usage",
+      "alternateNames": "Fourth-Party Logistics",
+      "definition": "A provider that orchestrates multiple logistics services and providers at a network or supply-chain level.",
+      "relatedTerms": ["3PL", "Control Tower", "TMS"]
+    },
+    "abi": {
+      "term": "ABI",
+      "category": "Customs & Compliance",
+      "status": "Official Context-Limited",
+      "alternateNames": "Automated Broker Interface",
+      "definition": "The U.S. CBP system interface used by brokers and filers to transmit customs data electronically.",
+      "relatedTerms": ["ACE", "Customs Broker"]
+    },
+    "accessorial_charge": {
+      "term": "Accessorial Charge",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "Accessorial Service",
+      "definition": "A charge for a service beyond the base transportation service, such as detention, packing, or special handling.",
+      "relatedTerms": ["Basic Freight", "Surcharge"]
+    },
+    "ace": {
+      "term": "ACE",
+      "category": "Customs & Compliance",
+      "status": "Official Context-Limited",
+      "alternateNames": "Automated Commercial Environment",
+      "definition": "The main U.S. CBP trade-processing platform for import, export, manifest, and partner-government data.",
+      "relatedTerms": ["ABI", "ISF"]
+    },
+    "aci": {
+      "term": "ACI",
+      "category": "Customs & Compliance",
+      "status": "Regional Usage",
+      "alternateNames": "Advance Commercial Information",
+      "definition": "Canada’s advance cargo and conveyance reporting program for customs and security filing before arrival.",
+      "relatedTerms": ["ENS", "ICS2", "AMS"]
+    },
+    "acquiescence": {
+      "term": "Acquiescence",
+      "category": "Legal & Finance",
+      "status": "Official Context-Limited",
+      "alternateNames": "",
+      "definition": "When a bill of lading is accepted or signed without protest, giving silent consent to terms.",
+      "relatedTerms": ["Protest"]
+    },
+    "active_packaging": {
+      "term": "Active Packaging",
+      "category": "Cold Chain & Pharma",
+      "status": "Common Industry Usage",
+      "alternateNames": "Active Temperature Control",
+      "definition": "Temperature-controlled packaging equipped with mechanical/electronic systems to maintain strict temperature ranges.",
+      "relatedTerms": ["Cold Chain", "Data Logger"]
+    },
+    "ad_valorem": {
+      "term": "Ad Valorem",
+      "category": "Charges & Fees",
+      "status": "Official Current",
+      "alternateNames": "According to Value",
+      "definition": "A freight rate or customs duty charged as a percentage of the declared value of the goods.",
+      "relatedTerms": ["Customs Valuation", "Duty"]
+    },
+    "aeo": {
+      "term": "AEO",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "Authorized Economic Operator",
+      "definition": "A globally recognized certification indicating a company's supply chain is secure and customs-compliant.",
+      "relatedTerms": ["Customs Clearance"]
+    },
+    "aes": {
+      "term": "AES",
+      "category": "Customs & Compliance",
+      "status": "Official Context-Limited",
+      "alternateNames": "Automated Export System",
+      "definition": "The U.S. electronic filing system used for export data, including EEI filings.",
+      "relatedTerms": ["EEI", "Exporter of Record"]
+    },
+    "air_waybill": {
+      "term": "Air Waybill (AWB)",
+      "category": "Air Freight",
+      "status": "Official Current",
+      "alternateNames": "AWB",
+      "definition": "The non-negotiable air transport document that evidences the contract of carriage between shipper and airline.",
+      "relatedTerms": ["eAWB", "HAWB", "MAWB"]
+    },
+    "all_in_rate": {
+      "term": "All-in Rate",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "All Inclusive Rate",
+      "definition": "A quoted freight rate that bundles the base rate and specified standard surcharges into one price.",
+      "relatedTerms": ["Basic Freight", "Surcharge"]
+    },
+    "all_risk_insurance": {
+      "term": "All-Risk Insurance",
+      "category": "Legal & Finance",
+      "status": "Common Industry Usage",
+      "alternateNames": "Cargo Insurance",
+      "definition": "The broadest form of freight insurance, covering physical loss or damage from external causes.",
+      "relatedTerms": ["General Average", "Subrogation"]
+    },
+    "ams": {
+      "term": "AMS",
+      "category": "Customs & Compliance",
+      "status": "Official Context-Limited",
+      "alternateNames": "Automated Manifest System",
+      "definition": "The U.S. CBP electronic manifest and cargo-reporting system used for advance cargo information.",
+      "relatedTerms": ["ISF", "ACE", "ABI"]
+    },
+    "anti_dumping_duty": {
+      "term": "Anti-Dumping Duty",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "ADD",
+      "definition": "An additional duty imposed on imports deemed to be sold below fair value under trade-remedy law.",
+      "relatedTerms": ["Countervailing Duty", "Duty"]
+    },
+    "api": {
+      "term": "API",
+      "category": "Logistics Technology",
+      "status": "Common Industry Usage",
+      "alternateNames": "Application Programming Interface",
+      "definition": "The modern software interface allowing logistics systems to exchange live data instantly.",
+      "relatedTerms": ["EDI", "DCSA", "TMS"]
+    },
+    "arrival_notice": {
+      "term": "Arrival Notice",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "Arrival Advice",
+      "definition": "Advice sent by carrier to consignee prior to vessel/flight arrival, detailing charges and B/L info.",
+      "relatedTerms": ["Advice of Shipment", "ETA"]
+    },
+    "asn": {
+      "term": "ASN",
+      "category": "Logistics Technology",
+      "status": "Common Industry Usage",
+      "alternateNames": "Advance Ship Notice",
+      "definition": "An EDI message sent by the shipper to notify the consignee of pending deliveries.",
+      "relatedTerms": ["EDI", "WMS"]
+    },
+    "ata": {
+      "term": "ATA",
+      "category": "Abbreviations",
+      "status": "Common Industry Usage",
+      "alternateNames": "Actual Time of Arrival",
+      "definition": "The actual recorded time at which a vessel, flight, or shipment arrives at a specified location.",
+      "relatedTerms": ["ETA", "ATD", "ETD"]
+    },
+    "ata_carnet": {
+      "term": "ATA Carnet",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "Carnet",
+      "definition": "An international customs document allowing temporary import and re-export of eligible goods without normal duties.",
+      "relatedTerms": ["Customs Clearance"]
+    },
+    "atd": {
+      "term": "ATD",
+      "category": "Abbreviations",
+      "status": "Common Industry Usage",
+      "alternateNames": "Actual Time of Departure",
+      "definition": "The actual recorded time at which a vessel, flight, or shipment departs from a specified location.",
+      "relatedTerms": ["ETD", "ATA", "ETA"]
+    },
+    "baf": {
+      "term": "BAF",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "Bunker Adjustment Factor",
+      "definition": "A fuel-related surcharge used to adjust freight charges in response to bunker cost changes.",
+      "relatedTerms": ["LSS", "CAF"]
+    },
+    "bank_guarantee": {
+      "term": "Bank Guarantee",
+      "category": "Legal & Finance",
+      "status": "Official Current",
+      "alternateNames": "",
+      "definition": "A guarantee issued by a bank to secure an obligation, often used in cargo release or customs contexts.",
+      "relatedTerms": ["Letter of Indemnity"]
+    },
+    "bareboat_charter": {
+      "term": "Bareboat Charter",
+      "category": "Maritime & Ocean",
+      "status": "Official Current",
+      "alternateNames": "Demise Charter",
+      "definition": "A charter party where the shipowner provides the vessel only; charterer provides crew and cargo.",
+      "relatedTerms": ["Time Charter", "Voyage Charter"]
+    },
+    "basic_freight": {
+      "term": "Basic Freight",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "Base Rate",
+      "definition": "The core transportation charge before adding surcharges, local charges, or accessorial fees.",
+      "relatedTerms": ["All-in Rate", "Surcharge"]
+    },
+    "belly_cargo": {
+      "term": "Belly Cargo",
+      "category": "Air Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "Lower Deck Cargo",
+      "definition": "Freight accommodated in the lower deck (belly) of a passenger aircraft rather than a dedicated freighter.",
+      "relatedTerms": ["ULD", "Freighter"]
+    },
+    "berth_terms": {
+      "term": "Berth Terms",
+      "category": "Maritime & Ocean",
+      "status": "Common Industry Usage",
+      "alternateNames": "Liner Terms",
+      "definition": "A pricing expression describing whether loading and/or discharge costs are included at berth level.",
+      "relatedTerms": ["FIO", "Stevedore"]
+    },
+    "bill_of_lading": {
+      "term": "Bill of Lading (B/L)",
+      "category": "Documents",
+      "status": "Official Current",
+      "alternateNames": "BOL, B/L",
+      "definition": "A sea-carriage document evidencing the contract of carriage and receipt/loading of goods.",
+      "relatedTerms": ["Waybill", "Master BL", "House BL"]
+    },
+    "blank_sailing": {
+      "term": "Blank Sailing",
+      "category": "Ocean Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "Void Sailing",
+      "definition": "The cancellation of a scheduled sailing or port call by an ocean carrier.",
+      "relatedTerms": ["Rolled Cargo", "Feeder Vessel"]
+    },
+    "blind_shipment": {
+      "term": "Blind Shipment",
+      "category": "Freight Forwarding",
+      "status": "Common Industry Usage",
+      "alternateNames": "Blind Drop",
+      "definition": "A shipment where the supplier and receiver are kept unaware of each other to protect business interests.",
+      "relatedTerms": ["Switch Bill of Lading", "Dropshipping"]
+    },
+    "bobtail": {
+      "term": "Bobtail",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "A semi-tractor operating over the highway without a trailer attached.",
+      "relatedTerms": ["Drayage", "Chassis"]
+    },
+    "bonded_warehouse": {
+      "term": "Bonded Warehouse",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "Customs Bonded Warehouse",
+      "definition": "A facility authorized by customs to store goods pending customs inspection and duty payment.",
+      "relatedTerms": ["FTZ", "Customs Bond"]
+    },
+    "booking_number": {
+      "term": "Booking Number",
+      "category": "Freight Forwarding",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "The reference number assigned to a cargo booking for tracking and operational processing.",
+      "relatedTerms": ["Booking", "Shipping Instructions"]
+    },
+    "breakbulk": {
+      "term": "Breakbulk",
+      "category": "Ocean Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "Break-bulk Cargo",
+      "definition": "Cargo shipped as individual pieces rather than in containers or bulk form.",
+      "relatedTerms": ["Bulk Cargo", "OOG", "Project Cargo"]
+    },
+    "bulk_cargo": {
+      "term": "Bulk Cargo",
+      "category": "Ocean Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "Unpackaged cargo loaded directly into a vessel hold or tank, such as grain, ore, or oil.",
+      "relatedTerms": ["Breakbulk", "Charter Party"]
+    },
+    "cabotage": {
+      "term": "Cabotage",
+      "category": "Maritime & Inland",
+      "status": "Official Current",
+      "alternateNames": "",
+      "definition": "The transport of goods between two points in the same country by a foreign operator.",
+      "relatedTerms": ["Jones Act"]
+    },
+    "caf": {
+      "term": "CAF",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "Currency Adjustment Factor",
+      "definition": "A surcharge used to offset currency exchange fluctuations affecting freight costs.",
+      "relatedTerms": ["BAF", "Surcharge"]
+    },
+    "cbam": {
+      "term": "CBAM",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "Carbon Border Adjustment Mechanism",
+      "definition": "The EU carbon border mechanism (2026) requiring importers of carbon-intensive goods to purchase certificates.",
+      "relatedTerms": ["ETS"]
+    },
+    "certificate_of_origin": {
+      "term": "Certificate of Origin",
+      "category": "Documents",
+      "status": "Official Current",
+      "alternateNames": "COO",
+      "definition": "Document certifying the country where the goods were wholly obtained or produced.",
+      "relatedTerms": ["Commercial Invoice", "Preferential Origin"]
+    },
+    "cfs": {
+      "term": "CFS",
+      "category": "Ports & Terminals",
+      "status": "Common Industry Usage",
+      "alternateNames": "Container Freight Station",
+      "definition": "A facility used to consolidate or deconsolidate LCL cargo under terminal or customs control.",
+      "relatedTerms": ["CY", "LCL"]
+    },
+    "cfr": {
+      "term": "CFR",
+      "category": "Incoterms",
+      "status": "Official Current",
+      "alternateNames": "Cost and Freight",
+      "definition": "Seller pays costs and freight to destination port; risk transfers when loaded on vessel.",
+      "relatedTerms": ["CIF", "CPT"]
+    },
+    "chargeable_weight": {
+      "term": "Chargeable Weight",
+      "category": "Air Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "DIM",
+      "definition": "The weight used to calculate air freight charges, being the greater of actual gross weight and volumetric weight.",
+      "relatedTerms": ["Volumetric Weight", "Gross Weight"]
+    },
+    "chassis": {
+      "term": "Chassis",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "A wheeled frame used to move containers by road between terminals, depots, and customer locations.",
+      "relatedTerms": ["Drayage", "Chassis Split"]
+    },
+    "chassis_split": {
+      "term": "Chassis Split",
+      "category": "Warehousing & Inland",
+      "status": "Regional Usage",
+      "alternateNames": "",
+      "definition": "An inland move requiring separate trips to obtain or return a chassis apart from the container pickup/drop-off.",
+      "relatedTerms": ["Chassis", "Drayage"]
+    },
+    "cif": {
+      "term": "CIF",
+      "category": "Incoterms",
+      "status": "Official Current",
+      "alternateNames": "Cost Insurance and Freight",
+      "definition": "Seller pays costs, freight, and minimum insurance to destination port.",
+      "relatedTerms": ["FOB", "CIP"]
+    },
+    "cip": {
+      "term": "CIP",
+      "category": "Incoterms",
+      "status": "Official Current",
+      "alternateNames": "Carriage and Insurance Paid To",
+      "definition": "Seller pays carriage and maximum insurance to destination; risk transfers to first carrier.",
+      "relatedTerms": ["CIF", "CPT"]
+    },
+    "ckd": {
+      "term": "CKD",
+      "category": "Automotive & Manufacturing",
+      "status": "Common Industry Usage",
+      "alternateNames": "Completely Knocked Down",
+      "definition": "A manufacturing method where a product is shipped in parts and assembled entirely at destination.",
+      "relatedTerms": ["SKD", "Milk Run"]
+    },
+    "clean_bill_of_lading": {
+      "term": "Clean Bill of Lading",
+      "category": "Documents",
+      "status": "Official Context-Limited",
+      "alternateNames": "",
+      "definition": "A bill of lading showing no clauses that expressly declare defective packaging or damaged condition.",
+      "relatedTerms": ["Apparent Good Order"]
+    },
+    "coc": {
+      "term": "COC",
+      "category": "Equipment",
+      "status": "Common Industry Usage",
+      "alternateNames": "Carrier-Owned Container",
+      "definition": "A container owned or controlled by the carrier rather than supplied by the shipper.",
+      "relatedTerms": ["SOC", "Container"]
+    },
+    "cofc": {
+      "term": "COFC",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "Container On Flat Car",
+      "definition": "A rail transport method where a container is loaded directly onto a flatcar without its chassis.",
+      "relatedTerms": ["TOFC", "Intermodal", "Double Stack"]
+    },
+    "cogsa": {
+      "term": "COGSA",
+      "category": "Legal & Regulatory",
+      "status": "Official Context-Limited",
+      "alternateNames": "Carriage of Goods by Sea Act",
+      "definition": "The U.S. statute governing the liability limits between shippers and carriers of ocean freight.",
+      "relatedTerms": ["Hague Rules", "FMC"]
+    },
+    "cold_chain": {
+      "term": "Cold Chain",
+      "category": "Cold Chain & Pharma",
+      "status": "Common Industry Usage",
+      "alternateNames": "Temperature-Controlled Supply Chain",
+      "definition": "An unbroken, temperature-controlled supply chain ensuring the quality of perishable goods.",
+      "relatedTerms": ["Reefer", "GDP", "Active Packaging"]
+    },
+    "commercial_invoice": {
+      "term": "Commercial Invoice",
+      "category": "Documents",
+      "status": "Official Current",
+      "alternateNames": "CI",
+      "definition": "A key trade document describing the sale transaction, used by customs to assess duties and taxes.",
+      "relatedTerms": ["Packing List", "HS Code"]
+    },
+    "consignee": {
+      "term": "Consignee",
+      "category": "Documents",
+      "status": "Official Context-Limited",
+      "alternateNames": "",
+      "definition": "The party named in the transport document as the one entitled to receive the goods.",
+      "relatedTerms": ["Consignor", "Notify Party"]
+    },
+    "consignor": {
+      "term": "Consignor",
+      "category": "Documents",
+      "status": "Official Context-Limited",
+      "alternateNames": "Shipper",
+      "definition": "The party that sends or dispatches the goods in a transport-document context.",
+      "relatedTerms": ["Consignee", "Exporter of Record"]
+    },
+    "consolidator": {
+      "term": "Consolidator",
+      "category": "Freight Forwarding",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "A party that combines cargo from multiple shippers into a consolidated LCL shipment.",
+      "relatedTerms": ["LCL", "NVOCC"]
+    },
+    "controlled_atmosphere": {
+      "term": "Controlled Atmosphere (CA)",
+      "category": "Agriculture & Perishables",
+      "status": "Official Context-Limited",
+      "alternateNames": "CA Container",
+      "definition": "A specialized reefer container that regulates oxygen/CO2 levels to slow the ripening of fruit.",
+      "relatedTerms": ["Reefer", "Cold Chain"]
+    },
+    "control_tower": {
+      "term": "Control Tower",
+      "category": "Supply Chain Management",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "A centralized visibility function used to monitor logistics operations across providers and modes.",
+      "relatedTerms": ["4PL", "TMS"]
+    },
+    "corner_casting": {
+      "term": "Corner Casting",
+      "category": "Equipment",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "The reinforced fitting at a container corner used for lifting, securing, and stacking operations.",
+      "relatedTerms": ["Twist Locks", "Container"]
+    },
+    "countervailing_duty": {
+      "term": "Countervailing Duty",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "CVD",
+      "definition": "An additional duty imposed to offset certain foreign subsidies under trade-remedy law.",
+      "relatedTerms": ["Anti-Dumping Duty", "Duty"]
+    },
+    "cpt": {
+      "term": "CPT",
+      "category": "Incoterms",
+      "status": "Official Current",
+      "alternateNames": "Carriage Paid To",
+      "definition": "Seller pays carriage to the named destination; risk transfers when handed to first carrier.",
+      "relatedTerms": ["CIP", "CFR", "FCA"]
+    },
+    "cross_docking": {
+      "term": "Cross-Docking",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "Unloading materials from an incoming trailer and immediately loading them outbound with minimal storage.",
+      "relatedTerms": ["WMS", "Consolidation"]
+    },
+    "customs_broker": {
+      "term": "Customs Broker",
+      "category": "Customs & Compliance",
+      "status": "Official Context-Limited",
+      "alternateNames": "Customhouse Broker",
+      "definition": "A licensed intermediary that prepares and submits customs documents on behalf of traders.",
+      "relatedTerms": ["Customs Clearance", "ABI"]
+    },
+    "customs_clearance": {
+      "term": "Customs Clearance",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "Clearance",
+      "definition": "The accomplishment of the customs formalities necessary to place goods under a customs procedure.",
+      "relatedTerms": ["Customs Release", "Customs Declaration"]
+    },
+    "customs_entry": {
+      "term": "Customs Entry",
+      "category": "Customs & Compliance",
+      "status": "Official Context-Limited",
+      "alternateNames": "Entry",
+      "definition": "A customs filing used to declare imported goods for a specific procedure (U.S. practice).",
+      "relatedTerms": ["ACE", "Importer of Record"]
+    },
+    "customs_release": {
+      "term": "Customs Release",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "Release of Goods",
+      "definition": "The customs action permitting goods to be placed at the disposal of the persons concerned.",
+      "relatedTerms": ["Customs Clearance"]
+    },
+    "customs_valuation": {
+      "term": "Customs Valuation",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "",
+      "definition": "The determination of the customs value of imported goods for duty and tax purposes.",
+      "relatedTerms": ["Ad Valorem", "Commercial Invoice"]
+    },
+    "cut_off_time": {
+      "term": "Cut-off Time",
+      "category": "Ocean Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "Cargo Cutoff",
+      "definition": "The latest time by which cargo, documents, or VGM must be submitted before departure.",
+      "relatedTerms": ["Booking", "ETD", "VGM"]
+    },
+    "cy": {
+      "term": "CY",
+      "category": "Ports & Terminals",
+      "status": "Common Industry Usage",
+      "alternateNames": "Container Yard",
+      "definition": "The terminal area where full containers are received, stored, marshalled, or delivered.",
+      "relatedTerms": ["CFS", "FCL"]
+    },
+    "d2c": {
+      "term": "D2C",
+      "category": "E-Commerce & Retail",
+      "status": "Common Industry Usage",
+      "alternateNames": "Direct-to-Consumer",
+      "definition": "A model where brands sell, pack, and ship products directly to the end customer.",
+      "relatedTerms": ["E-Commerce", "Parcel Shipping"]
+    },
+    "dap": {
+      "term": "DAP",
+      "category": "Incoterms",
+      "status": "Official Current",
+      "alternateNames": "Delivered at Place",
+      "definition": "Seller delivers at the named destination ready for unloading; buyer handles import formalities.",
+      "relatedTerms": ["DPU", "DDP"]
+    },
+    "data_logger": {
+      "term": "Data Logger",
+      "category": "Cold Chain & Pharma",
+      "status": "Common Industry Usage",
+      "alternateNames": "Temperature Monitor",
+      "definition": "An electronic device placed inside a shipment to continuously record temperature and humidity.",
+      "relatedTerms": ["Cold Chain", "PTI", "Reefer"]
+    },
+    "dcsa": {
+      "term": "DCSA",
+      "category": "Logistics Technology",
+      "status": "Common Industry Usage",
+      "alternateNames": "Digital Container Shipping Association",
+      "definition": "The carrier-led standards body supporting interoperable digital shipping processes (eBL, APIs).",
+      "relatedTerms": ["eBL", "API", "EDI"]
+    },
+    "ddp": {
+      "term": "DDP",
+      "category": "Incoterms",
+      "status": "Official Current",
+      "alternateNames": "Delivered Duty Paid",
+      "definition": "Seller delivers to the named destination and handles export/import formalities, duties, and taxes.",
+      "relatedTerms": ["DAP", "EXW"]
+    },
+    "deadweight_tonnage": {
+      "term": "Deadweight Tonnage",
+      "category": "Maritime & Ocean",
+      "status": "Official Current",
+      "alternateNames": "DWT",
+      "definition": "A measure of how much weight a ship can safely carry, excluding the empty weight of the ship itself.",
+      "relatedTerms": ["Draft", "Payload"]
+    },
+    "demurrage": {
+      "term": "Demurrage",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "Terminal Storage",
+      "definition": "A charge that accrues when a container remains in the terminal beyond the allowed free time.",
+      "relatedTerms": ["Detention", "Free Time"]
+    },
+    "denied_party_screening": {
+      "term": "Denied Party Screening",
+      "category": "Customs & Compliance",
+      "status": "Common Industry Usage",
+      "alternateNames": "Restricted Party Screening",
+      "definition": "The compliance process of screening parties against sanctions lists before doing business.",
+      "relatedTerms": ["Sanctions Screening"]
+    },
+    "detention": {
+      "term": "Detention",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "Per Diem",
+      "definition": "A charge that accrues when container equipment is kept outside the terminal beyond free time.",
+      "relatedTerms": ["Demurrage", "Free Time", "Chassis"]
+    },
+    "dim_divisor": {
+      "term": "DIM Divisor",
+      "category": "Air Freight & Parcel",
+      "status": "Common Industry Usage",
+      "alternateNames": "Dimensional Divisor",
+      "definition": "A mathematical number established by carriers to calculate dimensional weight based on volume.",
+      "relatedTerms": ["Dimensional Weight", "Parcel Shipping"]
+    },
+    "dimensional_weight": {
+      "term": "Dimensional Weight",
+      "category": "Air Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "Dim Weight, Volumetric Weight",
+      "definition": "A calculated weight based on shipment dimensions used in rating cargo when space usage exceeds actual weight.",
+      "relatedTerms": ["Chargeable Weight"]
+    },
+    "dnl": {
+      "term": "DNL",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "Do Not Load",
+      "definition": "A strict customs directive prohibiting a carrier from loading a specific container onto a vessel.",
+      "relatedTerms": ["ENS", "ICS2"]
+    },
+    "dock_receipt": {
+      "term": "Dock Receipt",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "A receipt issued at the terminal acknowledging cargo receipt before B/L issuance.",
+      "relatedTerms": ["Mate's Receipt"]
+    },
+    "door_to_door": {
+      "term": "Door-to-Door",
+      "category": "Logistics Models",
+      "status": "Common Industry Usage",
+      "alternateNames": "House-to-House",
+      "definition": "A transport service covering origin pickup through final destination delivery.",
+      "relatedTerms": ["Intermodal", "DDP"]
+    },
+    "double_stack": {
+      "term": "Double Stack",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "Stack Train",
+      "definition": "A train configured to carry two layers of intermodal containers.",
+      "relatedTerms": ["Intermodal", "COFC"]
+    },
+    "dpu": {
+      "term": "DPU",
+      "category": "Incoterms",
+      "status": "Official Current",
+      "alternateNames": "Delivered at Place Unloaded",
+      "definition": "Seller delivers and unloads the goods at the named destination.",
+      "relatedTerms": ["DAP", "DDP"]
+    },
+    "draft": {
+      "term": "Draft",
+      "category": "Maritime & Ocean",
+      "status": "Official Current",
+      "alternateNames": "Draught",
+      "definition": "The vertical distance between the waterline and the hull bottom, determining navigable depth.",
+      "relatedTerms": ["Deadweight Tonnage"]
+    },
+    "drayage": {
+      "term": "Drayage",
+      "category": "Warehousing & Inland",
+      "status": "Regional Usage",
+      "alternateNames": "Haulage, Cartage",
+      "definition": "The short-distance movement of containers, typically between port, rail ramp, and local facilities.",
+      "relatedTerms": ["Chassis", "Chassis Split"]
+    },
+    "drop_and_hook": {
+      "term": "Drop and Hook",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "Drop Trailer",
+      "definition": "A trucking operation where a driver drops off a full trailer and hooks up an empty one to leave.",
+      "relatedTerms": ["FTL", "Drayage"]
+    },
+    "dropshipping": {
+      "term": "Dropshipping",
+      "category": "E-Commerce & Retail",
+      "status": "Common Industry Usage",
+      "alternateNames": "Blind Drop",
+      "definition": "A retail fulfillment method where a store purchases items from a third party who ships directly to the consumer.",
+      "relatedTerms": ["Blind Shipment", "3PL"]
+    },
+    "dunnage": {
+      "term": "Dunnage",
+      "category": "Ocean Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "Material used to secure, brace, separate, or protect cargo during transport.",
+      "relatedTerms": ["VGM", "Cargo Securing"]
+    },
+    "duty": {
+      "term": "Duty",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "Import Duty",
+      "definition": "A customs charge imposed on imported goods under the applicable tariff rules.",
+      "relatedTerms": ["Ad Valorem", "HS Code"]
+    },
+    "duty_drawback": {
+      "term": "Duty Drawback",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "",
+      "definition": "A refund or remission of duties under a qualifying export or manufacturing program.",
+      "relatedTerms": ["Customs Clearance", "Bonded Warehouse"]
+    },
+    "eawb": {
+      "term": "eAWB",
+      "category": "Air Freight",
+      "status": "Official Context-Limited",
+      "alternateNames": "Electronic Air Waybill",
+      "definition": "The electronic contract of carriage used in air cargo instead of a paper AWB.",
+      "relatedTerms": ["Air Waybill (AWB)"]
+    },
+    "ebl": {
+      "term": "eBL",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "Electronic Bill of Lading",
+      "definition": "A bill of lading issued and transferred in electronic form through a recognized digital framework.",
+      "relatedTerms": ["DCSA", "Bill of Lading (B/L)"]
+    },
+    "edi": {
+      "term": "EDI",
+      "category": "Logistics Technology",
+      "status": "Official Current",
+      "alternateNames": "Electronic Data Interchange",
+      "definition": "The structured computer-to-computer exchange of business documents in a standardized format.",
+      "relatedTerms": ["API", "DCSA"]
+    },
+    "eei": {
+      "term": "EEI",
+      "category": "Customs & Compliance",
+      "status": "Official Context-Limited",
+      "alternateNames": "Electronic Export Information",
+      "definition": "The U.S. export filing data submitted through AES for qualifying shipments.",
+      "relatedTerms": ["AES", "Exporter of Record"]
+    },
+    "ens": {
+      "term": "ENS",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "Entry Summary Declaration",
+      "definition": "The EU pre-arrival safety and security filing submitted before goods enter the customs territory (ICS2).",
+      "relatedTerms": ["ICS2"]
+    },
+    "eori": {
+      "term": "EORI",
+      "category": "Customs & Compliance",
+      "status": "Official Context-Limited",
+      "alternateNames": "Economic Operators Registration and Identification",
+      "definition": "The EU registration number used to identify economic operators in customs procedures.",
+      "relatedTerms": ["ICS2"]
+    },
+    "eta": {
+      "term": "ETA",
+      "category": "Abbreviations",
+      "status": "Common Industry Usage",
+      "alternateNames": "Estimated Time of Arrival",
+      "definition": "The estimated date and time a shipment, vessel, or flight is expected to arrive.",
+      "relatedTerms": ["ETD", "ATA"]
+    },
+    "etd": {
+      "term": "ETD",
+      "category": "Abbreviations",
+      "status": "Common Industry Usage",
+      "alternateNames": "Estimated Time of Departure",
+      "definition": "The estimated date and time a shipment, vessel, or flight is expected to depart.",
+      "relatedTerms": ["ETA", "ATD"]
+    },
+    "ets": {
+      "term": "ETS",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "EU Emissions Trading System",
+      "definition": "The EU emissions trading scheme interacting with the carbon-pricing framework (CBAM).",
+      "relatedTerms": ["CBAM"]
+    },
+    "exw": {
+      "term": "EXW",
+      "category": "Incoterms",
+      "status": "Official Current",
+      "alternateNames": "Ex Works",
+      "definition": "Seller makes the goods available at its premises; buyer bears most onward costs and risks.",
+      "relatedTerms": ["FCA", "DDP"]
+    },
+    "fak": {
+      "term": "FAK",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "Freight All Kinds",
+      "definition": "A freight-pricing method under which a container is rated without differentiating cargo types.",
+      "relatedTerms": ["Basic Freight"]
+    },
+    "fas": {
+      "term": "FAS",
+      "category": "Incoterms",
+      "status": "Official Current",
+      "alternateNames": "Free Alongside Ship",
+      "definition": "Seller delivers when the goods are placed alongside the vessel at the named port of shipment.",
+      "relatedTerms": ["FOB", "CFR"]
+    },
+    "fca": {
+      "term": "FCA",
+      "category": "Incoterms",
+      "status": "Official Current",
+      "alternateNames": "Free Carrier",
+      "definition": "Seller delivers to the carrier or other person nominated by the buyer at the agreed place.",
+      "relatedTerms": ["EXW", "FOB", "CPT"]
+    },
+    "fcl": {
+      "term": "FCL",
+      "category": "Ocean Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "Full Container Load",
+      "definition": "A shipment arrangement where one shipper books the full use of a container.",
+      "relatedTerms": ["LCL", "CY"]
+    },
+    "feeder_vessel": {
+      "term": "Feeder Vessel",
+      "category": "Ocean Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "A vessel used to move cargo between smaller ports and larger hub ports/mother vessels.",
+      "relatedTerms": ["Mother Vessel", "Transshipment"]
+    },
+    "feu": {
+      "term": "FEU",
+      "category": "Measurement",
+      "status": "Official Current",
+      "alternateNames": "Forty-foot Equivalent Unit",
+      "definition": "A standard measure of container capacity based on a 40-foot-long container (two TEUs).",
+      "relatedTerms": ["TEU", "Container"]
+    },
+    "fiata_fbl": {
+      "term": "FIATA FBL",
+      "category": "Documents",
+      "status": "Official Context-Limited",
+      "alternateNames": "Negotiable FIATA Multimodal Transport B/L",
+      "definition": "The FIATA negotiable multimodal transport document.",
+      "relatedTerms": ["FIATA FWB", "Multimodal"]
+    },
+    "fifo": {
+      "term": "FIFO",
+      "category": "Supply Chain Management",
+      "status": "Common Industry Usage",
+      "alternateNames": "First In, First Out",
+      "definition": "An inventory management method where the oldest stock is processed or shipped first.",
+      "relatedTerms": ["WMS", "Inventory"]
+    },
+    "fio": {
+      "term": "FIO",
+      "category": "Maritime & Ocean",
+      "status": "Common Industry Usage",
+      "alternateNames": "Free In and Out",
+      "definition": "A charter expression indicating that loading and discharge costs are excluded from the freight rate.",
+      "relatedTerms": ["Berth Terms", "Liner Terms"]
+    },
+    "flatbed": {
+      "term": "Flatbed",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "Flatbed Trailer",
+      "definition": "An open truck trailer with no sides/roof, used for oversized or awkwardly shaped cargo.",
+      "relatedTerms": ["OOG", "FTL"]
+    },
+    "fmc": {
+      "term": "FMC",
+      "category": "Legal & Regulatory",
+      "status": "Official Current",
+      "alternateNames": "Federal Maritime Commission",
+      "definition": "The U.S. federal agency regulating certain aspects of ocean transportation in foreign commerce.",
+      "relatedTerms": ["NVOCC", "Service Contract"]
+    },
+    "fob": {
+      "term": "FOB",
+      "category": "Incoterms",
+      "status": "Official Current",
+      "alternateNames": "Free On Board",
+      "definition": "Seller delivers when goods are on board the vessel at the named port of shipment (sea/inland waterway).",
+      "relatedTerms": ["FCA", "CIF"]
+    },
+    "free_time": {
+      "term": "Free Time",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "Days allowed for terminal storage or equipment use before demurrage or detention starts to accrue.",
+      "relatedTerms": ["Demurrage", "Detention"]
+    },
+    "freight_forwarder": {
+      "term": "Freight Forwarder",
+      "category": "Freight Forwarding",
+      "status": "Common Industry Usage",
+      "alternateNames": "Forwarder",
+      "definition": "A logistics intermediary that arranges transport/services for shippers and may issue house documents.",
+      "relatedTerms": ["NVOCC", "House Bill of Lading"]
+    },
+    "freighter": {
+      "term": "Freighter",
+      "category": "Air Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "Cargo Aircraft",
+      "definition": "An aircraft designed or converted specifically for the carriage of cargo.",
+      "relatedTerms": ["Belly Cargo", "Air Waybill (AWB)"]
+    },
+    "ftl": {
+      "term": "FTL",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "Full Truckload",
+      "definition": "A highway shipment that utilizes the entire space or weight capacity of a truck trailer.",
+      "relatedTerms": ["LTL", "Linehaul"]
+    },
+    "ftz": {
+      "term": "FTZ",
+      "category": "Customs & Compliance",
+      "status": "Official Context-Limited",
+      "alternateNames": "Foreign-Trade Zone",
+      "definition": "A designated zone with special customs treatment where goods may be stored or processed.",
+      "relatedTerms": ["Bonded Warehouse", "Duty Drawback"]
+    },
+    "fumigation": {
+      "term": "Fumigation",
+      "category": "Agriculture & Perishables",
+      "status": "Official Current",
+      "alternateNames": "",
+      "definition": "A chemical treatment process using a lethal gas to eradicate pests within a container.",
+      "relatedTerms": ["Phytosanitary Certificate"]
+    },
+    "gdp": {
+      "term": "GDP",
+      "category": "Cold Chain & Pharma",
+      "status": "Official Current",
+      "alternateNames": "Good Distribution Practice",
+      "definition": "Strict quality warranty guidelines for the proper distribution of medicinal products.",
+      "relatedTerms": ["Cold Chain", "Pharma Logistics"]
+    },
+    "general_average": {
+      "term": "General Average",
+      "category": "Legal & Finance",
+      "status": "Official Current",
+      "alternateNames": "",
+      "definition": "A maritime principle where extraordinary sacrifice intentionally made for common safety is shared proportionally.",
+      "relatedTerms": ["Marine Insurance", "Subrogation"]
+    },
+    "genset": {
+      "term": "Genset",
+      "category": "Equipment",
+      "status": "Common Industry Usage",
+      "alternateNames": "Generator Set",
+      "definition": "A generator unit used to power a refrigerated container when fixed power is unavailable.",
+      "relatedTerms": ["Reefer", "PTI"]
+    },
+    "gri": {
+      "term": "GRI",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "General Rate Increase",
+      "definition": "A carrier-announced increase to freight rates applicable from a stated effective date.",
+      "relatedTerms": ["Spot Rate", "PSS"]
+    },
+    "gross_weight": {
+      "term": "Gross Weight",
+      "category": "Measurement",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "The total weight of the goods including packaging, but not necessarily the container itself.",
+      "relatedTerms": ["Net Weight", "Tare Weight", "VGM"]
+    },
+    "hawb": {
+      "term": "HAWB",
+      "category": "Air Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "House Air Waybill",
+      "definition": "The air waybill issued by a freight forwarder to its customer for an air shipment.",
+      "relatedTerms": ["MAWB", "Air Waybill (AWB)"]
+    },
+    "house_bill_of_lading": {
+      "term": "House Bill of Lading",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "HBL, House B/L",
+      "definition": "A bill of lading typically issued by a freight forwarder or NVOCC to its customer.",
+      "relatedTerms": ["Master Bill of Lading", "NVOCC"]
+    },
+    "hs_code": {
+      "term": "HS Code",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "Harmonized System Code",
+      "definition": "The internationally harmonized goods-classification nomenclature for customs.",
+      "relatedTerms": ["Tariff Classification", "Duty"]
+    },
+    "iata": {
+      "term": "IATA",
+      "category": "Air Freight",
+      "status": "Official Current",
+      "alternateNames": "",
+      "definition": "The International Air Transport Association, setting standards for major air cargo documentation.",
+      "relatedTerms": ["Air Waybill (AWB)", "eAWB"]
+    },
+    "ics2": {
+      "term": "ICS2",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "Import Control System 2",
+      "definition": "The EU advance cargo information system used for ENS and safety/security filing (2026 enforcement).",
+      "relatedTerms": ["ENS", "EORI"]
+    },
+    "imdg_code": {
+      "term": "IMDG Code",
+      "category": "Compliance & Safety",
+      "status": "Official Current",
+      "alternateNames": "",
+      "definition": "The International Maritime Dangerous Goods Code governing transport of dangerous goods by sea.",
+      "relatedTerms": ["Dangerous Goods", "VGM"]
+    },
+    "importer_of_record": {
+      "term": "Importer of Record",
+      "category": "Customs & Compliance",
+      "status": "Official Context-Limited",
+      "alternateNames": "IOR",
+      "definition": "The party legally responsible for import compliance, declarations, duties, and taxes.",
+      "relatedTerms": ["Exporter of Record", "Customs Broker"]
+    },
+    "incoterms": {
+      "term": "Incoterms®",
+      "category": "Incoterms",
+      "status": "Official Current",
+      "alternateNames": "Incoterms® 2020",
+      "definition": "The ICC trade rules used to allocate delivery obligations, risk transfer, and costs between seller and buyer.",
+      "relatedTerms": ["EXW", "FCA", "FOB"]
+    },
+    "intermodal": {
+      "term": "Intermodal",
+      "category": "Logistics Models",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "Transport using more than one mode while the cargo remains in the same loading unit (container).",
+      "relatedTerms": ["Multimodal", "Drayage"]
+    },
+    "isf": {
+      "term": "ISF",
+      "category": "Customs & Compliance",
+      "status": "Official Context-Limited",
+      "alternateNames": "Importer Security Filing, 10+2",
+      "definition": "The U.S. advance security filing required for specified ocean imports before loading.",
+      "relatedTerms": ["AMS", "Importer of Record"]
+    },
+    "jit": {
+      "term": "JIT",
+      "category": "Supply Chain Management",
+      "status": "Common Industry Usage",
+      "alternateNames": "Just-In-Time",
+      "definition": "An inventory strategy aligning incoming freight directly with production schedules to reduce warehousing.",
+      "relatedTerms": ["VMI", "3PL"]
+    },
+    "kitting": {
+      "term": "Kitting",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "Warehouse assembly of individual, separate items into ready-to-ship sets/kits before being ordered.",
+      "relatedTerms": ["Pick and Pack", "WMS"]
+    },
+    "known_shipper": {
+      "term": "Known Shipper",
+      "category": "Air Freight",
+      "status": "Official Context-Limited",
+      "alternateNames": "",
+      "definition": "A shipper vetted by security agencies authorized to tender cargo for transport on passenger aircraft.",
+      "relatedTerms": ["Belly Cargo", "Security"]
+    },
+    "last_mile_delivery": {
+      "term": "Last-Mile Delivery",
+      "category": "Supply Chain Management",
+      "status": "Common Industry Usage",
+      "alternateNames": "Final Mile",
+      "definition": "The final leg of a supply chain where goods are delivered to the end consumer.",
+      "relatedTerms": ["Proof of Delivery", "Parcel Shipping"]
+    },
+    "lcl": {
+      "term": "LCL",
+      "category": "Ocean Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "Less than Container Load",
+      "definition": "An arrangement where cargo from multiple shippers shares container space.",
+      "relatedTerms": ["FCL", "CFS", "Consolidation"]
+    },
+    "letter_of_credit": {
+      "term": "Letter of Credit",
+      "category": "Legal & Finance",
+      "status": "Official Current",
+      "alternateNames": "L/C, Documentary Credit",
+      "definition": "A bank undertaking to honor payment subject to compliance with terms and documentary conditions.",
+      "relatedTerms": ["Commercial Invoice", "UCP"]
+    },
+    "letter_of_indemnity": {
+      "term": "Letter of Indemnity",
+      "category": "Legal & Finance",
+      "status": "Common Industry Usage",
+      "alternateNames": "LOI",
+      "definition": "A letter by which one party agrees to indemnify another against specified loss, used in cargo release.",
+      "relatedTerms": ["Bank Guarantee", "Telex Release"]
+    },
+    "linehaul": {
+      "term": "Linehaul",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "Line Haul",
+      "definition": "The movement of freight between distant cities or terminals, as opposed to local pickup and delivery.",
+      "relatedTerms": ["FTL", "LTL"]
+    },
+    "liner_terms": {
+      "term": "Liner Terms",
+      "category": "Maritime & Ocean",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "A carriage expression indicating how loading and discharge costs are allocated in liner shipping.",
+      "relatedTerms": ["Berth Terms", "FIO"]
+    },
+    "lss": {
+      "term": "LSS",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "Low Sulphur Surcharge",
+      "definition": "A surcharge used by carriers to recover costs associated with low-sulphur fuel compliance.",
+      "relatedTerms": ["BAF", "Surcharge"]
+    },
+    "ltl": {
+      "term": "LTL",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "Less than Truckload",
+      "definition": "A trucking shipment that does not require a full trailer, consolidated with other shipments.",
+      "relatedTerms": ["FTL", "Consolidation"]
+    },
+    "master_bill_of_lading": {
+      "term": "Master Bill of Lading",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "MBL, Master B/L",
+      "definition": "The bill of lading issued by the ocean carrier for the carrier-facing leg of a shipment.",
+      "relatedTerms": ["House Bill of Lading", "VOCC"]
+    },
+    "mawb": {
+      "term": "MAWB",
+      "category": "Air Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "Master Air Waybill",
+      "definition": "The air waybill issued by the airline for the consolidated shipment.",
+      "relatedTerms": ["HAWB", "Air Waybill (AWB)"]
+    },
+    "measurement_ton": {
+      "term": "Measurement Ton",
+      "category": "Measurement",
+      "status": "Common Industry Usage",
+      "alternateNames": "Revenue Ton, CBM Basis",
+      "definition": "A freight-rating basis commonly tied to a specified measure of cargo volume (e.g., cubic meter).",
+      "relatedTerms": ["W/M", "Chargeable Weight"]
+    },
+    "milk_run": {
+      "term": "Milk Run",
+      "category": "Automotive & Manufacturing",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "A routed transport service that picks up parts from multiple suppliers and delivers to a single plant.",
+      "relatedTerms": ["JIT", "VMI"]
+    },
+    "mother_vessel": {
+      "term": "Mother Vessel",
+      "category": "Ocean Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "The mainline vessel onto which cargo is transferred from feeder services for the long-haul leg.",
+      "relatedTerms": ["Feeder Vessel", "Transshipment"]
+    },
+    "multimodal": {
+      "term": "Multimodal",
+      "category": "Logistics Models",
+      "status": "Common Industry Usage",
+      "alternateNames": "Combined Transport",
+      "definition": "Transport involving more than one mode under one contract or coordinating arrangement.",
+      "relatedTerms": ["Intermodal", "FIATA FBL"]
+    },
+    "net_weight": {
+      "term": "Net Weight",
+      "category": "Measurement",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "The weight of the goods themselves excluding packaging and transport equipment.",
+      "relatedTerms": ["Gross Weight", "Tare Weight"]
+    },
+    "notify_party": {
+      "term": "Notify Party",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "The party to be notified of cargo arrival or shipment events, as named in the transport document.",
+      "relatedTerms": ["Consignee", "Arrival Notice"]
+    },
+    "nvocc": {
+      "term": "NVOCC",
+      "category": "Freight Forwarding",
+      "status": "Official Context-Limited",
+      "alternateNames": "Non-Vessel-Operating Common Carrier",
+      "definition": "An ocean transport intermediary issuing its own house bill without operating the vessel.",
+      "relatedTerms": ["Freight Forwarder", "VOCC"]
+    },
+    "omnichannel": {
+      "term": "Omnichannel",
+      "category": "E-Commerce & Retail",
+      "status": "Common Industry Usage",
+      "alternateNames": "Omni-channel Logistics",
+      "definition": "A synchronized fulfillment strategy across online, mobile, and brick-and-mortar platforms.",
+      "relatedTerms": ["D2C", "Retail Logistics"]
+    },
+    "oog": {
+      "term": "OOG",
+      "category": "Equipment",
+      "status": "Common Industry Usage",
+      "alternateNames": "Out of Gauge",
+      "definition": "Cargo or equipment that exceeds standard container dimensions and requires special handling.",
+      "relatedTerms": ["Breakbulk", "Flat Rack"]
+    },
+    "original_bill_of_lading": {
+      "term": "Original Bill of Lading",
+      "category": "Documents",
+      "status": "Official Context-Limited",
+      "alternateNames": "Original B/L, OBL",
+      "definition": "An original form of bill of lading used where surrender of the document is required for release.",
+      "relatedTerms": ["Express Release", "Telex Release"]
+    },
+    "otr": {
+      "term": "OTR",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "Over-The-Road",
+      "definition": "Long-haul trucking that involves transporting freight over long distances.",
+      "relatedTerms": ["FTL", "Linehaul"]
+    },
+    "packing_group": {
+      "term": "Packing Group",
+      "category": "Hazmat & Chemicals",
+      "status": "Official Current",
+      "alternateNames": "PG",
+      "definition": "A classification used in dangerous goods transport indicating the degree of danger a substance presents.",
+      "relatedTerms": ["Dangerous Goods", "UN Number"]
+    },
+    "packing_list": {
+      "term": "Packing List",
+      "category": "Documents",
+      "status": "Official Current",
+      "alternateNames": "Export Packing List",
+      "definition": "A shipment document that itemizes the contents, packaging, weights, and measurements of goods.",
+      "relatedTerms": ["Commercial Invoice", "HS Code"]
+    },
+    "parcel_shipping": {
+      "term": "Parcel Shipping",
+      "category": "Air Freight & Parcel",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "The shipping of lightweight, boxed individual shipments, heavily utilized in e-commerce.",
+      "relatedTerms": ["Last-Mile Delivery", "Zone Pricing"]
+    },
+    "passive_packaging": {
+      "term": "Passive Packaging",
+      "category": "Cold Chain & Pharma",
+      "status": "Common Industry Usage",
+      "alternateNames": "Passive Temperature Control",
+      "definition": "Insulated packaging that uses phase change materials (gel packs, dry ice) to maintain temperature.",
+      "relatedTerms": ["Cold Chain", "Active Packaging"]
+    },
+    "payload": {
+      "term": "Payload",
+      "category": "Measurement",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "The allowable cargo-carrying weight or the revenue-producing cargo load.",
+      "relatedTerms": ["Gross Weight", "Tare Weight"]
+    },
+    "per_diem": {
+      "term": "Per Diem",
+      "category": "Charges & Fees",
+      "status": "Regional Usage",
+      "alternateNames": "",
+      "definition": "A per-day equipment-use charge (often North American practice for detention-related container charges).",
+      "relatedTerms": ["Detention", "Free Time"]
+    },
+    "phytosanitary_certificate": {
+      "term": "Phytosanitary Certificate",
+      "category": "Agriculture & Perishables",
+      "status": "Official Current",
+      "alternateNames": "Phyto",
+      "definition": "Document certifying that plant products are free from regulated pests.",
+      "relatedTerms": ["Fumigation"]
+    },
+    "pick_and_pack": {
+      "term": "Pick and Pack",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "A warehouse process where individual items are picked from master cartons and packed for specific orders.",
+      "relatedTerms": ["WMS", "3PL", "SKU"]
+    },
+    "piggyback": {
+      "term": "Piggyback",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "T.O.F.C.",
+      "definition": "The transportation of highway trailers on specially equipped railcars.",
+      "relatedTerms": ["TOFC", "Unit Train"]
+    },
+    "place_of_delivery": {
+      "term": "Place of Delivery",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "The named location where the carrier’s contracted responsibility to deliver the goods ends.",
+      "relatedTerms": ["Place of Receipt", "Door-to-Door"]
+    },
+    "place_of_receipt": {
+      "term": "Place of Receipt",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "POR",
+      "definition": "The location where the carrier first receives the goods when carriage covers more than the ocean port.",
+      "relatedTerms": ["Place of Delivery", "POL"]
+    },
+    "pod": {
+      "term": "POD",
+      "category": "Abbreviations",
+      "status": "Ambiguous Term",
+      "alternateNames": "Port of Discharge, Proof of Delivery",
+      "definition": "May mean Port of Discharge in ocean transport or Proof of Delivery in inland operations.",
+      "relatedTerms": ["POL", "Proof of Delivery"]
+    },
+    "pol": {
+      "term": "POL",
+      "category": "Abbreviations",
+      "status": "Common Industry Usage",
+      "alternateNames": "Port of Loading",
+      "definition": "The port where goods are loaded onto the exporting vessel or transport leg.",
+      "relatedTerms": ["POD", "POR"]
+    },
+    "pratique_certificate": {
+      "term": "Pratique Certificate",
+      "category": "Compliance & Safety",
+      "status": "Official Current",
+      "alternateNames": "Free Pratique",
+      "definition": "License granted by port medical authorities to a vessel upon arrival, declaring it free of disease.",
+      "relatedTerms": ["Quarantine"]
+    },
+    "project_cargo": {
+      "term": "Project Cargo",
+      "category": "Ocean Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "Large, heavy, or high-value cargo requiring specialized planning, equipment, and handling.",
+      "relatedTerms": ["Breakbulk", "OOG"]
+    },
+    "proof_of_delivery": {
+      "term": "Proof of Delivery",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "POD",
+      "definition": "A record showing that the consignee or recipient received the shipment.",
+      "relatedTerms": ["POD", "Last-Mile Delivery"]
+    },
+    "protest": {
+      "term": "Protest",
+      "category": "Legal & Finance",
+      "status": "Official Current",
+      "alternateNames": "Captain's Protest",
+      "definition": "Declaration by a vessel master documenting bad weather or incidents to relieve liability.",
+      "relatedTerms": ["General Average"]
+    },
+    "pss": {
+      "term": "PSS",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "Peak Season Surcharge",
+      "definition": "A surcharge used during peak-demand periods to recover temporary market or capacity pressures.",
+      "relatedTerms": ["GRI", "Spot Rate"]
+    },
+    "pti": {
+      "term": "PTI",
+      "category": "Equipment",
+      "status": "Common Industry Usage",
+      "alternateNames": "Pre-Trip Inspection",
+      "definition": "The inspection and testing of a refrigerated container before use to confirm proper function.",
+      "relatedTerms": ["Reefer", "Genset"]
+    },
+    "quarantine": {
+      "term": "Quarantine",
+      "category": "Compliance & Safety",
+      "status": "Official Current",
+      "alternateNames": "",
+      "definition": "Sanitary regulations and detention period applied to vessels until declared free of contagious disease.",
+      "relatedTerms": ["Pratique Certificate"]
+    },
+    "quay_rent": {
+      "term": "Quay Rent",
+      "category": "Charges & Fees",
+      "status": "Regional Usage",
+      "alternateNames": "",
+      "definition": "A terminal storage-related charge for cargo/containers remaining on the quay (often European usage).",
+      "relatedTerms": ["Storage", "Demurrage"]
+    },
+    "reefer": {
+      "term": "Reefer",
+      "category": "Equipment",
+      "status": "Common Industry Usage",
+      "alternateNames": "Refrigerated Container",
+      "definition": "A temperature-controlled container used to transport perishable or temperature-sensitive cargo.",
+      "relatedTerms": ["PTI", "Genset", "Cold Chain"]
+    },
+    "release_note": {
+      "term": "Release Note",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "A document confirming that cargo may be released or collected, subject to the operator process.",
+      "relatedTerms": ["Delivery Order", "Customs Release"]
+    },
+    "reverse_logistics": {
+      "term": "Reverse Logistics",
+      "category": "Supply Chain Management",
+      "status": "Common Industry Usage",
+      "alternateNames": "Returns Management",
+      "definition": "Operations related to the backward flow of products, including returns, recycling, and refurbishing.",
+      "relatedTerms": ["3PL", "WMS"]
+    },
+    "rolled_cargo": {
+      "term": "Rolled Cargo",
+      "category": "Ocean Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "Cargo that misses its intended sailing and is moved to a later sailing or voyage.",
+      "relatedTerms": ["Blank Sailing", "ETD"]
+    },
+    "roll_on_roll_off": {
+      "term": "Roll-On/Roll-Off",
+      "category": "Ocean Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "RoRo",
+      "definition": "A vessel or transport method designed for wheeled cargo to be driven on and off.",
+      "relatedTerms": ["Breakbulk", "Project Cargo"]
+    },
+    "rules_of_origin": {
+      "term": "Rules of Origin",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "",
+      "definition": "The legal rules used to determine the origin of goods for customs or preference purposes.",
+      "relatedTerms": ["Preferential Origin", "Certificate of Origin"]
+    },
+    "sanctions_screening": {
+      "term": "Sanctions Screening",
+      "category": "Customs & Compliance",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "The compliance process of screening transactions and parties against sanctions laws and lists.",
+      "relatedTerms": ["Denied Party Screening"]
+    },
+    "sds": {
+      "term": "SDS",
+      "category": "Hazmat & Chemicals",
+      "status": "Official Current",
+      "alternateNames": "Safety Data Sheet, MSDS",
+      "definition": "Document providing detailed information on the properties, hazards, and safe handling of chemicals.",
+      "relatedTerms": ["Dangerous Goods", "IMDG Code"]
+    },
+    "sea_waybill": {
+      "term": "Sea Waybill",
+      "category": "Documents",
+      "status": "Official Context-Limited",
+      "alternateNames": "Seaway Bill",
+      "definition": "A non-negotiable sea transport document evidencing carriage and receipt of goods (not a title document).",
+      "relatedTerms": ["Bill of Lading (B/L)", "Express Release"]
+    },
+    "seal": {
+      "term": "Seal",
+      "category": "Compliance & Safety",
+      "status": "Official Current",
+      "alternateNames": "Container Seal",
+      "definition": "A numbered security device used to secure a container and support cargo integrity controls.",
+      "relatedTerms": ["VGM", "Customs Inspection"]
+    },
+    "service_contract": {
+      "term": "Service Contract",
+      "category": "Ocean Freight",
+      "status": "Official Context-Limited",
+      "alternateNames": "",
+      "definition": "A contract setting agreed freight terms, services, and commitments between shipper and carrier.",
+      "relatedTerms": ["Spot Rate", "FMC"]
+    },
+    "shipper": {
+      "term": "Shipper",
+      "category": "Documents",
+      "status": "Ambiguous Term",
+      "alternateNames": "",
+      "definition": "The party identified as the shipper in the transport document (may differ from the seller/exporter).",
+      "relatedTerms": ["Consignor", "Exporter of Record"]
+    },
+    "shippers_letter_of_instruction": {
+      "term": "Shipper's Letter of Instruction",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "SLI",
+      "definition": "The instruction document telling the forwarder how to handle the shipment and related filings.",
+      "relatedTerms": ["Freight Forwarder", "Booking"]
+    },
+    "shippers_load_and_count": {
+      "term": "Shipper's Load and Count",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "SLAC, STC",
+      "definition": "Notation indicating that the shipper loaded the cargo and the carrier did not verify the contents.",
+      "relatedTerms": ["Stuffing", "Bill of Lading (B/L)"]
+    },
+    "shipping_instructions": {
+      "term": "Shipping Instructions",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "SI",
+      "definition": "Cargo and documentation details submitted to the carrier for document issuance and transport processing.",
+      "relatedTerms": ["Booking", "Bill of Lading (B/L)"]
+    },
+    "skd": {
+      "term": "SKD",
+      "category": "Automotive & Manufacturing",
+      "status": "Common Industry Usage",
+      "alternateNames": "Semi Knocked Down",
+      "definition": "A shipping method where a product is partially assembled at origin and finished at destination.",
+      "relatedTerms": ["CKD", "Manufacturing Logistics"]
+    },
+    "sku": {
+      "term": "SKU",
+      "category": "Supply Chain Management",
+      "status": "Common Industry Usage",
+      "alternateNames": "Stock Keeping Unit",
+      "definition": "A unique alphanumeric identifier used to track specific inventory items in a warehouse.",
+      "relatedTerms": ["WMS", "Inventory"]
+    },
+    "sla": {
+      "term": "SLA",
+      "category": "Logistics Technology",
+      "status": "Common Industry Usage",
+      "alternateNames": "Service Level Agreement",
+      "definition": "A contract defining the expected operational metrics, transit times, and penalties.",
+      "relatedTerms": ["3PL", "TMS"]
+    },
+    "smart_container": {
+      "term": "Smart Container",
+      "category": "Logistics Technology",
+      "status": "Common Industry Usage",
+      "alternateNames": "IoT Container",
+      "definition": "A container equipped with telematics/IoT devices to transmit real-time data on location and temperature.",
+      "relatedTerms": ["DCSA", "Track and Trace"]
+    },
+    "soc": {
+      "term": "SOC",
+      "category": "Equipment",
+      "status": "Common Industry Usage",
+      "alternateNames": "Shipper-Owned Container",
+      "definition": "A container supplied by the shipper rather than by the carrier.",
+      "relatedTerms": ["COC", "Container"]
+    },
+    "soc_limit": {
+      "term": "SoC Limit",
+      "category": "Compliance & Safety",
+      "status": "Official Context-Limited",
+      "alternateNames": "State of Charge Limit",
+      "definition": "2026 safety regulation limiting certain lithium/sodium-ion batteries to a maximum 30% charge.",
+      "relatedTerms": ["Sodium-Ion Batteries", "IMDG Code"]
+    },
+    "sodium_ion_batteries": {
+      "term": "Sodium-Ion Batteries",
+      "category": "Compliance & Safety",
+      "status": "Official Context-Limited",
+      "alternateNames": "UN 3551, UN 3552",
+      "definition": "Newly classified in 2026 under dangerous-goods rules, requiring strict handling frameworks.",
+      "relatedTerms": ["Dangerous Goods", "IMDG Code"]
+    },
+    "solas": {
+      "term": "SOLAS",
+      "category": "Compliance & Safety",
+      "status": "Official Current",
+      "alternateNames": "International Convention for the Safety of Life at Sea",
+      "definition": "The IMO convention underpinning major maritime safety requirements, including VGM.",
+      "relatedTerms": ["VGM", "IMDG Code"]
+    },
+    "spot_rate": {
+      "term": "Spot Rate",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "A freight rate quoted for a shipment or short period without the longer-term commitments of a contract.",
+      "relatedTerms": ["Contract Rate", "GRI"]
+    },
+    "straight_bill_of_lading": {
+      "term": "Straight Bill of Lading",
+      "category": "Documents",
+      "status": "Official Context-Limited",
+      "alternateNames": "",
+      "definition": "A non-negotiable bill of lading made out to a named consignee, generally not intended for transfer.",
+      "relatedTerms": ["Order Bill of Lading", "Sea Waybill"]
+    },
+    "storage": {
+      "term": "Storage",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "A charge for keeping cargo or containers at a terminal/warehouse beyond the allowed period.",
+      "relatedTerms": ["Demurrage", "Quay Rent"]
+    },
+    "stripping": {
+      "term": "Stripping",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "Devanning, Unstuffing",
+      "definition": "The physical unloading of cargo from a container or other transport unit.",
+      "relatedTerms": ["Stuffing", "CFS"]
+    },
+    "stuffing": {
+      "term": "Stuffing",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "Vanning",
+      "definition": "The physical loading of cargo into a container or other transport unit.",
+      "relatedTerms": ["Stripping", "VGM"]
+    },
+    "subrogation": {
+      "term": "Subrogation",
+      "category": "Legal & Finance",
+      "status": "Official Current",
+      "alternateNames": "",
+      "definition": "The legal right of an insurance company, after paying a claim, to pursue the responsible third party.",
+      "relatedTerms": ["All-Risk Insurance", "General Average"]
+    },
+    "surcharge": {
+      "term": "Surcharge",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "An additional charge applied on top of the basic freight rate to recover specific costs or conditions.",
+      "relatedTerms": ["BAF", "CAF", "PSS"]
+    },
+    "switch_bill_of_lading": {
+      "term": "Switch Bill of Lading",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "A replacement bill of lading issued under controlled circumstances to reflect revised commercial info.",
+      "relatedTerms": ["Bill of Lading (B/L)", "Blind Shipment"]
+    },
+    "tare_weight": {
+      "term": "Tare Weight",
+      "category": "Measurement",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "The weight of the empty container, pallet, or packaging before cargo is added.",
+      "relatedTerms": ["Gross Weight", "Net Weight", "VGM"]
+    },
+    "tariff": {
+      "term": "Tariff",
+      "category": "Charges & Fees",
+      "status": "Official Context-Limited",
+      "alternateNames": "",
+      "definition": "A published schedule of rates, charges, rules, and terms applicable to transportation or customs.",
+      "relatedTerms": ["Service Contract", "Duty"]
+    },
+    "tariff_classification": {
+      "term": "Tariff Classification",
+      "category": "Customs & Compliance",
+      "status": "Official Current",
+      "alternateNames": "",
+      "definition": "The classification of goods under the applicable tariff schedule using the relevant nomenclature (HS).",
+      "relatedTerms": ["HS Code", "Duty"]
+    },
+    "telex_release": {
+      "term": "Telex Release",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "Surrendered B/L",
+      "definition": "Authorization by carrier to release cargo without presentation of original paper bills (upon surrender).",
+      "relatedTerms": ["Express Release", "Original Bill of Lading"]
+    },
+    "terminal_handling_charge": {
+      "term": "Terminal Handling Charge",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "THC",
+      "definition": "A charge for handling containers or cargo at the terminal, subject to operator scope.",
+      "relatedTerms": ["Wharfage", "Demurrage"]
+    },
+    "teu": {
+      "term": "TEU",
+      "category": "Measurement",
+      "status": "Official Current",
+      "alternateNames": "Twenty-foot Equivalent Unit",
+      "definition": "The standard unit of measurement for container capacity, based on a 20-foot-long container.",
+      "relatedTerms": ["FEU", "Container"]
+    },
+    "through_bill_of_lading": {
+      "term": "Through Bill of Lading",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "A bill of lading covering transport over more than one leg or mode to a final through destination.",
+      "relatedTerms": ["Place of Delivery", "Multimodal"]
+    },
+    "through_rate": {
+      "term": "Through Rate",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "A single freight rate covering the movement from origin to final destination across one or more legs.",
+      "relatedTerms": ["Door-to-Door", "Multimodal"]
+    },
+    "time_charter": {
+      "term": "Time Charter",
+      "category": "Maritime & Ocean",
+      "status": "Official Current",
+      "alternateNames": "",
+      "definition": "A charter arrangement where a vessel is hired for a period of time; owner provides vessel and crew.",
+      "relatedTerms": ["Bareboat Charter", "Voyage Charter"]
+    },
+    "tms": {
+      "term": "TMS",
+      "category": "Logistics Technology",
+      "status": "Common Industry Usage",
+      "alternateNames": "Transportation Management System",
+      "definition": "Software used to plan, book, execute, and monitor transportation operations and freight costs.",
+      "relatedTerms": ["WMS", "API"]
+    },
+    "tofc": {
+      "term": "TOFC",
+      "category": "Warehousing & Inland",
+      "status": "Common Industry Usage",
+      "alternateNames": "Trailer On Flat Car, Piggyback",
+      "definition": "A rail transport method where a highway trailer is loaded directly onto a railway flatcar.",
+      "relatedTerms": ["COFC", "Piggyback", "Intermodal"]
+    },
+    "track_and_trace": {
+      "term": "Track and Trace",
+      "category": "Logistics Technology",
+      "status": "Common Industry Usage",
+      "alternateNames": "Tracking",
+      "definition": "The process of determining the current and past locations of a unique item or container.",
+      "relatedTerms": ["API", "Smart Container"]
+    },
+    "transshipment": {
+      "term": "Transshipment",
+      "category": "Ocean Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "The transfer of cargo from one vessel or carrier leg to another while en route to destination.",
+      "relatedTerms": ["Feeder Vessel", "Mother Vessel"]
+    },
+    "twist_locks": {
+      "term": "Twist Locks",
+      "category": "Equipment",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "Mechanical locking devices used to secure containers to chassis, railcars, vessels, or stacking setups.",
+      "relatedTerms": ["Corner Casting", "Container"]
+    },
+    "uld": {
+      "term": "ULD",
+      "category": "Air Freight",
+      "status": "Official Current",
+      "alternateNames": "Unit Load Device",
+      "definition": "A standardized aircraft pallet or container used to load and secure cargo on aircraft.",
+      "relatedTerms": ["Air Freight", "Chargeable Weight"]
+    },
+    "un_number": {
+      "term": "UN Number",
+      "category": "Hazmat & Chemicals",
+      "status": "Official Current",
+      "alternateNames": "",
+      "definition": "A four-digit number assigned by the UN to identify hazardous substances in international transport.",
+      "relatedTerms": ["Dangerous Goods", "Packing Group"]
+    },
+    "vgm": {
+      "term": "VGM",
+      "category": "Compliance & Safety",
+      "status": "Official Current",
+      "alternateNames": "Verified Gross Mass",
+      "definition": "The verified total weight of a packed container required under SOLAS before vessel loading.",
+      "relatedTerms": ["SOLAS", "Gross Weight"]
+    },
+    "vmi": {
+      "term": "VMI",
+      "category": "Automotive & Manufacturing",
+      "status": "Common Industry Usage",
+      "alternateNames": "Vendor Managed Inventory",
+      "definition": "A model where the supplier manages and replenishes inventory at the buyer's facility.",
+      "relatedTerms": ["JIT", "WMS"]
+    },
+    "vocc": {
+      "term": "VOCC",
+      "category": "Ocean Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "Vessel-Operating Common Carrier",
+      "definition": "A carrier that operates the physical vessel providing the ocean carriage.",
+      "relatedTerms": ["NVOCC", "Service Contract"]
+    },
+    "volumetric_weight": {
+      "term": "Volumetric Weight",
+      "category": "Air Freight",
+      "status": "Common Industry Usage",
+      "alternateNames": "Volume Weight",
+      "definition": "A calculated weight based on shipment dimensions used in air freight rating.",
+      "relatedTerms": ["Dimensional Weight", "Chargeable Weight"]
+    },
+    "voyage_charter": {
+      "term": "Voyage Charter",
+      "category": "Maritime & Ocean",
+      "status": "Official Current",
+      "alternateNames": "",
+      "definition": "A charter arrangement under which a vessel is hired for a specific voyage or cargo movement.",
+      "relatedTerms": ["Time Charter", "Bareboat Charter"]
+    },
+    "wm": {
+      "term": "W/M",
+      "category": "Charges & Fees",
+      "status": "Common Industry Usage",
+      "alternateNames": "Weight or Measure",
+      "definition": "A freight-pricing basis where cargo is rated by whichever produces the higher charge (weight vs volume).",
+      "relatedTerms": ["Measurement Ton", "Chargeable Weight"]
+    },
+    "warehouse_receipt": {
+      "term": "Warehouse Receipt",
+      "category": "Documents",
+      "status": "Common Industry Usage",
+      "alternateNames": "",
+      "definition": "A receipt issued by a warehouse acknowledging that goods were received for storage under stated terms.",
+      "relatedTerms": ["FIATA FWR", "WMS"]
+    },
+    "waybill": {
+      "term": "Waybill",
+      "category": "Documents",
+      "status": "Ambiguous Term",
+      "alternateNames": "WB",
+      "definition": "A general term for a non-negotiable shipment document (should be qualified as sea or air waybill).",
+      "relatedTerms": ["Sea Waybill", "Air Waybill (AWB)"]
+    },
+    "wharfage": {
+      "term": "Wharfage",
+      "category": "Charges & Fees",
+      "status": "Regional Usage",
+      "alternateNames": "",
+      "definition": "A port or dock charge for cargo or containers handled over or through a wharf, quay, or terminal area.",
+      "relatedTerms": ["THC", "Quay Rent"]
+    },
+    "wms": {
+      "term": "WMS",
+      "category": "Logistics Technology",
+      "status": "Common Industry Usage",
+      "alternateNames": "Warehouse Management System",
+      "definition": "Software used to manage warehouse inventory, storage, labor, and fulfillment operations.",
+      "relatedTerms": ["TMS", "3PL"]
+    },
+    "zone_pricing": {
+      "term": "Zone Pricing",
+      "category": "Air Freight & Parcel",
+      "status": "Common Industry Usage",
+      "alternateNames": "Zone Rate",
+      "definition": "A pricing system where transportation rates are based on the geographic distance (zones) between origin and destination.",
+      "relatedTerms": ["DIM Divisor", "Parcel Shipping"]
+    }
+  }
+}

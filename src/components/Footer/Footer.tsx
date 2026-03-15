@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Icon } from '@iconify/react';
-import footerClass from './Footer.module.scss'
+import footerClass from './Footer.module.scss';
 
 const Footer = () => {
   // Translations
@@ -29,8 +29,8 @@ const Footer = () => {
               {translateCommon('terms')}
             </a>
             <span className="text-brand-navy-light dark:text-gray-600">|</span>
-            <Icon icon="lucide:facebook" className={footerClass.social_icons} width={24}/>
-            <Icon icon="lucide:instagram" className={footerClass.social_icons} width={24}/>
+            <Icon icon="lucide:facebook" className={footerClass.social_icons} width={24} />
+            <Icon icon="lucide:instagram" className={footerClass.social_icons} width={24} />
           </div>
         </div>
       </div>

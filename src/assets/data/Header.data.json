@@ -11,15 +11,71 @@
     "logoText": "DIT San Francisco Inc."
   },
   "Navigations": [
-    { "id": "1", "Key": "home",     "Value": "#home",    "isActive": true, "isEnabled": true, "isExternal": false },
-    { "id": "2", "Key": "about",    "Value": "#about",   "isActive": true, "isEnabled": true, "isExternal": false },
-    { "id": "3", "Key": "services", "Value": "#services","isActive": true, "isEnabled": true, "isExternal": false },
-    { "id": "4", "Key": "tools",    "Value": "#tools",   "isActive": true, "isEnabled": true, "isExternal": false },
-    { "id": "5", "Key": "news",     "Value": "#news",    "isActive": true, "isEnabled": true, "isExternal": false },
-    { "id": "6", "Key": "contact",  "Value": "#contact", "isActive": true, "isEnabled": true, "isExternal": false }
+    {
+      "id": "1",
+      "Key": "home",
+      "Value": "#home",
+      "isActive": true,
+      "isEnabled": true,
+      "isExternal": false
+    },
+    {
+      "id": "2",
+      "Key": "about",
+      "Value": "#about",
+      "isActive": true,
+      "isEnabled": true,
+      "isExternal": false
+    },
+    {
+      "id": "3",
+      "Key": "services",
+      "Value": "#services",
+      "isActive": true,
+      "isEnabled": true,
+      "isExternal": false
+    },
+    {
+      "id": "4",
+      "Key": "tools",
+      "Value": "#tools",
+      "isActive": true,
+      "isEnabled": true,
+      "isExternal": false
+    },
+    {
+      "id": "5",
+      "Key": "news",
+      "Value": "#news",
+      "isActive": true,
+      "isEnabled": true,
+      "isExternal": false
+    },
+    {
+      "id": "6",
+      "Key": "contact",
+      "Value": "#contact",
+      "isActive": true,
+      "isEnabled": true,
+      "isExternal": false
+    }
   ],
   "CTA": [
-    { "id": "1", "Key": "tracking", "Value": "https://ditus.gofreight.co/tracking/login", "isActive": true, "isEnabled": true, "isExternal": true },
-    { "id": "2", "Key": "join_us",  "Value": "#contact",  "isActive": true, "isEnabled": true, "isExternal": false }
+    {
+      "id": "1",
+      "Key": "tracking",
+      "Value": "https://ditus.gofreight.co/tracking/login",
+      "isActive": true,
+      "isEnabled": true,
+      "isExternal": true
+    },
+    {
+      "id": "2",
+      "Key": "join_us",
+      "Value": "#contact",
+      "isActive": true,
+      "isEnabled": true,
+      "isExternal": false
+    }
   ]
 }
