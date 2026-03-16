@@ -9,6 +9,7 @@
     --secondary-color-light: #2b466f;
     --secondary-color-dark: #060f1f;
     --background-color: #ffffff;
+    --primary-background-color: #F9FAFB;
 
     --screen-xs: 30rem;
     --screen-sm: 40rem;
@@ -85,6 +86,8 @@ $secondary-color-hover: var(--secondary-color-hover);
 $secondary-color-light: var(--secondary-color-light);
 $secondary-color-dark: var(--secondary-color-dark);
 $border-color: var(--color-border);
+$background-color: var(--background-color);
+$primary-background-color: var(--primary-background-color);
 
 $breakpoints: (
   xs: var(--screen-xs),

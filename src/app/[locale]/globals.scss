@@ -2,6 +2,7 @@
 @import 'leaflet/dist/leaflet.css';
 @import '../../assets/styles/modern_reset';
 @import '../../assets/styles/variables';
+@import '@/assets/styles/mixin';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -27,14 +28,16 @@
   flex: 1;
   width: 100%;
   min-width: 0;
+  background-color: $primary-background-color;
+  @include flex-column-center-center;
 }
 
-.page_container {
-  width: 100%;
-  // max-width: 80rem;
-  // margin-inline: auto;
-  // padding-inline: clamp(1rem, 3vw, 2rem);
-}
+// .page_container {
+//   // width: 100%;
+//   // max-width: 80rem;
+//   // margin-inline: auto;
+//   // padding-inline: clamp(1rem, 3vw, 2rem);
+// }
 
 html {
   scroll-behavior: smooth;

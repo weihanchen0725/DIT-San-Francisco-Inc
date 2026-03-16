@@ -1,9 +1,15 @@
 @import '@/assets/styles/variables.scss';
-@import '../../assets/styles/mixin';
+@import '@/assets/styles/mixin';
 
-.dictionary-list {
+.dictionary-content {
   @include flex-column-start-start;
   gap: 1.5rem;
+  width: 100%;
+}
+
+.dictionary-section {
+  width: 100%;
+  padding: 0rem;
 
   & h2 {
     font-size: 3rem;
@@ -12,42 +18,114 @@
     margin-top: 1rem;
     border-bottom: 0.25rem solid $primary-color;
     width: 100%;
+    scroll-margin-top: 7rem;
   }
+}
 
-  & .dictionary-item{
+.dictionary-list {
+  --subtitle-font-size: 0.75rem;
+  @include flex-column-start-start;
+  gap: 1.5rem;
+  padding: 0px;
+  width: 100%;
+  margin-top: 1rem;
+
+  & .dictionary-item {
     width: 100%;
     display: grid;
     grid-template-columns: 7fr 3fr;
     border: 1px solid $border-color;
     padding: 1rem 2rem;
+    background-color: $background-color;
+    border-radius: 1.25rem;
 
-    & h3{
-      font-size: 1rem;
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    & h3 {
+      font-size: 1.5rem;
       font-weight: 700;
       @include flex-row-start-center;
       color: $secondary-color;
     }
 
-    & .dictionary-category{
+    & .dictionary-category-wrapper {
       @include flex-row-end-center;
+
+      & .dictionary-category {
+        @include flex-row-center-center;
+        font-size: var(--subtitle-font-size);
+        min-width: 10.5rem;
+        padding: 0.25rem 0.5rem;
+        border: 1px solid #000;
+        border-radius: 0.25rem;
+
+        // ── Category colour palette (keys mirror categories{} slugs in dictionary.json) ──
+        &.category-abbreviations            { background: #e2e8f0; color: #475569; border-color: #94a3b8; }
+        &.category-agriculture-perishables  { background: #dcfce7; color: #166534; border-color: #86efac; }
+        &.category-air-freight              { background: #e0f2fe; color: #0369a1; border-color: #7dd3fc; }
+        &.category-air-freight-parcel       { background: #ffe4e6; color: #be123c; border-color: #fda4af; }
+        &.category-automotive-manufacturing { background: #dbeafe; color: #1e3a8a; border-color: #93c5fd; }
+        &.category-charges-fees             { background: #ffedd5; color: #9a3412; border-color: #fdba74; }
+        &.category-cold-chain-pharma        { background: #ccfbf1; color: #0f766e; border-color: #5eead4; }
+        &.category-compliance-safety        { background: #fef9c3; color: #854d0e; border-color: #fde047; }
+        &.category-customs-compliance       { background: #ede9fe; color: #5b21b6; border-color: #c4b5fd; }
+        &.category-documents                { background: #e0e7ff; color: #3730a3; border-color: #a5b4fc; }
+        &.category-ecommerce-retail         { background: #fce7f3; color: #9d174d; border-color: #f9a8d4; }
+        &.category-equipment                { background: #fef3c7; color: #78350f; border-color: #fcd34d; }
+        &.category-freight-forwarding       { background: #fae8ff; color: #86198f; border-color: #f5d0fe; }
+        &.category-hazmat-chemicals         { background: #fee2e2; color: #991b1b; border-color: #fca5a5; }
+        &.category-incoterms                { background: #f3e8ff; color: #6b21a8; border-color: #d8b4fe; }
+        &.category-legal-finance            { background: #ecfccb; color: #3f6212; border-color: #d9f99d; }
+        &.category-logistics-models         { background: #cffafe; color: #0e7490; border-color: #67e8f9; }
+        &.category-logistics-tech           { background: #d1fae5; color: #065f46; border-color: #6ee7b7; }
+        &.category-maritime-ocean           { background: #c7d2fe; color: #312e81; border-color: #818cf8; }
+        &.category-measurement              { background: #f1f5f9; color: #334155; border-color: #cbd5e1; }
+        &.category-ocean-freight            { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
+        &.category-ports-terminals          { background: #f4f4f5; color: #3f3f46; border-color: #d4d4d8; }
+        &.category-supply-chain-management  { background: #f0fdf4; color: #14532d; border-color: #bbf7d0; }
+        &.category-warehousing-inland       { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
+        &.category-maritime-inland          { background: #f0f9ff; color: #075985; border-color: #bae6fd; }
+        &.category-legal-regulatory         { background: #f5f3ff; color: #4c1d95; border-color: #ddd6fe; }
+      }
     }
 
-    & .dictionary-definition{
+    & .dictionary-definition {
       grid-column: span 2;
+      margin-top: 1rem;
     }
 
-    & .dictionary-related-terms{
+    & .dictionary-related-terms {
       padding: 0;
       @include flex-row-start-center;
       gap: 0.25rem;
-      
-      & li{
+      grid-column: span 2;
+
+      & li {
         @include flex-row-center-center;
         padding: 0.125rem;
-        border: 1px solid $border-color;
-        border-radius: 0.25rem;
         color: $secondary-color-light;
-        font-size: 0.75rem;
+        font-size: var(--subtitle-font-size);
+      }
+    }
+
+    // ── Responsive: stack on small screens ──
+    @include respond(md) {
+      grid-template-columns: 1fr;
+      padding: 1rem 1.25rem;
+
+      & h3 {
+        font-size: 1.25rem;
+      }
+
+      & .dictionary-definition {
+        grid-column: span 1;
+      }
+
+      & .dictionary-related-terms {
+        grid-column: span 1;
+        flex-wrap: wrap;
       }
     }
   }

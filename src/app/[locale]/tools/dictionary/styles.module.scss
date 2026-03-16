@@ -1,6 +1,10 @@
 @import '@/assets/styles/variables.scss';
-@import '../../../../assets/styles/mixin';
+@import '@/assets/styles/mixin';
 
-.dictionary-layout{
-    @include flex-column-center-center;
+.dictionary-layout {
+  @include flex-column-center-center;
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 2rem);
 }

@@ -1,4 +1,32 @@
 {
+  "categories": {
+        "supply_chain_management": "供應鏈管理",
+        "customs_compliance": "海關 / 報關",
+        "incoterms": "國貿條規 (Incoterms)",
+        "ocean_freight": "海運",
+        "air_freight": "空運",
+        "documents": "單據 / 文件",
+        "charges_fees": "費用與附加費",
+        "logistics_tech": "物流科技",
+        "compliance_safety": "合規與安全",
+        "measurement": "測量",
+        "freight_forwarding": "貨運承攬",
+        "ports_terminals": "港口與碼頭",
+        "warehousing_inland": "倉儲與內陸運輸",
+        "legal_finance": "法律與財務",
+        "maritime_ocean": "海運",
+        "logistics_models": "物流模式",
+        "equipment": "設備",
+        "automotive_manufacturing": "汽車與製造",
+        "ecommerce_retail": "電子商務與零售",
+        "agriculture_perishables": "農業與易腐品",
+        "hazmat_chemicals": "危險品與化學品",
+        "abbreviations": "縮寫",
+        "cold_chain_pharma": "冷鏈與醫藥",
+        "air_freight_parcel": "空運與包裹",
+        "maritime_inland": "海運與內陸運輸",
+        "legal_regulatory": "法律與法規"
+      },
   "dictionary": {
     "3pl": {
       "term": "3PL (第三方物流)",
