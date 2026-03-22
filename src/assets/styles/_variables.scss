@@ -9,7 +9,10 @@
     --secondary-color-light: #2b466f;
     --secondary-color-dark: #060f1f;
     --background-color: #ffffff;
-    --primary-background-color: #F9FAFB;
+    --primary-background-color: #f9fafb;
+    --primary-dark-background-color: #f3f4f6;
+
+    --primary-border-color: #e5e7eb;
 
     --screen-xs: 30rem;
     --screen-sm: 40rem;
@@ -88,6 +91,8 @@ $secondary-color-dark: var(--secondary-color-dark);
 $border-color: var(--color-border);
 $background-color: var(--background-color);
 $primary-background-color: var(--primary-background-color);
+$primary-dark-background-color: var(--primary-dark-background-color);
+$primary-border-color: var(--primary-border-color);
 
 $breakpoints: (
   xs: var(--screen-xs),

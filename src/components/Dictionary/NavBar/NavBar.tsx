@@ -10,9 +10,7 @@ const NavBar = ({ navLetters }: NavBarProps) => {
     <nav aria-label="Alphabet navigation" className={navbarClass['navbar']}>
       {navLetters.map((letter, index) => (
         <React.Fragment key={`${letter}-${index}`}>
-          <a href={`#${letter}`}>
-          {letter}
-          </a>
+          <a href={`#${letter}`}>{letter}</a>
           {index < navLetters.length - 1 && <div className={navbarClass['divider']}></div>}
         </React.Fragment>
       ))}

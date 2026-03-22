@@ -1,7 +1,7 @@
+import IncoTerms from '@/components/Incoterms/Incoterms';
+
 const IncoTermsPage = () => {
-  return (
-    <div>
-      <h1>Incoterms</h1>
-    </div>
-  );
+  return <IncoTerms />;
 };
+
+export default IncoTermsPage;

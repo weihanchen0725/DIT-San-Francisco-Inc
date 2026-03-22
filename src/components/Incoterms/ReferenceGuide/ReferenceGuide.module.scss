@@ -1,0 +1,66 @@
+@import '@/assets/styles/variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  & .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    & h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    & p {
+      font-size: 1rem;
+      color: $secondary-color;
+      max-width: 40rem;
+    }
+
+    & .buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+
+      & .button {
+        padding: 1rem 1.5rem;
+        border: none;
+        border-radius: 0px;
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        text-transform: capitalize;
+        width: 12rem;
+
+        &.lightButton {
+          background-color: $background-color;
+          color: $secondary-color;
+          border: 1px solid $primary-border-color;
+
+          &:hover {
+            background-color: $primary-color;
+            color: $secondary-color;
+            border: 1px solid $primary-color;
+          }
+        }
+
+        &.darkButton {
+          background-color: $secondary-color;
+          color: $primary-color;
+
+          &:hover {
+            background-color: $secondary-color-hover;
+          }
+        }
+      }
+    }
+  }
+}

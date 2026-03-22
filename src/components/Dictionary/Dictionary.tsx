@@ -21,10 +21,9 @@ const groupedByLetter = filteredKeys.reduce<Record<string, string[]>>((acc, key)
 // Build display-name → CSS-slug map from both locales' categories objects.
 // When new categories are added to the JSON files this updates automatically.
 const CATEGORY_TO_SLUG: Record<string, string> = Object.fromEntries(
-  [
-    ...Object.entries(enDict.categories),
-    ...Object.entries(zhTWDict.categories),
-  ].map(([key, display]) => [display, key.replace(/_/g, '-')])
+  [...Object.entries(enDict.categories), ...Object.entries(zhTWDict.categories)].map(
+    ([key, display]) => [display, key.replace(/_/g, '-')]
+  )
 );
 
 const toCategorySlug = (category: string) => CATEGORY_TO_SLUG[category] ?? '';

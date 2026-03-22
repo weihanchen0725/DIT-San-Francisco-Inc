@@ -1,0 +1,19 @@
+{
+  "Title": "Incoterms® Reference Guide",
+  "Description": "A comprehensive reference guide providing detailed information on each Incoterm, including responsibilities, costs, and risks for buyers and sellers.",
+  "ActionButton1": {
+    "Title": "Download PDF",
+    "Description": "Get the complete reference guide in PDF format for detailed information on each Incoterm.",
+    "Link": "https://iccwbo.org/content/uploads/sites/3/2020/01/Incoterms-2020-Reference-Guide.pdf"
+  },
+  "ActionButton2": {
+    "Title": "Print Summary",
+    "Description": "Print a summary of the reference guide for quick reference.",
+    "Link": "https://iccwbo.org/content/uploads/sites/3/2020/01/Incoterms-2020-Reference-Guide.pdf"
+  },
+  "ActionButton3": {
+    "Title": "Switch to Advisor",
+    "Description": "Get personalized advice on Incoterms® rules and their application.",
+    "Link": "/tools/incoterms/advisor"
+  }
+}
