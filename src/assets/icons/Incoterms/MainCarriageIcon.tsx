@@ -1,0 +1,26 @@
+import React, { forwardRef } from 'react';
+
+const MainCarriageIcon = forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
+  (props, ref) => (
+    <svg
+      ref={ref}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 128 128"
+      fill="none"
+      {...props}
+    >
+      <path d="M 16 72 A 64 48 0 0 1 112 72" stroke="#98A2B3" strokeWidth="4" strokeLinecap="round" strokeDasharray="8 8" />
+      <line x1="16" y1="104" x2="112" y2="104" stroke="#98A2B3" strokeWidth="4" strokeLinecap="round" />
+      <path d="M 108 88 L 100 104 H 24 L 20 88 Z" fill="#FFFFFF" stroke="#0A192F" strokeWidth="4" strokeLinejoin="round" />
+      <path d="M 44 88 V 56 H 28 V 88" fill="#FFFFFF" stroke="#0A192F" strokeWidth="4" strokeLinejoin="round" />
+      <line x1="28" y1="68" x2="44" y2="68" stroke="#0A192F" strokeWidth="4" />
+      <rect x="52" y="68" width="32" height="20" rx="2" fill="#FFCC00" stroke="#0A192F" strokeWidth="4" strokeLinejoin="round" />
+      <line x1="62" y1="68" x2="62" y2="88" stroke="#0A192F" strokeWidth="2" />
+      <line x1="74" y1="68" x2="74" y2="88" stroke="#0A192F" strokeWidth="2" />
+    </svg>
+  )
+);
+
+MainCarriageIcon.displayName = 'MainCarriageIcon';
+
+export default MainCarriageIcon;
