@@ -7,10 +7,12 @@
   justify-content: center;
 
   & .header {
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
+    padding-bottom: 2rem;
 
     & h1 {
       font-size: 2.5rem;
@@ -148,6 +150,43 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
+
+            & .mode-icon-wrapper {
+              position: relative;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              cursor: default;
+              transition: transform 0.2s ease, color 0.2s ease;
+
+              &:hover {
+                color: $primary-color;
+                transform: translateY(-1px);
+              }
+
+              &::after {
+                content: attr(data-mode-label);
+                position: absolute;
+                bottom: calc(100% + 0.5rem);
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: $secondary-color;
+                color: $background-color;
+                padding: 0.25rem 0.625rem;
+                border-radius: 0.25rem;
+                font-size: 0.75rem;
+                line-height: 1.2;
+                white-space: nowrap;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.2s ease;
+                z-index: 10;
+              }
+
+              &:hover::after {
+                opacity: 1;
+              }
+            }
           }
 
           & .responsibilities {
@@ -162,14 +201,30 @@
 
             & .responsibility-seller{
               grid-row: 3;
-              grid-column: 1;
+              grid-column: 1 / span 3;
               justify-self: start;
+              font-size: 0.75rem;
+              white-space: nowrap;
+              color: $secondary-color;
+            }
+
+            & .responsibility-percentages{
+              grid-row: 3;
+              grid-column: 4 / span 5;
+              justify-self: center;
+              font-size: 0.75rem;
+              font-weight: 600;
+              white-space: nowrap;
+              color: $secondary-color;
             }
 
             & .responsibility-buyer{
               grid-row: 3;
-              grid-column: 11;
+              grid-column: 9 / span 3;
               justify-self: end;
+              font-size: 0.75rem;
+              white-space: nowrap;
+              color: $secondary-color;
             }
 
             & .responsibility-bar{

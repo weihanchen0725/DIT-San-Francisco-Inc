@@ -21,6 +21,16 @@ import { SvgPropIcon } from '@/components/Icon/SvgPropIconBase';
 const ReferenceGuide = () => {
   const router = useRouter();
   const t = useTranslations('Incoterms');
+  const modeLabels = {
+    any: 'Any mode of transport',
+    sea: 'Sea and inland waterway transport',
+    air: 'Air transport',
+    land: 'Land transport',
+  } as const;
+
+  const getResponsibilityPercentages = (seller: number, buyer: number) => {
+    return `${Math.round(seller * 100)}% / ${Math.round(buyer * 100)}%`;
+  };
 
   const tableHeaders = [
     { id: 'code', label: t('col_code') },
@@ -43,27 +53,50 @@ const ReferenceGuide = () => {
     }
   };
 
+  const getModeLabel = (mode: 'any' | 'sea' | 'air' | 'land') => {
+    try {
+      return t(`mode_${mode}`);
+    } catch {
+      return modeLabels[mode];
+    }
+  };
+
   const getModeIcon = (mode: 'any' | 'sea' | 'air' | 'land' | undefined) => {
-    let component;
-    
+    let icon;
+    let label = '';
+
     switch (mode?.toLowerCase()) {
       case 'sea':
-        component = <Icon icon="mdi:ship-wheel" width="24" height="24" />;
+        icon = <Icon icon="mdi:ship-wheel" width="24" height="24" />;
+        label = getModeLabel('sea');
         break;
       case 'air':
-        component = <Icon icon="mdi:airplane" width="24" height="24" />;
+        icon = <Icon icon="mdi:airplane" width="24" height="24" />;
+        label = getModeLabel('air');
         break;
       case 'land':
-        component = <Icon icon="mdi:truck" width="24" height="24" />;
+        icon = <Icon icon="mdi:truck" width="24" height="24" />;
+        label = getModeLabel('land');
         break;
       case 'any':
-        component = <Icon icon="mdi:swap-horizontal-bold" width="24" height="24" />;
+        icon = <Icon icon="mdi:swap-horizontal-bold" width="24" height="24" />;
+        label = getModeLabel('any');
         break;
       default:
-        component = null;
+        return null;
     }
-    return component;
-  }
+
+    return (
+      <span
+        className={referenceClass['mode-icon-wrapper']}
+        data-mode-label={label}
+        title={label}
+        aria-label={label}
+      >
+        {icon}
+      </span>
+    );
+  };
 
 
   return (
@@ -132,6 +165,9 @@ const ReferenceGuide = () => {
                  {/*  */}
                 <progress value={row.responsibilities?.seller ?? 0} max={1} className={referenceClass['responsibility-bar']}></progress>
                 <span className={referenceClass['responsibility-seller']}>{t('label_seller')}</span>
+                <span className={referenceClass['responsibility-percentages']}>
+                  {getResponsibilityPercentages(row.responsibilities?.seller ?? 0, row.responsibilities?.buyer ?? 0)}
+                </span>
                 <span className={referenceClass['responsibility-buyer']}>{t('label_buyer')}</span>
               </div>
               <span className={referenceClass['risk']}>{t(`${row.code}_risk`)}</span>
