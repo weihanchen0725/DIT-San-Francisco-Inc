@@ -1,4 +1,5 @@
 import React, { forwardRef, memo } from 'react';
+import { Tooltip, TooltipContent, TooltipTrigger } from '../Tooltips/Tooltips';
 
 type SvgComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
@@ -7,6 +8,7 @@ export interface SvgPropIconProps
   icon: SvgComponent;
   size?: number | string;
   decorative?: boolean;
+  tooltip?: string;
 }
 
 const SvgPropIconBase = forwardRef<SVGSVGElement, SvgPropIconProps>(
@@ -17,6 +19,7 @@ const SvgPropIconBase = forwardRef<SVGSVGElement, SvgPropIconProps>(
       className,
       decorative = true,
       'aria-label': ariaLabel,
+      tooltip,
       role,
       ...rest
     },
@@ -37,14 +40,21 @@ const SvgPropIconBase = forwardRef<SVGSVGElement, SvgPropIconProps>(
         };
 
     return (
-      <Icon
-        ref={ref}
-        width={size}
-        height={size}
-        className={resolvedClassName}
-        {...accessibilityProps}
-        {...rest}
-      />
+      <Tooltip placement='top'>
+        <TooltipTrigger>
+            <Icon
+          ref={ref}
+          width={size}
+          height={size}
+          className={resolvedClassName}
+          {...accessibilityProps}
+          {...rest}
+        />
+        </TooltipTrigger>
+        <TooltipContent>
+          {tooltip}
+        </TooltipContent>
+      </Tooltip>
     );
   }
 );

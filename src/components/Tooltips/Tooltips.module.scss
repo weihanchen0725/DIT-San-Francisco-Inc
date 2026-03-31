@@ -1,0 +1,30 @@
+/* Tooltip.module.scss */
+.tooltipContent {
+  position: absolute;
+  background-color: #1e293b; /* Dark slate */
+  color: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  max-width: 250px;
+  word-wrap: break-word;
+  pointer-events: none; /* Prevents the tooltip from blocking clicks */
+
+  will-change: transform, opacity;
+  animation: tooltipFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
