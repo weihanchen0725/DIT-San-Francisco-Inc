@@ -20,7 +20,10 @@ const NavBar = ({ styleMode = 'row' }: NavBarProps) => {
   const locale = useLocale();
 
   const isHomePage = pathname === `/${locale}` || pathname === '/';
-  const getHref = (anchor: string) => (isHomePage ? anchor : `/${locale}${anchor}`);
+  const getHref = (anchor: string | undefined) => {
+    const resolved = anchor ?? '#';
+    return isHomePage ? resolved : `/${locale}${resolved}`;
+  };
 
   // Stable reference — prevents useEffect in useActiveSection from re-firing every render.
   const sectionIds = useMemo(

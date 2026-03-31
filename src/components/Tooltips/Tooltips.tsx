@@ -18,7 +18,7 @@ type Placement = 'top' | 'bottom' | 'left' | 'right';
 interface TooltipContextType {
   isOpen: boolean;
   tooltipId: string;
-  triggerRef: React.RefObject<HTMLElement>;
+  triggerRef: React.RefObject<HTMLElement | null>;
   placement: Placement;
   openTooltip: () => void;
   closeTooltip: () => void;
@@ -42,7 +42,7 @@ export interface TooltipProps {
 export const Tooltip = ({ children, placement = 'top', delay = { show: 200, hide: 100 } }: TooltipProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const triggerRef = useRef<HTMLElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const tooltipId = useId(); // Generates a unique ID for a11y linking
 
   const showDelay = typeof delay === 'number' ? delay : delay.show;
@@ -75,7 +75,7 @@ export const Tooltip = ({ children, placement = 'top', delay = { show: 200, hide
 
 // --- 3. TRIGGER COMPONENT ---
 export interface TooltipTriggerProps {
-  children: React.ReactElement;
+  children: React.ReactElement<any>;
 }
 
 export const TooltipTrigger = ({ children }: TooltipTriggerProps) => {
@@ -90,27 +90,29 @@ export const TooltipTrigger = ({ children }: TooltipTriggerProps) => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, closeTooltip]);
 
-  return React.cloneElement(children, {
+  const childElement = children as React.ReactElement<any>;
+
+  return React.cloneElement(childElement, {
     ref: triggerRef,
     onMouseEnter: (e: React.MouseEvent) => {
       openTooltip();
-      children.props.onMouseEnter?.(e);
+      childElement.props.onMouseEnter?.(e);
     },
     onMouseLeave: (e: React.MouseEvent) => {
       closeTooltip();
-      children.props.onMouseLeave?.(e);
+      childElement.props.onMouseLeave?.(e);
     },
     onFocus: (e: React.FocusEvent) => {
       openTooltip();
-      children.props.onFocus?.(e);
+      childElement.props.onFocus?.(e);
     },
     onBlur: (e: React.FocusEvent) => {
       closeTooltip();
-      children.props.onBlur?.(e);
+      childElement.props.onBlur?.(e);
     },
     'aria-expanded': isOpen,
     'aria-describedby': isOpen ? tooltipId : undefined, // Links the trigger to the tooltip
-  });
+    } as any);
 };
 
 // --- 4. CONTENT COMPONENT ---
