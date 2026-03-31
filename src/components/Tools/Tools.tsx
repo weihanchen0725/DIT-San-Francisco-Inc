@@ -6,44 +6,54 @@ import CostCalculatorIcon from '@/assets/icons/CostCalculatorIcon';
 import SchedulePickupIcon from '@/assets/icons/SchedulePickupIcon';
 import { getTranslations } from 'next-intl/server';
 import toolsClass from './Tools.module.scss';
+import ctaBarData from '@/assets/data/CTABar.data.json';
+
 
 const Tools = async () => {
   const translateTools = await getTranslations('Tools');
 
   return (
-    <section id="tools" className={toolsClass.tools}>
-      <h2 className="text-4xl font-bold text-brand-navy dark:text-white tracking-tight">
+    <section id="tools" className={toolsClass['tools']}>
+      <h2 className={toolsClass['title']}>
         {translateTools('title')}
       </h2>
-      <p className="mt-6 text-lg sm:text-xl text-brand-gray dark:text-gray-300 max-w-2xl leading-relaxed">
+      <p className={toolsClass['description']}>
         {translateTools('description')}
       </p>
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className={toolsClass['grid']}>
         <Features
-          icon={<TrackingSystemIcon className="w-8 h-8 text-brand-yellow" />}
+          icon={<TrackingSystemIcon className={toolsClass['icon']} />}
           title={translateTools('tracking_title')}
           description={translateTools('tracking_desc')}
+          href={ctaBarData[0]?.Value ?? '#tools'}
+          target="_blank"
+          rel="noopener noreferrer"
         />
         <Features
-          icon={<InventoryManagementIcon className="w-8 h-8 text-brand-yellow" />}
-          title={translateTools('inventory_management_title')}
-          description={translateTools('inventory_management_desc')}
+          icon={<InventoryManagementIcon className={toolsClass['icon']} />}
+          title={translateTools('dictionary_title')}
+          description={translateTools('dictionary_desc')}
+          href="/tools/dictionary"
+          rel="noopener noreferrer"
+          
         />
         <Features
-          icon={<RouteOptimizationIcon className="w-8 h-8 text-brand-yellow" />}
-          title={translateTools('route_optimization_title')}
-          description={translateTools('route_optimization_desc')}
+          icon={<RouteOptimizationIcon className={toolsClass['icon']} />}
+          title={translateTools('incoterms_title')}
+          description={translateTools('incoterms_desc')}
+          href="/tools/incoterms"
+          rel="noopener noreferrer"
         />
-        <Features
-          icon={<CostCalculatorIcon className="w-8 h-8 text-brand-yellow" />}
+        {/* <Features
+          icon={<CostCalculatorIcon className={toolsClass['icon']} />}
           title={translateTools('cost_calculator_title')}
           description={translateTools('cost_calculator_desc')}
         />
         <Features
-          icon={<SchedulePickupIcon className="w-8 h-8 text-brand-yellow" />}
+          icon={<SchedulePickupIcon className={toolsClass['icon']} />}
           title={translateTools('schedule_pickup_title')}
           description={translateTools('schedule_pickup_desc')}
-        />
+        /> */}
       </div>
     </section>
   );

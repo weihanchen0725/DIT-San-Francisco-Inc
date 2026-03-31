@@ -2,6 +2,7 @@
 
 import { Menu, X } from 'lucide-react';
 import { useEffect, useId, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 import headerClass from './Header.module.scss';
 import NavBar from '../NavBar/NavBar';
@@ -40,6 +41,7 @@ const HeaderClient = ({ headerData, logoUrl }: HeaderClientProps) => {
   const [collapseTier, setCollapseTier] = useState(0);
   const menuPanelId = useId();
   const translateHeader = useTranslations('Header');
+  const pathname = usePathname();
 
   // Reference to the sticky header for reading height and writing CSS vars.
   const headerRef = useRef<HTMLElement | null>(null);
@@ -172,6 +174,42 @@ const HeaderClient = ({ headerData, logoUrl }: HeaderClientProps) => {
       }
     };
   }, []);
+
+  // Re-sync header background when route changes and browser restores scroll
+  // without dispatching a scroll event (e.g., navigating back to landing page).
+  useEffect(() => {
+    const frameId = requestAnimationFrame(() => {
+      const headerElement = headerRef.current;
+
+      if (!headerElement) {
+        return;
+      }
+
+      const currentScrollY = window.scrollY;
+      const headerHeight = headerElement.offsetHeight;
+      const nextScrollProgress = headerHeight > 0 ? Math.min(currentScrollY / headerHeight, 1) : 0;
+
+      scrollProgressRef.current = nextScrollProgress;
+      headerElement.style.setProperty('--header-scroll-progress', nextScrollProgress.toString());
+      headerElement.style.setProperty(
+        '--header-backdrop-saturate',
+        `${100 + 60 * nextScrollProgress}%`
+      );
+      headerElement.style.setProperty('--header-backdrop-blur', `${10 * nextScrollProgress}px`);
+      headerElement.style.setProperty(
+        '--header-shadow-highlight-opacity',
+        `${0.35 * nextScrollProgress}`
+      );
+      headerElement.style.setProperty(
+        '--header-shadow-depth-mix',
+        `${30 * nextScrollProgress}%`
+      );
+    });
+
+    return () => {
+      cancelAnimationFrame(frameId);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     if (!isMenuOpen) {

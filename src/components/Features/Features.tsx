@@ -1,37 +1,42 @@
-import { useMemo } from 'react';
+import type { ReactNode } from 'react';
+
+import featuresClass from './Features.module.scss';
 
 interface FeaturesProps {
-  icon: React.ReactNode;
+  icon: ReactNode;
   title: string;
   description: string;
+  href?: string;
+  isDisabled?: boolean;
+  target?: string;
+  rel?: string;
 }
 
 const Features = (featureProp: FeaturesProps) => {
-  // Destructure props
-  const { icon, title, description } = featureProp;
-  // Wrapper classes for the feature card
-  const wrapperClasses = useMemo(() => {
-    return 'text-center p-8 rounded-2xl bg-white dark:bg-[#111127] border border-gray-100 dark:border-brand-navy-light hover:shadow-xl hover:border-brand-yellow dark:hover:border-brand-yellow transition-all duration-300';
-  }, []);
-  // Icon wrapper classes
-  const iconWrapperClasses = useMemo(() => {
-    return 'w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-brand-yellow/15 dark:bg-brand-yellow/20 text-brand-yellow';
-  }, []);
-  // Title classes
-  const titleClasses = useMemo(() => {
-    return 'text-xl font-semibold text-brand-navy dark:text-white';
-  }, []);
-  // Description classes
-  const descriptionClasses = useMemo(() => {
-    return 'mt-3 text-brand-gray dark:text-gray-400 leading-relaxed';
-  }, []);
+  const { icon, title, description, href, isDisabled, target, rel } = featureProp;
 
   return (
-    <div className={wrapperClasses}>
-      <div className={iconWrapperClasses}>{icon}</div>
-      <h3 className={titleClasses}>{title}</h3>
-      <p className={descriptionClasses}>{description}</p>
-    </div>
+    <>
+      {href && !isDisabled ? (
+        <a
+          href={href ?? '#'}
+          className={featuresClass['wrapper']}
+          aria-disabled={isDisabled ? 'true' : 'false'}
+          target={target}
+          rel={rel}
+        >
+          <div className={featuresClass['icon-wrapper']}>{icon}</div>
+          <h3 className={featuresClass['title']}>{title}</h3>
+          <p className={featuresClass['description']}>{description}</p>
+        </a>
+      ) : (
+        <div className={featuresClass['wrapper']} aria-disabled={isDisabled ? 'true' : 'false'}>
+          <div className={featuresClass['icon-wrapper']}>{icon}</div>
+          <h3 className={featuresClass['title']}>{title}</h3>
+          <p className={featuresClass['description']}>{description}</p>
+        </div>
+      )}
+    </>
   );
 };
 

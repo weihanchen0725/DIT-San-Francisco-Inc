@@ -2,4 +2,42 @@
 
 .tools {
   height: $max-height;
+  padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 5vw, 2rem);
+
+  & .title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--color-text-primary);
+  }
+
+  & .description {
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+    line-height: 1.625;
+    color: var(--color-text-secondary);
+    max-width: 42rem;
+
+    @media (min-width: 40rem) {
+      font-size: 1.25rem;
+    }
+  }
+
+  & .grid {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 48rem) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  & .icon {
+    width: 2rem;
+    height: 2rem;
+    color: $primary-color;
+  }
 }
