@@ -2,7 +2,8 @@
 
 import React, { useMemo } from 'react';
 import navClass from './NavBar.module.scss';
-import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
+import { useLocale, useTranslations } from 'next-intl';
 import navBarData from '@/assets/data/NavBar.data.json';
 import useActiveSection from '@/hooks/useActiveSection';
 
@@ -15,6 +16,11 @@ const NavBar = ({ styleMode = 'row' }: NavBarProps) => {
   // Fall back to local NavBar.data.json when no list is passed from the parent.
   const resolvedList: LinkProps[] = navBarData as LinkProps[];
   const translateNavBar = useTranslations('NavBar');
+  const pathname = usePathname();
+  const locale = useLocale();
+
+  const isHomePage = pathname === `/${locale}` || pathname === '/';
+  const getHref = (anchor: string) => (isHomePage ? anchor : `/${locale}${anchor}`);
 
   // Stable reference — prevents useEffect in useActiveSection from re-firing every render.
   const sectionIds = useMemo(
@@ -35,7 +41,7 @@ const NavBar = ({ styleMode = 'row' }: NavBarProps) => {
             {item?.isActive && (
               <li className={activeSection === item?.Key ? navClass.active : ''}>
                 <a
-                  href={item?.Value}
+                  href={getHref(item?.Value)}
                   aria-disabled={item?.isEnabled === false}
                   target={item?.isExternal ? '_blank' : '_self'}
                   rel={item?.isExternal ? 'noopener noreferrer' : undefined}
