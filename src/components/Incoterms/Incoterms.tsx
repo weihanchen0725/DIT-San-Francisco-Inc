@@ -5,11 +5,13 @@ import Button from './Buttons/Button';
 import ICC_Logo from '../../assets/images/icc_logo_light.svg';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 const IncoTerms = () => {
   const router = useRouter();
+  const t = useTranslations('Incoterms');
 
   const handleRouting = (index: number) => {
     switch (index) {
@@ -29,23 +31,23 @@ const IncoTerms = () => {
       <section className={incotermsClass['container']}>
         <div className={incotermsClass['hero']}>
           <div className={incotermsClass['hero-text']}>
-            <h1>{incotermsData.Hero_Title}</h1>
-            <p>{incotermsData.Hero_Description}</p>
+            <h1>{t('hero_title')}</h1>
+            <p>{t('hero_description')}</p>
             <div className={incotermsClass['buttons']}>
               <Button
-                Title={incotermsData.Button1.Title}
-                Description={incotermsData.Button1.Description}
-                Button_Text={incotermsData.Button1.Name}
+                Title={t('btn1_title')}
+                Description={t('btn1_description')}
+                Button_Text={t('btn1_name')}
                 Button_Icon={null}
-                onClick={() => handleRouting(1)}
+                onClick={() => handleRouting(2)}
                 isLight={incotermsData.Button1.IsLight}
               />
               <Button
-                Title={incotermsData.Button2.Title}
-                Description={incotermsData.Button2.Description}
-                Button_Text={incotermsData.Button2.Name}
+                Title={t('btn2_title')}
+                Description={t('btn2_description')}
+                Button_Text={t('btn2_name')}
                 Button_Icon={null}
-                onClick={() => handleRouting(2)}
+                onClick={() => handleRouting(1)}
                 isLight={incotermsData.Button2.IsLight}
               />
             </div>
@@ -58,8 +60,8 @@ const IncoTerms = () => {
             <div className={incotermsClass['hero-button-logo-container']}>
               <Image src={ICC_Logo} alt="ICC Logo" className={incotermsClass['hero-button-logo']} />
             </div>
-            <span>{incotermsData.Hero_Button.Title}</span>
-            <span>{incotermsData.Hero_Button.Description}</span>
+            <span>{t('hero_button_title')}</span>
+            <span>{t('hero_button_description')}</span>
           </Link>
         </div>
       </section>

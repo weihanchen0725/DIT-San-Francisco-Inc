@@ -1,10 +1,7 @@
+import Advisor from "@/components/Incoterms/Advisor/Advisor";
+
 const AdvisorPage = () => {
-  return (
-    <div>
-      <h1>Advisor Page</h1>
-      <p>This is the Incoterms Advisor page.</p>
-    </div>
-  );
+  return <Advisor />;
 };
 
 export default AdvisorPage;
