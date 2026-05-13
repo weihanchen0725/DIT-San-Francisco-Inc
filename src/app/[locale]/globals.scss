@@ -32,6 +32,10 @@
   @include flex-column-center-center;
 }
 
+.dark .app_main {
+  background-color: var(--color-bg-primary);
+}
+
 // .page_container {
 //   // width: 100%;
 //   // max-width: 80rem;

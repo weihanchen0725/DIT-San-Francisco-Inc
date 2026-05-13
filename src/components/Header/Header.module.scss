@@ -67,6 +67,17 @@ $menu-ease-duration: 180ms;
     /* The "Top Edge" Light */ 0 1px 0
       rgba(255, 255, 255, calc(0.4 * var(--header-scroll-progress, 0))) inset;
 
+  // Dark mode: transparent at top → opaque deep navy on scroll.
+  :global(.dark) & {
+    background-color: rgb(
+      calc(10 + 7 * var(--header-scroll-progress, 0))
+      calc(10 + 7 * var(--header-scroll-progress, 0))
+      calc(26 + 13 * var(--header-scroll-progress, 0)) /
+      calc(0.95 * var(--header-scroll-progress, 0))
+    );
+    border-bottom-color: color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+
   // Smooth interpolation for scroll-driven background, blur, and shadow values.
   transition:
     padding $header-ease-duration ease,
@@ -183,6 +194,13 @@ $menu-ease-duration: 180ms;
         calc(250 - 2 * var(--header-scroll-progress, 0))
         calc(255 - 15 * var(--header-scroll-progress, 0))
     );
+    :global(.dark) & {
+      background-color: rgb(
+        calc(17 + 5 * var(--header-scroll-progress, 0))
+        calc(17 + 5 * var(--header-scroll-progress, 0))
+        calc(39 + 5 * var(--header-scroll-progress, 0))
+      );
+    }
     border: 1px solid color-mix(in srgb, $border-color 80%, transparent);
     box-shadow:
       0 calc(4px + 6px * var(--header-scroll-progress, 0))

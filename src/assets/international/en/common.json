@@ -39,11 +39,28 @@
     "dictionary_desc": "Explanation of industry terminology.",
     "incoterms_title": "Incoterms® Reference Guide",
     "incoterms_desc": "A comprehensive reference guide providing detailed information on each Incoterm, including responsibilities, costs, and risks for buyers and sellers.",
-    
-    "schedule_pickup_title": "Schedule a Pickup",
+    "cost_calculator_title": "Calculator",
+    "cost_calculator_desc": "Estimate shipping costs quickly with our easy-to-use logistics calculator.",
     "schedule_pickup_desc": "Conveniently schedule pickups for your shipments online.",
     "route_optimization_title": "Route Optimization",
     "route_optimization_desc": "Optimize your delivery routes for maximum efficiency."
+  },
+  "Calculator": {
+    "input_dimension": "Input the dimension",
+    "pieces": "Pieces",
+    "length_cm": "Length (cm)",
+    "length_inch": "Length (inches)",
+    "width_cm": "Width (cm)",
+    "width_inch": "Width (inches)",
+    "height_cm": "Height (cm)",
+    "height_inch": "Height (inches)",
+    "gross_weight_kg": "Gross Weight (kg)",
+    "gross_weight_lb": "Gross Weight (lbs)",
+    "reset": "RESET",
+    "calculate": "CALCULATE",
+    "results_title": "Calculation Results",
+    "cft_label": "Cubic Feet (CFT)",
+    "cbm_label": "Cubic Meters (CBM)"
   },
   "News": {
     "title": "Latest News",

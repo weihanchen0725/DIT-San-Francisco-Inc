@@ -66,6 +66,14 @@
 
     --color-border: #2a2a4a;
     --color-border-light: #1f1f3a;
+
+    --gradiant-primary-bg-color: radial-gradient(
+      circle at 30% 50%,
+      #111127 0%,
+      #0d0d22 35%,
+      #0a0a1a 70%,
+      #060611 100%
+    );
   }
 }
 
@@ -95,11 +103,11 @@ $primary-dark-background-color: var(--primary-dark-background-color);
 $primary-border-color: var(--primary-border-color);
 
 $breakpoints: (
-  xs: var(--screen-xs),
-  sm: var(--screen-sm),
-  md: var(--screen-md),
-  lg: var(--screen-lg),
-  xl: var(--screen-xl),
+  xs: 30rem,
+  sm: 40rem,
+  md: 48rem,
+  lg: 64rem,
+  xl: 80rem,
 );
 
 $max-height: var(--max-height);

@@ -23,7 +23,7 @@ const Contact = async () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Contact Info Cards */}
-        <div className="lg:col-span-1 space-y-6">
+        <div className="lg:col-span-1 space-y-6 flex flex-col gap-6">
           <div className="p-8 rounded-2xl bg-white dark:bg-[#111127] border border-gray-100 dark:border-brand-navy-light hover:shadow-xl hover:border-brand-yellow dark:hover:border-brand-yellow transition-all duration-300">
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 flex items-center justify-center rounded-full bg-brand-yellow/15 dark:bg-brand-yellow/20 text-brand-yellow">
@@ -306,7 +306,7 @@ const Contact = async () => {
               <div className="sm:col-span-2 flex justify-end">
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-8 py-4 rounded-lg bg-brand-yellow text-brand-navy font-semibold hover:bg-brand-yellow-hover focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:ring-offset-2 transition-all duration-200 shadow-lg hover:shadow-xl"
+                  className="w-full flex flex-row items-center gap-2 sm:w-auto px-8 py-4 rounded-lg bg-brand-yellow text-brand-navy font-semibold hover:bg-brand-yellow-hover focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:ring-offset-2 transition-all duration-200 shadow-lg hover:shadow-xl"
                 >
                   {translateContact('send_button')}
                   <svg

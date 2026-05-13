@@ -10,6 +10,13 @@
   background-image:
     radial-gradient(at 0% 0%, rgba(255, 204, 0, 0.08) 0px, transparent 50%),
     radial-gradient(at 100% 100%, rgba(255, 255, 255, 1) 0px, transparent 50%);
+
+  :global(.dark) & {
+    background-color: #0a0a1a;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(255, 204, 0, 0.06) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(17, 17, 39, 1) 0px, transparent 50%);
+  }
 }
 
 .hero {

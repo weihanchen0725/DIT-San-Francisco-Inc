@@ -44,16 +44,12 @@ const Tools = async () => {
           href="/tools/incoterms"
           rel="noopener noreferrer"
         />
-        {/* <Features
+        <Features
           icon={<CostCalculatorIcon className={toolsClass['icon']} />}
           title={translateTools('cost_calculator_title')}
           description={translateTools('cost_calculator_desc')}
+          href="/tools/calculator"
         />
-        <Features
-          icon={<SchedulePickupIcon className={toolsClass['icon']} />}
-          title={translateTools('schedule_pickup_title')}
-          description={translateTools('schedule_pickup_desc')}
-        /> */}
       </div>
     </section>
   );

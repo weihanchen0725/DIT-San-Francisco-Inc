@@ -2,7 +2,7 @@ import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  allowedDevOrigins: ['http://10.10.0.156:3000'],
   images: {
     remotePatterns: [
       {

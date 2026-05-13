@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import calculatorClass from './Calculator.module.scss';
 
 const CM_TO_INCH = 0.393701;
@@ -31,6 +32,7 @@ const blockInvalidChars = (e: React.KeyboardEvent<HTMLInputElement>) => {
 };
 
 const Calculator = () => {
+  const t = useTranslations('Calculator');
   const [pieces, setPieces] = useState('1');
   const [lengthCm, setLengthCm] = useState('1');
   const [lengthInch, setLengthInch] = useState(cmToInch('1'));
@@ -66,14 +68,14 @@ const Calculator = () => {
     <div className={calculatorClass['page-view']}>
       <form onSubmit={handleCalculate}>
         <div className={calculatorClass['item-box']}>
-          <div className={calculatorClass['left-subject']}>Input the dimension</div>
+          <div className={calculatorClass['left-subject']}>{t('input_dimension')}</div>
           <div className={calculatorClass['right-main']}>
 
             {/* Pieces */}
             <div className={calculatorClass['full']}>
               <div className={calculatorClass['group-box']}>
                 <div className={calculatorClass['label']}>
-                  <span className={calculatorClass['required']}>*</span>Pieces
+                  <span className={calculatorClass['required']}>*</span>{t('pieces')}
                 </div>
                 <div className={calculatorClass['input-wrap']}>
                   <input
@@ -93,7 +95,7 @@ const Calculator = () => {
             <div className={calculatorClass['col-left']}>
               <div className={calculatorClass['group-box']}>
                 <div className={calculatorClass['label']}>
-                  <span className={calculatorClass['required']}>*</span>Length (cm)
+                  <span className={calculatorClass['required']}>*</span>{t('length_cm')}
                 </div>
                 <div className={calculatorClass['input-wrap']}>
                   <input
@@ -110,7 +112,7 @@ const Calculator = () => {
             </div>
             <div className={calculatorClass['col-right']}>
               <div className={calculatorClass['group-box']}>
-                <div className={calculatorClass['label']}>Length (inches)</div>
+                <div className={calculatorClass['label']}>{t('length_inch')}</div>
                 <div className={calculatorClass['input-wrap']}>
                   <input
                     aria-label="Length-inch"
@@ -129,7 +131,7 @@ const Calculator = () => {
             <div className={calculatorClass['col-left']}>
               <div className={calculatorClass['group-box']}>
                 <div className={calculatorClass['label']}>
-                  <span className={calculatorClass['required']}>*</span>Width (cm)
+                  <span className={calculatorClass['required']}>*</span>{t('width_cm')}
                 </div>
                 <div className={calculatorClass['input-wrap']}>
                   <input
@@ -146,7 +148,7 @@ const Calculator = () => {
             </div>
             <div className={calculatorClass['col-right']}>
               <div className={calculatorClass['group-box']}>
-                <div className={calculatorClass['label']}>Width (inches)</div>
+                <div className={calculatorClass['label']}>{t('width_inch')}</div>
                 <div className={calculatorClass['input-wrap']}>
                   <input
                     aria-label="Width-inch"
@@ -165,7 +167,7 @@ const Calculator = () => {
             <div className={calculatorClass['col-left']}>
               <div className={calculatorClass['group-box']}>
                 <div className={calculatorClass['label']}>
-                  <span className={calculatorClass['required']}>*</span>Height (cm)
+                  <span className={calculatorClass['required']}>*</span>{t('height_cm')}
                 </div>
                 <div className={calculatorClass['input-wrap']}>
                   <input
@@ -182,7 +184,7 @@ const Calculator = () => {
             </div>
             <div className={calculatorClass['col-right']}>
               <div className={calculatorClass['group-box']}>
-                <div className={calculatorClass['label']}>Height (inches)</div>
+                <div className={calculatorClass['label']}>{t('height_inch')}</div>
                 <div className={calculatorClass['input-wrap']}>
                   <input
                     aria-label="Height-inch"
@@ -201,7 +203,7 @@ const Calculator = () => {
             <div className={calculatorClass['col-left']}>
               <div className={calculatorClass['group-box']}>
                 <div className={calculatorClass['label']}>
-                  <span className={calculatorClass['required']}>*</span>Gross Weight (kg)
+                  <span className={calculatorClass['required']}>*</span>{t('gross_weight_kg')}
                 </div>
                 <div className={calculatorClass['input-wrap']}>
                   <input
@@ -218,7 +220,7 @@ const Calculator = () => {
             </div>
             <div className={calculatorClass['col-right']}>
               <div className={calculatorClass['group-box']}>
-                <div className={calculatorClass['label']}>Gross Weight (lbs)</div>
+                <div className={calculatorClass['label']}>{t('gross_weight_lb')}</div>
                 <div className={calculatorClass['input-wrap']}>
                   <input
                     aria-label="Gross Weight-lb"
@@ -236,14 +238,14 @@ const Calculator = () => {
             {/* Buttons */}
             <div className={calculatorClass['submit-box']}>
               <button type="button" name="reset" onClick={handleReset} className={calculatorClass['btn']}>
-                RESET
+                {t('reset')}
               </button>
               <button
                 type="submit"
                 name="calculate"
                 className={`${calculatorClass['btn']} ${calculatorClass['btn-primary']}`}
               >
-                CALCULATE
+                {t('calculate')}
               </button>
             </div>
           </div>
@@ -252,16 +254,16 @@ const Calculator = () => {
 
       {/* Results */}
       <div className={calculatorClass['result-wrap']}>
-        <div className={calculatorClass['result-subject']}>Calculation Results</div>
+        <div className={calculatorClass['result-subject']}>{t('results_title')}</div>
         <div className={calculatorClass['result-grid']}>
           <div className={calculatorClass['result-box']}>
-            <div className={calculatorClass['result-title']}>Cubic Feet (CFT)</div>
+            <div className={calculatorClass['result-title']}>{t('cft_label')}</div>
             <div className={calculatorClass['result-value']}>
               {results !== null ? results.cft.toFixed(5) : '—'}
             </div>
           </div>
           <div className={calculatorClass['result-box']}>
-            <div className={calculatorClass['result-title']}>Cubic Meters (CBM)</div>
+            <div className={calculatorClass['result-title']}>{t('cbm_label')}</div>
             <div className={calculatorClass['result-value']}>
               {results !== null ? results.cbm.toFixed(5) : '—'}
             </div>

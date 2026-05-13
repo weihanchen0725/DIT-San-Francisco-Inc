@@ -35,6 +35,10 @@
         background-color: $secondary-color;
         transform: scaleX(0);
         transition: transform 0.3s ease;
+
+        :global(.dark) & {
+          background-color: var(--color-primary);
+        }
       }
 
       &:hover::after {
@@ -47,8 +51,16 @@
         text-decoration: none;
         transition: color 0.3s ease;
 
+        :global(.dark) & {
+          color: var(--color-text-primary);
+        }
+
         &:hover {
           color: $secondary-color-hover;
+
+          :global(.dark) & {
+            color: var(--color-primary);
+          }
         }
       }
     }

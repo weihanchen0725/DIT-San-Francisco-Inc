@@ -39,11 +39,28 @@
     "dictionary_desc": "行業術語的解釋。",
     "incoterms_title": "Incoterms® 參考指南",
     "incoterms_desc": "完整的參考指南，提供各項 Incoterm 的詳細資訊，包括買賣雙方的責任、費用與風險。",
-
-    "schedule_pickup_title": "預約取件",
+    "cost_calculator_title": "計算機",
+    "cost_calculator_desc": "使用我們簡便的物流計算機快速估算運費。",
     "schedule_pickup_desc": "方便地在線預約您的貨運取件。",
     "route_optimization_title": "路線優化器",
     "route_optimization_desc": "優化您的配送路線，達到最高效率。"
+  },
+  "Calculator": {
+    "input_dimension": "輸入尺寸",
+    "pieces": "件數",
+    "length_cm": "長度（公分）",
+    "length_inch": "長度（英寸）",
+    "width_cm": "寬度（公分）",
+    "width_inch": "寬度（英寸）",
+    "height_cm": "高度（公分）",
+    "height_inch": "高度（英寸）",
+    "gross_weight_kg": "毛重（公斤）",
+    "gross_weight_lb": "毛重（磅）",
+    "reset": "重置",
+    "calculate": "計算",
+    "results_title": "計算結果",
+    "cft_label": "立方英尺（CFT）",
+    "cbm_label": "立方公尺（CBM）"
   },
   "News": {
     "title": "最新消息",

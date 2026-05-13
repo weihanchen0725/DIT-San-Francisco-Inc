@@ -67,9 +67,19 @@
     border-color: $secondary-color;
     color: $secondary-color;
 
+    :global(.dark) & {
+      border-color: var(--color-border);
+      color: var(--color-text-primary);
+    }
+
     &:hover {
       background-color: $secondary-color-light;
       color: $primary-color-light;
+
+      :global(.dark) & {
+        background-color: var(--color-bg-secondary);
+        color: var(--color-primary);
+      }
     }
   }
 
