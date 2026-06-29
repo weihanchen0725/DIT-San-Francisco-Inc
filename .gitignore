@@ -87,3 +87,16 @@ next-env.d.ts
 # Server runtime uploads
 /server/public/uploads/*
 !/server/public/uploads/.gitkeep
+
+# AI Agents & CLI
+.claude/
+.codex/
+.gemini/
+.agents/
+.cursor/
+.windsurf/
+.aide/
+
+# Documentation
+/docs/
+
