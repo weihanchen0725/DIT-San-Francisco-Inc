@@ -4,7 +4,6 @@
 .home {
   min-height: $max-height;
   @include flex-column-center-start;
-  // padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 5vw, 2rem);
   overflow: hidden;
   background-color: #fdfcf7;
   background-image:
@@ -19,15 +18,21 @@
   }
 }
 
+// ── Hero layout ──────────────────────────────────────────────────────────────
+
 .hero {
   width: 100%;
   @include flex-row-start-center;
   position: relative;
   top: -3rem;
+  gap: 2rem;
 
-  // Stack vertically on narrow screens
+  // Tablet and below: stack vertically, remove the negative top offset
   @media (max-width: 768px) {
     flex-direction: column;
+    top: 0;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
   }
 
   &_title {
@@ -40,6 +45,10 @@
     &_1 {
       color: $primary-color;
     }
+
+    @media (max-width: 768px) {
+      align-items: center;
+    }
   }
 
   &_content {
@@ -49,16 +58,40 @@
     gap: 1.5rem;
     z-index: 1;
 
+    // Mobile: center-align content and add horizontal breathing room
+    @media (max-width: 768px) {
+      align-items: center;
+      text-align: center;
+      padding-inline: clamp(0.5rem, 4vw, 1.5rem);
+      width: 100%;
+    }
+
     & .ctaBar {
       & .ctaButton {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px; // PWA-standard touch target
         border: 1px solid $primary-color;
         padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
         color: $secondary-color;
         background-color: $primary-color;
+        font-weight: 600;
+        transition:
+          background-color 0.2s ease,
+          box-shadow 0.2s ease;
 
         &:hover {
           background-color: $primary-color-hover;
           color: $secondary-color;
+          box-shadow: 0 4px 12px rgba(255, 204, 0, 0.35);
+        }
+
+        // Larger touch target on mobile
+        @media (max-width: 768px) {
+          width: 100%;
+          max-width: 20rem;
         }
       }
     }
@@ -68,29 +101,28 @@
     flex: 1 1 50%;
     min-width: 0;
     position: relative;
-    // Height drives the collage canvas
     height: clamp(320px, 55vh, 560px);
 
+    // Hide the entire collage when the title centers (same breakpoint)
     @media (max-width: 768px) {
-      width: 100%;
-      height: 280px;
+      display: none;
     }
   }
 }
 
-// Shared base for every image
+// ── Shared base for every image ───────────────────────────────────────────────
+
 .image {
   position: absolute;
   object-fit: contain;
 }
 
-// ── Individual image placements ──────────────────────────────────────────────
+// ── Individual image placements ───────────────────────────────────────────────
 
 // Cargo plane — top-centre, flies northwest (up + left) as user scrolls
 .cargoPlane {
   top: -10rem;
   left: 50%;
-  // -50% centres it; subtracting x offset moves it left, negating y moves it up
   transform: translateX(calc(-50% - var(--plane-offset-x, 0px) * 7.5))
     translateY(calc(-1 * var(--plane-offset-y, 0px)));
   width: clamp(120px, 75%, 22rem);
@@ -98,9 +130,11 @@
   z-index: 3;
   will-change: transform;
   transition: transform 0.1s linear;
+
 }
 
 // Golden Gate — centred, acts as the mid-layer backdrop
+// Stays visible until the entire collage is hidden
 .goldenGate {
   top: 50%;
   left: 50%;
@@ -114,7 +148,6 @@
 .cargoShip {
   bottom: -2rem;
   left: 50%;
-  // -50% centres it; adding x offset moves it right, adding y moves it down
   transform: translateX(calc(-100% - var(--ship-offset-x, 0px) * -7.5))
     translateY(calc(-1 * var(--ship-offset-y, 0px))) rotate(-25deg);
   width: clamp(160px, 75%, 30rem);
@@ -122,9 +155,11 @@
   z-index: 2;
   will-change: transform;
   transition: transform 0.1s linear;
+
 }
 
 // Trucks — decorative, scattered around the golden gate
+
 .cargoTruckYellow {
   bottom: 18%;
   left: 2%;

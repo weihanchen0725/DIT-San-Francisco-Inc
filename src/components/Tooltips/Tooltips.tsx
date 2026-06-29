@@ -1,3 +1,5 @@
+'use client';
+
 import React, {
   createContext,
   useContext,
@@ -14,6 +16,11 @@ import styles from './Tooltips.module.scss';
 
 // --- 1. TYPES & CONTEXT ---
 type Placement = 'top' | 'bottom' | 'left' | 'right';
+type TooltipTriggerChildProps = React.HTMLAttributes<HTMLElement> & {
+  ref?: React.Ref<HTMLElement>;
+  'aria-expanded'?: boolean;
+  'aria-describedby'?: string;
+};
 
 interface TooltipContextType {
   isOpen: boolean;
@@ -75,7 +82,7 @@ export const Tooltip = ({ children, placement = 'top', delay = { show: 200, hide
 
 // --- 3. TRIGGER COMPONENT ---
 export interface TooltipTriggerProps {
-  children: React.ReactElement<any>;
+  children: React.ReactElement<TooltipTriggerChildProps>;
 }
 
 export const TooltipTrigger = ({ children }: TooltipTriggerProps) => {
@@ -90,29 +97,29 @@ export const TooltipTrigger = ({ children }: TooltipTriggerProps) => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, closeTooltip]);
 
-  const childElement = children as React.ReactElement<any>;
+  const childElement = children;
 
   return React.cloneElement(childElement, {
     ref: triggerRef,
-    onMouseEnter: (e: React.MouseEvent) => {
+    onMouseEnter: (event: React.MouseEvent<HTMLElement>) => {
       openTooltip();
-      childElement.props.onMouseEnter?.(e);
+      childElement.props.onMouseEnter?.(event);
     },
-    onMouseLeave: (e: React.MouseEvent) => {
+    onMouseLeave: (event: React.MouseEvent<HTMLElement>) => {
       closeTooltip();
-      childElement.props.onMouseLeave?.(e);
+      childElement.props.onMouseLeave?.(event);
     },
-    onFocus: (e: React.FocusEvent) => {
+    onFocus: (event: React.FocusEvent<HTMLElement>) => {
       openTooltip();
-      childElement.props.onFocus?.(e);
+      childElement.props.onFocus?.(event);
     },
-    onBlur: (e: React.FocusEvent) => {
+    onBlur: (event: React.FocusEvent<HTMLElement>) => {
       closeTooltip();
-      childElement.props.onBlur?.(e);
+      childElement.props.onBlur?.(event);
     },
     'aria-expanded': isOpen,
     'aria-describedby': isOpen ? tooltipId : undefined, // Links the trigger to the tooltip
-    } as any);
+  });
 };
 
 // --- 4. CONTENT COMPONENT ---
@@ -208,7 +215,7 @@ export const TooltipContent = ({ className = '', offset = 8, viewportPadding = 8
       window.removeEventListener('scroll', updatePosition, true);
       resizeObserver.disconnect();
     };
-  }, [isOpen, placement, offset, viewportPadding, hasContent]);
+  }, [isOpen, placement, offset, viewportPadding, hasContent, triggerRef]);
 
   if (!isOpen || !hasContent) return null;
 

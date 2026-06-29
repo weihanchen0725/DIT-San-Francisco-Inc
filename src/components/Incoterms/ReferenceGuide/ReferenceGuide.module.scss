@@ -197,7 +197,14 @@
             gap: 0.25rem;
             width: 100%;
 
-            
+            & .icon-seller {
+              opacity: 1;
+              color: $primary-color;
+            }
+
+            & .icon-buyer {
+              opacity: 0.2;
+            }
 
             & .responsibility-seller{
               grid-row: 3;

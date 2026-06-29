@@ -51,8 +51,14 @@ interface OpenStatus {
   nextChange: string;
 }
 
-const getOpenStatus = (): OpenStatus => {
+const getPacificNow = () => {
   const now = new Date();
+  const ptString = now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
+  return new Date(ptString);
+};
+
+const getOpenStatus = (): OpenStatus => {
+  const now = getPacificNow();
   const currentDayIndex = now.getDay();
   const currentDay = dayOrder[currentDayIndex];
   const currentMinutes = now.getHours() * 60 + now.getMinutes();
@@ -159,7 +165,7 @@ const OpenIndicator = () => {
     );
   }
 
-  const currentDayIndex = new Date().getDay();
+  const currentDayIndex = getPacificNow().getDay();
 
   return (
     <div className="relative inline-block" ref={dropdownRef}>

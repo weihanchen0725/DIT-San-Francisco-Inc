@@ -1,4 +1,50 @@
 {
+  "Metadata": {
+    "home": {
+      "title": "DIT San Francisco Inc.",
+      "description": "Bay Area logistics, freight shipping, warehousing, tracking, and supply chain solutions from DIT San Francisco Inc."
+    },
+    "about": {
+      "title": "About",
+      "description": "Learn about DIT San Francisco Inc. and our logistics management services for shipping, tracking, warehousing, and supply chain operations."
+    },
+    "services": {
+      "title": "Logistics Services",
+      "description": "Explore freight shipping, warehousing, supply chain management, and tracking solutions from DIT San Francisco Inc."
+    },
+    "tools": {
+      "title": "Logistics Tools",
+      "description": "Access logistics tools for shipment tracking, freight terms, Incoterms guidance, and volume calculations."
+    },
+    "news": {
+      "title": "News",
+      "description": "Read updates and logistics news from DIT San Francisco Inc."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contact DIT San Francisco Inc. for freight, warehousing, tracking, and supply chain support."
+    },
+    "dictionary": {
+      "title": "Logistics Dictionary",
+      "description": "Look up common logistics, freight, and supply chain terms in the DIT San Francisco Inc. dictionary."
+    },
+    "calculator": {
+      "title": "CBM and CFT Calculator",
+      "description": "Calculate CBM and CFT shipment volume from package dimensions, pieces, and weight."
+    },
+    "incoterms": {
+      "title": "Incoterms Reference",
+      "description": "Review Incoterms rules, buyer and seller responsibilities, risk transfer points, and transport modes."
+    },
+    "incotermsAdvisor": {
+      "title": "Incoterms Advisor",
+      "description": "Answer guided shipment questions to find a suitable Incoterm for your trade scenario."
+    },
+    "incotermsReferenceGuide": {
+      "title": "Incoterms Reference Guide",
+      "description": "Compare Incoterms by code, transport mode, responsibility split, and risk transfer point."
+    }
+  },
   "Company": {
     "Name": "DIT San Francisco Inc."
   },
@@ -181,6 +227,7 @@
     "advisor_q3_maximize_control": "Maximize Control",
     "advisor_q3_simple_logistics": "Simple Logistics",
     "advisor_q3_lowest_cost": "Lowest Cost",
+    "advisor_required_error": "Please answer all three questions before continuing.",
     "advisor_continue": "Continue to Transport",
     "advisor_s2_badge": "Step 02 — Logistics Mapping",
     "advisor_s2_title": "Define Transport Needs",
@@ -225,6 +272,13 @@
     "name_placeholder": "Your Name",
     "email_placeholder": "Your Email",
     "message_placeholder": "Your Message",
+    "first_name_placeholder": "John",
+    "last_name_placeholder": "Doe",
+    "phone_placeholder": "+1 (123) 456-7890",
+    "company_placeholder": "Your Company",
+    "country_placeholder": "United States",
+    "state_placeholder": "California",
+    "city_placeholder": "Fremont",
     "send_button": "Send Message",
     "email_title": "Email",
     "phone_title": "Phone",
@@ -234,8 +288,8 @@
     "last_name_error": "Last name is required.",
     "email_error": "Please enter a valid email address.",
     "message_error": "Message cannot be empty.",
-    "success_message": "Your message has been sent successfully!",
-    "error_message": "There was an error sending your message. Please try again later.",
+    "success_message": "Your email draft is ready. Please send it from your email app.",
+    "error_message": "Please correct the highlighted fields before sending.",
     "first_name_label": "First Name",
     "last_name_label": "Last Name",
     "email_label": "Email Address",

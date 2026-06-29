@@ -2,7 +2,7 @@
 import referenceClass from './ReferenceGuide.module.scss';
 import { useRouter } from 'next/navigation';
 import { Icon } from '@iconify/react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { REFERENCE_GUIDE_TABLE_DATA } from './ReferenceGuide.TableData';
 
 import SellerPremisesIcon from '@/assets/icons/Incoterms/SellerPremisesIcon';
@@ -20,6 +20,7 @@ import BuyerPremisesIcon from '@/assets/icons/Incoterms/BuyerPremisesIcon';
 import { SvgPropIcon } from '@/components/Icon/SvgPropIconBase';
 const ReferenceGuide = () => {
   const router = useRouter();
+  const locale = useLocale();
   const t = useTranslations('Incoterms');
   const modeLabels = {
     any: 'Any mode of transport',
@@ -30,6 +31,27 @@ const ReferenceGuide = () => {
 
   const getResponsibilityPercentages = (seller: number, buyer: number) => {
     return `${Math.round(seller * 100)}% / ${Math.round(buyer * 100)}%`;
+  };
+
+  const STEP_ICONS = [
+    { component: SellerPremisesIcon,       tooltipKey: 'tooltip_seller_premises'        as const },
+    { component: PreCarriageIcon,          tooltipKey: 'tooltip_pre_carriage'           as const },
+    { component: DeliveredNamedPlaceIcon,  tooltipKey: 'tooltip_delivered_named_place'  as const },
+    { component: PortofShipmentIcon,       tooltipKey: 'tooltip_port_of_shipment'       as const },
+    { component: OnBoardVesselLoadedIcon,  tooltipKey: 'tooltip_on_board_vessel_loaded' as const },
+    { component: MainCarriageIcon,         tooltipKey: 'tooltip_main_carriage'          as const },
+    { component: OnBoardVesselIcon,        tooltipKey: 'tooltip_on_board_vessel'        as const },
+    { component: PortOfDestinationIcon,    tooltipKey: 'tooltip_port_of_destination'    as const },
+    { component: TerminalIcon,             tooltipKey: 'tooltip_terminal'               as const },
+    { component: CarriageToNamedPlaceIcon, tooltipKey: 'tooltip_carriage_to_named_place' as const },
+    { component: BuyerPremisesIcon,        tooltipKey: 'tooltip_buyer_premises'         as const },
+  ] as const;
+
+  // Derive per-step ownership from responsibilities fraction:
+  // the first `sellerCount` steps belong to the seller, the rest to the buyer.
+  const getStepOwnership = (sellerFraction: number): Array<'seller' | 'buyer'> => {
+    const sellerCount = Math.round(sellerFraction * 11);
+    return STEP_ICONS.map((_, i) => (i < sellerCount ? 'seller' : 'buyer'));
   };
 
   const tableHeaders = [
@@ -43,10 +65,10 @@ const ReferenceGuide = () => {
   const handleRouting = (index: number) => {
     switch (index) {
       case 1:
-        router.push('/tools/incoterms/reference-guide');
+        router.push(`/${locale}/tools/incoterms/reference-guide`);
         break;
       case 2:
-        router.push('/tools/incoterms/advisor');
+        router.push(`/${locale}/tools/incoterms/advisor`);
         break;
       default:
         break;
@@ -139,30 +161,15 @@ const ReferenceGuide = () => {
               </div>
               <span className={referenceClass['mode']}>{getModeIcon(row?.mode)}</span>
               <div className={referenceClass['responsibilities']}>
-                {/* <Icon icon="lucide:package-open" width="24" height="24" />
-                <Icon icon="mdi:truck-cargo-container" width="24" height="24" />
-                <Icon icon="mdi:warehouse" width="24" height="24" />
-                <Icon icon="streamline-ultimate:shipment-cargo-boat-bold" width="24" height="24" />
-                <Icon icon="streamline-ultimate:shipment-cargo-boat" width="24" height="24" />
-                <Icon icon="mdi:ocean" width="24" height="24" />
-                <Icon icon="streamline-ultimate:shipment-cargo-boat" width="24" height="24" />
-                <Icon icon="streamline-ultimate:shipment-cargo-boat-bold" width="24" height="24" />
-                <Icon icon="mdi:warehouse" width="24" height="24" />
-                <Icon icon="carbon:delivery" width="24" height="24" />
-                <Icon icon="mdi:company" width="24" height="24" /> */}
-                {/*  */}
-                <SvgPropIcon icon={SellerPremisesIcon} size={48} tooltip={t('tooltip_seller_premises')} />
-                <SvgPropIcon icon={PreCarriageIcon} size={48} tooltip={t('tooltip_pre_carriage')} />
-                <SvgPropIcon icon={DeliveredNamedPlaceIcon} size={48} tooltip={t('tooltip_delivered_named_place')} />
-                <SvgPropIcon icon={PortofShipmentIcon} size={48} tooltip={t('tooltip_port_of_shipment')} />
-                <SvgPropIcon icon={OnBoardVesselLoadedIcon} size={48} tooltip={t('tooltip_on_board_vessel_loaded')} />
-                <SvgPropIcon icon={MainCarriageIcon} size={48} tooltip={t('tooltip_main_carriage')} />
-                <SvgPropIcon icon={OnBoardVesselIcon} size={48} tooltip={t('tooltip_on_board_vessel')} />
-                <SvgPropIcon icon={PortOfDestinationIcon} size={48} tooltip={t('tooltip_port_of_destination')} />
-                <SvgPropIcon icon={TerminalIcon} size={48} tooltip={t('tooltip_terminal')} />
-                <SvgPropIcon icon={CarriageToNamedPlaceIcon} size={48} tooltip={t('tooltip_carriage_to_named_place')} />
-                <SvgPropIcon icon={BuyerPremisesIcon} size={48} tooltip={t('tooltip_buyer_premises')} />
-                 {/*  */}
+                {getStepOwnership(row.responsibilities?.seller ?? 0).map((owner, i) => (
+                  <SvgPropIcon
+                    key={i}
+                    icon={STEP_ICONS[i].component}
+                    size={48}
+                    tooltip={t(STEP_ICONS[i].tooltipKey)}
+                    className={referenceClass[owner === 'seller' ? 'icon-seller' : 'icon-buyer']}
+                  />
+                ))}
                 <progress value={row.responsibilities?.seller ?? 0} max={1} className={referenceClass['responsibility-bar']}></progress>
                 <span className={referenceClass['responsibility-seller']}>{t('label_seller')}</span>
                 <span className={referenceClass['responsibility-percentages']}>

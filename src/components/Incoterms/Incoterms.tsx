@@ -7,19 +7,20 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 const IncoTerms = () => {
   const router = useRouter();
+  const locale = useLocale();
   const t = useTranslations('Incoterms');
 
   const handleRouting = (index: number) => {
     switch (index) {
       case 1:
-        router.push('/tools/incoterms/reference-guide');
+        router.push(`/${locale}/tools/incoterms/reference-guide`);
         break;
       case 2:
-        router.push('/tools/incoterms/advisor');
+        router.push(`/${locale}/tools/incoterms/advisor`);
         break;
       default:
         break;

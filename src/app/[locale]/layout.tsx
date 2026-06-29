@@ -73,13 +73,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  alternates: {
-    canonical: SITE_URL,
-    languages: {
-      'en-US': `${SITE_URL}/en`,
-      'zh-TW': `${SITE_URL}/zh-TW`,
-    },
-  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -90,11 +83,9 @@ export const metadata: Metadata = {
     description: COMPANY_DESCRIPTION,
     images: [
       {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
+        url: '/DITLogo.svg',
         alt: `${COMPANY_NAME} - Logistics Solutions`,
-        type: 'image/png',
+        type: 'image/svg+xml',
       },
     ],
   },
@@ -102,7 +93,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: COMPANY_NAME,
     description: COMPANY_DESCRIPTION,
-    images: ['/og-image.png'],
+    images: ['/DITLogo.svg'],
     // creator: "@ditsanfrancisco", // Add your Twitter handle
   },
   icons: {
@@ -111,6 +102,11 @@ export const metadata: Metadata = {
     apple: [{ url: '/DITLogo.svg', type: 'image/svg+xml' }],
   },
   manifest: '/site.webmanifest',
+  appleWebApp: {
+    capable: true,
+    title: 'DIT SF',
+    statusBarStyle: 'black-translucent',
+  },
   category: 'business',
   classification: 'Logistics and Transportation',
   referrer: 'origin-when-cross-origin',
@@ -120,7 +116,8 @@ export const metadata: Metadata = {
     // bing: "your-bing-verification-code",
   },
   other: {
-    'msapplication-TileColor': '#da532c',
+    'msapplication-TileColor': '#ffcc00',
+    'mobile-web-app-capable': 'yes',
   },
 };
 
@@ -131,19 +128,17 @@ const organizationJsonLd = {
   name: COMPANY_NAME,
   description: COMPANY_DESCRIPTION,
   url: SITE_URL,
-  logo: `${SITE_URL}/logo.png`,
+  logo: `${SITE_URL}/DITLogo.svg`,
   foundingDate: '2014',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'San Francisco',
+    streetAddress: '46750 Fremont Blvd #200',
+    addressLocality: 'Fremont',
     addressRegion: 'CA',
+    postalCode: '94538',
     addressCountry: 'US',
   },
-  sameAs: [
-    // Add your social media URLs
-    // "https://www.linkedin.com/company/ditsanfrancisco",
-    // "https://www.facebook.com/ditsanfrancisco",
-  ],
+  sameAs: ['https://www.linkedin.com/company/dit-sfo/'],
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer service',
@@ -158,26 +153,27 @@ const localBusinessJsonLd = {
   name: COMPANY_NAME,
   description: COMPANY_DESCRIPTION,
   url: SITE_URL,
-  image: `${SITE_URL}/og-image.png`,
+  image: `${SITE_URL}/DITLogo.svg`,
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'San Francisco',
+    streetAddress: '46750 Fremont Blvd #200',
+    addressLocality: 'Fremont',
     addressRegion: 'CA',
+    postalCode: '94538',
     addressCountry: 'US',
   },
   geo: {
     '@type': 'GeoCoordinates',
-    // Add your coordinates
-    // latitude: 37.7749,
-    // longitude: -122.4194,
+    latitude: 37.47937797375581,
+    longitude: -121.9444590947314,
   },
   areaServed: {
     '@type': 'GeoCircle',
     geoMidpoint: {
       '@type': 'GeoCoordinates',
-      // latitude: 37.7749,
-      // longitude: -122.4194,
+      latitude: 37.47937797375581,
+      longitude: -121.9444590947314,
     },
     geoRadius: '100 miles',
   },
@@ -193,7 +189,7 @@ export default async function RootLayout({
   const { locale } = await params;
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

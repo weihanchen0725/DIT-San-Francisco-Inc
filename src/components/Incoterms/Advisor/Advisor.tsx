@@ -1,7 +1,8 @@
 'use client';
 import advisorClass from './Advisor.module.scss';
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { Icon } from '@iconify/react';
 
 type Role = 'seller' | 'buyer' | null;
@@ -132,12 +133,15 @@ function calcResult(
 
 const Advisor = () => {
   const t = useTranslations('Incoterms');
+  const locale = useLocale();
+  const router = useRouter();
   const [step, setStep] = useState<1 | 2 | 3>(1);
 
   // Step 1 state
   const [role, setRole] = useState<Role>(null);
   const [scope, setScope] = useState<Scope>(null);
   const [goal, setGoal] = useState<Goal>(null);
+  const [stepOneError, setStepOneError] = useState(false);
 
   // Step 2 state
   const [transportMode, setTransportMode] = useState<TransportMode>('sea');
@@ -147,8 +151,25 @@ const Advisor = () => {
   const [insurance, setInsurance] = useState<InsurancePref>('self');
 
   const [result, setResult] = useState<IncoResult | null>(null);
+  const canContinue = role !== null && scope !== null && goal !== null;
+
+  const handleContinue = () => {
+    if (!canContinue) {
+      setStepOneError(true);
+      return;
+    }
+
+    setStepOneError(false);
+    setStep(2);
+  };
 
   const handleCalculate = () => {
+    if (!canContinue) {
+      setStepOneError(true);
+      setStep(1);
+      return;
+    }
+
     setResult(calcResult(role, scope, goal, transportMode, exportCustoms, intlFreight, doorToDoor, insurance));
     setStep(3);
   };
@@ -174,7 +195,7 @@ const Advisor = () => {
                 <div className={advisorClass['grid-2']}>
                   <button
                     className={`${advisorClass['role-card']} ${role === 'seller' ? advisorClass['selected'] : ''}`}
-                    onClick={() => setRole('seller')}
+                    onClick={() => { setRole('seller'); setStepOneError(false); }}
                   >
                     {role === 'seller' && (
                       <div className={advisorClass['check-icon']}>
@@ -187,7 +208,7 @@ const Advisor = () => {
                   </button>
                   <button
                     className={`${advisorClass['role-card']} ${role === 'buyer' ? advisorClass['selected'] : ''}`}
-                    onClick={() => setRole('buyer')}
+                    onClick={() => { setRole('buyer'); setStepOneError(false); }}
                   >
                     {role === 'buyer' && (
                       <div className={advisorClass['check-icon']}>
@@ -208,7 +229,7 @@ const Advisor = () => {
                 <div className={advisorClass['scope-grid']}>
                   <button
                     className={`${advisorClass['scope-card']} ${scope === 'international' ? advisorClass['selected'] : ''}`}
-                    onClick={() => setScope('international')}
+                    onClick={() => { setScope('international'); setStepOneError(false); }}
                   >
                     <div className={`${advisorClass['scope-icon-wrap']} ${scope === 'international' ? advisorClass['icon-active'] : ''}`}>
                       <Icon icon="material-symbols:public" />
@@ -220,7 +241,7 @@ const Advisor = () => {
                   </button>
                   <button
                     className={`${advisorClass['scope-card']} ${scope === 'domestic' ? advisorClass['selected'] : ''}`}
-                    onClick={() => setScope('domestic')}
+                    onClick={() => { setScope('domestic'); setStepOneError(false); }}
                   >
                     <div className={`${advisorClass['scope-icon-wrap']} ${scope === 'domestic' ? advisorClass['icon-active'] : ''}`}>
                       <Icon icon="material-symbols:home-pin" />
@@ -242,7 +263,7 @@ const Advisor = () => {
                     <button
                       key={value}
                       className={`${advisorClass['goal-card']} ${goal === value ? advisorClass['selected'] : ''}`}
-                      onClick={() => setGoal(value)}
+                      onClick={() => { setGoal(value); setStepOneError(false); }}
                     >
                       <Icon icon={icon} className={advisorClass['goal-icon']} />
                       <span className={advisorClass['goal-label']}>{t(labelKey)}</span>
@@ -255,7 +276,16 @@ const Advisor = () => {
 
             {/* Footer */}
             <div className={advisorClass['footer']}>
-              <button className={advisorClass['continue-btn']} onClick={() => setStep(2)}>
+              {stepOneError && (
+                <p className={advisorClass['validation-error']} role="alert">
+                  {t('advisor_required_error')}
+                </p>
+              )}
+              <button
+                className={advisorClass['continue-btn']}
+                onClick={handleContinue}
+                aria-disabled={!canContinue}
+              >
                 <span>{t('advisor_continue')}</span>
                 <Icon icon="material-symbols:arrow-forward" />
               </button>
@@ -456,11 +486,17 @@ const Advisor = () => {
 
             {/* Action Buttons */}
             <div className={advisorClass['r-actions']}>
-              <button className={advisorClass['r-quote-btn']}>
+              <button
+                className={advisorClass['r-quote-btn']}
+                onClick={() => router.push(`/${locale}/contact`)}
+              >
                 <Icon icon="material-symbols:request-quote" />
                 <span>{t('advisor_r_quote_btn')}</span>
               </button>
-              <button className={advisorClass['r-compare-btn']}>
+              <button
+                className={advisorClass['r-compare-btn']}
+                onClick={() => router.push(`/${locale}/tools/incoterms/reference-guide`)}
+              >
                 <span>{t('advisor_r_compare_btn')}</span>
                 <Icon icon="material-symbols:compare-arrows" />
               </button>
@@ -474,4 +510,3 @@ const Advisor = () => {
 };
 
 export default Advisor;
-

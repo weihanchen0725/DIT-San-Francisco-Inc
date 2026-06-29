@@ -1,17 +1,43 @@
 {
+  "id": "/",
   "name": "DIT San Francisco Inc.",
   "short_name": "DIT SF",
-  "description": "DIT San Francisco Inc. - Leading logistics management company providing efficient shipping, tracking, warehousing, and supply chain solutions.",
+  "description": "Bay Area logistics, freight shipping, warehousing, and supply chain solutions from DIT San Francisco Inc.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#fdfcf7",
   "theme_color": "#ffcc00",
+  "prefer_related_applications": false,
+  "categories": ["business", "logistics", "transportation"],
+  "lang": "en",
+  "dir": "ltr",
   "icons": [
     {
       "src": "/DITLogo.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/DITLogo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Contact Us",
+      "url": "/en/contact",
+      "description": "Get in touch with DIT San Francisco Inc."
+    },
+    {
+      "name": "Incoterms Advisor",
+      "url": "/en/tools/incoterms/advisor",
+      "description": "Get personalised Incoterms recommendations"
     }
   ]
 }

@@ -1,4 +1,50 @@
 {
+  "Metadata": {
+    "home": {
+      "title": "DIT San Francisco Inc.",
+      "description": "DIT San Francisco Inc. 提供灣區物流、貨運、倉儲、追蹤與供應鏈解決方案。"
+    },
+    "about": {
+      "title": "關於我們",
+      "description": "了解 DIT San Francisco Inc. 以及我們在運輸、追蹤、倉儲與供應鏈管理方面的服務。"
+    },
+    "services": {
+      "title": "物流服務",
+      "description": "探索 DIT San Francisco Inc. 的貨運、倉儲、供應鏈管理與追蹤解決方案。"
+    },
+    "tools": {
+      "title": "物流工具",
+      "description": "使用貨運追蹤、物流術語、Incoterms 指南與體積計算等工具。"
+    },
+    "news": {
+      "title": "新聞",
+      "description": "閱讀 DIT San Francisco Inc. 的最新消息與物流相關更新。"
+    },
+    "contact": {
+      "title": "聯絡我們",
+      "description": "聯絡 DIT San Francisco Inc. 以取得貨運、倉儲、追蹤與供應鏈支援。"
+    },
+    "dictionary": {
+      "title": "物流字典",
+      "description": "查詢常見物流、貨運與供應鏈術語。"
+    },
+    "calculator": {
+      "title": "CBM 與 CFT 計算機",
+      "description": "依包裝尺寸、件數與重量計算貨運體積 CBM 與 CFT。"
+    },
+    "incoterms": {
+      "title": "Incoterms 參考",
+      "description": "查看 Incoterms 規則、買賣雙方責任、風險移轉點與運輸方式。"
+    },
+    "incotermsAdvisor": {
+      "title": "Incoterms 顧問",
+      "description": "回答引導式貨運問題，找出適合交易情境的 Incoterm。"
+    },
+    "incotermsReferenceGuide": {
+      "title": "Incoterms 參考指南",
+      "description": "依代碼、運輸方式、責任分配與風險移轉點比較 Incoterms。"
+    }
+  },
   "Company": {
     "Name": "DIT San Francisco Inc."
   },
@@ -73,6 +119,13 @@
     "name_placeholder": "您的姓名",
     "email_placeholder": "您的電子郵件",
     "message_placeholder": "您的訊息",
+    "first_name_placeholder": "John",
+    "last_name_placeholder": "Doe",
+    "phone_placeholder": "+1 (123) 456-7890",
+    "company_placeholder": "您的公司",
+    "country_placeholder": "美國",
+    "state_placeholder": "加州",
+    "city_placeholder": "Fremont",
     "send_button": "發送訊息",
     "email_title": "電子郵件",
     "phone_title": "電話",
@@ -82,8 +135,8 @@
     "last_name_error": "請輸入姓氏。",
     "email_error": "請輸入有效的電子郵件地址。",
     "message_error": "訊息不能為空。",
-    "success_message": "您的訊息已成功發送！",
-    "error_message": "發送訊息時發生錯誤，請稍後再試。",
+    "success_message": "您的電子郵件草稿已準備好，請在郵件應用程式中送出。",
+    "error_message": "請修正標示的欄位後再送出。",
     "first_name_label": "名字",
     "last_name_label": "姓氏",
     "email_label": "電子郵件地址",
@@ -211,6 +264,7 @@
     "advisor_q3_maximize_control": "最大化掌控",
     "advisor_q3_simple_logistics": "簡化物流",
     "advisor_q3_lowest_cost": "降低成本",
+    "advisor_required_error": "請先回答三個問題再繼續。",
     "advisor_continue": "繼續至運輸方式",
     "advisor_s2_badge": "步驟 02 — 物流規劃",
     "advisor_s2_title": "定義運輸需求",

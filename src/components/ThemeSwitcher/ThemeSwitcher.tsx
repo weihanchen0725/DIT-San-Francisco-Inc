@@ -16,7 +16,8 @@ const ThemeSwitcher = ({ styleMode = 'row' }: ThemeSwitcherProps) => {
   const themeTranslate = useTranslations('Theme');
   // Prevent hydration mismatch
   useEffect(() => {
-    setMounted(true);
+    const frameId = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(frameId);
   }, []);
 
   // Toggle between light and dark themes

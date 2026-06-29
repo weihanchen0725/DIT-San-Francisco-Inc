@@ -250,8 +250,16 @@
 /* ── Footer / Continue button ────────────────────────── */
 .footer {
   display: flex;
+  align-items: center;
+  gap: 1rem;
   justify-content: flex-end;
   padding-top: 2rem;
+}
+
+.validation-error {
+  color: #dc2626;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .continue-btn {
@@ -901,5 +909,4 @@
     border-color: var(--color-primary);
   }
 }
-
 

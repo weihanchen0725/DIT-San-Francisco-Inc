@@ -1,3 +1,5 @@
+'use client';
+
 import React, { forwardRef, memo } from 'react';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../Tooltips/Tooltips';
 
