@@ -910,3 +910,57 @@
   }
 }
 
+// ─── Dark mode overrides ────────────────────────────────────────────────────
+
+:global(.dark) {
+  // Step 1 – selection cards
+  .role-card,
+  .scope-card,
+  .goal-card {
+    background-color: var(--color-bg-secondary);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  // Step 2 – config panels
+  .s2-panel {
+    background-color: var(--color-bg-secondary);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .seg-btn.seg-active {
+    background-color: var(--color-bg-primary);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  // Step 2 – "Calculate" button uses color-text-primary as bg (white in dark = invisible text)
+  .calc-btn {
+    background-color: var(--color-primary);
+    color: #000a3c;
+  }
+
+  // Step 2 – active transport mode button
+  .transport-btn.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #000a3c;
+  }
+
+  // Step 3 – result panels (white bg)
+  .r-why,
+  .r-resp-panel,
+  .r-risk-section {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border);
+  }
+
+  // Step 3 – main result card uses color-text-primary as bg (white in dark = invisible text)
+  .r-main-card {
+    background: #0a192f;
+  }
+
+  // Step 3 – "Request Quote" button
+  .r-quote-btn {
+    background: var(--color-primary);
+    color: #000a3c;
+  }
+}

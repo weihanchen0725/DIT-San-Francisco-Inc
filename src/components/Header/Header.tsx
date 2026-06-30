@@ -2,8 +2,14 @@ import GetHeader from '@/services/Global/GetHeader/GetHeader';
 import GetBaseURL from '@/services/GetBaseURL';
 import localHeaderData from '@/assets/data/Header.data.json';
 import fallbackLogo from '@/assets/images/dolphin-logistics-logo.webp';
+import fallbackLogoDark from '@/assets/images/dolphin-logistics-logo-dark.png';
 
 import HeaderClient from './HeaderClient';
+
+const resolveMediaUrl = (url: string | undefined): string | null => {
+  if (!url) return null;
+  return url.startsWith('http') ? url : GetBaseURL(url);
+};
 
 const dataLoader = async (): Promise<HeaderProps> => {
   try {
@@ -19,17 +25,16 @@ const dataLoader = async (): Promise<HeaderProps> => {
 
 const Header = async () => {
   // Server component: fetch CMS-backed header data once per request/render.
-  // Falls back to local Header.data.json when the CMS is unreachable.
+  // Falls back to local assets when the CMS is unreachable.
   const headerData = await dataLoader();
-  const logoPath = headerData?.Logo?.image?.url;
-  const logoUrl = logoPath
-    ? logoPath.startsWith('http')
-      ? logoPath
-      : GetBaseURL(logoPath)
-    : (fallbackLogo.src ?? fallbackLogo);
 
-  // Client component handles browser-only concerns (scroll state + animation).
-  return <HeaderClient headerData={headerData} logoUrl={logoUrl} />;
+  const logoUrl =
+    resolveMediaUrl(headerData?.Logo?.image?.url) ?? (fallbackLogo.src as string);
+
+  const darkLogoUrl =
+    resolveMediaUrl(headerData?.Logo?.imageDark?.url) ?? (fallbackLogoDark.src as string);
+
+  return <HeaderClient headerData={headerData} logoUrl={logoUrl} darkLogoUrl={darkLogoUrl} />;
 };
 
 export default Header;

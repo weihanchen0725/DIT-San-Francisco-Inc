@@ -42,6 +42,10 @@
     line-height: 1.2;
     @include flex-column-center-start;
 
+    :global(.dark) & {
+      color: var(--color-text-primary);
+    }
+
     &_1 {
       color: $primary-color;
     }

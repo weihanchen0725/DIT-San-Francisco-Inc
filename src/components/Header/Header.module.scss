@@ -129,6 +129,18 @@ $menu-ease-duration: 180ms;
     width: auto;
     max-height: 4rem;
     flex-shrink: 0;
+
+    &_dark {
+      display: none;
+    }
+
+    :global(.dark) &_light {
+      display: none;
+    }
+
+    :global(.dark) &_dark {
+      display: block;
+    }
   }
 
   &_name {

@@ -11,6 +11,9 @@ const GetHeader = async () => {
               image: {
                 fields: ['documentId', 'url', 'alternativeText'],
               },
+              imageDark: {
+                fields: ['documentId', 'url', 'alternativeText'],
+              },
             },
           },
           Navigations: '*',

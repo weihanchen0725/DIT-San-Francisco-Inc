@@ -52,6 +52,9 @@
 
 @mixin register_dark_variables {
   .dark {
+    --background-color: #0a0a1a;
+    --primary-background-color: #111127;
+
     --color-primary: #ffcc00;
     --color-primary-hover: #ffd633;
     --color-primary-light: rgba(255, 204, 0, 0.15);

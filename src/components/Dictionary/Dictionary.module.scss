@@ -19,6 +19,10 @@
     border-bottom: 0.25rem solid $primary-color;
     width: 100%;
     scroll-margin-top: 7rem;
+
+    :global(.dark) & {
+      color: var(--color-text-primary);
+    }
   }
 }
 
@@ -211,6 +215,27 @@
         padding: 0.125rem;
         color: $secondary-color-light;
         font-size: var(--subtitle-font-size);
+      }
+    }
+
+    // ── Dark mode ──
+    :global(.dark) & {
+      border-color: var(--color-border);
+
+      & h3 {
+        color: var(--color-text-primary);
+      }
+
+      & .dictionary-category {
+        border-color: rgba(255, 255, 255, 0.2) !important;
+      }
+
+      & .dictionary-definition {
+        color: var(--color-text-primary);
+      }
+
+      & .dictionary-related-terms li {
+        color: var(--color-text-secondary);
       }
     }
 

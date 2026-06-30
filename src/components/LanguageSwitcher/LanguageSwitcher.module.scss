@@ -23,12 +23,21 @@
     transition:
       color 180ms ease,
       transform 180ms ease;
+
+    :global(.dark) & {
+      color: var(--color-text-secondary);
+    }
   }
 
   &:hover &_icon,
   &:focus-within &_icon {
     color: $secondary-color;
     transform: scale(1.03);
+  }
+
+  :global(.dark) &:hover &_icon,
+  :global(.dark) &:focus-within &_icon {
+    color: var(--color-primary);
   }
 
   &_select {
@@ -44,9 +53,18 @@
     transition: color 180ms ease;
     @include flex-row-end-center;
 
+    :global(.dark) & {
+      color: var(--color-text-primary);
+    }
+
     &:hover,
     &:focus-visible {
       color: $secondary-color-hover;
+    }
+
+    :global(.dark) &:hover,
+    :global(.dark) &:focus-visible {
+      color: var(--color-primary);
     }
 
     &:focus-visible {
@@ -65,6 +83,10 @@
       color 180ms ease,
       transform 180ms ease;
 
+    :global(.dark) & {
+      color: rgba(255, 255, 255, 0.45);
+    }
+
     .languageSwitcher_selectWrap:focus-within & {
       color: $primary-color;
       transform: translateY(1px);
@@ -74,6 +96,11 @@
   &_option {
     background-color: var(--color-bg-primary);
     color: $secondary-color;
+
+    :global(.dark) & {
+      background-color: #111127;
+      color: #ffffff;
+    }
   }
 
   @include respond(md) {

@@ -14,6 +14,7 @@ import { useTranslations } from 'next-intl';
 type HeaderClientProps = {
   headerData: HeaderProps;
   logoUrl: string;
+  darkLogoUrl: string;
 };
 
 const MENU_COLLAPSE_BREAKPOINT_PX = 1120;
@@ -36,7 +37,7 @@ const getHeaderCollapseTier = (width: number) => {
   return 0;
 };
 
-const HeaderClient = ({ headerData, logoUrl }: HeaderClientProps) => {
+const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [collapseTier, setCollapseTier] = useState(0);
   const menuPanelId = useId();
@@ -247,10 +248,17 @@ const HeaderClient = ({ headerData, logoUrl }: HeaderClientProps) => {
     >
       {/* Brand — always visible (name hides at very narrow widths via CSS) */}
       <div className={headerClass.header_content}>
+        {/* Two images rendered; CSS toggles visibility based on .dark on <html> */}
         <img
           src={logoUrl ?? ''}
           alt={translateHeader(headerData.Logo?.image?.alternativeText ?? '')}
-          className={headerClass.header_logo}
+          className={`${headerClass.header_logo} ${headerClass.header_logo_light}`}
+        />
+        <img
+          src={darkLogoUrl ?? ''}
+          alt={translateHeader(headerData.Logo?.image?.alternativeText ?? '')}
+          className={`${headerClass.header_logo} ${headerClass.header_logo_dark}`}
+          aria-hidden="true"
         />
         <span className={headerClass.header_name}>({translateHeader(headerData?.Name ?? '')})</span>
       </div>
