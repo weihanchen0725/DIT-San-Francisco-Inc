@@ -56,9 +56,19 @@
     background-color: $secondary-color;
     color: $primary-color;
 
+    :global(.dark) & {
+      background-color: var(--color-primary);
+      color: var(--color-text-light);
+    }
+
     &:hover {
       background-color: $secondary-color-light;
       color: $primary-color-light;
+
+      :global(.dark) & {
+        background-color: var(--color-primary-hover);
+        color: var(--color-text-light);
+      }
     }
   }
 
@@ -68,7 +78,7 @@
     color: $secondary-color;
 
     :global(.dark) & {
-      border-color: var(--color-border);
+      border-color: rgba(255, 255, 255, 0.3);
       color: var(--color-text-primary);
     }
 
