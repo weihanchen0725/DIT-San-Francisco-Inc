@@ -25,14 +25,21 @@
       & h1 {
         font-size: 3.5rem;
         font-weight: 700;
+
+        :global(.dark) & {
+          color: var(--color-text-primary);
+        }
       }
 
       & p {
         font-size: 1rem;
         color: $secondary-color;
         max-width: 40rem;
-
         margin-bottom: 1.5rem;
+
+        :global(.dark) & {
+          color: var(--color-text-secondary);
+        }
       }
 
       & .buttons {

@@ -12,23 +12,23 @@ const Contact = async () => {
   return (
     <section id="contact" className={contactClass.contact}>
       {/* Header */}
-      <div className="text-center mb-16">
-        <h2 className="text-4xl sm:text-5xl font-bold text-brand-navy dark:text-white tracking-tight">
+      <div className={contactClass.contact_header}>
+        <h2 className={contactClass.contact_title}>
           {translateContact('title_1')}
-          <span className="text-brand-yellow">{translateContact('title_2')}</span>
+          <span className={contactClass.contact_title_accent}>{translateContact('title_2')}</span>
         </h2>
-        <p className="mt-6 text-lg text-brand-gray dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        <p className={contactClass.contact_description}>
           {translateContact('description')}
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className={contactClass.contact_layout}>
         {/* Contact Info Cards */}
-        <div className="lg:col-span-1 space-y-6 flex flex-col gap-6">
-          <div className="p-8 rounded-2xl bg-white dark:bg-[#111127] border border-gray-100 dark:border-brand-navy-light hover:shadow-xl hover:border-brand-yellow dark:hover:border-brand-yellow transition-all duration-300">
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 flex items-center justify-center rounded-full bg-brand-yellow/15 dark:bg-brand-yellow/20 text-brand-yellow">
-                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className={contactClass.contact_infoColumn}>
+          <div className={contactClass.contact_card}>
+            <div className={contactClass.contact_cardHeader}>
+              <div className={contactClass.contact_cardIcon}>
+                <svg className={contactClass.contact_cardIconSvg} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -37,18 +37,18 @@ const Contact = async () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-brand-navy dark:text-white">
+              <h3 className={contactClass.contact_cardTitle}>
                 {translateContact('email_title')}
               </h3>
             </div>
-            <p className="mt-3 text-brand-gray dark:text-gray-400">contact@ditsanfrancisco.com</p>
-            <p className="text-brand-gray dark:text-gray-400">support@ditsanfrancisco.com</p>
+            <p className={contactClass.contact_cardDetail}>contact@ditsanfrancisco.com</p>
+            <p className={contactClass.contact_cardDetail}>support@ditsanfrancisco.com</p>
           </div>
 
-          <div className="flex flex-col gap-4 p-8 rounded-2xl bg-white dark:bg-[#111127] border border-gray-100 dark:border-brand-navy-light hover:shadow-xl hover:border-brand-yellow dark:hover:border-brand-yellow transition-all duration-300">
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 flex items-center justify-center rounded-full bg-brand-yellow/15 dark:bg-brand-yellow/20 text-brand-yellow">
-                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className={`${contactClass.contact_card} ${contactClass.contact_cardFlex}`}>
+            <div className={contactClass.contact_cardHeader}>
+              <div className={contactClass.contact_cardIcon}>
+                <svg className={contactClass.contact_cardIconSvg} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -57,17 +57,17 @@ const Contact = async () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-brand-navy dark:text-white">
+              <h3 className={contactClass.contact_cardTitle}>
                 {translateContact('business_hours_title')}
               </h3>
             </div>
             <OpenIndicator />
           </div>
 
-          <div className="p-8 rounded-2xl bg-white dark:bg-[#111127] border border-gray-100 dark:border-brand-navy-light hover:shadow-xl hover:border-brand-yellow dark:hover:border-brand-yellow transition-all duration-300">
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 flex items-center justify-center rounded-full bg-brand-yellow/15 dark:bg-brand-yellow/20 text-brand-yellow">
-                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className={contactClass.contact_card}>
+            <div className={contactClass.contact_cardHeader}>
+              <div className={contactClass.contact_cardIcon}>
+                <svg className={contactClass.contact_cardIconSvg} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -76,18 +76,18 @@ const Contact = async () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-brand-navy dark:text-white">
+              <h3 className={contactClass.contact_cardTitle}>
                 {translateContact('phone_title')}
               </h3>
             </div>
-            <p className="mt-3 text-brand-gray dark:text-gray-400">{ContactData.data.phone}</p>
-            <p className="text-brand-gray dark:text-gray-400">{ContactData.data.business_hours}</p>
+            <p className={contactClass.contact_cardDetail}>{ContactData.data.phone}</p>
+            <p className={contactClass.contact_cardDetail}>{ContactData.data.business_hours}</p>
           </div>
 
-          <div className="p-8 rounded-2xl bg-white dark:bg-[#111127] border border-gray-100 dark:border-brand-navy-light hover:shadow-xl hover:border-brand-yellow dark:hover:border-brand-yellow transition-all duration-300">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-14 h-14 flex items-center justify-center rounded-full bg-brand-yellow/15 dark:bg-brand-yellow/20 text-brand-yellow">
-                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className={contactClass.contact_card}>
+            <div className={contactClass.contact_cardHeaderMb}>
+              <div className={contactClass.contact_cardIcon}>
+                <svg className={contactClass.contact_cardIconSvg} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -103,25 +103,25 @@ const Contact = async () => {
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-brand-navy dark:text-white">
+                <h3 className={contactClass.contact_cardTitle}>
                   {translateContact('address_title')}
                 </h3>
-                <p className="text-sm text-brand-gray dark:text-gray-400">
+                <p className={contactClass.contact_cardAddressText}>
                   {ContactData.data.address_1}
                 </p>
-                <p className="text-sm text-brand-gray dark:text-gray-400">
+                <p className={contactClass.contact_cardAddressText}>
                   {ContactData.data.address_2}
                 </p>
               </div>
             </div>
-            <div className="mt-4 -mx-8 -mb-8">
+            <div className={contactClass.contact_cardMapWrap}>
               <MapWrapper />
             </div>
           </div>
         </div>
 
         {/* Contact Form */}
-        <div className="lg:col-span-2">
+        <div className={contactClass.contact_formColumn}>
           <ContactForm />
         </div>
       </div>

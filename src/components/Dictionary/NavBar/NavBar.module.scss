@@ -22,6 +22,14 @@
     }
   }
 
+  :global(.dark) & a {
+    color: var(--color-text-primary);
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+
   & .divider {
     width: 1px;
     height: 1rem;

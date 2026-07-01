@@ -4,6 +4,7 @@ import { useState, type FormEvent } from 'react';
 import { useTranslations } from 'next-intl';
 
 import ContactData from './ContactData.json';
+import styles from './ContactForm.module.scss';
 
 type ContactErrors = Partial<Record<'firstName' | 'lastName' | 'email' | 'message', string>>;
 type SubmitState = 'idle' | 'success' | 'error';
@@ -66,16 +67,13 @@ const ContactForm = () => {
 
   return (
     <form
-      className="bg-gray-50 dark:bg-[#111127] rounded-2xl p-8 sm:p-10 border border-gray-100 dark:border-brand-navy-light"
+      className={styles.form}
       onSubmit={handleSubmit}
       noValidate
     >
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+      <div className={styles.grid}>
         <div>
-          <label
-            htmlFor="firstName"
-            className="block text-sm font-semibold text-brand-navy dark:text-white mb-2"
-          >
+          <label htmlFor="firstName" className={styles.label}>
             {translateContact('first_name_label')}
           </label>
           <input
@@ -88,20 +86,17 @@ const ContactForm = () => {
             aria-required="true"
             aria-invalid={fieldError('firstName') ? 'true' : 'false'}
             aria-describedby={fieldError('firstName') ? 'firstName-error' : undefined}
-            className="block w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-navy-light bg-white dark:bg-[#0a0a1a] text-brand-navy dark:text-white placeholder-brand-gray focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all duration-200"
+            className={styles.input}
           />
           {fieldError('firstName') && (
-            <p id="firstName-error" className="mt-2 text-sm text-red-600 dark:text-red-400">
+            <p id="firstName-error" className={styles.fieldError}>
               {fieldError('firstName')}
             </p>
           )}
         </div>
 
         <div>
-          <label
-            htmlFor="lastName"
-            className="block text-sm font-semibold text-brand-navy dark:text-white mb-2"
-          >
+          <label htmlFor="lastName" className={styles.label}>
             {translateContact('last_name_label')}
           </label>
           <input
@@ -114,20 +109,17 @@ const ContactForm = () => {
             aria-required="true"
             aria-invalid={fieldError('lastName') ? 'true' : 'false'}
             aria-describedby={fieldError('lastName') ? 'lastName-error' : undefined}
-            className="block w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-navy-light bg-white dark:bg-[#0a0a1a] text-brand-navy dark:text-white placeholder-brand-gray focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all duration-200"
+            className={styles.input}
           />
           {fieldError('lastName') && (
-            <p id="lastName-error" className="mt-2 text-sm text-red-600 dark:text-red-400">
+            <p id="lastName-error" className={styles.fieldError}>
               {fieldError('lastName')}
             </p>
           )}
         </div>
 
         <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-semibold text-brand-navy dark:text-white mb-2"
-          >
+          <label htmlFor="email" className={styles.label}>
             {translateContact('email_label')}
           </label>
           <input
@@ -140,20 +132,17 @@ const ContactForm = () => {
             aria-required="true"
             aria-invalid={fieldError('email') ? 'true' : 'false'}
             aria-describedby={fieldError('email') ? 'email-error' : undefined}
-            className="block w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-navy-light bg-white dark:bg-[#0a0a1a] text-brand-navy dark:text-white placeholder-brand-gray focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all duration-200"
+            className={styles.input}
           />
           {fieldError('email') && (
-            <p id="email-error" className="mt-2 text-sm text-red-600 dark:text-red-400">
+            <p id="email-error" className={styles.fieldError}>
               {fieldError('email')}
             </p>
           )}
         </div>
 
         <div>
-          <label
-            htmlFor="phone"
-            className="block text-sm font-semibold text-brand-navy dark:text-white mb-2"
-          >
+          <label htmlFor="phone" className={styles.label}>
             {translateContact('phone_label')}
           </label>
           <input
@@ -162,17 +151,14 @@ const ContactForm = () => {
             id="phone"
             autoComplete="tel"
             placeholder={translateContact('phone_placeholder')}
-            className="block w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-navy-light bg-white dark:bg-[#0a0a1a] text-brand-navy dark:text-white placeholder-brand-gray focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all duration-200"
+            className={styles.input}
           />
         </div>
 
         <div>
-          <label
-            htmlFor="company"
-            className="block text-sm font-semibold text-brand-navy dark:text-white mb-2"
-          >
+          <label htmlFor="company" className={styles.label}>
             {translateContact('company_label')}{' '}
-            <span className="text-brand-gray font-normal">{translateContact('optional_tag')}</span>
+            <span className={styles.labelOptional}>{translateContact('optional_tag')}</span>
           </label>
           <input
             type="text"
@@ -180,17 +166,14 @@ const ContactForm = () => {
             id="company"
             autoComplete="organization"
             placeholder={translateContact('company_placeholder')}
-            className="block w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-navy-light bg-white dark:bg-[#0a0a1a] text-brand-navy dark:text-white placeholder-brand-gray focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all duration-200"
+            className={styles.input}
           />
         </div>
 
         <div>
-          <label
-            htmlFor="country"
-            className="block text-sm font-semibold text-brand-navy dark:text-white mb-2"
-          >
+          <label htmlFor="country" className={styles.label}>
             {translateContact('country_label')}{' '}
-            <span className="text-brand-gray font-normal">{translateContact('optional_tag')}</span>
+            <span className={styles.labelOptional}>{translateContact('optional_tag')}</span>
           </label>
           <input
             type="text"
@@ -198,17 +181,14 @@ const ContactForm = () => {
             id="country"
             autoComplete="country-name"
             placeholder={translateContact('country_placeholder')}
-            className="block w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-navy-light bg-white dark:bg-[#0a0a1a] text-brand-navy dark:text-white placeholder-brand-gray focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all duration-200"
+            className={styles.input}
           />
         </div>
 
         <div>
-          <label
-            htmlFor="state"
-            className="block text-sm font-semibold text-brand-navy dark:text-white mb-2"
-          >
+          <label htmlFor="state" className={styles.label}>
             {translateContact('state_label')}{' '}
-            <span className="text-brand-gray font-normal">{translateContact('optional_tag')}</span>
+            <span className={styles.labelOptional}>{translateContact('optional_tag')}</span>
           </label>
           <input
             type="text"
@@ -216,17 +196,14 @@ const ContactForm = () => {
             id="state"
             autoComplete="address-level1"
             placeholder={translateContact('state_placeholder')}
-            className="block w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-navy-light bg-white dark:bg-[#0a0a1a] text-brand-navy dark:text-white placeholder-brand-gray focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all duration-200"
+            className={styles.input}
           />
         </div>
 
         <div>
-          <label
-            htmlFor="city"
-            className="block text-sm font-semibold text-brand-navy dark:text-white mb-2"
-          >
+          <label htmlFor="city" className={styles.label}>
             {translateContact('city_label')}{' '}
-            <span className="text-brand-gray font-normal">{translateContact('optional_tag')}</span>
+            <span className={styles.labelOptional}>{translateContact('optional_tag')}</span>
           </label>
           <input
             type="text"
@@ -234,15 +211,12 @@ const ContactForm = () => {
             id="city"
             autoComplete="address-level2"
             placeholder={translateContact('city_placeholder')}
-            className="block w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-navy-light bg-white dark:bg-[#0a0a1a] text-brand-navy dark:text-white placeholder-brand-gray focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all duration-200"
+            className={styles.input}
           />
         </div>
 
-        <div className="sm:col-span-2">
-          <label
-            htmlFor="subject"
-            className="block text-sm font-semibold text-brand-navy dark:text-white mb-2"
-          >
+        <div className={styles.fieldGroupSpan}>
+          <label htmlFor="subject" className={styles.label}>
             {translateContact('subject_label')}
           </label>
           <input
@@ -250,15 +224,12 @@ const ContactForm = () => {
             name="subject"
             id="subject"
             placeholder={translateContact('subject_label')}
-            className="block w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-navy-light bg-white dark:bg-[#0a0a1a] text-brand-navy dark:text-white placeholder-brand-gray focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all duration-200"
+            className={styles.input}
           />
         </div>
 
-        <div className="sm:col-span-2">
-          <label
-            htmlFor="message"
-            className="block text-sm font-semibold text-brand-navy dark:text-white mb-2"
-          >
+        <div className={styles.fieldGroupSpan}>
+          <label htmlFor="message" className={styles.label}>
             {translateContact('message_label')}
           </label>
           <textarea
@@ -270,36 +241,36 @@ const ContactForm = () => {
             aria-required="true"
             aria-invalid={fieldError('message') ? 'true' : 'false'}
             aria-describedby={fieldError('message') ? 'message-error' : undefined}
-            className="block w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-brand-navy-light bg-white dark:bg-[#0a0a1a] text-brand-navy dark:text-white placeholder-brand-gray focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent transition-all duration-200 resize-none"
+            className={styles.textarea}
           />
           {fieldError('message') && (
-            <p id="message-error" className="mt-2 text-sm text-red-600 dark:text-red-400">
+            <p id="message-error" className={styles.fieldError}>
               {fieldError('message')}
             </p>
           )}
         </div>
 
-        <div className="sm:col-span-2" aria-live="polite">
+        <div className={styles.statusGroup} aria-live="polite">
           {submitState === 'success' && (
-            <p className="text-sm font-medium text-green-700 dark:text-green-400">
+            <p className={styles.successMessage}>
               {translateContact('success_message')}
             </p>
           )}
           {submitState === 'error' && Object.keys(errors).length > 0 && (
-            <p className="text-sm font-medium text-red-600 dark:text-red-400">
+            <p className={styles.errorMessage}>
               {translateContact('error_message')}
             </p>
           )}
         </div>
 
-        <div className="sm:col-span-2 flex justify-end">
+        <div className={styles.submitGroup}>
           <button
             type="submit"
-            className="w-full flex flex-row items-center gap-2 sm:w-auto px-8 py-4 rounded-lg bg-brand-yellow text-brand-navy font-semibold hover:bg-brand-yellow-hover focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:ring-offset-2 transition-all duration-200 shadow-lg hover:shadow-xl"
+            className={styles.submitBtn}
           >
             {translateContact('send_button')}
             <svg
-              className="inline-block w-5 h-5 ml-2 -mr-1"
+              className={styles.submitBtnIcon}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

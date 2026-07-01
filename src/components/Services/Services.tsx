@@ -12,14 +12,14 @@ const Services = async () => {
 
   return (
     <section id="services" className={servicesClass.services}>
-      <h2 className="text-4xl font-bold text-brand-navy dark:text-white tracking-tight">
+      <h2 className={servicesClass.services_title}>
         {translateServices('title')}
       </h2>
-      <p className="mt-6 text-lg sm:text-xl text-brand-gray dark:text-gray-300 max-w-2xl leading-relaxed">
+      <p className={servicesClass.services_description}>
         {translateServices('description')}
       </p>
       {/* Add service details here */}
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className={servicesClass.services_grid}>
         <Features
           icon={<FreightShippingIcon className="w-8 h-8 text-brand-yellow" />}
           title={translateServices('freight_shipping_title')}

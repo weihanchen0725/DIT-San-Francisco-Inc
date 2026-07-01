@@ -71,8 +71,17 @@
           background-color: $secondary-color;
           color: $primary-color;
 
+          :global(.dark) & {
+            background-color: var(--color-primary);
+            color: #000a3c;
+          }
+
           &:hover {
             background-color: $secondary-color-hover;
+
+            :global(.dark) & {
+              background-color: var(--color-primary-hover);
+            }
           }
         }
       }
@@ -206,7 +215,7 @@
                 left: 50%;
                 transform: translateX(-50%);
                 background-color: $secondary-color;
-                color: $background-color;
+                color: #ffffff;
                 padding: 0.25rem 0.625rem;
                 border-radius: 0.25rem;
                 font-size: 0.75rem;
@@ -216,6 +225,11 @@
                 pointer-events: none;
                 transition: opacity 0.2s ease;
                 z-index: 10;
+              }
+
+              :global(.dark) &::after {
+                background-color: var(--color-bg-secondary);
+                color: var(--color-text-primary);
               }
 
               &:hover::after {

@@ -5,18 +5,18 @@ const News = async () => {
   const translateNews = await getTranslations('News');
   return (
     <section id="news" className={newsClass.news}>
-      <h2 className="text-4xl font-bold text-brand-navy dark:text-white tracking-tight">
+      <h2 className={newsClass.news_title}>
         {translateNews('title')}
       </h2>
-      <p className="mt-6 text-lg sm:text-xl text-brand-gray dark:text-gray-300 max-w-2xl leading-relaxed">
+      <p className={newsClass.news_description}>
         {translateNews('description')}
       </p>
       {/* Add news articles here */}
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="text-center p-8 rounded-2xl bg-white dark:bg-[#111127] border border-gray-100 dark:border-brand-navy-light hover:shadow-xl hover:border-brand-yellow dark:hover:border-brand-yellow transition-all duration-300">
-          <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-brand-yellow/15 dark:bg-brand-yellow/20">
+      <div className={newsClass.news_grid}>
+        <div className={newsClass.news_card}>
+          <div className={newsClass.news_card_iconWrap}>
             <svg
-              className="w-8 h-8 text-brand-yellow"
+              className={newsClass.news_card_iconSvg}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -29,15 +29,15 @@ const News = async () => {
               />
             </svg>
           </div>
-          <h3 className="text-xl font-semibold text-brand-navy dark:text-white">News Article 1</h3>
-          <p className="mt-3 text-brand-gray dark:text-gray-400 leading-relaxed">
+          <h3 className={newsClass.news_card_title}>News Article 1</h3>
+          <p className={newsClass.news_card_description}>
             Summary of the first news article.
           </p>
         </div>
-        <div className="text-center p-8 rounded-2xl bg-white dark:bg-[#111127] border border-gray-100 dark:border-brand-navy-light hover:shadow-xl hover:border-brand-yellow dark:hover:border-brand-yellow transition-all duration-300">
-          <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-brand-yellow/15 dark:bg-brand-yellow/20">
+        <div className={newsClass.news_card}>
+          <div className={newsClass.news_card_iconWrap}>
             <svg
-              className="w-8 h-8 text-brand-yellow"
+              className={newsClass.news_card_iconSvg}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -50,15 +50,15 @@ const News = async () => {
               />
             </svg>
           </div>
-          <h3 className="text-xl font-semibold text-brand-navy dark:text-white">News Article 2</h3>
-          <p className="mt-3 text-brand-gray dark:text-gray-400 leading-relaxed">
+          <h3 className={newsClass.news_card_title}>News Article 2</h3>
+          <p className={newsClass.news_card_description}>
             Summary of the second news article.
           </p>
         </div>
-        <div className="text-center p-8 rounded-2xl bg-white dark:bg-[#111127] border border-gray-100 dark:border-brand-navy-light hover:shadow-xl hover:border-brand-yellow dark:hover:border-brand-yellow transition-all duration-300">
-          <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-brand-yellow/15 dark:bg-brand-yellow/20">
+        <div className={newsClass.news_card}>
+          <div className={newsClass.news_card_iconWrap}>
             <svg
-              className="w-8 h-8 text-brand-yellow"
+              className={newsClass.news_card_iconSvg}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -71,8 +71,8 @@ const News = async () => {
               />
             </svg>
           </div>
-          <h3 className="text-xl font-semibold text-brand-navy dark:text-white">News Article 3</h3>
-          <p className="mt-3 text-brand-gray dark:text-gray-400 leading-relaxed">
+          <h3 className={newsClass.news_card_title}>News Article 3</h3>
+          <p className={newsClass.news_card_description}>
             Summary of the third news article.
           </p>
         </div>

@@ -35,6 +35,18 @@ const NavBar = ({ styleMode = 'row' }: NavBarProps) => {
 
   const activeSection = useActiveSection(sectionIds);
 
+  // On sub-pages (e.g. /tools/incoterms) the IntersectionObserver finds no matching
+  // sections, so derive the active key from the first pathname segment instead.
+  const pathnameKey = useMemo(() => {
+    if (isHomePage) return '';
+    const withoutLocale = pathname.startsWith(`/${locale}`)
+      ? pathname.slice(`/${locale}`.length)
+      : pathname;
+    return withoutLocale.split('/').filter(Boolean)[0] ?? '';
+  }, [isHomePage, pathname, locale]);
+
+  const effectiveActive = isHomePage ? activeSection : pathnameKey;
+
   return (
     <nav className={navClass.nav}>
       {/* Add your navigation items here */}
@@ -42,7 +54,7 @@ const NavBar = ({ styleMode = 'row' }: NavBarProps) => {
         {resolvedList?.map((item: LinkProps, index: number) => (
           <React.Fragment key={item?.id ?? index}>
             {item?.isActive && (
-              <li className={activeSection === item?.Key ? navClass.active : ''}>
+              <li className={effectiveActive === item?.Key ? navClass.active : ''}>
                 <a
                   href={getHref(item?.Value)}
                   aria-disabled={item?.isEnabled === false}

@@ -11,6 +11,10 @@
   border: 1px solid $primary-border-color;
   flex: 1;
 
+  :global(.dark) & {
+    border-color: var(--color-border);
+  }
+
   & h2 {
     font-size: 1.5rem;
     font-weight: 600;
@@ -20,10 +24,21 @@
   &.light {
     background-color: $background-color;
     color: #000;
+
+    :global(.dark) & {
+      background-color: var(--color-bg-secondary);
+      color: var(--color-text-primary);
+    }
   }
+
   &.dark {
     background-color: $primary-dark-background-color;
     color: #000;
+
+    :global(.dark) & {
+      background-color: var(--color-bg-primary);
+      color: var(--color-text-primary);
+    }
   }
 
   & .button {
@@ -42,6 +57,12 @@
       background-color: $background-color;
       color: $secondary-color;
       border: 1px solid $primary-border-color;
+
+      :global(.dark) & {
+        color: var(--color-text-primary);
+        border-color: var(--color-border);
+      }
+
       &:hover {
         background-color: $primary-color;
         color: $secondary-color;
@@ -52,6 +73,7 @@
     &.darkButton {
       background-color: $secondary-color;
       color: $primary-color;
+
       &:hover {
         background-color: $secondary-color-hover;
       }

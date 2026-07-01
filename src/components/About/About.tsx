@@ -5,10 +5,10 @@ const About = async () => {
   const translateAbout = await getTranslations('About');
   return (
     <section id="about" className={aboutClass.About}>
-      <h2 className="text-4xl font-bold text-brand-navy dark:text-white tracking-tight">
+      <h2 className={aboutClass.About_title}>
         {translateAbout('title')}
       </h2>
-      <p className="mt-6 text-lg text-brand-gray dark:text-gray-300 leading-relaxed max-w-3xl">
+      <p className={aboutClass.About_description}>
         {translateAbout('description')}
       </p>
     </section>

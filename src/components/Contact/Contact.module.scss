@@ -1,5 +1,166 @@
 @import '@/assets/styles/variables.scss';
+@import '@/assets/styles/mixin';
 
 .contact {
   min-height: $max-height;
+  padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 5vw, 2rem);
+
+  &_header {
+    margin-bottom: 3rem;
+  }
+
+  &_title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: -0.025em;
+
+    &_accent {
+      color: var(--color-brand-yellow);
+    }
+  }
+
+  &_description {
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+    line-height: 1.625;
+    color: var(--color-brand-gray);
+    max-width: 42rem;
+
+    @media (min-width: 40rem) {
+      font-size: 1.25rem;
+    }
+
+    :global(.dark) & {
+      color: #d1d5db;
+    }
+  }
+
+  &_layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+
+    @media (min-width: 64rem) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &_infoColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @media (min-width: 64rem) {
+      grid-column: span 1;
+    }
+  }
+
+  &_formColumn {
+    @media (min-width: 64rem) {
+      grid-column: span 2;
+    }
+  }
+
+  &_card {
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #ffffff;
+    border: 1px solid #f3f4f6;
+    transition: all 300ms ease;
+
+    :global(.dark) & {
+      background-color: #111127;
+      border-color: var(--color-brand-navy-light);
+    }
+
+    &:hover {
+      box-shadow:
+        0 20px 25px -5px rgb(0 0 0 / 0.1),
+        0 8px 10px -6px rgb(0 0 0 / 0.1);
+      border-color: var(--color-brand-yellow);
+    }
+
+    :global(.dark) &:hover {
+      box-shadow:
+        0 20px 25px -5px rgb(0 0 0 / 0.3),
+        0 8px 10px -6px rgb(0 0 0 / 0.3);
+      border-color: var(--color-brand-yellow);
+    }
+  }
+
+  // Variant: card that lays out its own children as a flex column (business hours)
+  &_cardFlex {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &_cardHeader {
+    @include flex-row-start-center;
+    gap: 1rem;
+  }
+
+  // Variant: card header with bottom margin (address card)
+  &_cardHeaderMb {
+    @include flex-row-start-center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &_cardIcon {
+    @include flex-row-center-center;
+    width: 3.5rem;
+    height: 3.5rem;
+    flex-shrink: 0;
+    border-radius: 9999px;
+    background-color: rgba(255, 204, 0, 0.15);
+    color: var(--color-brand-yellow);
+
+    :global(.dark) & {
+      background-color: rgba(255, 204, 0, 0.2);
+    }
+  }
+
+  &_cardIconSvg {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  &_cardTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  // Detail paragraphs below the card header; siblings share no top margin
+  &_cardDetail {
+    margin-top: 0.75rem;
+    color: var(--color-brand-gray);
+
+    :global(.dark) & {
+      color: #9ca3af;
+    }
+
+    & + & {
+      margin-top: 0;
+    }
+  }
+
+  // Smaller text for address lines
+  &_cardAddressText {
+    font-size: 0.875rem;
+    color: var(--color-brand-gray);
+
+    :global(.dark) & {
+      color: #9ca3af;
+    }
+  }
+
+  // Map container uses negative margins to bleed to card edges
+  &_cardMapWrap {
+    margin-top: 1rem;
+    margin-inline: -2rem;
+    margin-bottom: -2rem;
+  }
 }

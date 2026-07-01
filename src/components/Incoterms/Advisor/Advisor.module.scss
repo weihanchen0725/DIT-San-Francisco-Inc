@@ -921,6 +921,27 @@
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   }
 
+  // Goal card hover/selected: dark block's base rule wins on specificity ties (same 0,2,0),
+  // so yellow bg must be re-declared here to beat the base .goal-card override above.
+  .goal-card {
+    &:hover,
+    &.selected {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #000a3c;
+    }
+  }
+
+  // Scope card active icon: color-text-primary = white in dark, but bg is yellow → poor contrast
+  .icon-active {
+    color: #000a3c;
+  }
+
+  // Toggle row hover: panel bg is color-bg-secondary in dark; use primary to differentiate
+  .toggle-row:hover {
+    background-color: var(--color-bg-primary);
+  }
+
   // Step 2 – config panels
   .s2-panel {
     background-color: var(--color-bg-secondary);
@@ -928,8 +949,14 @@
   }
 
   .seg-btn.seg-active {
-    background-color: var(--color-bg-primary);
+    background-color: var(--color-primary);
+    color: #000a3c;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  // Step 1 – "Continue" button: color-text-primary = white in dark, but bg is yellow gradient
+  .continue-btn {
+    color: #000a3c;
   }
 
   // Step 2 – "Calculate" button uses color-text-primary as bg (white in dark = invisible text)
@@ -951,6 +978,11 @@
   .r-risk-section {
     background: var(--color-bg-secondary);
     border-color: var(--color-border);
+  }
+
+  // Step 3 – "Optimal Selection" badge: color-text-primary = white in dark, but bg is yellow
+  .r-optimal-badge {
+    color: #000a3c;
   }
 
   // Step 3 – main result card uses color-text-primary as bg (white in dark = invisible text)

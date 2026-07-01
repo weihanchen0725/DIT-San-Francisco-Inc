@@ -16,11 +16,15 @@
     margin-top: 1.5rem;
     font-size: 1.125rem;
     line-height: 1.625;
-    color: var(--color-text-secondary);
+    color: var(--color-brand-gray);
     max-width: 42rem;
 
     @media (min-width: 40rem) {
       font-size: 1.25rem;
+    }
+
+    :global(.dark) & {
+      color: #d1d5db;
     }
   }
 
