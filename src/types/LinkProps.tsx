@@ -1,4 +1,4 @@
-interface LinkProps {
+export interface LinkProps {
   id?: string;
   Key?: string;
   Value?: string;

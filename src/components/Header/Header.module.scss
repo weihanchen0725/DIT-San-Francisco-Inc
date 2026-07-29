@@ -1,5 +1,5 @@
-@import '../../assets/styles/mixin';
-@import '@/assets/styles/variables';
+@use '../../assets/styles/mixin' as *;
+@use '@/assets/styles/variables' as *;
 
 $header-height: 97px;
 $header-ease-duration: 220ms;

@@ -1,4 +1,4 @@
-interface ImageProps {
+export interface ImageProps {
   id?: string;
   documentId?: string;
   url?: string;

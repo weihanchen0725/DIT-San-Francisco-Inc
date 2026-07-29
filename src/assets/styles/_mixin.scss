@@ -1,4 +1,4 @@
-@import './variables';
+@use './variables' as *;
 
 @mixin flex-layout($direction: row, $align: center, $justify: flex-start, $wrap: nowrap) {
   display: flex;

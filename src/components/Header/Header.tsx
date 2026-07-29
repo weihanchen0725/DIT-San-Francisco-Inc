@@ -3,6 +3,7 @@ import GetBaseURL from '@/services/GetBaseURL';
 import localHeaderData from '@/assets/data/Header.data.json';
 import fallbackLogo from '@/assets/images/dolphin-logistics-logo.webp';
 import fallbackLogoDark from '@/assets/images/dolphin-logistics-logo-dark.png';
+import type { HeaderProps } from '@/types/HeaderProps';
 
 import HeaderClient from './HeaderClient';
 
@@ -28,11 +29,10 @@ const Header = async () => {
   // Falls back to local assets when the CMS is unreachable.
   const headerData = await dataLoader();
 
-  const logoUrl =
-    resolveMediaUrl(headerData?.Logo?.image?.url) ?? (fallbackLogo.src as string);
+  // Pass the static imports through so next/image gets intrinsic width/height.
+  const logoUrl = resolveMediaUrl(headerData?.Logo?.image?.url) ?? fallbackLogo;
 
-  const darkLogoUrl =
-    resolveMediaUrl(headerData?.Logo?.imageDark?.url) ?? (fallbackLogoDark.src as string);
+  const darkLogoUrl = resolveMediaUrl(headerData?.Logo?.imageDark?.url) ?? fallbackLogoDark;
 
   return <HeaderClient headerData={headerData} logoUrl={logoUrl} darkLogoUrl={darkLogoUrl} />;
 };

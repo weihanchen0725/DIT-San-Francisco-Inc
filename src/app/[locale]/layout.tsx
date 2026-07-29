@@ -1,5 +1,9 @@
 import type { Metadata, Viewport } from 'next';
 import { Roboto } from 'next/font/google';
+import { notFound } from 'next/navigation';
+import { hasLocale } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
+import { locales } from '@/i18n/config';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import ClientProviders from '@/components/Providers/ClientProviders';
@@ -179,6 +183,10 @@ const localBusinessJsonLd = {
   },
 };
 
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
 export default async function RootLayout({
   children,
   params,
@@ -187,6 +195,13 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
+
+  if (!hasLocale(locales, locale)) {
+    notFound();
+  }
+
+  // Enable static rendering
+  setRequestLocale(locale);
 
   return (
     <html lang={locale} suppressHydrationWarning data-scroll-behavior="smooth">

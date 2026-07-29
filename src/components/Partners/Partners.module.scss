@@ -1,5 +1,5 @@
-@import '@/assets/styles/variables';
-@import '../../assets/styles/mixin';
+@use '@/assets/styles/variables' as *;
+@use '../../assets/styles/mixin' as *;
 
 .partners {
   @include flex-row-start-center;

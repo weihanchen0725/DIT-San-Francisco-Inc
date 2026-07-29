@@ -1,5 +1,5 @@
-@import '@/assets/styles/variables.scss';
-@import '../../assets/styles/mixin.scss';
+@use '@/assets/styles/variables.scss' as *;
+@use '../../assets/styles/mixin.scss' as *;
 
 .themeSwitcher {
   position: relative;

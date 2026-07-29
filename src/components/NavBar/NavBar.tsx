@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import navBarData from '@/assets/data/NavBar.data.json';
 import useActiveSection from '@/hooks/useActiveSection';
+import type { LinkProps } from '@/types/LinkProps';
 
 interface NavBarProps {
   styleMode?: 'row' | 'column';

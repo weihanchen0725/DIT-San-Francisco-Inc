@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server';
 import type { AppLocale } from '@/i18n/config';
 import { getLocalizedMetadata } from '@/lib/seo';
 import Tools from '@/components/Tools/Tools';
@@ -12,7 +13,10 @@ export const generateMetadata = async ({ params }: PageProps) => {
   return getLocalizedMetadata({ locale, path: '/tools', pageKey: 'tools' });
 };
 
-const ToolsPage = () => {
+const ToolsPage = async ({ params }: PageProps) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <MainLayOut>
       <Tools />

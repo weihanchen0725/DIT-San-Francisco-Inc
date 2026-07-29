@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server';
 import type { AppLocale } from '@/i18n/config';
 import { getLocalizedMetadata } from '@/lib/seo';
 import Advisor from "@/components/Incoterms/Advisor/Advisor";
@@ -15,7 +16,10 @@ export const generateMetadata = async ({ params }: PageProps) => {
   });
 };
 
-const AdvisorPage = () => {
+const AdvisorPage = async ({ params }: PageProps) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return <Advisor />;
 };
 

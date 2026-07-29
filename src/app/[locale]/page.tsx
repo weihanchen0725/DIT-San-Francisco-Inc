@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server';
 import type { AppLocale } from '@/i18n/config';
 import { getLocalizedMetadata } from '@/lib/seo';
 import About from '@/components/About/About';
@@ -19,7 +20,10 @@ export const generateMetadata = async ({ params }: PageProps) => {
   return getLocalizedMetadata({ locale, path: '', pageKey: 'home' });
 };
 
-const HomePage = async () => {
+const HomePage = async ({ params }: PageProps) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <React.Fragment>
       <Home />

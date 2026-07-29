@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import buttonClass from './Button.module.scss';
 
 interface ButtonProps {
@@ -28,7 +30,7 @@ const Button = ({
         }
       >
         {Button_Text}
-        {Button_Icon && <img src={Button_Icon} alt="" />}
+        {Button_Icon && <Image src={Button_Icon} alt="" width={16} height={16} />}
       </button>
     </div>
   );

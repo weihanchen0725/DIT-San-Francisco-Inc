@@ -29,7 +29,7 @@ const GetHeader = async () => {
     headers: {
       'Content-Type': 'application/json',
     },
-    cache: 'no-store', // Ensure fresh data on each request
+    next: { revalidate: 3600 }, // Refresh CMS data hourly without forcing dynamic rendering
   });
   const data = await response.json();
   return data;

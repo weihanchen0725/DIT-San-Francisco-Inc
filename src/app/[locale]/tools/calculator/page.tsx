@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server';
 import type { AppLocale } from '@/i18n/config';
 import { getLocalizedMetadata } from '@/lib/seo';
 import Calculator from "@/components/Calculator/Calculator";
@@ -11,7 +12,10 @@ export const generateMetadata = async ({ params }: PageProps) => {
   return getLocalizedMetadata({ locale, path: '/tools/calculator', pageKey: 'calculator' });
 };
 
-const CalculatorPage = () => {
+const CalculatorPage = async ({ params }: PageProps) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return <Calculator />
 };
 

@@ -3,6 +3,8 @@
 import { Menu, X } from 'lucide-react';
 import { useEffect, useId, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 
 import headerClass from './Header.module.scss';
 import NavBar from '../NavBar/NavBar';
@@ -10,11 +12,12 @@ import CTABar from '../CTABar/CTABar';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import { useTranslations } from 'next-intl';
+import type { HeaderProps } from '@/types/HeaderProps';
 
 type HeaderClientProps = {
   headerData: HeaderProps;
-  logoUrl: string;
-  darkLogoUrl: string;
+  logoUrl: string | StaticImageData;
+  darkLogoUrl: string | StaticImageData;
 };
 
 const MENU_COLLAPSE_BREAKPOINT_PX = 1120;
@@ -249,16 +252,18 @@ const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) =
       {/* Brand — always visible (name hides at very narrow widths via CSS) */}
       <div className={headerClass.header_content}>
         {/* Two images rendered; CSS toggles visibility based on .dark on <html> */}
-        <img
-          src={logoUrl ?? ''}
+        <Image
+          src={logoUrl}
           alt={translateHeader(headerData.Logo?.image?.alternativeText ?? '')}
           className={`${headerClass.header_logo} ${headerClass.header_logo_light}`}
+          priority
         />
-        <img
-          src={darkLogoUrl ?? ''}
+        <Image
+          src={darkLogoUrl}
           alt={translateHeader(headerData.Logo?.image?.alternativeText ?? '')}
           className={`${headerClass.header_logo} ${headerClass.header_logo_dark}`}
           aria-hidden="true"
+          priority
         />
         <span className={headerClass.header_name}>({translateHeader(headerData?.Name ?? '')})</span>
       </div>
