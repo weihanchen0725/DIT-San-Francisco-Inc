@@ -1,40 +1,16 @@
-import GetHeader from '@/services/Global/GetHeader/GetHeader';
-import GetBaseURL from '@/services/GetBaseURL';
 import localHeaderData from '@/assets/data/Header.data.json';
-import fallbackLogo from '@/assets/images/dolphin-logistics-logo.webp';
-import fallbackLogoDark from '@/assets/images/dolphin-logistics-logo-dark.png';
+import logo from '@/assets/images/dolphin-logistics-logo.webp';
+import logoDark from '@/assets/images/dolphin-logistics-logo-dark.png';
+import type { HeaderProps } from '@/types/HeaderProps';
 
 import HeaderClient from './HeaderClient';
 
-const resolveMediaUrl = (url: string | undefined): string | null => {
-  if (!url) return null;
-  return url.startsWith('http') ? url : GetBaseURL(url);
-};
+// Local JSON is the single source of truth for header content.
+// Static imports give next/image intrinsic width/height.
+const headerData = localHeaderData as unknown as HeaderProps;
 
-const dataLoader = async (): Promise<HeaderProps> => {
-  try {
-    const { data } = await GetHeader();
-    if (data?.Header) {
-      return data.Header as HeaderProps;
-    }
-  } catch {
-    // CMS unavailable — fall through to local data
-  }
-  return localHeaderData as unknown as HeaderProps;
-};
-
-const Header = async () => {
-  // Server component: fetch CMS-backed header data once per request/render.
-  // Falls back to local assets when the CMS is unreachable.
-  const headerData = await dataLoader();
-
-  const logoUrl =
-    resolveMediaUrl(headerData?.Logo?.image?.url) ?? (fallbackLogo.src as string);
-
-  const darkLogoUrl =
-    resolveMediaUrl(headerData?.Logo?.imageDark?.url) ?? (fallbackLogoDark.src as string);
-
-  return <HeaderClient headerData={headerData} logoUrl={logoUrl} darkLogoUrl={darkLogoUrl} />;
-};
+const Header = () => (
+  <HeaderClient headerData={headerData} logoUrl={logo} darkLogoUrl={logoDark} />
+);
 
 export default Header;

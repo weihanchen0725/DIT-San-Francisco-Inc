@@ -1,5 +1,5 @@
-@import '@/assets/styles/variables.scss';
-@import '@/assets/styles/mixin';
+@use '@/assets/styles/variables.scss' as *;
+@use '@/assets/styles/mixin' as *;
 
 .dictionary-content {
   @include flex-column-start-start;

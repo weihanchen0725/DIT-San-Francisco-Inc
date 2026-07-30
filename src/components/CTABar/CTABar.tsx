@@ -4,6 +4,7 @@ import React from 'react';
 import ctaClass from './CTABar.module.scss';
 import { useTranslations } from 'next-intl';
 import ctaBarData from '@/assets/data/CTABar.data.json';
+import type { LinkProps } from '@/types/LinkProps';
 
 interface CTAProps {
   styleMode?: 'row' | 'column';

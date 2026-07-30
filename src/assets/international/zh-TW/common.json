@@ -127,6 +127,7 @@
     "state_placeholder": "加州",
     "city_placeholder": "Fremont",
     "send_button": "發送訊息",
+    "sending_button": "傳送中…",
     "email_title": "電子郵件",
     "phone_title": "電話",
     "address_title": "地址",
@@ -135,8 +136,10 @@
     "last_name_error": "請輸入姓氏。",
     "email_error": "請輸入有效的電子郵件地址。",
     "message_error": "訊息不能為空。",
-    "success_message": "您的電子郵件草稿已準備好，請在郵件應用程式中送出。",
-    "error_message": "請修正標示的欄位後再送出。",
+    "success_message": "我們已收到您的詢問。此訊息僅確認收件，不代表接受或建立合作關係。",
+    "error_message": "目前無法確認收件。請修正標示的欄位或稍後再試。",
+    "consent_label": "我同意 DIT 使用這些資料就本次詢問與我聯絡。",
+    "consent_error": "發送詢問前必須提供同意。",
     "first_name_label": "名字",
     "last_name_label": "姓氏",
     "email_label": "電子郵件地址",
@@ -151,7 +154,9 @@
   },
   "Header": {
     "location": "舊金山",
-    "alternativeText": "DIT舊金山標誌"
+    "alternativeText": "DIT舊金山標誌",
+    "open_menu": "開啟選單",
+    "close_menu": "關閉選單"
   },
   "NavBar": {
     "title": "DIT San Francisco Inc.",

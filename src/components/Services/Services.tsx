@@ -1,23 +1,21 @@
 import { getTranslations } from 'next-intl/server';
+import SectionHeading from '@/components/ui/SectionHeading';
 import Features from '../Features/Features';
 import FreightShippingIcon from '@/assets/icons/FreightShippingIcon';
 import WarehousingIcon from '@/assets/icons/WarehousingIcon';
 import SupplyChainManagementIcon from '@/assets/icons/SupplyChainManagementIcon';
 import TrackingSolutionIcon from '@/assets/icons/TrackingSolutionIcon';
-
 import servicesClass from './Services.module.scss';
 
-const Services = async () => {
+const Services = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
   const translateServices = await getTranslations('Services');
 
   return (
     <section id="services" className={servicesClass.services}>
-      <h2 className={servicesClass.services_title}>
+      <SectionHeading level={headingLevel} className={servicesClass.services_title}>
         {translateServices('title')}
-      </h2>
-      <p className={servicesClass.services_description}>
-        {translateServices('description')}
-      </p>
+      </SectionHeading>
+      <p className={servicesClass.services_description}>{translateServices('description')}</p>
       {/* Add service details here */}
       <div className={servicesClass.services_grid}>
         <Features

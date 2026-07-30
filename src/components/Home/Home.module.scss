@@ -1,5 +1,5 @@
-@import '@/assets/styles/variables.scss';
-@import '../../assets/styles/mixin';
+@use '@/assets/styles/variables.scss' as *;
+@use '../../assets/styles/mixin' as *;
 
 .home {
   min-height: $max-height;
@@ -134,7 +134,6 @@
   z-index: 3;
   will-change: transform;
   transition: transform 0.1s linear;
-
 }
 
 // Golden Gate — centred, acts as the mid-layer backdrop
@@ -159,7 +158,6 @@
   z-index: 2;
   will-change: transform;
   transition: transform 0.1s linear;
-
 }
 
 // Trucks — decorative, scattered around the golden gate

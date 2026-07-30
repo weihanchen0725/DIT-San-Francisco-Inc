@@ -1,4 +1,4 @@
-@import '@/assets/styles/variables.scss';
+@use '@/assets/styles/variables.scss' as *;
 
 .container {
   padding: 2.5rem 3rem;
@@ -45,7 +45,7 @@
 .questions {
   display: flex;
   flex-direction: column;
-//   gap: 2.5rem;
+  //   gap: 2.5rem;
 }
 
 .question {
@@ -86,7 +86,9 @@
   text-align: left;
   cursor: pointer;
   width: 100%;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 
   &:hover {
@@ -178,7 +180,9 @@
   align-items: center;
   justify-content: center;
   color: var(--color-text-secondary);
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 
   svg {
     width: 1.25rem;
@@ -214,7 +218,10 @@
   align-items: center;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 
   &:hover {
@@ -275,7 +282,9 @@
   border: none;
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
 
   &:hover {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
@@ -386,7 +395,10 @@
   border: 2px solid transparent;
   cursor: pointer;
   color: var(--color-text-secondary);
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 
   span {
     font-size: 0.65rem;
@@ -498,7 +510,10 @@
   border: none;
   cursor: pointer;
   color: var(--color-text-secondary);
-  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
 
   &:hover:not(.seg-active) {
     background-color: var(--color-border-light);
@@ -558,7 +573,9 @@
   border: none;
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-  transition: box-shadow 0.15s ease, transform 0.1s ease;
+  transition:
+    box-shadow 0.15s ease,
+    transform 0.1s ease;
 
   svg {
     width: 1.25rem;
@@ -832,9 +849,15 @@
 }
 
 @keyframes pulse-ring {
-  0%   { box-shadow: 0 0 0 0   rgba(255, 204, 0, 0.6); }
-  70%  { box-shadow: 0 0 0 8px rgba(255, 204, 0, 0); }
-  100% { box-shadow: 0 0 0 0   rgba(255, 204, 0, 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(255, 204, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 204, 0, 0);
+  }
 }
 
 .r-pulse {

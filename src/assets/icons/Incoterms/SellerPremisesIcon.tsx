@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 // Extend the standard SVG props to explicitly include our custom overrides
 interface SellerPremisesIconProps extends React.SVGProps<SVGSVGElement> {
   size?: number | string;
-  customStrokeWidth?: number | string; 
+  customStrokeWidth?: number | string;
 }
 
 const SellerPremisesIcon = forwardRef<SVGSVGElement, SellerPremisesIconProps>(
@@ -52,8 +52,22 @@ const SellerPremisesIcon = forwardRef<SVGSVGElement, SellerPremisesIconProps>(
         strokeLinejoin="round"
       />
       {/* Kept these at half the main stroke width so the inner details don't turn into a blob! */}
-      <line x1="76" y1="84" x2="76" y2="104" stroke="#0A192F" strokeWidth={Number(customStrokeWidth) / 2} />
-      <line x1="88" y1="84" x2="88" y2="104" stroke="#0A192F" strokeWidth={Number(customStrokeWidth) / 2} />
+      <line
+        x1="76"
+        y1="84"
+        x2="76"
+        y2="104"
+        stroke="#0A192F"
+        strokeWidth={Number(customStrokeWidth) / 2}
+      />
+      <line
+        x1="88"
+        y1="84"
+        x2="88"
+        y2="104"
+        stroke="#0A192F"
+        strokeWidth={Number(customStrokeWidth) / 2}
+      />
     </svg>
   )
 );

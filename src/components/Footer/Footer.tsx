@@ -3,7 +3,6 @@ import { Icon } from '@iconify/react';
 import footerClass from './Footer.module.scss';
 
 const Footer = () => {
-  // Translations
   const translateCommon = useTranslations('Common');
 
   return (
@@ -14,23 +13,16 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} DIT San Francisco Inc.{' '}
             {translateCommon('all_rights_reserved')}
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3">
             <a
-              href="#"
-              className="text-sm text-gray-300 dark:text-brand-gray hover:text-brand-yellow transition-colors"
+              href="https://www.linkedin.com/company/dit-sfo/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 dark:text-brand-gray hover:text-brand-yellow transition-colors"
+              aria-label="LinkedIn"
             >
-              {translateCommon('privacy')}
+              <Icon icon="lucide:linkedin" className={footerClass.social_icons} width={24} />
             </a>
-            <span className="text-brand-navy-light dark:text-gray-600">|</span>
-            <a
-              href="#"
-              className="text-sm text-gray-300 dark:text-brand-gray hover:text-brand-yellow transition-colors"
-            >
-              {translateCommon('terms')}
-            </a>
-            <span className="text-brand-navy-light dark:text-gray-600">|</span>
-            <Icon icon="lucide:facebook" className={footerClass.social_icons} width={24} />
-            <Icon icon="lucide:instagram" className={footerClass.social_icons} width={24} />
           </div>
         </div>
       </div>

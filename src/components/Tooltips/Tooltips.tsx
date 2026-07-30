@@ -46,7 +46,11 @@ export interface TooltipProps {
   delay?: number | { show: number; hide: number };
 }
 
-export const Tooltip = ({ children, placement = 'top', delay = { show: 200, hide: 100 } }: TooltipProps) => {
+export const Tooltip = ({
+  children,
+  placement = 'top',
+  delay = { show: 200, hide: 100 },
+}: TooltipProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const triggerRef = useRef<HTMLElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -74,7 +78,9 @@ export const Tooltip = ({ children, placement = 'top', delay = { show: 200, hide
   }, []);
 
   return (
-    <TooltipContext.Provider value={{ isOpen, tooltipId, triggerRef, placement, openTooltip, closeTooltip }}>
+    <TooltipContext.Provider
+      value={{ isOpen, tooltipId, triggerRef, placement, openTooltip, closeTooltip }}
+    >
       {children}
     </TooltipContext.Provider>
   );
@@ -128,14 +134,20 @@ export interface TooltipContentProps extends React.HTMLProps<HTMLDivElement> {
   viewportPadding?: number; // How close it can get to the screen edge
 }
 
-export const TooltipContent = ({ className = '', offset = 8, viewportPadding = 8, ...props }: TooltipContentProps) => {
-  const { isOpen, triggerRef, placement, tooltipId, openTooltip, closeTooltip } = useTooltipContext();
+export const TooltipContent = ({
+  className = '',
+  offset = 8,
+  viewportPadding = 8,
+  ...props
+}: TooltipContentProps) => {
+  const { isOpen, triggerRef, placement, tooltipId, openTooltip, closeTooltip } =
+    useTooltipContext();
   const contentRef = useRef<HTMLDivElement>(null);
   const [coords, setCoords] = useState({ left: 0, top: 0 });
 
-  const hasContent = 
-    props.children !== undefined && 
-    props.children !== null && 
+  const hasContent =
+    props.children !== undefined &&
+    props.children !== null &&
     props.children !== '' &&
     !(typeof props.children === 'string' && props.children.trim() === '');
 
@@ -145,7 +157,7 @@ export const TooltipContent = ({ className = '', offset = 8, viewportPadding = 8
     const updatePosition = () => {
       const triggerRect = triggerRef.current!.getBoundingClientRect();
       const contentRect = contentRef.current!.getBoundingClientRect();
-      
+
       let top = 0;
       let left = 0;
 
@@ -153,33 +165,35 @@ export const TooltipContent = ({ className = '', offset = 8, viewportPadding = 8
       switch (placement) {
         case 'top':
           top = triggerRect.top - contentRect.height - offset;
-          left = triggerRect.left + (triggerRect.width / 2) - (contentRect.width / 2);
+          left = triggerRect.left + triggerRect.width / 2 - contentRect.width / 2;
           break;
         case 'bottom':
           top = triggerRect.bottom + offset;
-          left = triggerRect.left + (triggerRect.width / 2) - (contentRect.width / 2);
+          left = triggerRect.left + triggerRect.width / 2 - contentRect.width / 2;
           break;
         case 'left':
-          top = triggerRect.top + (triggerRect.height / 2) - (contentRect.height / 2);
+          top = triggerRect.top + triggerRect.height / 2 - contentRect.height / 2;
           left = triggerRect.left - contentRect.width - offset;
           break;
         case 'right':
-          top = triggerRect.top + (triggerRect.height / 2) - (contentRect.height / 2);
+          top = triggerRect.top + triggerRect.height / 2 - contentRect.height / 2;
           left = triggerRect.right + offset;
           break;
       }
 
       // 2. Flip Logic (if it hits an edge, flip it to the opposite side)
       if (placement === 'top' && top < viewportPadding) top = triggerRect.bottom + offset;
-      if (placement === 'bottom' && top + contentRect.height > window.innerHeight - viewportPadding) top = triggerRect.top - contentRect.height - offset;
+      if (placement === 'bottom' && top + contentRect.height > window.innerHeight - viewportPadding)
+        top = triggerRect.top - contentRect.height - offset;
       if (placement === 'left' && left < viewportPadding) left = triggerRect.right + offset;
-      if (placement === 'right' && left + contentRect.width > window.innerWidth - viewportPadding) left = triggerRect.left - contentRect.width - offset;
+      if (placement === 'right' && left + contentRect.width > window.innerWidth - viewportPadding)
+        left = triggerRect.left - contentRect.width - offset;
 
       // 3. Clamping / Shifting Logic (Ensure it NEVER goes off screen on the cross-axis)
       // If it's too far left
       if (left < viewportPadding) {
         left = viewportPadding;
-      } 
+      }
       // If it's too far right
       else if (left + contentRect.width > window.innerWidth - viewportPadding) {
         left = window.innerWidth - contentRect.width - viewportPadding;
@@ -201,7 +215,7 @@ export const TooltipContent = ({ className = '', offset = 8, viewportPadding = 8
     };
 
     updatePosition();
-    
+
     window.addEventListener('resize', updatePosition);
     window.addEventListener('scroll', updatePosition, true);
 

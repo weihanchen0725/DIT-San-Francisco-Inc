@@ -1,18 +1,20 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
-import ContactData from './ContactData.json';
 import styles from './ContactForm.module.scss';
 
-type ContactErrors = Partial<Record<'firstName' | 'lastName' | 'email' | 'message', string>>;
-type SubmitState = 'idle' | 'success' | 'error';
+type ContactErrors = Partial<
+  Record<'firstName' | 'lastName' | 'email' | 'message' | 'consent', string>
+>;
+type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
 
 const isValidEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
 const ContactForm = () => {
   const translateContact = useTranslations('Contact');
+  const locale = useLocale();
   const [errors, setErrors] = useState<ContactErrors>({});
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
 
@@ -27,11 +29,14 @@ const ContactForm = () => {
     if (!lastName) nextErrors.lastName = translateContact('last_name_error');
     if (!isValidEmail(email)) nextErrors.email = translateContact('email_error');
     if (!message) nextErrors.message = translateContact('message_error');
+    if (formData.get('consent') !== 'on') {
+      nextErrors.consent = translateContact('consent_error');
+    }
 
     return nextErrors;
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -44,33 +49,33 @@ const ContactForm = () => {
       return;
     }
 
-    const subject = String(formData.get('subject') || translateContact('subject_label')).trim();
-    const body = [
-      `${translateContact('first_name_label')}: ${String(formData.get('firstName') ?? '').trim()}`,
-      `${translateContact('last_name_label')}: ${String(formData.get('lastName') ?? '').trim()}`,
-      `${translateContact('email_label')}: ${String(formData.get('email') ?? '').trim()}`,
-      `${translateContact('phone_label')}: ${String(formData.get('phone') ?? '').trim()}`,
-      `${translateContact('company_label')}: ${String(formData.get('company') ?? '').trim()}`,
-      `${translateContact('country_label')}: ${String(formData.get('country') ?? '').trim()}`,
-      `${translateContact('state_label')}: ${String(formData.get('state') ?? '').trim()}`,
-      `${translateContact('city_label')}: ${String(formData.get('city') ?? '').trim()}`,
-      '',
-      `${translateContact('message_label')}:`,
-      String(formData.get('message') ?? '').trim(),
-    ].join('\n');
+    setSubmitState('submitting');
 
-    window.location.href = `mailto:${ContactData.data.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const payload = Object.fromEntries(formData.entries());
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...payload,
+        consent: formData.get('consent') === 'on',
+        locale,
+      }),
+    }).catch(() => null);
+
+    if (!response?.ok) {
+      setSubmitState('error');
+      return;
+    }
+
+    form.reset();
+    setErrors({});
     setSubmitState('success');
   };
 
   const fieldError = (field: keyof ContactErrors) => errors[field];
 
   return (
-    <form
-      className={styles.form}
-      onSubmit={handleSubmit}
-      noValidate
-    >
+    <form className={styles.form} onSubmit={handleSubmit} noValidate>
       <div className={styles.grid}>
         <div>
           <label htmlFor="firstName" className={styles.label}>
@@ -78,9 +83,9 @@ const ContactForm = () => {
           </label>
           <input
             type="text"
-            name="firstName"
             id="firstName"
-            autoComplete="given-name"
+            name="firstName"
+            maxLength={100}
             placeholder={translateContact('first_name_placeholder')}
             required
             aria-required="true"
@@ -101,9 +106,9 @@ const ContactForm = () => {
           </label>
           <input
             type="text"
-            name="lastName"
             id="lastName"
-            autoComplete="family-name"
+            name="lastName"
+            maxLength={100}
             placeholder={translateContact('last_name_placeholder')}
             required
             aria-required="true"
@@ -124,9 +129,9 @@ const ContactForm = () => {
           </label>
           <input
             type="email"
-            name="email"
             id="email"
-            autoComplete="email"
+            name="email"
+            maxLength={254}
             placeholder={translateContact('email_placeholder')}
             required
             aria-required="true"
@@ -143,13 +148,14 @@ const ContactForm = () => {
 
         <div>
           <label htmlFor="phone" className={styles.label}>
-            {translateContact('phone_label')}
+            {translateContact('phone_label')}{' '}
+            <span className={styles.labelOptional}>{translateContact('optional_tag')}</span>
           </label>
           <input
             type="tel"
-            name="phone"
             id="phone"
-            autoComplete="tel"
+            name="phone"
+            maxLength={50}
             placeholder={translateContact('phone_placeholder')}
             className={styles.input}
           />
@@ -162,9 +168,9 @@ const ContactForm = () => {
           </label>
           <input
             type="text"
-            name="company"
             id="company"
-            autoComplete="organization"
+            name="company"
+            maxLength={200}
             placeholder={translateContact('company_placeholder')}
             className={styles.input}
           />
@@ -177,9 +183,8 @@ const ContactForm = () => {
           </label>
           <input
             type="text"
-            name="country"
             id="country"
-            autoComplete="country-name"
+            name="country"
             placeholder={translateContact('country_placeholder')}
             className={styles.input}
           />
@@ -192,9 +197,8 @@ const ContactForm = () => {
           </label>
           <input
             type="text"
-            name="state"
             id="state"
-            autoComplete="address-level1"
+            name="state"
             placeholder={translateContact('state_placeholder')}
             className={styles.input}
           />
@@ -207,9 +211,8 @@ const ContactForm = () => {
           </label>
           <input
             type="text"
-            name="city"
             id="city"
-            autoComplete="address-level2"
+            name="city"
             placeholder={translateContact('city_placeholder')}
             className={styles.input}
           />
@@ -217,12 +220,14 @@ const ContactForm = () => {
 
         <div className={styles.fieldGroupSpan}>
           <label htmlFor="subject" className={styles.label}>
-            {translateContact('subject_label')}
+            {translateContact('subject_label')}{' '}
+            <span className={styles.labelOptional}>{translateContact('optional_tag')}</span>
           </label>
           <input
             type="text"
-            name="subject"
             id="subject"
+            name="subject"
+            maxLength={200}
             placeholder={translateContact('subject_label')}
             className={styles.input}
           />
@@ -250,16 +255,34 @@ const ContactForm = () => {
           )}
         </div>
 
-        <div className={styles.statusGroup} aria-live="polite">
-          {submitState === 'success' && (
-            <p className={styles.successMessage}>
-              {translateContact('success_message')}
+        <div className={styles.honeypot} aria-hidden="true">
+          <label htmlFor="website">Website</label>
+          <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+        </div>
+
+        <div className={styles.fieldGroupSpan}>
+          <label className={styles.consentLabel}>
+            <input
+              type="checkbox"
+              name="consent"
+              aria-invalid={fieldError('consent') ? 'true' : 'false'}
+              aria-describedby={fieldError('consent') ? 'consent-error' : undefined}
+            />
+            <span>{translateContact('consent_label')}</span>
+          </label>
+          {fieldError('consent') && (
+            <p id="consent-error" className={styles.fieldError}>
+              {fieldError('consent')}
             </p>
           )}
-          {submitState === 'error' && Object.keys(errors).length > 0 && (
-            <p className={styles.errorMessage}>
-              {translateContact('error_message')}
-            </p>
+        </div>
+
+        <div className={styles.statusGroup} aria-live="polite">
+          {submitState === 'success' && (
+            <p className={styles.successMessage}>{translateContact('success_message')}</p>
+          )}
+          {submitState === 'error' && (
+            <p className={styles.errorMessage}>{translateContact('error_message')}</p>
           )}
         </div>
 
@@ -267,8 +290,11 @@ const ContactForm = () => {
           <button
             type="submit"
             className={styles.submitBtn}
+            disabled={submitState === 'submitting'}
           >
-            {translateContact('send_button')}
+            {submitState === 'submitting'
+              ? translateContact('sending_button')
+              : translateContact('send_button')}
             <svg
               className={styles.submitBtnIcon}
               fill="none"

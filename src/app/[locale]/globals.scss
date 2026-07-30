@@ -1,8 +1,9 @@
-@import 'tailwindcss';
+@use 'tailwindcss';
+@use '../../assets/styles/modern_reset';
+@use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixin' as *;
+
 @import 'leaflet/dist/leaflet.css';
-@import '../../assets/styles/modern_reset';
-@import '../../assets/styles/variables';
-@import '@/assets/styles/mixin';
 
 @custom-variant dark (&:where(.dark, .dark *));
 

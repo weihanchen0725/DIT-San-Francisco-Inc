@@ -10,7 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       alternates: {
         languages: {
-          ...Object.fromEntries(locales.map((altLocale) => [altLocale, getAbsoluteLocalizedUrl(altLocale, path)])),
+          ...Object.fromEntries(
+            locales.map((altLocale) => [altLocale, getAbsoluteLocalizedUrl(altLocale, path)])
+          ),
           'x-default': getAbsoluteLocalizedUrl('en', path),
         },
       },

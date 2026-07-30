@@ -1,17 +1,17 @@
-@import '@/assets/styles/variables.scss';
+@use '@/assets/styles/variables.scss' as *;
 
 .form {
-  background-color: #f9fafb;
+  background-color: var(--color-bg-card-secondary);
   border-radius: 1rem;
   padding: 2rem;
-  border: 1px solid #f3f4f6;
+  border: 1px solid var(--color-border-light);
 
   @media (min-width: 40rem) {
     padding: 2.5rem;
   }
 
   :global(.dark) & {
-    background-color: #111127;
+    background-color: var(--color-bg-card);
     border-color: var(--color-brand-navy-light);
   }
 }
@@ -45,13 +45,35 @@
   color: var(--color-brand-gray);
 }
 
+.consentLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+
+  input {
+    margin-top: 0.2rem;
+  }
+}
+
+.honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .input {
   display: block;
   width: 100%;
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
-  border: 1px solid #e5e7eb;
-  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-card);
   color: var(--color-text-primary);
   transition: all 200ms ease;
 
@@ -66,9 +88,9 @@
   }
 
   :global(.dark) & {
-    background-color: #0a0a1a;
+    background-color: var(--color-bg-primary);
     border-color: var(--color-brand-navy-light);
-    color: #ffffff;
+    color: var(--color-text-primary);
   }
 }
 
@@ -77,8 +99,8 @@
   width: 100%;
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
-  border: 1px solid #e5e7eb;
-  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-card);
   color: var(--color-text-primary);
   transition: all 200ms ease;
   resize: none;
@@ -94,9 +116,9 @@
   }
 
   :global(.dark) & {
-    background-color: #0a0a1a;
+    background-color: var(--color-bg-primary);
     border-color: var(--color-brand-navy-light);
-    color: #ffffff;
+    color: var(--color-text-primary);
   }
 }
 

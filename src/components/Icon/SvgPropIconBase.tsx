@@ -5,8 +5,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '../Tooltips/Tooltips';
 
 type SvgComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
-export interface SvgPropIconProps
-  extends Omit<React.SVGProps<SVGSVGElement>, 'children'> {
+export interface SvgPropIconProps extends Omit<React.SVGProps<SVGSVGElement>, 'children'> {
   icon: SvgComponent;
   size?: number | string;
   decorative?: boolean;
@@ -27,35 +26,32 @@ const SvgPropIconBase = forwardRef<SVGSVGElement, SvgPropIconProps>(
     },
     ref
   ) => {
-    const resolvedClassName = ['inline-block', 'shrink-0', className]
-      .filter(Boolean)
-      .join(' ');
+    const resolvedClassName = ['inline-block', 'shrink-0', className].filter(Boolean).join(' ');
 
-    const accessibilityProps = decorative && !ariaLabel
-      ? {
-          'aria-hidden': true,
-          focusable: false,
-        }
-      : {
-          role: role ?? 'img',
-          'aria-label': ariaLabel,
-        };
+    const accessibilityProps =
+      decorative && !ariaLabel
+        ? {
+            'aria-hidden': true,
+            focusable: false,
+          }
+        : {
+            role: role ?? 'img',
+            'aria-label': ariaLabel,
+          };
 
     return (
-      <Tooltip placement='top'>
+      <Tooltip placement="top">
         <TooltipTrigger>
-            <Icon
-          ref={ref}
-          width={size}
-          height={size}
-          className={resolvedClassName}
-          {...accessibilityProps}
-          {...rest}
-        />
+          <Icon
+            ref={ref}
+            width={size}
+            height={size}
+            className={resolvedClassName}
+            {...accessibilityProps}
+            {...rest}
+          />
         </TooltipTrigger>
-        <TooltipContent>
-          {tooltip}
-        </TooltipContent>
+        <TooltipContent>{tooltip}</TooltipContent>
       </Tooltip>
     );
   }

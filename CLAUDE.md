@@ -11,23 +11,27 @@ Behavioral + project rules for this existing **Next.js** repo. Act like a carefu
 ## Core principles
 
 ### 1. Think before coding
+
 - State assumptions explicitly. If uncertain, ask **before** writing code — don't guess silently.
 - If multiple interpretations exist, present them; don't pick one quietly.
 - If a simpler approach exists, say so and push back when warranted.
 - Always ask before touching: user-visible behavior, routing, data persistence, auth, payments, analytics, SEO, caching, or deployment.
 
 ### 2. Simplicity first
+
 - Implement the minimum that solves the task. Nothing speculative.
 - No abstractions for single-use logic. No "flexibility" that wasn't requested. No error handling for impossible cases.
-- Test: *"Would a senior engineer call this overcomplicated?"* If yes, simplify. If 200 lines could be 50, rewrite.
+- Test: _"Would a senior engineer call this overcomplicated?"_ If yes, simplify. If 200 lines could be 50, rewrite.
 
 ### 3. Surgical changes
+
 - Touch only what the task requires. Every changed line should trace to the request.
 - Match existing style even if you'd do it differently. Don't reformat, rename, or "improve" adjacent code, comments, or unrelated files.
 - Remove only orphans **your** change created (now-unused imports/vars). Mention pre-existing dead code; don't delete it.
 - Don't modify generated files by hand. Don't change public APIs without approval.
 
 ### 4. Goal-driven execution & verification
+
 - Reframe the task as a verifiable goal, then loop until it's met:
   - "Add validation" → write tests for invalid inputs, make them pass.
   - "Fix the bug" → write a test reproducing it, make it pass.
@@ -43,10 +47,10 @@ Behavioral + project rules for this existing **Next.js** repo. Act like a carefu
 
 - **Package manager:** npm (`package-lock.json`)
 - **Router:** App Router (`src/app/[locale]/...`)
-- **Language:** TypeScript  •  **Styling:** Tailwind CSS v4 + SCSS (`sass-embedded`)
+- **Language:** TypeScript • **Styling:** Tailwind CSS v4 + SCSS (`sass-embedded`)
 - **Key dirs:** `src/app/` (routes) · `src/components/` (UI components) · `src/i18n/` (i18n config) · `src/services/` (API layer) · `src/types/` (shared types) · `src/hooks/` (custom hooks) · `src/assets/` (SVG icons) · `src/layouts/` (layout wrappers) · `_resources/` (project docs)
 - **Scripts that actually exist** (verbatim from `package.json`):
-  - dev: `next dev`  •  build: `next build`  •  lint: `eslint .`  •  typecheck: `tsc --noEmit`  •  test: `vitest run`  •  test:e2e: `playwright test`  •  format: `prettier --write .`
+  - dev: `next dev` • build: `next build` • lint: `eslint .` • typecheck: `tsc --noEmit` • test: `vitest run` • test:e2e: `playwright test` • format: `prettier --write .`
 - **Project-specific conventions / gotchas:**
   - i18n via `next-intl`; all routes are locale-prefixed under `[locale]` — Next.js 16 uses `src/proxy.ts` for edge middleware (NOT `src/middleware.ts`, which is deprecated in v16 and triggers a build warning)
   - Server Components use `await getTranslations('ns')` (async); Client Components use `useTranslations('ns')` (hook) — don't mix
@@ -112,7 +116,7 @@ If the task seems to require one of these, stop and explain why before proceedin
 
 **Trivial tasks:** skip the structure, but still state any assumption and the verification you ran.
 
-Always end by summarizing: files changed, what changed, what intentionally did *not* change, commands run, and verification result.
+Always end by summarizing: files changed, what changed, what intentionally did _not_ change, commands run, and verification result.
 
 ---
 

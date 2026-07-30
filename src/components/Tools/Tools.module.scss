@@ -1,31 +1,16 @@
-@import '@/assets/styles/variables.scss';
+@use '@/assets/styles/variables.scss' as *;
+@use '@/assets/styles/mixin' as *;
 
 .tools {
-  height: $max-height;
-  padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 5vw, 2rem);
+  @include page-section;
 
   & .title {
-    font-size: 2.25rem;
+    @include section-heading;
     line-height: 2.5rem;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    color: var(--color-text-primary);
   }
 
   & .description {
-    margin-top: 1.5rem;
-    font-size: 1.125rem;
-    line-height: 1.625;
-    color: var(--color-brand-gray);
-    max-width: 42rem;
-
-    @media (min-width: 40rem) {
-      font-size: 1.25rem;
-    }
-
-    :global(.dark) & {
-      color: #d1d5db;
-    }
+    @include section-description;
   }
 
   & .grid {

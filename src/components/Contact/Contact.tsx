@@ -3,9 +3,10 @@ import OpenIndicator from '../OpenIndicator/OpenIndicator';
 import ContactForm from './ContactForm';
 import ContactData from './ContactData.json';
 import { getTranslations } from 'next-intl/server';
+import SectionHeading from '@/components/ui/SectionHeading';
 import contactClass from './Contact.module.scss';
 
-const Contact = async () => {
+const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
   //
   const translateContact = await getTranslations('Contact');
 
@@ -13,13 +14,11 @@ const Contact = async () => {
     <section id="contact" className={contactClass.contact}>
       {/* Header */}
       <div className={contactClass.contact_header}>
-        <h2 className={contactClass.contact_title}>
+        <SectionHeading level={headingLevel} className={contactClass.contact_title}>
           {translateContact('title_1')}
           <span className={contactClass.contact_title_accent}>{translateContact('title_2')}</span>
-        </h2>
-        <p className={contactClass.contact_description}>
-          {translateContact('description')}
-        </p>
+        </SectionHeading>
+        <p className={contactClass.contact_description}>{translateContact('description')}</p>
       </div>
 
       <div className={contactClass.contact_layout}>
@@ -28,7 +27,12 @@ const Contact = async () => {
           <div className={contactClass.contact_card}>
             <div className={contactClass.contact_cardHeader}>
               <div className={contactClass.contact_cardIcon}>
-                <svg className={contactClass.contact_cardIconSvg} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                  className={contactClass.contact_cardIconSvg}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -37,9 +41,7 @@ const Contact = async () => {
                   />
                 </svg>
               </div>
-              <h3 className={contactClass.contact_cardTitle}>
-                {translateContact('email_title')}
-              </h3>
+              <h3 className={contactClass.contact_cardTitle}>{translateContact('email_title')}</h3>
             </div>
             <p className={contactClass.contact_cardDetail}>contact@ditsanfrancisco.com</p>
             <p className={contactClass.contact_cardDetail}>support@ditsanfrancisco.com</p>
@@ -48,7 +50,12 @@ const Contact = async () => {
           <div className={`${contactClass.contact_card} ${contactClass.contact_cardFlex}`}>
             <div className={contactClass.contact_cardHeader}>
               <div className={contactClass.contact_cardIcon}>
-                <svg className={contactClass.contact_cardIconSvg} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                  className={contactClass.contact_cardIconSvg}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -67,7 +74,12 @@ const Contact = async () => {
           <div className={contactClass.contact_card}>
             <div className={contactClass.contact_cardHeader}>
               <div className={contactClass.contact_cardIcon}>
-                <svg className={contactClass.contact_cardIconSvg} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                  className={contactClass.contact_cardIconSvg}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -76,9 +88,7 @@ const Contact = async () => {
                   />
                 </svg>
               </div>
-              <h3 className={contactClass.contact_cardTitle}>
-                {translateContact('phone_title')}
-              </h3>
+              <h3 className={contactClass.contact_cardTitle}>{translateContact('phone_title')}</h3>
             </div>
             <p className={contactClass.contact_cardDetail}>{ContactData.data.phone}</p>
             <p className={contactClass.contact_cardDetail}>{ContactData.data.business_hours}</p>
@@ -87,7 +97,12 @@ const Contact = async () => {
           <div className={contactClass.contact_card}>
             <div className={contactClass.contact_cardHeaderMb}>
               <div className={contactClass.contact_cardIcon}>
-                <svg className={contactClass.contact_cardIconSvg} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                  className={contactClass.contact_cardIconSvg}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -106,12 +121,8 @@ const Contact = async () => {
                 <h3 className={contactClass.contact_cardTitle}>
                   {translateContact('address_title')}
                 </h3>
-                <p className={contactClass.contact_cardAddressText}>
-                  {ContactData.data.address_1}
-                </p>
-                <p className={contactClass.contact_cardAddressText}>
-                  {ContactData.data.address_2}
-                </p>
+                <p className={contactClass.contact_cardAddressText}>{ContactData.data.address_1}</p>
+                <p className={contactClass.contact_cardAddressText}>{ContactData.data.address_2}</p>
               </div>
             </div>
             <div className={contactClass.contact_cardMapWrap}>

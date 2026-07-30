@@ -34,17 +34,17 @@ const ReferenceGuide = () => {
   };
 
   const STEP_ICONS = [
-    { component: SellerPremisesIcon,       tooltipKey: 'tooltip_seller_premises'        as const },
-    { component: PreCarriageIcon,          tooltipKey: 'tooltip_pre_carriage'           as const },
-    { component: DeliveredNamedPlaceIcon,  tooltipKey: 'tooltip_delivered_named_place'  as const },
-    { component: PortofShipmentIcon,       tooltipKey: 'tooltip_port_of_shipment'       as const },
-    { component: OnBoardVesselLoadedIcon,  tooltipKey: 'tooltip_on_board_vessel_loaded' as const },
-    { component: MainCarriageIcon,         tooltipKey: 'tooltip_main_carriage'          as const },
-    { component: OnBoardVesselIcon,        tooltipKey: 'tooltip_on_board_vessel'        as const },
-    { component: PortOfDestinationIcon,    tooltipKey: 'tooltip_port_of_destination'    as const },
-    { component: TerminalIcon,             tooltipKey: 'tooltip_terminal'               as const },
+    { component: SellerPremisesIcon, tooltipKey: 'tooltip_seller_premises' as const },
+    { component: PreCarriageIcon, tooltipKey: 'tooltip_pre_carriage' as const },
+    { component: DeliveredNamedPlaceIcon, tooltipKey: 'tooltip_delivered_named_place' as const },
+    { component: PortofShipmentIcon, tooltipKey: 'tooltip_port_of_shipment' as const },
+    { component: OnBoardVesselLoadedIcon, tooltipKey: 'tooltip_on_board_vessel_loaded' as const },
+    { component: MainCarriageIcon, tooltipKey: 'tooltip_main_carriage' as const },
+    { component: OnBoardVesselIcon, tooltipKey: 'tooltip_on_board_vessel' as const },
+    { component: PortOfDestinationIcon, tooltipKey: 'tooltip_port_of_destination' as const },
+    { component: TerminalIcon, tooltipKey: 'tooltip_terminal' as const },
     { component: CarriageToNamedPlaceIcon, tooltipKey: 'tooltip_carriage_to_named_place' as const },
-    { component: BuyerPremisesIcon,        tooltipKey: 'tooltip_buyer_premises'         as const },
+    { component: BuyerPremisesIcon, tooltipKey: 'tooltip_buyer_premises' as const },
   ] as const;
 
   // Derive per-step ownership from responsibilities fraction:
@@ -120,7 +120,6 @@ const ReferenceGuide = () => {
     );
   };
 
-
   return (
     <section className={referenceClass['container']}>
       <div className={referenceClass['header']}>
@@ -132,7 +131,10 @@ const ReferenceGuide = () => {
           <button className={referenceClass['button'] + ' ' + referenceClass['darkButton']}>
             {t('btn_download_pdf')}
           </button>
-          <button className={referenceClass['button'] + ' ' + referenceClass['lightButton']} disabled>
+          <button
+            className={referenceClass['button'] + ' ' + referenceClass['lightButton']}
+            disabled
+          >
             {t('btn_print_summary')}
           </button>
           <button
@@ -146,7 +148,10 @@ const ReferenceGuide = () => {
       <div className={referenceClass['content']}>
         <div className={referenceClass['table-header']}>
           {tableHeaders.map((header, index) => (
-            <span key={`${header.id}-${index}`} className={referenceClass['table-header-item'] + ' ' + referenceClass[header.id]}>
+            <span
+              key={`${header.id}-${index}`}
+              className={referenceClass['table-header-item'] + ' ' + referenceClass[header.id]}
+            >
               {header.label}
             </span>
           ))}
@@ -170,16 +175,23 @@ const ReferenceGuide = () => {
                     className={referenceClass[owner === 'seller' ? 'icon-seller' : 'icon-buyer']}
                   />
                 ))}
-                <progress value={row.responsibilities?.seller ?? 0} max={1} className={referenceClass['responsibility-bar']}></progress>
+                <progress
+                  value={row.responsibilities?.seller ?? 0}
+                  max={1}
+                  className={referenceClass['responsibility-bar']}
+                ></progress>
                 <span className={referenceClass['responsibility-seller']}>{t('label_seller')}</span>
                 <span className={referenceClass['responsibility-percentages']}>
-                  {getResponsibilityPercentages(row.responsibilities?.seller ?? 0, row.responsibilities?.buyer ?? 0)}
+                  {getResponsibilityPercentages(
+                    row.responsibilities?.seller ?? 0,
+                    row.responsibilities?.buyer ?? 0
+                  )}
                 </span>
                 <span className={referenceClass['responsibility-buyer']}>{t('label_buyer')}</span>
               </div>
               <span className={referenceClass['risk']}>{t(`${row.code}_risk`)}</span>
             </div>
-          ))} 
+          ))}
         </div>
       </div>
     </section>

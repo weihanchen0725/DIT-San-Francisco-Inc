@@ -1,5 +1,5 @@
-@import '../../assets/styles/mixin';
-@import '@/assets/styles/variables';
+@use '../../assets/styles/mixin' as *;
+@use '@/assets/styles/variables' as *;
 
 $header-height: 97px;
 $header-ease-duration: 220ms;
@@ -209,8 +209,8 @@ $menu-ease-duration: 180ms;
     :global(.dark) & {
       background-color: rgb(
         calc(17 + 5 * var(--header-scroll-progress, 0))
-        calc(17 + 5 * var(--header-scroll-progress, 0))
-        calc(39 + 5 * var(--header-scroll-progress, 0))
+          calc(17 + 5 * var(--header-scroll-progress, 0))
+          calc(39 + 5 * var(--header-scroll-progress, 0))
       );
     }
     border: 1px solid color-mix(in srgb, $border-color 80%, transparent);

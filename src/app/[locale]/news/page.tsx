@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server';
 import type { AppLocale } from '@/i18n/config';
 import { getLocalizedMetadata } from '@/lib/seo';
 import News from '@/components/News/News';
@@ -12,10 +13,13 @@ export const generateMetadata = async ({ params }: PageProps) => {
   return getLocalizedMetadata({ locale, path: '/news', pageKey: 'news' });
 };
 
-const NewsPage = () => {
+const NewsPage = async ({ params }: PageProps) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <MainLayOut>
-      <News />
+      <News headingLevel={1} />
     </MainLayOut>
   );
 };

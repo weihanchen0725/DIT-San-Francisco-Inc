@@ -2,30 +2,8 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { calculateVolume, cmToInch, inchToCm, kgToLb, lbToKg } from '@/lib/calculator';
 import calculatorClass from './Calculator.module.scss';
-
-const CM_TO_INCH = 0.393701;
-const KG_TO_LB = 2.20462;
-
-const cmToInch = (cm: string): string => {
-  const val = parseFloat(cm);
-  return isNaN(val) ? '' : (val * CM_TO_INCH).toFixed(4);
-};
-
-const inchToCm = (inch: string): string => {
-  const val = parseFloat(inch);
-  return isNaN(val) ? '' : (val / CM_TO_INCH).toFixed(4);
-};
-
-const kgToLb = (kg: string): string => {
-  const val = parseFloat(kg);
-  return isNaN(val) ? '' : (val * KG_TO_LB).toFixed(5);
-};
-
-const lbToKg = (lb: string): string => {
-  const val = parseFloat(lb);
-  return isNaN(val) ? '' : (val / KG_TO_LB).toFixed(5);
-};
 
 const blockInvalidChars = (e: React.KeyboardEvent<HTMLInputElement>) => {
   if (['-', '+', 'e', 'E'].includes(e.key)) e.preventDefault();
@@ -46,21 +24,19 @@ const Calculator = () => {
 
   const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
-    const p = parseFloat(pieces) || 0;
-    const l = parseFloat(lengthCm) || 0;
-    const w = parseFloat(widthCm) || 0;
-    const h = parseFloat(heightCm) || 0;
-    const cbm = (l * w * h * p) / 1_000_000;
-    const cft = cbm * 35.3147;
-    setResults({ cbm, cft });
+    setResults(calculateVolume({ pieces, lengthCm, widthCm, heightCm }));
   };
 
   const handleReset = () => {
     setPieces('1');
-    setLengthCm('1'); setLengthInch(cmToInch('1'));
-    setWidthCm('1');  setWidthInch(cmToInch('1'));
-    setHeightCm('1'); setHeightInch(cmToInch('1'));
-    setWeightKg('1'); setWeightLb(kgToLb('1'));
+    setLengthCm('1');
+    setLengthInch(cmToInch('1'));
+    setWidthCm('1');
+    setWidthInch(cmToInch('1'));
+    setHeightCm('1');
+    setHeightInch(cmToInch('1'));
+    setWeightKg('1');
+    setWeightLb(kgToLb('1'));
     setResults(null);
   };
 
@@ -70,12 +46,12 @@ const Calculator = () => {
         <div className={calculatorClass['item-box']}>
           <div className={calculatorClass['left-subject']}>{t('input_dimension')}</div>
           <div className={calculatorClass['right-main']}>
-
             {/* Pieces */}
             <div className={calculatorClass['full']}>
               <div className={calculatorClass['group-box']}>
                 <div className={calculatorClass['label']}>
-                  <span className={calculatorClass['required']}>*</span>{t('pieces')}
+                  <span className={calculatorClass['required']}>*</span>
+                  {t('pieces')}
                 </div>
                 <div className={calculatorClass['input-wrap']}>
                   <input
@@ -95,7 +71,8 @@ const Calculator = () => {
             <div className={calculatorClass['col-left']}>
               <div className={calculatorClass['group-box']}>
                 <div className={calculatorClass['label']}>
-                  <span className={calculatorClass['required']}>*</span>{t('length_cm')}
+                  <span className={calculatorClass['required']}>*</span>
+                  {t('length_cm')}
                 </div>
                 <div className={calculatorClass['input-wrap']}>
                   <input
@@ -105,7 +82,10 @@ const Calculator = () => {
                     step="any"
                     value={lengthCm}
                     onKeyDown={blockInvalidChars}
-                    onChange={(e) => { setLengthCm(e.target.value); setLengthInch(cmToInch(e.target.value)); }}
+                    onChange={(e) => {
+                      setLengthCm(e.target.value);
+                      setLengthInch(cmToInch(e.target.value));
+                    }}
                   />
                 </div>
               </div>
@@ -121,7 +101,10 @@ const Calculator = () => {
                     step="any"
                     value={lengthInch}
                     onKeyDown={blockInvalidChars}
-                    onChange={(e) => { setLengthInch(e.target.value); setLengthCm(inchToCm(e.target.value)); }}
+                    onChange={(e) => {
+                      setLengthInch(e.target.value);
+                      setLengthCm(inchToCm(e.target.value));
+                    }}
                   />
                 </div>
               </div>
@@ -131,7 +114,8 @@ const Calculator = () => {
             <div className={calculatorClass['col-left']}>
               <div className={calculatorClass['group-box']}>
                 <div className={calculatorClass['label']}>
-                  <span className={calculatorClass['required']}>*</span>{t('width_cm')}
+                  <span className={calculatorClass['required']}>*</span>
+                  {t('width_cm')}
                 </div>
                 <div className={calculatorClass['input-wrap']}>
                   <input
@@ -141,7 +125,10 @@ const Calculator = () => {
                     step="any"
                     value={widthCm}
                     onKeyDown={blockInvalidChars}
-                    onChange={(e) => { setWidthCm(e.target.value); setWidthInch(cmToInch(e.target.value)); }}
+                    onChange={(e) => {
+                      setWidthCm(e.target.value);
+                      setWidthInch(cmToInch(e.target.value));
+                    }}
                   />
                 </div>
               </div>
@@ -157,7 +144,10 @@ const Calculator = () => {
                     step="any"
                     value={widthInch}
                     onKeyDown={blockInvalidChars}
-                    onChange={(e) => { setWidthInch(e.target.value); setWidthCm(inchToCm(e.target.value)); }}
+                    onChange={(e) => {
+                      setWidthInch(e.target.value);
+                      setWidthCm(inchToCm(e.target.value));
+                    }}
                   />
                 </div>
               </div>
@@ -167,7 +157,8 @@ const Calculator = () => {
             <div className={calculatorClass['col-left']}>
               <div className={calculatorClass['group-box']}>
                 <div className={calculatorClass['label']}>
-                  <span className={calculatorClass['required']}>*</span>{t('height_cm')}
+                  <span className={calculatorClass['required']}>*</span>
+                  {t('height_cm')}
                 </div>
                 <div className={calculatorClass['input-wrap']}>
                   <input
@@ -177,7 +168,10 @@ const Calculator = () => {
                     step="any"
                     value={heightCm}
                     onKeyDown={blockInvalidChars}
-                    onChange={(e) => { setHeightCm(e.target.value); setHeightInch(cmToInch(e.target.value)); }}
+                    onChange={(e) => {
+                      setHeightCm(e.target.value);
+                      setHeightInch(cmToInch(e.target.value));
+                    }}
                   />
                 </div>
               </div>
@@ -193,7 +187,10 @@ const Calculator = () => {
                     step="any"
                     value={heightInch}
                     onKeyDown={blockInvalidChars}
-                    onChange={(e) => { setHeightInch(e.target.value); setHeightCm(inchToCm(e.target.value)); }}
+                    onChange={(e) => {
+                      setHeightInch(e.target.value);
+                      setHeightCm(inchToCm(e.target.value));
+                    }}
                   />
                 </div>
               </div>
@@ -203,7 +200,8 @@ const Calculator = () => {
             <div className={calculatorClass['col-left']}>
               <div className={calculatorClass['group-box']}>
                 <div className={calculatorClass['label']}>
-                  <span className={calculatorClass['required']}>*</span>{t('gross_weight_kg')}
+                  <span className={calculatorClass['required']}>*</span>
+                  {t('gross_weight_kg')}
                 </div>
                 <div className={calculatorClass['input-wrap']}>
                   <input
@@ -213,7 +211,10 @@ const Calculator = () => {
                     step="any"
                     value={weightKg}
                     onKeyDown={blockInvalidChars}
-                    onChange={(e) => { setWeightKg(e.target.value); setWeightLb(kgToLb(e.target.value)); }}
+                    onChange={(e) => {
+                      setWeightKg(e.target.value);
+                      setWeightLb(kgToLb(e.target.value));
+                    }}
                   />
                 </div>
               </div>
@@ -229,7 +230,10 @@ const Calculator = () => {
                     step="any"
                     value={weightLb}
                     onKeyDown={blockInvalidChars}
-                    onChange={(e) => { setWeightLb(e.target.value); setWeightKg(lbToKg(e.target.value)); }}
+                    onChange={(e) => {
+                      setWeightLb(e.target.value);
+                      setWeightKg(lbToKg(e.target.value));
+                    }}
                   />
                 </div>
               </div>
@@ -237,7 +241,12 @@ const Calculator = () => {
 
             {/* Buttons */}
             <div className={calculatorClass['submit-box']}>
-              <button type="button" name="reset" onClick={handleReset} className={calculatorClass['btn']}>
+              <button
+                type="button"
+                name="reset"
+                onClick={handleReset}
+                className={calculatorClass['btn']}
+              >
                 {t('reset')}
               </button>
               <button

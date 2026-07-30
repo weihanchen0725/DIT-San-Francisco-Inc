@@ -1,5 +1,10 @@
 import type { Metadata, Viewport } from 'next';
 import { Roboto } from 'next/font/google';
+import { notFound } from 'next/navigation';
+import { hasLocale } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
+import { locales } from '@/i18n/config';
+import { SITE_URL } from '@/lib/seo';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import ClientProviders from '@/components/Providers/ClientProviders';
@@ -14,7 +19,6 @@ const roboto = Roboto({
 });
 
 // Site configuration - update these values for production
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://ditsanfrancisco.com';
 const COMPANY_NAME = 'DIT San Francisco Inc.';
 const COMPANY_DESCRIPTION =
   'DIT San Francisco Inc. is a leading logistics management company providing efficient shipping, tracking, warehousing, and supply chain solutions in the San Francisco Bay Area.';
@@ -83,9 +87,11 @@ export const metadata: Metadata = {
     description: COMPANY_DESCRIPTION,
     images: [
       {
-        url: '/DITLogo.svg',
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
         alt: `${COMPANY_NAME} - Logistics Solutions`,
-        type: 'image/svg+xml',
+        type: 'image/png',
       },
     ],
   },
@@ -93,7 +99,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: COMPANY_NAME,
     description: COMPANY_DESCRIPTION,
-    images: ['/DITLogo.svg'],
+    images: ['/og-image.png'],
     // creator: "@ditsanfrancisco", // Add your Twitter handle
   },
   icons: {
@@ -179,6 +185,10 @@ const localBusinessJsonLd = {
   },
 };
 
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
 export default async function RootLayout({
   children,
   params,
@@ -187,6 +197,13 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
+
+  if (!hasLocale(locales, locale)) {
+    notFound();
+  }
+
+  // Enable static rendering
+  setRequestLocale(locale);
 
   return (
     <html lang={locale} suppressHydrationWarning data-scroll-behavior="smooth">
@@ -212,7 +229,16 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className={`${roboto.variable} font-sans antialiased app_body`}>
+      <body
+        className={`${roboto.variable} font-sans antialiased app_body`}
+        suppressHydrationWarning
+      >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand-yellow focus:text-brand-navy focus:rounded focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
         <ServerProviders>
           <ClientProviders>
             <Header />

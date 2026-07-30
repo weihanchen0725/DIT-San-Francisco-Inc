@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server';
 import type { AppLocale } from '@/i18n/config';
 import { getLocalizedMetadata } from '@/lib/seo';
 import Dictionary from '@/components/Dictionary/Dictionary';
@@ -11,7 +12,10 @@ export const generateMetadata = async ({ params }: PageProps) => {
   return getLocalizedMetadata({ locale, path: '/tools/dictionary', pageKey: 'dictionary' });
 };
 
-const DictionaryPage = async () => {
+const DictionaryPage = async ({ params }: PageProps) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return <Dictionary />;
 };
 

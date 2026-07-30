@@ -1,4 +1,5 @@
-@import './variables';
+@use 'sass:map';
+@use './variables' as *;
 
 @mixin flex-layout($direction: row, $align: center, $justify: flex-start, $wrap: nowrap) {
   display: flex;
@@ -9,12 +10,12 @@
 }
 
 @mixin respond($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (max-width: map-get($breakpoints, $breakpoint)) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (max-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   } @else {
-    @error "Unknown breakpoint: #{$breakpoint}. Use one of #{map-keys($breakpoints)}.";
+    @error "Unknown breakpoint: #{$breakpoint}. Use one of #{map.keys($breakpoints)}.";
   }
 }
 
@@ -87,4 +88,74 @@
 }
 @mixin flex-column-end-end {
   @include flex-layout(column, flex-end, flex-end);
+}
+
+// ─── Section layout shared patterns ──────────────────────────────────────────
+
+/// Full-viewport section with consistent page padding.
+/// Use on the root <section> of every page section.
+@mixin page-section {
+  min-height: 100svh;
+  padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 5vw, 2rem);
+}
+
+/// Section heading (h1–h6 that acts as a section title).
+@mixin section-heading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.025em;
+}
+
+/// Section subheading / description paragraph below the section title.
+@mixin section-description($max-width: 42rem) {
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.625;
+  color: var(--color-brand-gray);
+  max-width: $max-width;
+
+  @media (min-width: 40rem) {
+    font-size: 1.25rem;
+  }
+
+  :global(.dark) & {
+    color: var(--color-text-muted-dark);
+  }
+}
+
+/// Circular icon wrapper used in card headers across News, Services, Contact.
+@mixin icon-circle($size: 4rem, $icon-bg: rgba(255, 204, 0, 0.15)) {
+  @include flex-row-center-center;
+  width: $size;
+  height: $size;
+  border-radius: 9999px;
+  background-color: $icon-bg;
+
+  :global(.dark) & {
+    background-color: rgba(255, 204, 0, 0.2);
+  }
+}
+
+/// Card surface — white in light, navy-card in dark, hover shadow + yellow border.
+@mixin card-surface($padding: 2rem) {
+  padding: $padding;
+  border-radius: 1rem;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-light);
+  transition: all 300ms ease;
+
+  &:hover {
+    box-shadow:
+      0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
+    border-color: var(--color-brand-yellow);
+  }
+
+  :global(.dark) &:hover {
+    box-shadow:
+      0 20px 25px -5px rgb(0 0 0 / 0.3),
+      0 8px 10px -6px rgb(0 0 0 / 0.3);
+    border-color: var(--color-brand-yellow);
+  }
 }

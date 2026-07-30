@@ -114,7 +114,9 @@
   },
   "Header": {
     "location": "San Francisco",
-    "alternativeText": "DIT San Francisco Inc. Logo"
+    "alternativeText": "DIT San Francisco Inc. Logo",
+    "open_menu": "Open menu",
+    "close_menu": "Close menu"
   },
   "NavBar": {
     "title": "DIT San Francisco Inc.",
@@ -280,6 +282,7 @@
     "state_placeholder": "California",
     "city_placeholder": "Fremont",
     "send_button": "Send Message",
+    "sending_button": "Sending…",
     "email_title": "Email",
     "phone_title": "Phone",
     "address_title": "Address",
@@ -288,8 +291,10 @@
     "last_name_error": "Last name is required.",
     "email_error": "Please enter a valid email address.",
     "message_error": "Message cannot be empty.",
-    "success_message": "Your email draft is ready. Please send it from your email app.",
-    "error_message": "Please correct the highlighted fields before sending.",
+    "success_message": "Your inquiry was received. This confirms receipt, not acceptance or engagement.",
+    "error_message": "We could not confirm receipt. Please correct any highlighted fields or try again.",
+    "consent_label": "I consent to DIT using this information to follow up about this inquiry.",
+    "consent_error": "Consent is required before sending an inquiry.",
     "first_name_label": "First Name",
     "last_name_label": "Last Name",
     "email_label": "Email Address",

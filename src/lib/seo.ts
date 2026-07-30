@@ -83,13 +83,13 @@ export const getLocalizedMetadata = async ({
       siteName: 'DIT San Francisco Inc.',
       title,
       description,
-      images: [{ url: '/DITLogo.svg', alt: 'DIT San Francisco Inc. logo' }],
+      images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'DIT San Francisco Inc.' }],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title,
       description,
-      images: ['/DITLogo.svg'],
+      images: ['/og-image.png'],
     },
   };
 };

@@ -4,23 +4,21 @@ import InventoryManagementIcon from '@/assets/icons/InventoryManagementIcon';
 import RouteOptimizationIcon from '@/assets/icons/RouteOptimizationIcon';
 import CostCalculatorIcon from '@/assets/icons/CostCalculatorIcon';
 import { getLocale, getTranslations } from 'next-intl/server';
+import SectionHeading from '@/components/ui/SectionHeading';
 import toolsClass from './Tools.module.scss';
 import ctaBarData from '@/assets/data/CTABar.data.json';
 
-
-const Tools = async () => {
+const Tools = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
   const locale = await getLocale();
   const translateTools = await getTranslations('Tools');
   const localizedPath = (path: string) => `/${locale}${path}`;
 
   return (
     <section id="tools" className={toolsClass['tools']}>
-      <h2 className={toolsClass['title']}>
+      <SectionHeading level={headingLevel} className={toolsClass['title']}>
         {translateTools('title')}
-      </h2>
-      <p className={toolsClass['description']}>
-        {translateTools('description')}
-      </p>
+      </SectionHeading>
+      <p className={toolsClass['description']}>{translateTools('description')}</p>
       <div className={toolsClass['grid']}>
         <Features
           icon={<TrackingSystemIcon className={toolsClass['icon']} />}
@@ -36,7 +34,6 @@ const Tools = async () => {
           description={translateTools('dictionary_desc')}
           href={localizedPath('/tools/dictionary')}
           rel="noopener noreferrer"
-          
         />
         <Features
           icon={<RouteOptimizationIcon className={toolsClass['icon']} />}

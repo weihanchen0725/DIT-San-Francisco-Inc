@@ -3,6 +3,8 @@
 import { Menu, X } from 'lucide-react';
 import { useEffect, useId, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 
 import headerClass from './Header.module.scss';
 import NavBar from '../NavBar/NavBar';
@@ -10,11 +12,12 @@ import CTABar from '../CTABar/CTABar';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import { useTranslations } from 'next-intl';
+import type { HeaderProps } from '@/types/HeaderProps';
 
 type HeaderClientProps = {
   headerData: HeaderProps;
-  logoUrl: string;
-  darkLogoUrl: string;
+  logoUrl: string | StaticImageData;
+  darkLogoUrl: string | StaticImageData;
 };
 
 const MENU_COLLAPSE_BREAKPOINT_PX = 1120;
@@ -201,10 +204,7 @@ const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) =
         '--header-shadow-highlight-opacity',
         `${0.35 * nextScrollProgress}`
       );
-      headerElement.style.setProperty(
-        '--header-shadow-depth-mix',
-        `${30 * nextScrollProgress}%`
-      );
+      headerElement.style.setProperty('--header-shadow-depth-mix', `${30 * nextScrollProgress}%`);
     });
 
     return () => {
@@ -249,13 +249,14 @@ const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) =
       {/* Brand — always visible (name hides at very narrow widths via CSS) */}
       <div className={headerClass.header_content}>
         {/* Two images rendered; CSS toggles visibility based on .dark on <html> */}
-        <img
-          src={logoUrl ?? ''}
+        <Image
+          src={logoUrl}
           alt={translateHeader(headerData.Logo?.image?.alternativeText ?? '')}
           className={`${headerClass.header_logo} ${headerClass.header_logo_light}`}
+          priority
         />
-        <img
-          src={darkLogoUrl ?? ''}
+        <Image
+          src={darkLogoUrl}
           alt={translateHeader(headerData.Logo?.image?.alternativeText ?? '')}
           className={`${headerClass.header_logo} ${headerClass.header_logo_dark}`}
           aria-hidden="true"
@@ -288,7 +289,7 @@ const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) =
             onClick={() => setIsMenuOpen((prev) => !prev)}
             aria-expanded={isMenuOpen}
             aria-controls={menuPanelId}
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-label={translateHeader(isMenuOpen ? 'close_menu' : 'open_menu')}
           >
             {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
           </button>

@@ -6,12 +6,12 @@ import { usePathname } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import navBarData from '@/assets/data/NavBar.data.json';
 import useActiveSection from '@/hooks/useActiveSection';
+import type { LinkProps } from '@/types/LinkProps';
 
 interface NavBarProps {
   styleMode?: 'row' | 'column';
 }
 
-// This is a simplified version of the NavBar component. You can expand it with the logic from NavBar.v01.tsx as needed.
 const NavBar = ({ styleMode = 'row' }: NavBarProps) => {
   // Fall back to local NavBar.data.json when no list is passed from the parent.
   const resolvedList: LinkProps[] = navBarData as LinkProps[];

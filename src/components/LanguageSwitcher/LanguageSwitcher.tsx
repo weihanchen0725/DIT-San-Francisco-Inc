@@ -5,16 +5,8 @@ import { usePathname, useRouter } from 'next/navigation';
 import React, { ChangeEvent, useCallback } from 'react';
 import { ChevronDown, Globe } from 'lucide-react';
 
+import { locales, type AppLocale } from '@/i18n/config';
 import styles from './LanguageSwitcher.module.scss';
-
-// Supported languages configuration - easy to extend
-const SUPPORTED_LANGUAGES = [
-  { code: 'en', label: 'en' },
-  { code: 'zh-TW', label: 'zh-TW' },
-  // Add more languages here as needed
-] as const;
-
-type LanguageCode = (typeof SUPPORTED_LANGUAGES)[number]['code'];
 
 interface LanguageSwitcherProps {
   styleMode?: 'row' | 'column';
@@ -22,7 +14,7 @@ interface LanguageSwitcherProps {
 
 const LanguageSwitcher = ({ styleMode = 'row' }: LanguageSwitcherProps) => {
   const translateCommon = useTranslations('Common');
-  const locale = useLocale() as LanguageCode;
+  const locale = useLocale() as AppLocale;
   const router = useRouter();
   const pathName = usePathname();
   const languageTranslate = useTranslations('Language');
@@ -35,6 +27,13 @@ const LanguageSwitcher = ({ styleMode = 'row' }: LanguageSwitcherProps) => {
     },
     [locale, pathName, router]
   );
+
+  const renderOptions = () =>
+    locales.map((code) => (
+      <option key={code} value={code} className={styles.languageSwitcher_option}>
+        {translateCommon(code).toUpperCase()}
+      </option>
+    ));
 
   return (
     <React.Fragment>
@@ -49,15 +48,7 @@ const LanguageSwitcher = ({ styleMode = 'row' }: LanguageSwitcherProps) => {
               className={styles.languageSwitcher_select}
               aria-label={translateCommon('select_language')}
             >
-              {SUPPORTED_LANGUAGES.map((lang) => (
-                <option
-                  key={lang.code}
-                  value={lang.code}
-                  className={styles.languageSwitcher_option}
-                >
-                  {translateCommon(lang.label).toUpperCase()}
-                </option>
-              ))}
+              {renderOptions()}
             </select>
             <ChevronDown className={styles.languageSwitcher_chevron} />
           </span>
@@ -75,15 +66,7 @@ const LanguageSwitcher = ({ styleMode = 'row' }: LanguageSwitcherProps) => {
                 className={styles.languageSwitcher_select}
                 aria-label={translateCommon('select_language')}
               >
-                {SUPPORTED_LANGUAGES.map((lang) => (
-                  <option
-                    key={lang.code}
-                    value={lang.code}
-                    className={styles.languageSwitcher_option}
-                  >
-                    {translateCommon(lang.label).toUpperCase()}
-                  </option>
-                ))}
+                {renderOptions()}
               </select>
               <ChevronDown className={styles.languageSwitcher_chevron} />
             </span>

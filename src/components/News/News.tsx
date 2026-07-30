@@ -1,16 +1,15 @@
 import { getTranslations } from 'next-intl/server';
+import SectionHeading from '@/components/ui/SectionHeading';
 import newsClass from './News.module.scss';
 
-const News = async () => {
+const News = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
   const translateNews = await getTranslations('News');
   return (
     <section id="news" className={newsClass.news}>
-      <h2 className={newsClass.news_title}>
+      <SectionHeading level={headingLevel} className={newsClass.news_title}>
         {translateNews('title')}
-      </h2>
-      <p className={newsClass.news_description}>
-        {translateNews('description')}
-      </p>
+      </SectionHeading>
+      <p className={newsClass.news_description}>{translateNews('description')}</p>
       {/* Add news articles here */}
       <div className={newsClass.news_grid}>
         <div className={newsClass.news_card}>
@@ -30,9 +29,7 @@ const News = async () => {
             </svg>
           </div>
           <h3 className={newsClass.news_card_title}>News Article 1</h3>
-          <p className={newsClass.news_card_description}>
-            Summary of the first news article.
-          </p>
+          <p className={newsClass.news_card_description}>Summary of the first news article.</p>
         </div>
         <div className={newsClass.news_card}>
           <div className={newsClass.news_card_iconWrap}>
@@ -51,9 +48,7 @@ const News = async () => {
             </svg>
           </div>
           <h3 className={newsClass.news_card_title}>News Article 2</h3>
-          <p className={newsClass.news_card_description}>
-            Summary of the second news article.
-          </p>
+          <p className={newsClass.news_card_description}>Summary of the second news article.</p>
         </div>
         <div className={newsClass.news_card}>
           <div className={newsClass.news_card_iconWrap}>
@@ -72,9 +67,7 @@ const News = async () => {
             </svg>
           </div>
           <h3 className={newsClass.news_card_title}>News Article 3</h3>
-          <p className={newsClass.news_card_description}>
-            Summary of the third news article.
-          </p>
+          <p className={newsClass.news_card_description}>Summary of the third news article.</p>
         </div>
       </div>
     </section>
