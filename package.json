@@ -31,7 +31,6 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",
-    "@iconify/react": "^6.0.2",
     "@playwright/test": "^1.61.1",
     "@tailwindcss/postcss": "^4",
     "@types/leaflet": "^1.9.21",

@@ -67,9 +67,13 @@ $menu-ease-duration: 180ms;
     /* The "Top Edge" Light */ 0 1px 0
       rgba(255, 255, 255, calc(0.4 * var(--header-scroll-progress, 0))) inset;
 
-  // Dark mode: always shows a dark surface; deepens to near-opaque on scroll.
+  // Dark mode: opaque at every scroll position so white controls retain AA contrast.
   :global(.dark) & {
-    background-color: rgba(17, 17, 39, calc(0.55 + 0.45 * var(--header-scroll-progress, 0)));
+    background-color: rgb(
+      calc(17 - 7 * var(--header-scroll-progress, 0))
+        calc(17 - 7 * var(--header-scroll-progress, 0))
+        calc(39 - 13 * var(--header-scroll-progress, 0))
+    );
     // Lower saturation cap so warm page content isn't amplified by backdrop-filter.
     backdrop-filter: saturate(calc(100% + 25% * var(--header-scroll-progress, 0)))
       blur(var(--header-backdrop-blur, 0px));

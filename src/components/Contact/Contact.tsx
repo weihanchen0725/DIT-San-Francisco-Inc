@@ -1,5 +1,5 @@
 import MapWrapper from '../Map/MapWrapper';
-import OpenIndicator from '../OpenIndicator/OpenIndicator';
+import OpenIndicatorWrapper from '../OpenIndicator/OpenIndicatorWrapper';
 import ContactForm from './ContactForm';
 import ContactData from './ContactData.json';
 import { getTranslations } from 'next-intl/server';
@@ -9,6 +9,7 @@ import contactClass from './Contact.module.scss';
 const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
   //
   const translateContact = await getTranslations('Contact');
+  const itemHeadingLevel = headingLevel === 1 ? 2 : 3;
 
   return (
     <section id="contact" className={contactClass.contact}>
@@ -41,7 +42,9 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
                   />
                 </svg>
               </div>
-              <h3 className={contactClass.contact_cardTitle}>{translateContact('email_title')}</h3>
+              <SectionHeading level={itemHeadingLevel} className={contactClass.contact_cardTitle}>
+                {translateContact('email_title')}
+              </SectionHeading>
             </div>
             <p className={contactClass.contact_cardDetail}>contact@ditsanfrancisco.com</p>
             <p className={contactClass.contact_cardDetail}>support@ditsanfrancisco.com</p>
@@ -64,11 +67,11 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
                   />
                 </svg>
               </div>
-              <h3 className={contactClass.contact_cardTitle}>
+              <SectionHeading level={itemHeadingLevel} className={contactClass.contact_cardTitle}>
                 {translateContact('business_hours_title')}
-              </h3>
+              </SectionHeading>
             </div>
-            <OpenIndicator />
+            <OpenIndicatorWrapper />
           </div>
 
           <div className={contactClass.contact_card}>
@@ -88,7 +91,9 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
                   />
                 </svg>
               </div>
-              <h3 className={contactClass.contact_cardTitle}>{translateContact('phone_title')}</h3>
+              <SectionHeading level={itemHeadingLevel} className={contactClass.contact_cardTitle}>
+                {translateContact('phone_title')}
+              </SectionHeading>
             </div>
             <p className={contactClass.contact_cardDetail}>{ContactData.data.phone}</p>
             <p className={contactClass.contact_cardDetail}>{ContactData.data.business_hours}</p>
@@ -118,9 +123,9 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
                 </svg>
               </div>
               <div>
-                <h3 className={contactClass.contact_cardTitle}>
+                <SectionHeading level={itemHeadingLevel} className={contactClass.contact_cardTitle}>
                   {translateContact('address_title')}
-                </h3>
+                </SectionHeading>
                 <p className={contactClass.contact_cardAddressText}>{ContactData.data.address_1}</p>
                 <p className={contactClass.contact_cardAddressText}>{ContactData.data.address_2}</p>
               </div>

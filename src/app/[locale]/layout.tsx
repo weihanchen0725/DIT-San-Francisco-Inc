@@ -14,7 +14,7 @@ import './globals.scss';
 const roboto = Roboto({
   variable: '--font-roboto',
   subsets: ['latin'],
-  weight: ['300', '400', '500', '700'],
+  weight: ['400', '500', '700'], // 300 unused; 800/900 synthesize from 700
   display: 'swap', // Optimize font loading for better CLS
 });
 
@@ -103,9 +103,8 @@ export const metadata: Metadata = {
     // creator: "@ditsanfrancisco", // Add your Twitter handle
   },
   icons: {
-    icon: [{ url: '/DITLogo.svg', type: 'image/svg+xml' }],
-    shortcut: '/DITLogo.svg',
-    apple: [{ url: '/DITLogo.svg', type: 'image/svg+xml' }],
+    icon: [{ url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' }],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
   manifest: '/site.webmanifest',
   appleWebApp: {
@@ -134,7 +133,7 @@ const organizationJsonLd = {
   name: COMPANY_NAME,
   description: COMPANY_DESCRIPTION,
   url: SITE_URL,
-  logo: `${SITE_URL}/DITLogo.svg`,
+  logo: `${SITE_URL}/icon-512.png`,
   foundingDate: '2014',
   address: {
     '@type': 'PostalAddress',
@@ -159,7 +158,7 @@ const localBusinessJsonLd = {
   name: COMPANY_NAME,
   description: COMPANY_DESCRIPTION,
   url: SITE_URL,
-  image: `${SITE_URL}/DITLogo.svg`,
+  image: `${SITE_URL}/icon-512.png`,
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
@@ -208,10 +207,6 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
-        {/* Preconnect to external domains for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
         {/* DNS prefetch for analytics (uncomment when adding analytics) */}
         {/* <link rel="dns-prefetch" href="https://www.googletagmanager.com" /> */}
 

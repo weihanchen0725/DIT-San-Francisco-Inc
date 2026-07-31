@@ -44,7 +44,7 @@ const Calculator = () => {
     <div className={calculatorClass['page-view']}>
       <form onSubmit={handleCalculate}>
         <div className={calculatorClass['item-box']}>
-          <div className={calculatorClass['left-subject']}>{t('input_dimension')}</div>
+          <h1 className={calculatorClass['left-subject']}>{t('input_dimension')}</h1>
           <div className={calculatorClass['right-main']}>
             {/* Pieces */}
             <div className={calculatorClass['full']}>

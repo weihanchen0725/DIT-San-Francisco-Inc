@@ -3,6 +3,7 @@
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import L, { type LatLngExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import mapClass from './Map.module.scss';
 
 // Custom marker icon with brand colors
 const customIcon = new L.DivIcon({
@@ -32,7 +33,7 @@ const Map = () => {
   const googleMapURL = 'https://maps.app.goo.gl/Gmt7Y9h18K2Hk6xC8';
 
   return (
-    <div className="relative rounded-b-2xl overflow-hidden">
+    <div className={`${mapClass.map} relative rounded-b-2xl overflow-hidden`}>
       {/* Map overlay gradient for sleek look */}
       <div className="absolute inset-0 pointer-events-none z-10 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
 
@@ -48,7 +49,12 @@ const Map = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
           url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
         />
-        <Marker position={position} icon={customIcon}>
+        <Marker
+          position={position}
+          icon={customIcon}
+          title="DIT San Francisco Inc."
+          alt="DIT San Francisco Inc."
+        >
           <Popup className="custom-popup">
             <div className="p-1">
               <h3 className="font-bold text-brand-navy text-base mb-1">DIT San Francisco Inc.</h3>

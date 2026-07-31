@@ -45,18 +45,23 @@ const Home = async () => {
           <Image
             src={cargoPlane}
             alt="Cargo Plane"
+            sizes="(max-width: 768px) 0px, 38vw"
             className={`${homeClass.image} ${homeClass.cargoPlane}`}
           />
           {/* Golden Gate: centre backdrop — static */}
           <Image
             src={goldenGate}
             alt="Golden Gate"
+            priority
+            fetchPriority="high"
+            sizes="(max-width: 768px) 0px, 50vw"
             className={`${homeClass.image} ${homeClass.goldenGate}`}
           />
           {/* Ship: below the golden gate — sails downward on scroll */}
           <Image
             src={cargoShip}
             alt="Cargo Ship"
+            sizes="(max-width: 768px) 0px, 38vw"
             className={`${homeClass.image} ${homeClass.cargoShip}`}
           />
         </HomeParallax>

@@ -3,7 +3,31 @@ import advisorClass from './Advisor.module.scss';
 import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { Icon } from '@iconify/react';
+import {
+  ArrowLeft,
+  ArrowLeftRight,
+  ArrowRight,
+  BadgeCheck,
+  CheckCircle2,
+  ChevronRight,
+  ClipboardCheck,
+  Factory,
+  FileText,
+  Gauge,
+  Globe,
+  Layers,
+  MapPin,
+  PiggyBank,
+  Plane,
+  RefreshCw,
+  Settings2,
+  ShieldCheck,
+  Ship,
+  ShoppingCart,
+  TrainFront,
+  Truck,
+  type LucideIcon,
+} from 'lucide-react';
 import {
   recommendIncoterm,
   type Role,
@@ -14,32 +38,54 @@ import {
   type IncoResult,
 } from '@/lib/incoterms-engine';
 
+/**
+ * Semantic icon keys used by the data-driven option cards (goals & transport
+ * modes). Keeping the mapping here — rather than icon strings in the data —
+ * keeps the data readable and the icons tree-shakeable.
+ */
+const ICONS = {
+  security: ShieldCheck,
+  settings: Settings2,
+  speed: Gauge,
+  savings: PiggyBank,
+  ship: Ship,
+  plane: Plane,
+  train: TrainFront,
+  truck: Truck,
+  layers: Layers,
+} satisfies Record<string, LucideIcon>;
+
+const AdvisorIcon = ({ name, className }: { name: keyof typeof ICONS; className?: string }) => {
+  const Cmp = ICONS[name];
+  return <Cmp className={className} />;
+};
+
 const GOALS = [
   {
     value: 'minimize-risk' as const,
-    icon: 'material-symbols:security',
+    icon: 'security' as const,
     labelKey: 'advisor_q3_minimize_risk' as const,
   },
   {
     value: 'maximize-control' as const,
-    icon: 'material-symbols:settings-suggest',
+    icon: 'settings' as const,
     labelKey: 'advisor_q3_maximize_control' as const,
   },
   {
     value: 'simple-logistics' as const,
-    icon: 'material-symbols:speed',
+    icon: 'speed' as const,
     labelKey: 'advisor_q3_simple_logistics' as const,
   },
   {
     value: 'lowest-cost' as const,
-    icon: 'material-symbols:savings',
+    icon: 'savings' as const,
     labelKey: 'advisor_q3_lowest_cost' as const,
   },
 ];
 
 const TRANSPORT_MODES: {
   value: TransportMode;
-  icon: string;
+  icon: keyof typeof ICONS;
   labelKey:
     | 'advisor_s2_mode_sea'
     | 'advisor_s2_mode_air'
@@ -47,11 +93,11 @@ const TRANSPORT_MODES: {
     | 'advisor_s2_mode_road'
     | 'advisor_s2_mode_multi';
 }[] = [
-  { value: 'sea', icon: 'material-symbols:directions-boat', labelKey: 'advisor_s2_mode_sea' },
-  { value: 'air', icon: 'material-symbols:flight', labelKey: 'advisor_s2_mode_air' },
-  { value: 'rail', icon: 'material-symbols:train', labelKey: 'advisor_s2_mode_rail' },
-  { value: 'road', icon: 'material-symbols:local-shipping', labelKey: 'advisor_s2_mode_road' },
-  { value: 'multi', icon: 'material-symbols:layers', labelKey: 'advisor_s2_mode_multi' },
+  { value: 'sea', icon: 'ship', labelKey: 'advisor_s2_mode_sea' },
+  { value: 'air', icon: 'plane', labelKey: 'advisor_s2_mode_air' },
+  { value: 'rail', icon: 'train', labelKey: 'advisor_s2_mode_rail' },
+  { value: 'road', icon: 'truck', labelKey: 'advisor_s2_mode_road' },
+  { value: 'multi', icon: 'layers', labelKey: 'advisor_s2_mode_multi' },
 ];
 
 const Advisor = () => {
@@ -122,9 +168,9 @@ const Advisor = () => {
               {/* Q1: Role Selection */}
               <section className={advisorClass['question']}>
                 <p className={advisorClass['question-label']}>{t('advisor_q1_label')}</p>
-                <h3 id="advisor-role-question" className={advisorClass['question-title']}>
+                <h2 id="advisor-role-question" className={advisorClass['question-title']}>
                   {t('advisor_q1_title')}
-                </h3>
+                </h2>
                 <div
                   className={advisorClass['grid-2']}
                   role="group"
@@ -141,10 +187,10 @@ const Advisor = () => {
                   >
                     {role === 'seller' && (
                       <div className={advisorClass['check-icon']}>
-                        <Icon icon="material-symbols:check-circle" />
+                        <CheckCircle2 />
                       </div>
                     )}
-                    <Icon icon="material-symbols:factory" className={advisorClass['card-icon']} />
+                    <Factory className={advisorClass['card-icon']} />
                     <p className={advisorClass['card-title']}>{t('advisor_q1_seller_title')}</p>
                     <p className={advisorClass['card-desc']}>{t('advisor_q1_seller_desc')}</p>
                   </button>
@@ -159,13 +205,10 @@ const Advisor = () => {
                   >
                     {role === 'buyer' && (
                       <div className={advisorClass['check-icon']}>
-                        <Icon icon="material-symbols:check-circle" />
+                        <CheckCircle2 />
                       </div>
                     )}
-                    <Icon
-                      icon="material-symbols:shopping-cart"
-                      className={advisorClass['card-icon']}
-                    />
+                    <ShoppingCart className={advisorClass['card-icon']} />
                     <p className={advisorClass['card-title']}>{t('advisor_q1_buyer_title')}</p>
                     <p className={advisorClass['card-desc']}>{t('advisor_q1_buyer_desc')}</p>
                   </button>
@@ -175,9 +218,9 @@ const Advisor = () => {
               {/* Q2: Scope Selection */}
               <section className={advisorClass['question']}>
                 <p className={advisorClass['question-label']}>{t('advisor_q2_label')}</p>
-                <h3 id="advisor-scope-question" className={advisorClass['question-title']}>
+                <h2 id="advisor-scope-question" className={advisorClass['question-title']}>
                   {t('advisor_q2_title')}
-                </h3>
+                </h2>
                 <div
                   className={advisorClass['scope-grid']}
                   role="group"
@@ -195,7 +238,7 @@ const Advisor = () => {
                     <div
                       className={`${advisorClass['scope-icon-wrap']} ${scope === 'international' ? advisorClass['icon-active'] : ''}`}
                     >
-                      <Icon icon="material-symbols:public" />
+                      <Globe />
                     </div>
                     <div className={advisorClass['scope-text']}>
                       <p className={advisorClass['card-title']}>
@@ -218,7 +261,7 @@ const Advisor = () => {
                     <div
                       className={`${advisorClass['scope-icon-wrap']} ${scope === 'domestic' ? advisorClass['icon-active'] : ''}`}
                     >
-                      <Icon icon="material-symbols:home-pin" />
+                      <MapPin />
                     </div>
                     <div className={advisorClass['scope-text']}>
                       <p className={advisorClass['card-title']}>{t('advisor_q2_domestic_title')}</p>
@@ -231,9 +274,9 @@ const Advisor = () => {
               {/* Q3: Goal Selection */}
               <section className={advisorClass['question']}>
                 <p className={advisorClass['question-label']}>{t('advisor_q3_label')}</p>
-                <h3 id="advisor-goal-question" className={advisorClass['question-title']}>
+                <h2 id="advisor-goal-question" className={advisorClass['question-title']}>
                   {t('advisor_q3_title')}
-                </h3>
+                </h2>
                 <div
                   className={advisorClass['goal-grid']}
                   role="group"
@@ -250,7 +293,7 @@ const Advisor = () => {
                         setStepOneError(false);
                       }}
                     >
-                      <Icon icon={icon} className={advisorClass['goal-icon']} />
+                      <AdvisorIcon name={icon} className={advisorClass['goal-icon']} />
                       <span className={advisorClass['goal-label']}>{t(labelKey)}</span>
                     </button>
                   ))}
@@ -272,7 +315,7 @@ const Advisor = () => {
                 disabled={!canContinue}
               >
                 <span>{t('advisor_continue')}</span>
-                <Icon icon="material-symbols:arrow-forward" />
+                <ArrowRight />
               </button>
             </div>
           </>
@@ -291,11 +334,8 @@ const Advisor = () => {
               {/* Transport Mode */}
               <div className={advisorClass['s2-panel']}>
                 <div className={advisorClass['s2-panel-header']}>
-                  <Icon
-                    icon="material-symbols:directions-boat"
-                    className={advisorClass['s2-panel-icon']}
-                  />
-                  <h3 id="advisor-transport-question">{t('advisor_s2_transport_title')}</h3>
+                  <Ship className={advisorClass['s2-panel-icon']} />
+                  <h2 id="advisor-transport-question">{t('advisor_s2_transport_title')}</h2>
                 </div>
                 <div
                   className={advisorClass['transport-grid']}
@@ -310,7 +350,7 @@ const Advisor = () => {
                       className={`${advisorClass['transport-btn']} ${transportMode === value ? advisorClass['active'] : ''}`}
                       onClick={() => setTransportMode(value)}
                     >
-                      <Icon icon={icon} className={advisorClass['transport-icon']} />
+                      <AdvisorIcon name={icon} className={advisorClass['transport-icon']} />
                       <span>{t(labelKey)}</span>
                     </button>
                   ))}
@@ -320,11 +360,8 @@ const Advisor = () => {
               {/* Responsibilities */}
               <div className={advisorClass['s2-panel']}>
                 <div className={advisorClass['s2-panel-header']}>
-                  <Icon
-                    icon="material-symbols:assignment-turned-in"
-                    className={advisorClass['s2-panel-icon']}
-                  />
-                  <h3>{t('advisor_s2_resp_title')}</h3>
+                  <ClipboardCheck className={advisorClass['s2-panel-icon']} />
+                  <h2>{t('advisor_s2_resp_title')}</h2>
                 </div>
                 <div className={advisorClass['toggle-list']}>
                   {(
@@ -375,11 +412,8 @@ const Advisor = () => {
               {/* Insurance Preference */}
               <div className={advisorClass['s2-panel']}>
                 <div className={advisorClass['s2-panel-header']}>
-                  <Icon
-                    icon="material-symbols:security"
-                    className={advisorClass['s2-panel-icon']}
-                  />
-                  <h3>{t('advisor_s2_insurance_title')}</h3>
+                  <ShieldCheck className={advisorClass['s2-panel-icon']} />
+                  <h2>{t('advisor_s2_insurance_title')}</h2>
                 </div>
                 <div className={advisorClass['segmented-control']}>
                   {(
@@ -409,12 +443,12 @@ const Advisor = () => {
               {/* Navigation */}
               <div className={advisorClass['s2-nav']}>
                 <button className={advisorClass['prev-btn']} onClick={() => setStep(1)}>
-                  <Icon icon="material-symbols:arrow-back" />
+                  <ArrowLeft />
                   <span>{t('advisor_s2_btn_previous')}</span>
                 </button>
                 <button className={advisorClass['calc-btn']} onClick={handleCalculate}>
                   <span>{t('advisor_s2_btn_calculate')}</span>
-                  <Icon icon="material-symbols:chevron-right" />
+                  <ChevronRight />
                 </button>
               </div>
             </div>
@@ -425,7 +459,10 @@ const Advisor = () => {
           <>
             {/* Result Header */}
             <div className={advisorClass['r-header']}>
-              <span className={advisorClass['r-optimal-badge']}>{t('advisor_r_optimal')}</span>
+              <div className={advisorClass['r-heading-group']}>
+                <h1>{t('advisor_r_result_title')}</h1>
+                <span className={advisorClass['r-optimal-badge']}>{t('advisor_r_optimal')}</span>
+              </div>
               <button
                 className={advisorClass['r-restart-btn']}
                 onClick={() => {
@@ -436,7 +473,7 @@ const Advisor = () => {
                   setResult(null);
                 }}
               >
-                <Icon icon="material-symbols:refresh" />
+                <RefreshCw />
                 <span>{t('advisor_r_restart')}</span>
               </button>
             </div>
@@ -448,7 +485,7 @@ const Advisor = () => {
                 <div className={advisorClass['r-code-info']}>
                   <p className={advisorClass['r-full-name']}>{result.fullName}</p>
                   <div className={advisorClass['r-confidence-badge']}>
-                    <Icon icon="material-symbols:verified" />
+                    <BadgeCheck />
                     <span>
                       {result.confidence}% {t('advisor_r_confidence')}
                     </span>
@@ -461,21 +498,18 @@ const Advisor = () => {
             {/* Bento Grid */}
             <div className={advisorClass['r-bento']}>
               <div className={advisorClass['r-why']}>
-                <h3 className={advisorClass['r-section-title']}>{t('advisor_r_why_title')}</h3>
+                <h2 className={advisorClass['r-section-title']}>{t('advisor_r_why_title')}</h2>
                 <ul className={advisorClass['r-reasons']}>
                   {result.reasons.map((reason, i) => (
                     <li key={i} className={advisorClass['r-reason-item']}>
-                      <Icon
-                        icon="material-symbols:check-circle"
-                        className={advisorClass['r-reason-icon']}
-                      />
+                      <CheckCircle2 className={advisorClass['r-reason-icon']} />
                       <span>{reason}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className={advisorClass['r-resp-panel']}>
-                <h3 className={advisorClass['r-section-title']}>{t('advisor_r_resp_title')}</h3>
+                <h2 className={advisorClass['r-section-title']}>{t('advisor_r_resp_title')}</h2>
                 <div className={advisorClass['r-resp-labels']}>
                   <span>
                     {t('advisor_r_resp_seller')} {result.sellerPct}%
@@ -499,7 +533,7 @@ const Advisor = () => {
 
             {/* Risk Transfer Journey */}
             <div className={advisorClass['r-risk-section']}>
-              <h3 className={advisorClass['r-section-title']}>{t('advisor_r_risk_title')}</h3>
+              <h2 className={advisorClass['r-section-title']}>{t('advisor_r_risk_title')}</h2>
               <div className={advisorClass['r-journey-wrap']}>
                 <span className={advisorClass['r-risk-label-seller']}>
                   {t('advisor_r_risk_seller')}
@@ -537,7 +571,7 @@ const Advisor = () => {
                 className={advisorClass['r-quote-btn']}
                 onClick={() => router.push(`/${locale}/contact`)}
               >
-                <Icon icon="material-symbols:request-quote" />
+                <FileText />
                 <span>{t('advisor_r_quote_btn')}</span>
               </button>
               <button
@@ -545,7 +579,7 @@ const Advisor = () => {
                 onClick={() => router.push(`/${locale}/tools/incoterms/reference-guide`)}
               >
                 <span>{t('advisor_r_compare_btn')}</span>
-                <Icon icon="material-symbols:compare-arrows" />
+                <ArrowLeftRight />
               </button>
             </div>
           </>

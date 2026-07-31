@@ -1,7 +1,7 @@
 'use client';
 import referenceClass from './ReferenceGuide.module.scss';
 import { useRouter } from 'next/navigation';
-import { Icon } from '@iconify/react';
+import { ArrowLeftRight, Plane, Ship, Truck, type LucideIcon } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { REFERENCE_GUIDE_TABLE_DATA } from './ReferenceGuide.TableData';
 
@@ -18,6 +18,14 @@ import CarriageToNamedPlaceIcon from '@/assets/icons/Incoterms/CarriageToNamedPl
 import BuyerPremisesIcon from '@/assets/icons/Incoterms/BuyerPremisesIcon';
 
 import { SvgPropIcon } from '@/components/Icon/SvgPropIconBase';
+
+/** Transport-mode icons rendered in the route diagram. */
+const MODE_ICONS = {
+  sea: Ship,
+  air: Plane,
+  land: Truck,
+  any: ArrowLeftRight,
+} satisfies Record<string, LucideIcon>;
 const ReferenceGuide = () => {
   const router = useRouter();
   const locale = useLocale();
@@ -84,38 +92,21 @@ const ReferenceGuide = () => {
   };
 
   const getModeIcon = (mode: 'any' | 'sea' | 'air' | 'land' | undefined) => {
-    let icon;
-    let label = '';
+    const modeKey = mode?.toLowerCase() as keyof typeof MODE_ICONS | undefined;
+    if (!modeKey || !MODE_ICONS[modeKey]) return null;
 
-    switch (mode?.toLowerCase()) {
-      case 'sea':
-        icon = <Icon icon="mdi:ship-wheel" width="24" height="24" />;
-        label = getModeLabel('sea');
-        break;
-      case 'air':
-        icon = <Icon icon="mdi:airplane" width="24" height="24" />;
-        label = getModeLabel('air');
-        break;
-      case 'land':
-        icon = <Icon icon="mdi:truck" width="24" height="24" />;
-        label = getModeLabel('land');
-        break;
-      case 'any':
-        icon = <Icon icon="mdi:swap-horizontal-bold" width="24" height="24" />;
-        label = getModeLabel('any');
-        break;
-      default:
-        return null;
-    }
+    const ModeIcon = MODE_ICONS[modeKey];
+    const label = getModeLabel(modeKey);
 
     return (
       <span
         className={referenceClass['mode-icon-wrapper']}
         data-mode-label={label}
         title={label}
+        role="img"
         aria-label={label}
       >
-        {icon}
+        <ModeIcon width={24} height={24} />
       </span>
     );
   };

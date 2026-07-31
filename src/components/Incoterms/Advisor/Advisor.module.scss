@@ -600,6 +600,19 @@
   margin-bottom: 1.5rem;
 }
 
+.r-heading-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+
+  h1 {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: 1.5rem;
+  }
+}
+
 .r-optimal-badge {
   background-color: var(--color-primary);
   color: var(--color-text-primary);

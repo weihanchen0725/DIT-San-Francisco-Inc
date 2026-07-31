@@ -253,14 +253,14 @@ const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) =
           src={logoUrl}
           alt={translateHeader(headerData.Logo?.image?.alternativeText ?? '')}
           className={`${headerClass.header_logo} ${headerClass.header_logo_light}`}
-          priority
+          sizes="125px"
         />
         <Image
           src={darkLogoUrl}
           alt={translateHeader(headerData.Logo?.image?.alternativeText ?? '')}
           className={`${headerClass.header_logo} ${headerClass.header_logo_dark}`}
           aria-hidden="true"
-          priority
+          sizes="125px"
         />
         <span className={headerClass.header_name}>({translateHeader(headerData?.Name ?? '')})</span>
       </div>

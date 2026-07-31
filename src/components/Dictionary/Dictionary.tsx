@@ -4,6 +4,7 @@ import zhTWDict from '@/assets/international/zh-TW/dictionary.json';
 import dictionaryKeys from './dictionary.data.json';
 import dictionaryClass from './Dictionary.module.scss';
 import NavBar from './NavBar/NavBar';
+import SectionHeading from '@/components/ui/SectionHeading';
 
 const { keyList } = dictionaryKeys;
 
@@ -30,8 +31,12 @@ const toCategorySlug = (category: string) => CATEGORY_TO_SLUG[category] ?? '';
 
 const Dictionary = async () => {
   const translateDictionary = await getTranslations('dictionary');
+  const translateMetadata = await getTranslations('Metadata');
   return (
     <>
+      <SectionHeading level={1} className={dictionaryClass['dictionary-title']}>
+        {translateMetadata('dictionary.title')}
+      </SectionHeading>
       <NavBar navLetters={navLetters} />
       <div className={dictionaryClass['dictionary-content']}>
         {navLetters.map((letter) => (

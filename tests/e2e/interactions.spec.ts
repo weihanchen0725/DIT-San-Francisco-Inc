@@ -1,15 +1,20 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
+
+const openResponsiveMenu = async (page: Page) => {
+  const menuButton = page.getByRole('button', { name: 'Open menu' });
+  if (await menuButton.count()) await menuButton.click();
+};
 
 test('theme switcher toggles dark mode and persists across reload', async ({ page }) => {
   await page.goto('/en');
 
   const html = page.locator('html');
-  const themeSwitch = page.locator('button[role="switch"]').first();
+  await openResponsiveMenu(page);
 
   // Fresh context: defaultTheme is 'light', so the page starts without the dark class.
   await expect(html).not.toHaveClass(/dark/);
 
-  await themeSwitch.click();
+  await page.locator('button[role="switch"]').first().click();
   await expect(html).toHaveClass(/dark/);
   await expect.poll(() => page.evaluate(() => localStorage.getItem('dit-theme'))).toBe('dark');
 
@@ -17,12 +22,14 @@ test('theme switcher toggles dark mode and persists across reload', async ({ pag
   await expect(html).toHaveClass(/dark/);
 
   // Toggle back to confirm the class is removed again.
+  await openResponsiveMenu(page);
   await page.locator('button[role="switch"]').first().click();
   await expect(html).not.toHaveClass(/dark/);
 });
 
 test('language switcher navigates to the zh-TW locale', async ({ page }) => {
   await page.goto('/en/tools/calculator');
+  await openResponsiveMenu(page);
 
   await page.locator('#language-select').selectOption('zh-TW');
 

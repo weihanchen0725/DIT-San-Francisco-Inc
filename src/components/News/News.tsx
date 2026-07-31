@@ -4,6 +4,7 @@ import newsClass from './News.module.scss';
 
 const News = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
   const translateNews = await getTranslations('News');
+  const itemHeadingLevel = headingLevel === 1 ? 2 : 3;
   return (
     <section id="news" className={newsClass.news}>
       <SectionHeading level={headingLevel} className={newsClass.news_title}>
@@ -28,7 +29,9 @@ const News = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
               />
             </svg>
           </div>
-          <h3 className={newsClass.news_card_title}>News Article 1</h3>
+          <SectionHeading level={itemHeadingLevel} className={newsClass.news_card_title}>
+            News Article 1
+          </SectionHeading>
           <p className={newsClass.news_card_description}>Summary of the first news article.</p>
         </div>
         <div className={newsClass.news_card}>
@@ -47,7 +50,9 @@ const News = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
               />
             </svg>
           </div>
-          <h3 className={newsClass.news_card_title}>News Article 2</h3>
+          <SectionHeading level={itemHeadingLevel} className={newsClass.news_card_title}>
+            News Article 2
+          </SectionHeading>
           <p className={newsClass.news_card_description}>Summary of the second news article.</p>
         </div>
         <div className={newsClass.news_card}>
@@ -66,7 +71,9 @@ const News = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
               />
             </svg>
           </div>
-          <h3 className={newsClass.news_card_title}>News Article 3</h3>
+          <SectionHeading level={itemHeadingLevel} className={newsClass.news_card_title}>
+            News Article 3
+          </SectionHeading>
           <p className={newsClass.news_card_description}>Summary of the third news article.</p>
         </div>
       </div>

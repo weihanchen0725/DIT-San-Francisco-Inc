@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { Icon } from '@iconify/react';
+import { Linkedin } from 'lucide-react';
 import footerClass from './Footer.module.scss';
 
 const Footer = () => {
@@ -21,7 +21,7 @@ const Footer = () => {
               className="text-gray-300 dark:text-brand-gray hover:text-brand-yellow transition-colors"
               aria-label="LinkedIn"
             >
-              <Icon icon="lucide:linkedin" className={footerClass.social_icons} width={24} />
+              <Linkedin className={footerClass.social_icons} width={24} />
             </a>
           </div>
         </div>

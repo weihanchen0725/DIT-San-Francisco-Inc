@@ -124,23 +124,15 @@ const OpenIndicator = () => {
   const t = useTranslations('OpenIndicator');
   const [status, setStatus] = useState<OpenStatus>(() => getOpenStatus());
   const [isExpanded, setIsExpanded] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Mark as mounted to enable hydration
-    const timeout = setTimeout(() => {
-      setMounted(true);
-      setStatus(getOpenStatus());
-    }, 0);
-
     // Update status every minute
     const interval = setInterval(() => {
       setStatus(getOpenStatus());
     }, 60000);
 
     return () => {
-      clearTimeout(timeout);
       clearInterval(interval);
     };
   }, []);
@@ -155,15 +147,6 @@ const OpenIndicator = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
-
-  if (!mounted) {
-    return (
-      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800">
-        <div className="w-2.5 h-2.5 rounded-full bg-gray-400 animate-pulse" />
-        <span className="text-sm font-medium text-gray-500">Loading...</span>
-      </div>
-    );
-  }
 
   const currentDayIndex = getPacificNow().getDay();
 

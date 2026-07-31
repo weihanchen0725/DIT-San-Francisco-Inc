@@ -12,6 +12,7 @@ const Tools = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
   const locale = await getLocale();
   const translateTools = await getTranslations('Tools');
   const localizedPath = (path: string) => `/${locale}${path}`;
+  const itemHeadingLevel = headingLevel === 1 ? 2 : 3;
 
   return (
     <section id="tools" className={toolsClass['tools']}>
@@ -27,6 +28,7 @@ const Tools = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
           href={ctaBarData[0]?.Value ?? '#tools'}
           target="_blank"
           rel="noopener noreferrer"
+          titleLevel={itemHeadingLevel}
         />
         <Features
           icon={<InventoryManagementIcon className={toolsClass['icon']} />}
@@ -34,6 +36,7 @@ const Tools = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
           description={translateTools('dictionary_desc')}
           href={localizedPath('/tools/dictionary')}
           rel="noopener noreferrer"
+          titleLevel={itemHeadingLevel}
         />
         <Features
           icon={<RouteOptimizationIcon className={toolsClass['icon']} />}
@@ -41,12 +44,14 @@ const Tools = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
           description={translateTools('incoterms_desc')}
           href={localizedPath('/tools/incoterms')}
           rel="noopener noreferrer"
+          titleLevel={itemHeadingLevel}
         />
         <Features
           icon={<CostCalculatorIcon className={toolsClass['icon']} />}
           title={translateTools('cost_calculator_title')}
           description={translateTools('cost_calculator_desc')}
           href={localizedPath('/tools/calculator')}
+          titleLevel={itemHeadingLevel}
         />
       </div>
     </section>

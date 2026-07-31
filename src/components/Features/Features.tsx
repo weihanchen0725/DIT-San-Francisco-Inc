@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 
+import SectionHeading from '@/components/ui/SectionHeading';
 import featuresClass from './Features.module.scss';
 
 interface FeaturesProps {
@@ -10,33 +11,36 @@ interface FeaturesProps {
   isDisabled?: boolean;
   target?: string;
   rel?: string;
+  titleLevel?: 2 | 3;
 }
 
 const Features = (featureProp: FeaturesProps) => {
-  const { icon, title, description, href, isDisabled, target, rel } = featureProp;
+  const { icon, title, description, href, isDisabled, target, rel, titleLevel = 3 } = featureProp;
 
-  return (
+  const content = (
     <>
-      {href && !isDisabled ? (
-        <a
-          href={href ?? '#'}
-          className={featuresClass['wrapper']}
-          aria-disabled={isDisabled ? 'true' : 'false'}
-          target={target}
-          rel={rel}
-        >
-          <div className={featuresClass['icon-wrapper']}>{icon}</div>
-          <h3 className={featuresClass['title']}>{title}</h3>
-          <p className={featuresClass['description']}>{description}</p>
-        </a>
-      ) : (
-        <div className={featuresClass['wrapper']} aria-disabled={isDisabled ? 'true' : 'false'}>
-          <div className={featuresClass['icon-wrapper']}>{icon}</div>
-          <h3 className={featuresClass['title']}>{title}</h3>
-          <p className={featuresClass['description']}>{description}</p>
-        </div>
-      )}
+      <div className={featuresClass['icon-wrapper']}>{icon}</div>
+      <SectionHeading level={titleLevel} className={featuresClass['title']}>
+        {title}
+      </SectionHeading>
+      <p className={featuresClass['description']}>{description}</p>
     </>
+  );
+
+  return href && !isDisabled ? (
+    <a
+      href={href}
+      className={featuresClass['wrapper']}
+      aria-disabled="false"
+      target={target}
+      rel={rel}
+    >
+      {content}
+    </a>
+  ) : (
+    <div className={featuresClass['wrapper']} aria-disabled={isDisabled ? 'true' : 'false'}>
+      {content}
+    </div>
   );
 };
 
