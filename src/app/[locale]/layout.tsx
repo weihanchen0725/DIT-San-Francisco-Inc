@@ -3,6 +3,7 @@ import { Roboto } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
+import { Analytics } from '@vercel/analytics/next';
 import { locales } from '@/i18n/config';
 import { SITE_URL } from '@/lib/seo';
 import Header from '@/components/Header/Header';
@@ -243,6 +244,7 @@ export default async function RootLayout({
             <Footer />
           </ClientProviders>
         </ServerProviders>
+        <Analytics />
       </body>
     </html>
   );
