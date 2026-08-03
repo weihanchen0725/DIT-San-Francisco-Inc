@@ -12,10 +12,28 @@ interface FeaturesProps {
   target?: string;
   rel?: string;
   titleLevel?: 2 | 3;
+  revealIndex?: number;
 }
 
 const Features = (featureProp: FeaturesProps) => {
-  const { icon, title, description, href, isDisabled, target, rel, titleLevel = 3 } = featureProp;
+  const {
+    icon,
+    title,
+    description,
+    href,
+    isDisabled,
+    target,
+    rel,
+    titleLevel = 3,
+    revealIndex,
+  } = featureProp;
+  const revealProps =
+    revealIndex === undefined
+      ? {}
+      : {
+          'data-scroll-reveal-item': '',
+          style: { '--scroll-item-index': revealIndex } as React.CSSProperties,
+        };
 
   const content = (
     <>
@@ -34,11 +52,16 @@ const Features = (featureProp: FeaturesProps) => {
       aria-disabled="false"
       target={target}
       rel={rel}
+      {...revealProps}
     >
       {content}
     </a>
   ) : (
-    <div className={featuresClass['wrapper']} aria-disabled={isDisabled ? 'true' : 'false'}>
+    <div
+      className={featuresClass['wrapper']}
+      aria-disabled={isDisabled ? 'true' : 'false'}
+      {...revealProps}
+    >
       {content}
     </div>
   );

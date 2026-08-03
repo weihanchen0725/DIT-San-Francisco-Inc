@@ -10,6 +10,7 @@ import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import ClientProviders from '@/components/Providers/ClientProviders';
 import ServerProviders from '@/components/Providers/ServerProviders';
+import ScrollExperience from '@/components/ScrollExperience/ScrollExperience';
 import './globals.scss';
 
 const roboto = Roboto({
@@ -135,7 +136,7 @@ const organizationJsonLd = {
   description: COMPANY_DESCRIPTION,
   url: SITE_URL,
   logo: `${SITE_URL}/icon-512.png`,
-  foundingDate: '2014',
+  foundingDate: '2021',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '46750 Fremont Blvd #200',
@@ -145,6 +146,11 @@ const organizationJsonLd = {
     addressCountry: 'US',
   },
   sameAs: ['https://www.linkedin.com/company/dit-sfo/'],
+  identifier: {
+    '@type': 'PropertyValue',
+    propertyID: 'FMC OTI License',
+    value: '033692',
+  },
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer service',
@@ -237,6 +243,7 @@ export default async function RootLayout({
         </a>
         <ServerProviders>
           <ClientProviders>
+            <ScrollExperience />
             <Header />
             <main id="main-content" className="app_main page_container">
               {children}

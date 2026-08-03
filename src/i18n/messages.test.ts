@@ -26,4 +26,53 @@ describe('localized messages', () => {
     expect(zhTwMessages.Metadata.calculator.title).toBeTruthy();
     expect(zhTwMessages.Metadata.incoterms.title).toBeTruthy();
   });
+
+  it('uses a quote-focused primary action in both locales', () => {
+    expect(enMessages.Home.headline).toBe('International freight forwarding from');
+    expect(enMessages.Home.headline_location).toBe('Fremont, California');
+    expect(enMessages.Home.contact).toBe('Request a Freight Quote');
+    expect(enMessages.CTABar.tracking).toBe('Track a Shipment');
+    expect(enMessages.CTABar.join_us).toBe('Request a Freight Quote');
+    expect(zhTwMessages.Home.headline).toBe('從加州 Fremont 出發的');
+    expect(zhTwMessages.Home.headline_location).toBe('國際貨運代理服務');
+    expect(zhTwMessages.Home.contact).toBe('申請貨運報價');
+    expect(zhTwMessages.CTABar.tracking).toBe('追蹤貨件');
+    expect(zhTwMessages.CTABar.join_us).toBe('申請貨運報價');
+  });
+
+  it('defines verified credibility copy in both locales', () => {
+    expect(enMessages.Credibility.founded_value).toContain('2021');
+    expect(enMessages.Credibility.license_value).toContain('033692');
+    expect(zhTwMessages.Credibility.founded_value).toContain('2021');
+    expect(zhTwMessages.Credibility.license_value).toContain('033692');
+  });
+
+  it('defines buyer-useful service details in both locales', () => {
+    for (const messages of [enMessages, zhTwMessages]) {
+      expect(messages.Services.freight_shipping_for).toBeTruthy();
+      expect(messages.Services.freight_shipping_provide).toBeTruthy();
+      expect(messages.Services.warehousing_for).toBeTruthy();
+      expect(messages.Services.supply_chain_management_provide).toBeTruthy();
+      expect(messages.Services.tracking_solutions_for).toBeTruthy();
+      expect(messages.Services.ideal_for_label).toBeTruthy();
+      expect(messages.Services.provide_label).toBeTruthy();
+    }
+  });
+
+  it('defines footer content in both locales', () => {
+    for (const messages of [enMessages, zhTwMessages]) {
+      expect(messages.Footer.company_line_2).toContain('033692');
+      expect(messages.Footer.services_heading).toBeTruthy();
+      expect(messages.Footer.quote_cta).toBeTruthy();
+    }
+  });
+
+  it('defines production-safe industries and global service copy in both locales', () => {
+    expect(enMessages.Industries.title).toBe('Industries We Support');
+    expect(enMessages.Industries.items).toHaveLength(4);
+    expect(enMessages.GlobalService.title).toBe('Global Service');
+    expect(enMessages.GlobalService.direct_routes).toContain('TYO');
+    expect(zhTwMessages.Industries.items).toHaveLength(4);
+    expect(zhTwMessages.GlobalService.direct_routes).toContain('TYO');
+  });
 });

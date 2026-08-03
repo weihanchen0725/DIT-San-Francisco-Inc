@@ -10,7 +10,6 @@ import goldenGate from '../../assets/images/golden_gate.svg';
 import Image from 'next/image';
 
 const Home = async () => {
-  const translateCompany = await getTranslations('Company');
   const translateHome = await getTranslations('Home');
 
   return (
@@ -20,8 +19,8 @@ const Home = async () => {
         {/* Left — text content */}
         <div className={homeClass.hero_content}>
           <h1 className={homeClass.hero_title}>
-            {translateHome('welcome')}{' '}
-            <span className={homeClass.hero_title_1}>{translateCompany('Name')}</span>
+            {translateHome('headline')}{' '}
+            <span className={homeClass.hero_title_1}>{translateHome('headline_location')}</span>
           </h1>
           <p>{translateHome('description')}</p>
 

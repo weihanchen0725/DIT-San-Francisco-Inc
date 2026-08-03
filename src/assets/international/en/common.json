@@ -49,10 +49,11 @@
     "Name": "DIT San Francisco Inc."
   },
   "Home": {
-    "welcome": "Welcome to",
-    "description": "Your trusted partner in logistics solutions. We deliver excellence with every shipment.",
+    "headline": "International freight forwarding from",
+    "headline_location": "Fremont, California",
+    "description": "Work with a local team for shipment planning, freight coordination, and support across the Bay Area and global trade lanes.",
     "our_services": "Our Services",
-    "contact": "Get in Touch",
+    "contact": "Request a Freight Quote",
     "fast_delivery_title": "Fast Delivery",
     "fast_delivery_desc": "We ensure your packages arrive on time, every time.",
     "secure_handling_title": "Reliable Service",
@@ -61,20 +62,85 @@
     "global_reach_desc": "Worldwide logistics network to serve you anywhere."
   },
   "About": {
-    "title": "About US",
-    "description": "We are a leading logistics management company dedicated to providing efficient shipping, tracking, warehousing, and supply chain solutions. With a commitment to excellence and customer satisfaction, we strive to optimize your logistics operations and deliver unparalleled service."
+    "title": "About Us",
+    "description": "Founded in 2021, DIT San Francisco Inc. is the San Francisco operation of Dolphin Logistics. From our Fremont team, we coordinate freight shipping, warehousing, tracking, and supply chain support for businesses moving goods through the Bay Area and global trade lanes."
+  },
+  "Credibility": {
+    "title": "Verified company information",
+    "founded_label": "Founded",
+    "founded_value": "2021",
+    "identity_label": "Company relationship",
+    "identity_value": "Dolphin Logistics is DIT",
+    "license_label": "FMC OTI License",
+    "license_value": "No. 033692",
+    "trade_label": "Public trade activity",
+    "trade_value": "View attributed ImportKey company data"
+  },
+  "Showcase": {
+    "partners_title": "Partner network preview",
+    "development_notice": "Fictional development preview — not actual partners or clients"
+  },
+  "Industries": {
+    "title": "Industries We Support",
+    "description": "Logistics coordination for common cargo categories supported by our freight, warehousing, and supply chain services.",
+    "items": [
+      {
+        "title": "Electronics",
+        "description": "Coordinated handling and transportation planning for electronic products and components."
+      },
+      {
+        "title": "Consumer Goods",
+        "description": "Freight and distribution support for packaged products moving through domestic and international channels."
+      },
+      {
+        "title": "Industrial Goods",
+        "description": "Logistics planning for equipment, components, and project-related cargo."
+      },
+      {
+        "title": "General Merchandise",
+        "description": "Flexible freight and warehousing support for a range of commercial goods."
+      }
+    ],
+    "disclaimer": "Service availability depends on cargo details, origin, destination, and handling requirements."
+  },
+  "GlobalService": {
+    "eyebrow": "Worldwide coordination",
+    "title": "Global Service",
+    "description": "Coordinate freight through major ports and cities with DIT San Francisco and the Dolphin Logistics network.",
+    "legend_label": "Coverage legend",
+    "office_label": "Office",
+    "schedule_label": "Schedule",
+    "direct_label": "Direct",
+    "network_label": "Network",
+    "location_label": "{location}, {country}. Coverage: {coverage}.",
+    "country_level_detail": "{country} — country-level office record",
+    "routes_title": "Direct consolidation gateways",
+    "direct_routes": "TYO, OSA, PUS, HKG, BKK, JKT, SGN, NYC, LAX, CHI, SYD, SIN, DUR, DXB, SOU, HAM, LEH, VVO",
+    "network_title": "Global service network",
+    "network_cities": "TPE, NRT, HKG, PVG, SZX, SIN, SGN, LAX, JFK, ORD, MEX, SYD, JKT, JNB, LHR, CDG, AMS, FRA, MOW, RUH, ATH, PRG, SAN, GRU",
+    "note": "Routes and service availability vary by shipment. Request a freight quote so our team can confirm the right option."
   },
   "Services": {
     "title": "Our Services",
-    "description": "We offer a wide range of logistics solutions to meet your business needs.",
+    "description": "Freight coordination services for businesses shipping through the Bay Area and international trade lanes.",
     "freight_shipping_title": "Freight Shipping",
-    "freight_shipping_desc": "Reliable and efficient freight shipping services for all types of cargo.",
+    "freight_shipping_desc": "Coordination of ocean and air freight shipments between the Bay Area and international ports through the Dolphin Logistics network.",
+    "freight_shipping_for": "Importers and exporters moving commercial cargo internationally.",
+    "freight_shipping_provide": "Origin, destination, cargo ready date, commodity, and approximate dimensions or weight.",
     "warehousing_title": "Warehousing",
-    "warehousing_desc": "Secure and scalable warehousing solutions to manage your inventory effectively.",
+    "warehousing_desc": "Storage and handling support coordinated near Bay Area ports and airports for cargo before or after transport.",
+    "warehousing_for": "Shippers who need short- or long-term storage around a freight move.",
+    "warehousing_provide": "Cargo type, volume, expected storage duration, and handling requirements.",
     "supply_chain_management_title": "Supply Chain Management",
-    "supply_chain_management_desc": "Comprehensive supply chain management services to streamline your operations.",
+    "supply_chain_management_desc": "Shipment planning and coordination across carriers, documentation, and delivery milestones.",
+    "supply_chain_management_for": "Businesses managing recurring shipments across multiple suppliers or destinations.",
+    "supply_chain_management_provide": "Your current shipping routine, volumes, and where delays or handoffs cause problems.",
     "tracking_solutions_title": "Tracking Solutions",
-    "tracking_solutions_desc": "Advanced tracking solutions to keep you informed about your shipments in real-time."
+    "tracking_solutions_desc": "Shipment status visibility through our tracking portal for cargo moving under DIT coordination.",
+    "tracking_solutions_for": "Existing customers following active shipments.",
+    "tracking_solutions_provide": "Your shipment or booking reference from DIT.",
+    "ideal_for_label": "Ideal for",
+    "provide_label": "For a quote, share"
   },
   "Tools": {
     "title": "Tools",
@@ -86,7 +152,7 @@
     "incoterms_title": "Incoterms® Reference Guide",
     "incoterms_desc": "A comprehensive reference guide providing detailed information on each Incoterm, including responsibilities, costs, and risks for buyers and sellers.",
     "cost_calculator_title": "Calculator",
-    "cost_calculator_desc": "Estimate shipping costs quickly with our easy-to-use logistics calculator.",
+    "cost_calculator_desc": "Calculate shipment volume in CBM and CFT from package dimensions and quantity.",
     "schedule_pickup_desc": "Conveniently schedule pickups for your shipments online.",
     "route_optimization_title": "Route Optimization",
     "route_optimization_desc": "Optimize your delivery routes for maximum efficiency."
@@ -121,6 +187,8 @@
   "NavBar": {
     "title": "DIT San Francisco Inc.",
     "appearance": "Appearance",
+    "primary_navigation": "Primary navigation",
+    "more_navigation": "More navigation",
     "home": "Home",
     "about": "About",
     "services": "Services",
@@ -129,8 +197,8 @@
     "contact": "Contact"
   },
   "CTABar": {
-    "tracking": "Tracking",
-    "join_us": "Join Us"
+    "tracking": "Track a Shipment",
+    "join_us": "Request a Freight Quote"
   },
   "Theme": {
     "caption": "Theme"
@@ -270,7 +338,7 @@
   "Contact": {
     "title_1": "Contact ",
     "title_2": "Us",
-    "description": "Have questions or need assistance? Reach out to our team for support.",
+    "description": "Request a freight quote or send our team a question. Complete requests are reviewed by our Fremont office during business hours.",
     "name_placeholder": "Your Name",
     "email_placeholder": "Your Email",
     "message_placeholder": "Your Message",
@@ -314,6 +382,22 @@
     "all_rights_reserved": "All rights reserved",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
+  },
+  "Footer": {
+    "company_heading": "DIT San Francisco Inc.",
+    "company_line_1": "San Francisco operation of Dolphin Logistics",
+    "company_line_2": "FMC OTI License No. 033692",
+    "contact_heading": "Contact",
+    "services_heading": "Services",
+    "services_freight": "Freight Shipping",
+    "services_warehousing": "Warehousing",
+    "services_supply_chain": "Supply Chain Management",
+    "services_tracking": "Shipment Tracking",
+    "tools_heading": "Tools",
+    "tools_calculator": "CBM / CFT Calculator",
+    "tools_incoterms": "Incoterms Reference",
+    "tools_dictionary": "Logistics Dictionary",
+    "quote_cta": "Request a Freight Quote"
   },
   "OpenIndicator": {
     "open": "Open",

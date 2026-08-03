@@ -9,15 +9,18 @@
 
   &_list {
     @include flex-row-center-center;
-    flex-wrap: wrap;
-    gap: 1rem;
+    flex-wrap: nowrap;
+    gap: clamp(0.45rem, 1vw, 1rem);
     flex: 1;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 
     & > li {
       @include flex-row-center-center;
       position: relative;
       white-space: nowrap;
-      flex: 1;
+      flex: 0 1 auto;
 
       &.active {
         &::after {
@@ -49,6 +52,7 @@
         color: $secondary-color;
         font-weight: 500;
         text-decoration: none;
+        font-size: clamp(0.82rem, 1vw, 1rem);
         transition: color 0.3s ease;
 
         :global(.dark) & {
@@ -65,9 +69,28 @@
       }
     }
 
+    &.row {
+      width: 100%;
+      min-width: 0;
+      gap: 0;
+
+      & > li {
+        flex: 1 1 0;
+        width: 100%;
+        min-width: 0;
+
+        & > a {
+          @include flex-row-center-center;
+          width: 100%;
+          min-height: 2.75rem;
+        }
+      }
+    }
+
     &.column {
       @include flex-column-start-start;
       gap: 0.5rem;
+      flex-wrap: nowrap;
 
       & > li {
         width: 100%;

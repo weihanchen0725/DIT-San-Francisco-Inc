@@ -2,9 +2,10 @@ import { setRequestLocale } from 'next-intl/server';
 import type { AppLocale } from '@/i18n/config';
 import { getLocalizedMetadata } from '@/lib/seo';
 import About from '@/components/About/About';
-import Clients from '@/components/Clients/Clients';
 import Contact from '@/components/Contact/Contact';
 import Home from '@/components/Home/Home';
+import GlobalService from '@/components/GlobalService/GlobalService';
+import Industries from '@/components/Industries/Industries';
 import News from '@/components/News/News';
 import Partners from '@/components/Partners/Partners';
 import Services from '@/components/Services/Services';
@@ -29,11 +30,12 @@ const HomePage = async ({ params }: PageProps) => {
       <Home />
       <About />
       <Partners />
+      <Industries />
       <Services />
       <Tools />
       <News />
-      <Clients />
       <Contact />
+      <GlobalService />
     </React.Fragment>
   );
 };

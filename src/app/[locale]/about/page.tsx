@@ -2,7 +2,6 @@ import { setRequestLocale } from 'next-intl/server';
 import type { AppLocale } from '@/i18n/config';
 import { getLocalizedMetadata } from '@/lib/seo';
 import About from '@/components/About/About';
-import MainLayOut from '@/layouts/MainLayOut';
 
 type PageProps = {
   params: Promise<{ locale: AppLocale }>;
@@ -17,11 +16,7 @@ const AboutPage = async ({ params }: PageProps) => {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return (
-    <MainLayOut>
-      <About headingLevel={1} />
-    </MainLayOut>
-  );
+  return <About headingLevel={1} />;
 };
 
 export default AboutPage;

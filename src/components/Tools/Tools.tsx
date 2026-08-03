@@ -15,7 +15,7 @@ const Tools = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
   const itemHeadingLevel = headingLevel === 1 ? 2 : 3;
 
   return (
-    <section id="tools" className={toolsClass['tools']}>
+    <section id="tools" className={toolsClass['tools']} data-scroll-reveal="">
       <SectionHeading level={headingLevel} className={toolsClass['title']}>
         {translateTools('title')}
       </SectionHeading>
@@ -29,6 +29,7 @@ const Tools = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
           target="_blank"
           rel="noopener noreferrer"
           titleLevel={itemHeadingLevel}
+          revealIndex={0}
         />
         <Features
           icon={<InventoryManagementIcon className={toolsClass['icon']} />}
@@ -37,6 +38,7 @@ const Tools = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
           href={localizedPath('/tools/dictionary')}
           rel="noopener noreferrer"
           titleLevel={itemHeadingLevel}
+          revealIndex={1}
         />
         <Features
           icon={<RouteOptimizationIcon className={toolsClass['icon']} />}
@@ -45,6 +47,7 @@ const Tools = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
           href={localizedPath('/tools/incoterms')}
           rel="noopener noreferrer"
           titleLevel={itemHeadingLevel}
+          revealIndex={2}
         />
         <Features
           icon={<CostCalculatorIcon className={toolsClass['icon']} />}
@@ -52,6 +55,7 @@ const Tools = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
           description={translateTools('cost_calculator_desc')}
           href={localizedPath('/tools/calculator')}
           titleLevel={itemHeadingLevel}
+          revealIndex={3}
         />
       </div>
     </section>

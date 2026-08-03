@@ -78,7 +78,8 @@
   transition: all 200ms ease;
 
   &::placeholder {
-    color: var(--color-brand-gray);
+    color: #98a2b3;
+    opacity: 1;
   }
 
   &:focus {
@@ -91,6 +92,10 @@
     background-color: var(--color-bg-primary);
     border-color: var(--color-brand-navy-light);
     color: var(--color-text-primary);
+
+    &::placeholder {
+      color: #6b7280;
+    }
   }
 }
 
@@ -106,7 +111,8 @@
   resize: none;
 
   &::placeholder {
-    color: var(--color-brand-gray);
+    color: #98a2b3;
+    opacity: 1;
   }
 
   &:focus {
@@ -119,6 +125,10 @@
     background-color: var(--color-bg-primary);
     border-color: var(--color-brand-navy-light);
     color: var(--color-text-primary);
+
+    &::placeholder {
+      color: #6b7280;
+    }
   }
 }
 

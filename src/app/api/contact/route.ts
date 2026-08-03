@@ -29,6 +29,11 @@ const formatInquiry = (inquiry: Inquiry) => {
     ['Country', inquiry.country],
     ['State/Province', inquiry.state],
     ['City', inquiry.city],
+    ['Transport mode', inquiry.transportMode],
+    ['Origin', inquiry.origin],
+    ['Destination', inquiry.destination],
+    ['Cargo ready date', inquiry.cargoReadyDate],
+    ['Commodity', inquiry.commodity],
     ['Locale', inquiry.locale],
   ].filter(([, value]) => value);
 

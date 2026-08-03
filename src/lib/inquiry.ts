@@ -7,6 +7,11 @@ export type Inquiry = {
   country: string;
   state: string;
   city: string;
+  transportMode: string;
+  origin: string;
+  destination: string;
+  cargoReadyDate: string;
+  commodity: string;
   subject: string;
   message: string;
   consent: boolean;
@@ -19,6 +24,7 @@ type InquiryField = keyof Inquiry;
 type InquiryResult = { ok: true; inquiry: Inquiry } | { ok: false; fields: InquiryField[] };
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const TRANSPORT_MODES = ['', 'not_sure', 'ocean', 'air', 'trucking', 'warehousing'] as const;
 const MAX_LENGTHS = {
   firstName: 100,
   lastName: 100,
@@ -28,6 +34,10 @@ const MAX_LENGTHS = {
   country: 100,
   state: 100,
   city: 100,
+  origin: 200,
+  destination: 200,
+  cargoReadyDate: 50,
+  commodity: 300,
   subject: 200,
   message: 5000,
 } as const;
@@ -49,6 +59,11 @@ export const parseInquiry = (input: unknown): InquiryResult => {
     country: readText(data.country),
     state: readText(data.state),
     city: readText(data.city),
+    transportMode: readText(data.transportMode),
+    origin: readText(data.origin),
+    destination: readText(data.destination),
+    cargoReadyDate: readText(data.cargoReadyDate),
+    commodity: readText(data.commodity),
     subject: readText(data.subject),
     message: readText(data.message),
     consent: data.consent === true,
@@ -68,6 +83,12 @@ export const parseInquiry = (input: unknown): InquiryResult => {
   if (inquiry.country.length > MAX_LENGTHS.country) fields.push('country');
   if (inquiry.state.length > MAX_LENGTHS.state) fields.push('state');
   if (inquiry.city.length > MAX_LENGTHS.city) fields.push('city');
+  if (!TRANSPORT_MODES.includes(inquiry.transportMode as (typeof TRANSPORT_MODES)[number]))
+    fields.push('transportMode');
+  if (inquiry.origin.length > MAX_LENGTHS.origin) fields.push('origin');
+  if (inquiry.destination.length > MAX_LENGTHS.destination) fields.push('destination');
+  if (inquiry.cargoReadyDate.length > MAX_LENGTHS.cargoReadyDate) fields.push('cargoReadyDate');
+  if (inquiry.commodity.length > MAX_LENGTHS.commodity) fields.push('commodity');
   if (inquiry.subject.length > MAX_LENGTHS.subject) fields.push('subject');
   if (!inquiry.message || inquiry.message.length > MAX_LENGTHS.message) fields.push('message');
   if (!inquiry.consent) fields.push('consent');

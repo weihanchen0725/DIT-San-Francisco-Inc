@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import navClass from './NavBar.module.scss';
 import { usePathname } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
@@ -10,14 +10,25 @@ import type { LinkProps } from '@/types/LinkProps';
 
 interface NavBarProps {
   styleMode?: 'row' | 'column';
+  startIndex?: number;
+  endIndex?: number;
+  ariaLabel?: string;
 }
 
-const NavBar = ({ styleMode = 'row' }: NavBarProps) => {
-  // Fall back to local NavBar.data.json when no list is passed from the parent.
-  const resolvedList: LinkProps[] = navBarData as LinkProps[];
+const navigationItems = navBarData as LinkProps[];
+
+export const ACTIVE_NAV_ITEM_COUNT = navigationItems.filter((item) => item.isActive).length;
+
+const NavBar = ({
+  styleMode = 'row',
+  startIndex = 0,
+  endIndex = ACTIVE_NAV_ITEM_COUNT,
+  ariaLabel,
+}: NavBarProps) => {
   const translateNavBar = useTranslations('NavBar');
   const pathname = usePathname();
   const locale = useLocale();
+  const visibleItems = navigationItems.filter((item) => item.isActive).slice(startIndex, endIndex);
 
   const isHomePage = pathname === `/${locale}` || pathname === '/';
   const getHref = (anchor: string | undefined) => {
@@ -26,12 +37,7 @@ const NavBar = ({ styleMode = 'row' }: NavBarProps) => {
   };
 
   // Stable reference — prevents useEffect in useActiveSection from re-firing every render.
-  const sectionIds = useMemo(
-    () => resolvedList.map((item) => item?.Key ?? 'home'),
-    // resolvedList is a module-level constant so this runs exactly once.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
-  );
+  const sectionIds = useMemo(() => navigationItems.map((item) => item?.Key ?? 'home'), []);
 
   const activeSection = useActiveSection(sectionIds);
 
@@ -48,24 +54,22 @@ const NavBar = ({ styleMode = 'row' }: NavBarProps) => {
   const effectiveActive = isHomePage ? activeSection : pathnameKey;
 
   return (
-    <nav className={navClass.nav}>
-      {/* Add your navigation items here */}
+    <nav className={navClass.nav} aria-label={ariaLabel}>
       <ul className={`${navClass.nav_list} ${navClass[styleMode]}`} data-style-mode={styleMode}>
-        {resolvedList?.map((item: LinkProps, index: number) => (
-          <React.Fragment key={item?.id ?? index}>
-            {item?.isActive && (
-              <li className={effectiveActive === item?.Key ? navClass.active : ''}>
-                <a
-                  href={getHref(item?.Value)}
-                  aria-disabled={item?.isEnabled === false}
-                  target={item?.isExternal ? '_blank' : '_self'}
-                  rel={item?.isExternal ? 'noopener noreferrer' : undefined}
-                >
-                  {translateNavBar(item?.Key?.toLowerCase() ?? '')}
-                </a>
-              </li>
-            )}
-          </React.Fragment>
+        {visibleItems.map((item: LinkProps, index: number) => (
+          <li
+            key={item?.id ?? startIndex + index}
+            className={effectiveActive === item?.Key ? navClass.active : ''}
+          >
+            <a
+              href={getHref(item?.Value)}
+              aria-disabled={item?.isEnabled === false}
+              target={item?.isExternal ? '_blank' : '_self'}
+              rel={item?.isExternal ? 'noopener noreferrer' : undefined}
+            >
+              {translateNavBar(item?.Key?.toLowerCase() ?? '')}
+            </a>
+          </li>
         ))}
       </ul>
     </nav>

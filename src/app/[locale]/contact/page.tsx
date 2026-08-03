@@ -2,6 +2,7 @@ import { setRequestLocale } from 'next-intl/server';
 import type { AppLocale } from '@/i18n/config';
 import { getLocalizedMetadata } from '@/lib/seo';
 import Contact from '@/components/Contact/Contact';
+import GlobalService from '@/components/GlobalService/GlobalService';
 import MainLayOut from '@/layouts/MainLayOut';
 
 type PageProps = {
@@ -20,6 +21,7 @@ const ContactPage = async ({ params }: PageProps) => {
   return (
     <MainLayOut>
       <Contact headingLevel={1} />
+      <GlobalService />
     </MainLayOut>
   );
 };

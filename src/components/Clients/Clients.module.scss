@@ -1,9 +1,0 @@
-@use '@/assets/styles/variables' as *;
-@use '../../assets/styles/mixin' as *;
-
-.clients {
-  @include flex-row-start-center;
-  border-top: 1px solid $border-color;
-  border-bottom: 1px solid $border-color;
-  height: 3rem;
-}

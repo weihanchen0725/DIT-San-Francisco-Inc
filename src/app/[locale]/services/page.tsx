@@ -19,7 +19,7 @@ const ServicesPage = async ({ params }: PageProps) => {
 
   return (
     <MainLayOut>
-      <Services headingLevel={1} />
+      <Services headingLevel={1} showDetails />
     </MainLayOut>
   );
 };

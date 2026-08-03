@@ -49,10 +49,11 @@
     "Name": "DIT San Francisco Inc."
   },
   "Home": {
-    "welcome": "歡迎來到",
-    "description": "您可信賴的物流解決方案夥伴。我們以每一次的運輸交付卓越。",
+    "headline": "從加州 Fremont 出發的",
+    "headline_location": "國際貨運代理服務",
+    "description": "由在地團隊為您提供貨運規劃、運輸協調與支援，連結灣區與全球貿易航線。",
     "our_services": "我們的服務",
-    "contact": "聯絡我們",
+    "contact": "申請貨運報價",
     "fast_delivery_title": "快速交付",
     "fast_delivery_desc": "我們確保您的包裹準時到達，每一次皆是如此。",
     "secure_handling_title": "可靠的服務",
@@ -62,19 +63,72 @@
   },
   "About": {
     "title": "關於我們",
-    "description": "我們是一家領先的物流管理公司，致力於提供高效的運輸、追蹤、倉儲和供應鏈解決方案。我們秉持卓越與客戶滿意的承諾，努力優化您的物流運營，提供無與倫比的服務。"
+    "description": "DIT San Francisco Inc. 成立於 2021 年，是 Dolphin Logistics 的舊金山營運單位。我們位於 Fremont 的團隊為透過灣區與全球貿易航線運輸貨物的企業協調貨運、倉儲、追蹤與供應鏈支援。"
+  },
+  "Credibility": {
+    "title": "已核實的公司資訊",
+    "founded_label": "成立年份",
+    "founded_value": "2021",
+    "identity_label": "公司關係",
+    "identity_value": "Dolphin Logistics 即 DIT",
+    "license_label": "FMC OTI 執照",
+    "license_value": "編號 033692",
+    "trade_label": "公開貿易活動",
+    "trade_value": "查看註明來源的 ImportKey 公司資料"
+  },
+  "Showcase": {
+    "partners_title": "合作夥伴網絡預覽",
+    "development_notice": "虛構的開發環境預覽 — 並非實際合作夥伴或客戶"
+  },
+  "Industries": {
+    "title": "我們支援的產業",
+    "description": "透過貨運、倉儲與供應鏈服務，為常見貨物類別提供物流協調。",
+    "items": [
+      { "title": "電子產品", "description": "為電子產品與零組件提供協調處理與運輸規劃。" },
+      { "title": "消費品", "description": "支援包裝商品透過國內與國際通路進行貨運與配送。" },
+      { "title": "工業貨物", "description": "為設備、零組件與專案相關貨物提供物流規劃。" },
+      { "title": "一般商品", "description": "為多種商業貨物提供彈性的貨運與倉儲支援。" }
+    ],
+    "disclaimer": "服務可用性取決於貨物詳情、起點、目的地與處理需求。"
+  },
+  "GlobalService": {
+    "eyebrow": "全球協調服務",
+    "title": "全球服務",
+    "description": "透過 DIT San Francisco 與 Dolphin Logistics 網絡，協調主要港口與城市之間的貨運。",
+    "legend_label": "服務範圍圖例",
+    "office_label": "辦公室",
+    "schedule_label": "航班表",
+    "direct_label": "直航併櫃",
+    "network_label": "全球網絡",
+    "location_label": "{location}，{country}。服務範圍：{coverage}。",
+    "country_level_detail": "{country} — 國家層級辦公室紀錄",
+    "routes_title": "直接併櫃門戶",
+    "direct_routes": "TYO, OSA, PUS, HKG, BKK, JKT, SGN, NYC, LAX, CHI, SYD, SIN, DUR, DXB, SOU, HAM, LEH, VVO",
+    "network_title": "全球服務網絡",
+    "network_cities": "TPE, NRT, HKG, PVG, SZX, SIN, SGN, LAX, JFK, ORD, MEX, SYD, JKT, JNB, LHR, CDG, AMS, FRA, MOW, RUH, ATH, PRG, SAN, GRU",
+    "note": "航線與服務可用性會依貨件而異。請申請貨運報價，由我們的團隊確認合適方案。"
   },
   "Services": {
     "title": "我們的服務",
-    "description": "我們提供廣泛的物流解決方案，以滿足您的業務需求。",
+    "description": "為透過灣區與國際貿易航線運輸貨物的企業提供貨運協調服務。",
     "freight_shipping_title": "貨運服務",
-    "freight_shipping_desc": "為各類貨物提供可靠且高效的貨運服務。",
+    "freight_shipping_desc": "透過 Dolphin Logistics 網絡，協調灣區與國際港口之間的海運與空運貨件。",
+    "freight_shipping_for": "進行國際商業貨物運輸的進出口商。",
+    "freight_shipping_provide": "起運地、目的地、貨好日期、貨物品名，以及大約的尺寸或重量。",
     "warehousing_title": "倉儲服務",
-    "warehousing_desc": "安全且可擴展的倉儲解決方案，有效管理您的庫存。",
+    "warehousing_desc": "在灣區港口與機場附近協調運輸前後的貨物儲存與處理支援。",
+    "warehousing_for": "在貨運前後需要短期或長期倉儲的貨主。",
+    "warehousing_provide": "貨物類型、數量、預計倉儲期間與處理需求。",
     "supply_chain_management_title": "供應鏈管理",
-    "supply_chain_management_desc": "全面的供應鏈管理服務，優化您的運營。",
+    "supply_chain_management_desc": "跨承運人、文件與交付節點的貨件規劃與協調。",
+    "supply_chain_management_for": "管理多供應商或多目的地例行貨件的企業。",
+    "supply_chain_management_provide": "您目前的出貨流程、貨量，以及最常出現延誤或交接問題的環節。",
     "tracking_solutions_title": "追蹤解決方案",
-    "tracking_solutions_desc": "先進的追蹤解決方案，讓您實時掌握貨運狀態。"
+    "tracking_solutions_desc": "透過追蹤入口網站查詢由 DIT 協調之貨件的最新狀態。",
+    "tracking_solutions_for": "追蹤進行中貨件的現有客戶。",
+    "tracking_solutions_provide": "您的 DIT 貨件或訂艙編號。",
+    "ideal_for_label": "適合對象",
+    "provide_label": "報價所需資訊"
   },
   "Tools": {
     "title": "工具",
@@ -86,7 +140,7 @@
     "incoterms_title": "Incoterms® 參考指南",
     "incoterms_desc": "完整的參考指南，提供各項 Incoterm 的詳細資訊，包括買賣雙方的責任、費用與風險。",
     "cost_calculator_title": "計算機",
-    "cost_calculator_desc": "使用我們簡便的物流計算機快速估算運費。",
+    "cost_calculator_desc": "依包裝尺寸與件數計算貨運體積 CBM 與 CFT。",
     "schedule_pickup_desc": "方便地在線預約您的貨運取件。",
     "route_optimization_title": "路線優化器",
     "route_optimization_desc": "優化您的配送路線，達到最高效率。"
@@ -115,7 +169,7 @@
   "Contact": {
     "title_1": "聯絡",
     "title_2": "我們",
-    "description": "有任何問題或需要協助？請聯繫我們的團隊尋求支援。",
+    "description": "申請貨運報價或向我們的團隊提問。完整的申請將由 Fremont 辦公室於營業時間內審閱。",
     "name_placeholder": "您的姓名",
     "email_placeholder": "您的電子郵件",
     "message_placeholder": "您的訊息",
@@ -161,6 +215,8 @@
   "NavBar": {
     "title": "DIT San Francisco Inc.",
     "appearance": "外觀",
+    "primary_navigation": "主要導覽",
+    "more_navigation": "更多導覽",
     "home": "首頁",
     "about": "關於我們",
     "services": "服務",
@@ -169,8 +225,8 @@
     "contact": "聯絡我們"
   },
   "CTABar": {
-    "tracking": "追蹤",
-    "join_us": "加入我們"
+    "tracking": "追蹤貨件",
+    "join_us": "申請貨運報價"
   },
   "Theme": {
     "caption": "外觀"
@@ -314,6 +370,22 @@
     "all_rights_reserved": "版權所有",
     "privacy": "隱私政策",
     "terms": "服務條款"
+  },
+  "Footer": {
+    "company_heading": "DIT San Francisco Inc.",
+    "company_line_1": "Dolphin Logistics 舊金山營運單位",
+    "company_line_2": "FMC OTI 執照編號 033692",
+    "contact_heading": "聯絡方式",
+    "services_heading": "服務項目",
+    "services_freight": "貨運服務",
+    "services_warehousing": "倉儲服務",
+    "services_supply_chain": "供應鏈管理",
+    "services_tracking": "貨件追蹤",
+    "tools_heading": "工具",
+    "tools_calculator": "CBM / CFT 計算機",
+    "tools_incoterms": "Incoterms 參考指南",
+    "tools_dictionary": "物流字典",
+    "quote_cta": "申請貨運報價"
   },
   "OpenIndicator": {
     "open": "營業中",

@@ -1,0 +1,109 @@
+@use '@/assets/styles/variables' as *;
+
+.showcase {
+  overflow: hidden;
+  border-block: 1px solid $border-color;
+  padding-block: clamp(1.5rem, 3vw, 2.5rem);
+  padding-inline: 0;
+}
+
+.header {
+  width: 100%;
+  margin: 0 auto 1.25rem;
+  padding-inline: clamp(1rem, 5vw, 2rem);
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+.notice {
+  width: fit-content;
+  margin: 0.5rem 0 0;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  background: color-mix(in srgb, var(--color-primary) 18%, transparent);
+  color: var(--color-text-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  &:hover .track,
+  &:focus-within .track {
+    animation-play-state: paused;
+  }
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  margin: 0;
+  padding: 0.25rem 0 0.25rem clamp(1rem, 5vw, 2rem);
+  list-style: none;
+  animation: showcase-scroll 72s linear infinite;
+  will-change: transform;
+}
+
+.card {
+  display: flex;
+  min-width: clamp(14rem, 23vw, 19rem);
+  align-items: center;
+  gap: 0.85rem;
+  border: 1px solid $border-color;
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+  background: transparent;
+}
+
+.mark {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 0.85rem;
+  background: var(--color-primary);
+  color: var(--color-text-primary);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.name,
+.descriptor {
+  display: block;
+}
+
+.name {
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+}
+
+.descriptor {
+  margin-top: 0.2rem;
+  color: var(--color-text-secondary);
+  font-size: 0.78rem;
+}
+
+@keyframes showcase-scroll {
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viewport {
+    overflow-x: auto;
+  }
+
+  .track {
+    animation: none;
+  }
+}

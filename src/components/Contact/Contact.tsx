@@ -12,7 +12,7 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
   const itemHeadingLevel = headingLevel === 1 ? 2 : 3;
 
   return (
-    <section id="contact" className={contactClass.contact}>
+    <section id="contact" className={contactClass.contact} data-scroll-reveal="">
       {/* Header */}
       <div className={contactClass.contact_header}>
         <SectionHeading level={headingLevel} className={contactClass.contact_title}>

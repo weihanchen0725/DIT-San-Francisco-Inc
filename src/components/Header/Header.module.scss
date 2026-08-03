@@ -15,6 +15,8 @@ $menu-ease-duration: 180ms;
   // Keep in sync with `HeaderClient` threshold: scrolled style starts after 1rem.
   margin-top: 1rem;
   flex-wrap: nowrap;
+  width: 100%;
+  max-width: 100%;
   gap: 1rem;
   container-type: inline-size;
   // Interpolate from current responsive padding to target 0.5rem 1rem.
@@ -125,13 +127,15 @@ $menu-ease-duration: 180ms;
     gap: 0.5rem;
     min-width: 0;
     overflow: hidden;
-    flex-shrink: 0;
+    flex: 0 1 auto;
+    max-width: min(16rem, 42vw);
   }
 
   &_logo {
     display: block;
     width: auto;
     max-height: 4rem;
+    max-width: min(8rem, 30vw);
     flex-shrink: 0;
 
     &_dark {
@@ -149,8 +153,7 @@ $menu-ease-duration: 180ms;
 
   &_name {
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    flex-shrink: 0;
   }
 
   // ── Inline nav (direct child of header) ──
@@ -201,6 +204,9 @@ $menu-ease-duration: 180ms;
     left: 0;
     right: 0;
     top: 100%;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
     z-index: 20;
     gap: 0.75rem;
     padding: 0.75rem 1rem;
@@ -265,6 +271,23 @@ $menu-ease-duration: 180ms;
 
     &.narrow {
       flex: 1;
+    }
+  }
+}
+
+@media (max-width: 40rem) {
+  .header {
+    gap: 0.5rem;
+    padding-inline: 0.75rem;
+
+    &_content {
+      max-width: calc(100% - 3rem);
+    }
+
+    &_logo {
+      min-width: 0;
+      flex-shrink: 1;
+      max-width: min(8rem, calc(100vw - 5rem));
     }
   }
 }

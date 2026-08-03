@@ -1,10 +1,25 @@
-import partnerClass from './Partners.module.scss';
+import { getTranslations } from 'next-intl/server';
 
-const Partners = () => {
+import { getFictionalShowcaseItems } from '@/lib/showcase';
+import InfiniteShowcase from '@/components/Showcase/InfiniteShowcase';
+
+const Partners = async () => {
+  const items = getFictionalShowcaseItems('partners');
+
+  if (items.length === 0) {
+    return null;
+  }
+
+  const t = await getTranslations('Showcase');
+
   return (
-    <section id="partners" className={partnerClass.partners}>
-      Partner List
-    </section>
+    <InfiniteShowcase
+      kind="partners"
+      title={t('partners_title')}
+      notice={t('development_notice')}
+      items={items}
+    />
   );
 };
+
 export default Partners;

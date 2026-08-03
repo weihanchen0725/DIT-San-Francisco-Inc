@@ -12,6 +12,11 @@ describe('parseInquiry', () => {
     country: 'United States',
     state: 'California',
     city: 'Fremont',
+    transportMode: 'ocean',
+    origin: 'Taipei (TPE)',
+    destination: 'Fremont, CA',
+    cargoReadyDate: '2026-09-01',
+    commodity: 'Consumer electronics, 12 pallets',
     subject: 'Freight inquiry',
     message: 'I need help with a shipment.',
     consent: true,
@@ -39,6 +44,23 @@ describe('parseInquiry', () => {
     ).toEqual({
       ok: false,
       fields: ['email', 'message', 'website'],
+    });
+  });
+
+  it('accepts empty optional shipment fields and rejects unknown transport modes', () => {
+    const withoutShipment = {
+      ...validInquiry,
+      transportMode: '',
+      origin: '',
+      destination: '',
+      cargoReadyDate: '',
+      commodity: '',
+    };
+    expect(parseInquiry(withoutShipment)).toEqual({ ok: true, inquiry: withoutShipment });
+
+    expect(parseInquiry({ ...validInquiry, transportMode: 'teleportation' })).toEqual({
+      ok: false,
+      fields: ['transportMode'],
     });
   });
 });

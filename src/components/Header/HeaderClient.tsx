@@ -7,7 +7,7 @@ import Image from 'next/image';
 import type { StaticImageData } from 'next/image';
 
 import headerClass from './Header.module.scss';
-import NavBar from '../NavBar/NavBar';
+import NavBar, { ACTIVE_NAV_ITEM_COUNT } from '../NavBar/NavBar';
 import CTABar from '../CTABar/CTABar';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
@@ -20,32 +20,45 @@ type HeaderClientProps = {
   darkLogoUrl: string | StaticImageData;
 };
 
-const MENU_COLLAPSE_BREAKPOINT_PX = 1120;
-const NAV_COLLAPSE_BREAKPOINT_PX = 896;
-const NAME_COLLAPSE_BREAKPOINT_PX = 640;
+const MENU_COLLAPSE_BREAKPOINT_PX = 1260;
+const NAVIGATION_STEP_PX = 80;
+const FIRST_NAVIGATION_STEP_PX = 1120;
 
-const getHeaderCollapseTier = (width: number) => {
-  if (width <= NAME_COLLAPSE_BREAKPOINT_PX) {
-    return 3;
-  }
+type HeaderLayout = {
+  inlineNavCount: number;
+  showInlineContact: boolean;
+};
 
-  if (width <= NAV_COLLAPSE_BREAKPOINT_PX) {
-    return 2;
-  }
+const getHeaderLayout = (width: number): HeaderLayout => {
+  const hiddenNavCount =
+    width > FIRST_NAVIGATION_STEP_PX
+      ? 0
+      : Math.min(
+          ACTIVE_NAV_ITEM_COUNT,
+          Math.floor((FIRST_NAVIGATION_STEP_PX - width) / NAVIGATION_STEP_PX) + 1
+        );
 
-  if (width <= MENU_COLLAPSE_BREAKPOINT_PX) {
-    return 1;
-  }
+  return {
+    inlineNavCount: ACTIVE_NAV_ITEM_COUNT - hiddenNavCount,
+    showInlineContact: width > MENU_COLLAPSE_BREAKPOINT_PX,
+  };
+};
 
-  return 0;
+const DEFAULT_HEADER_LAYOUT: HeaderLayout = {
+  inlineNavCount: ACTIVE_NAV_ITEM_COUNT,
+  showInlineContact: true,
 };
 
 const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [collapseTier, setCollapseTier] = useState(0);
+  const [headerLayout, setHeaderLayout] = useState(DEFAULT_HEADER_LAYOUT);
   const menuPanelId = useId();
   const translateHeader = useTranslations('Header');
+  const translateNavBar = useTranslations('NavBar');
   const pathname = usePathname();
+  const { inlineNavCount, showInlineContact } = headerLayout;
+  const hasOverflowNavigation = inlineNavCount < ACTIVE_NAV_ITEM_COUNT;
+  const hasMenu = !showInlineContact || hasOverflowNavigation;
 
   // Reference to the sticky header for reading height and writing CSS vars.
   const headerRef = useRef<HTMLElement | null>(null);
@@ -133,17 +146,20 @@ const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) =
       queueUpdate();
 
       const headerWidth = headerRef.current?.offsetWidth ?? window.innerWidth;
-      const nextCollapseTier = getHeaderCollapseTier(headerWidth);
+      const nextLayout = getHeaderLayout(headerWidth);
 
-      setCollapseTier((prevTier) => {
-        if (prevTier === nextCollapseTier) {
-          return prevTier;
+      setHeaderLayout((previousLayout) => {
+        if (
+          previousLayout.inlineNavCount === nextLayout.inlineNavCount &&
+          previousLayout.showInlineContact === nextLayout.showInlineContact
+        ) {
+          return previousLayout;
         }
 
-        return nextCollapseTier;
+        return nextLayout;
       });
 
-      if (nextCollapseTier === 0) {
+      if (nextLayout.showInlineContact && nextLayout.inlineNavCount === ACTIVE_NAV_ITEM_COUNT) {
         setIsMenuOpen(false);
       }
     };
@@ -265,13 +281,13 @@ const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) =
         <span className={headerClass.header_name}>({translateHeader(headerData?.Name ?? '')})</span>
       </div>
 
-      {collapseTier < 2 ? (
+      {inlineNavCount > 0 ? (
         <div className={headerClass.header_nav}>
-          <NavBar />
+          <NavBar endIndex={inlineNavCount} ariaLabel={translateNavBar('primary_navigation')} />
         </div>
       ) : null}
 
-      {collapseTier < 1 ? (
+      {showInlineContact ? (
         <div className={headerClass.header_contact}>
           <CTABar ctaLinks={headerData?.CTA} />
           <ThemeSwitcher />
@@ -279,9 +295,9 @@ const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) =
         </div>
       ) : null}
 
-      {collapseTier > 0 ? (
+      {hasMenu ? (
         <div
-          className={`${headerClass.header_menuButtonWrapper} ${collapseTier > 1 ? headerClass.narrow : ''}`}
+          className={`${headerClass.header_menuButtonWrapper} ${inlineNavCount === 0 ? headerClass.narrow : ''}`}
         >
           <button
             ref={menuButtonRef}
@@ -298,7 +314,7 @@ const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) =
       ) : null}
 
       {/* Dropdown panel — render only while menu is open */}
-      {isMenuOpen && collapseTier > 0 ? (
+      {isMenuOpen && hasMenu ? (
         <div
           ref={menuPanelRef}
           id={menuPanelId}
@@ -308,12 +324,18 @@ const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) =
             setIsMenuOpen(false);
           }}
         >
-          {collapseTier >= 2 ? (
+          {hasOverflowNavigation ? (
             <div className={headerClass.header_menuPanelNav}>
-              <NavBar styleMode="column" />
+              <NavBar
+                styleMode="column"
+                startIndex={inlineNavCount}
+                ariaLabel={translateNavBar(
+                  inlineNavCount === 0 ? 'primary_navigation' : 'more_navigation'
+                )}
+              />
             </div>
           ) : null}
-          {collapseTier >= 1 ? (
+          {!showInlineContact ? (
             <div className={headerClass.header_menuPanelContact}>
               <CTABar ctaLinks={headerData?.CTA} styleMode="column" />
               <ThemeSwitcher styleMode="column" />

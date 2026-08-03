@@ -6,14 +6,18 @@ const News = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
   const translateNews = await getTranslations('News');
   const itemHeadingLevel = headingLevel === 1 ? 2 : 3;
   return (
-    <section id="news" className={newsClass.news}>
+    <section id="news" className={newsClass.news} data-scroll-reveal="">
       <SectionHeading level={headingLevel} className={newsClass.news_title}>
         {translateNews('title')}
       </SectionHeading>
       <p className={newsClass.news_description}>{translateNews('description')}</p>
       {/* Add news articles here */}
       <div className={newsClass.news_grid}>
-        <div className={newsClass.news_card}>
+        <div
+          className={newsClass.news_card}
+          data-scroll-reveal-item=""
+          style={{ '--scroll-item-index': 0 } as React.CSSProperties}
+        >
           <div className={newsClass.news_card_iconWrap}>
             <svg
               className={newsClass.news_card_iconSvg}
@@ -34,7 +38,11 @@ const News = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
           </SectionHeading>
           <p className={newsClass.news_card_description}>Summary of the first news article.</p>
         </div>
-        <div className={newsClass.news_card}>
+        <div
+          className={newsClass.news_card}
+          data-scroll-reveal-item=""
+          style={{ '--scroll-item-index': 1 } as React.CSSProperties}
+        >
           <div className={newsClass.news_card_iconWrap}>
             <svg
               className={newsClass.news_card_iconSvg}
@@ -55,7 +63,11 @@ const News = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
           </SectionHeading>
           <p className={newsClass.news_card_description}>Summary of the second news article.</p>
         </div>
-        <div className={newsClass.news_card}>
+        <div
+          className={newsClass.news_card}
+          data-scroll-reveal-item=""
+          style={{ '--scroll-item-index': 2 } as React.CSSProperties}
+        >
           <div className={newsClass.news_card_iconWrap}>
             <svg
               className={newsClass.news_card_iconSvg}

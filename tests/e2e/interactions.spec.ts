@@ -37,6 +37,35 @@ test('language switcher navigates to the zh-TW locale', async ({ page }) => {
   await expect(page.locator('html')).toHaveAttribute('lang', 'zh-TW');
 });
 
+test('homepage header actions distinguish shipment tracking from freight quotes', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto('/en');
+
+  await expect(page.getByRole('link', { name: 'Track a Shipment' })).toHaveAttribute(
+    'href',
+    'https://ditus.gofreight.co/tracking/login'
+  );
+  await expect(page.getByRole('link', { name: 'Request a Freight Quote' }).first()).toHaveAttribute(
+    'href',
+    '#contact'
+  );
+});
+
+test('subpage header section links return to localized homepage sections', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto('/zh-TW/services');
+
+  await expect(page.locator('header nav').getByRole('link', { name: '關於我們' })).toHaveAttribute(
+    'href',
+    '/zh-TW#about'
+  );
+  await expect(
+    page.getByRole('banner').getByRole('link', { name: '申請貨運報價' })
+  ).toHaveAttribute('href', '/zh-TW#contact');
+});
+
 test('calculator converts units and computes CBM/CFT', async ({ page }) => {
   await page.goto('/en/tools/calculator');
 
@@ -80,4 +109,213 @@ test('zh-TW homepage renders Traditional Chinese content', async ({ page }) => {
   await page.goto('/zh-TW');
 
   await expect(page.locator('body')).toContainText(/[一-鿿]/);
+});
+
+for (const width of [320, 375, 768, 900, 1024, 1239, 1240, 1280, 1300]) {
+  test(`header stays within the viewport at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/en');
+
+    await expect
+      .poll(() =>
+        page.evaluate(
+          () => document.documentElement.scrollWidth <= document.documentElement.clientWidth
+        )
+      )
+      .toBe(true);
+
+    const headerBox = await page.locator('header').boundingBox();
+    expect(headerBox?.x ?? 0).toBeGreaterThanOrEqual(0);
+    expect((headerBox?.x ?? 0) + (headerBox?.width ?? 0)).toBeLessThanOrEqual(width + 1);
+  });
+}
+
+test('production homepage shows industries and Global Service without fictional proof', async ({
+  page,
+}) => {
+  await page.goto('/en');
+
+  await expect(page.getByRole('heading', { name: 'Industries We Support' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Global Service', exact: true })).toBeAttached();
+  await expect(page.getByText('Direct consolidation gateways', { exact: false })).toHaveCount(0);
+  await expect(page.getByText('Fictional development preview')).toHaveCount(0);
+});
+
+test('desktop header shows the inline navigation without a menu button at 1280px', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto('/en');
+
+  await expect(page.locator('header nav').getByRole('link', { name: 'Services' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Open menu' })).toHaveCount(0);
+});
+
+for (const width of [1241, 1280, 1300]) {
+  test(`inline navigation links do not overlap at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/en');
+
+    const boxes = await page.locator('header nav a').evaluateAll((links) =>
+      links.map((link) => {
+        const rect = link.getBoundingClientRect();
+        return { text: link.textContent ?? '', left: rect.left, right: rect.right };
+      })
+    );
+
+    expect(boxes.length).toBeGreaterThanOrEqual(6);
+    for (let i = 0; i < boxes.length - 1; i += 1) {
+      expect(
+        boxes[i].right,
+        `"${boxes[i].text}" overlaps "${boxes[i + 1].text}" at ${width}px`
+      ).toBeLessThanOrEqual(boxes[i + 1].left + 1);
+    }
+  });
+}
+
+test('header moves CTA controls into the menu before equal navigation labels can clip', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1260, height: 900 });
+  await page.goto('/en');
+
+  await expect(page.getByRole('button', { name: 'Open menu' })).toBeVisible();
+});
+
+const progressiveNavigationCases = [
+  { width: 1120, inline: ['Home', 'About', 'Services', 'Tools', 'News'], overflow: ['Contact'] },
+  { width: 1040, inline: ['Home', 'About', 'Services', 'Tools'], overflow: ['News', 'Contact'] },
+  { width: 960, inline: ['Home', 'About', 'Services'], overflow: ['Tools', 'News', 'Contact'] },
+  { width: 880, inline: ['Home', 'About'], overflow: ['Services', 'Tools', 'News', 'Contact'] },
+  { width: 800, inline: ['Home'], overflow: ['About', 'Services', 'Tools', 'News', 'Contact'] },
+  { width: 720, inline: [], overflow: ['Home', 'About', 'Services', 'Tools', 'News', 'Contact'] },
+] as const;
+
+for (const { width, inline, overflow } of progressiveNavigationCases) {
+  test(`navigation moves links into the menu one at a time at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/en');
+
+    await expect(page.locator('header ul[data-style-mode="row"] > li > a')).toHaveText(inline);
+
+    await page.getByRole('button', { name: 'Open menu' }).click();
+    await expect(page.locator('header ul[data-style-mode="column"] > li > a')).toHaveText(overflow);
+  });
+}
+
+for (const width of [1241, 1120, 1040, 960, 880, 800]) {
+  test(`inline navigation fills its row with equal-width items at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/en');
+
+    const geometry = await page.locator('header ul[data-style-mode="row"]').evaluate((list) => {
+      const listBounds = list.getBoundingClientRect();
+      const navBounds = list.closest('nav')?.getBoundingClientRect();
+      const items = [...list.children].map((item) => {
+        const bounds = item.getBoundingClientRect();
+        const link = item.querySelector('a');
+        return {
+          width: bounds.width,
+          linkFits: Boolean(link && link.scrollWidth <= link.clientWidth + 1),
+        };
+      });
+
+      return {
+        listWidth: listBounds.width,
+        navWidth: navBounds?.width ?? 0,
+        itemWidths: items.map((item) => item.width),
+        labelsFit: items.every((item) => item.linkFits),
+      };
+    });
+
+    expect(Math.abs(geometry.listWidth - geometry.navWidth)).toBeLessThanOrEqual(1);
+    expect(
+      Math.abs(
+        geometry.itemWidths.reduce((total, itemWidth) => total + itemWidth, 0) - geometry.listWidth
+      )
+    ).toBeLessThanOrEqual(1);
+    expect(Math.max(...geometry.itemWidths) - Math.min(...geometry.itemWidths)).toBeLessThanOrEqual(
+      1
+    );
+    expect(geometry.labelsFit).toBe(true);
+  });
+}
+
+test('Traditional Chinese navigation uses the same progressive split', async ({ page }) => {
+  await page.setViewportSize({ width: 960, height: 900 });
+  await page.goto('/zh-TW');
+
+  await expect(page.locator('header ul[data-style-mode="row"] > li > a')).toHaveText([
+    '首頁',
+    '關於我們',
+    '服務',
+  ]);
+
+  await page.getByRole('button', { name: '開啟選單' }).click();
+  await expect(page.locator('header ul[data-style-mode="column"] > li > a')).toHaveText([
+    '工具',
+    '新聞',
+    '聯絡我們',
+  ]);
+});
+
+test('Global Service renders a world map visual with hub pins', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/en');
+
+  const map = page.getByTestId('global-service-map');
+  await expect(map).toBeVisible();
+  await expect(map.locator('[data-hub-pin]')).toHaveCount(86);
+  await expect(map.getByLabel('Coverage legend')).toBeVisible();
+  await expect(map.getByTestId('coverage-legend-item')).toHaveCount(4);
+
+  const taipei = map.locator('[data-hub-pin="taipei-tpe"]');
+  await expect(taipei).toHaveAttribute('data-coverage', 'OSN');
+  await expect
+    .poll(() =>
+      taipei
+        .locator('span')
+        .first()
+        .evaluate((pin) => getComputedStyle(pin).backgroundImage)
+    )
+    .toContain('conic-gradient');
+  await taipei.focus();
+  await expect(taipei.getByRole('tooltip')).toContainText('Taipei');
+  await expect(taipei.getByRole('tooltip')).toContainText('O');
+  await expect(taipei.getByRole('tooltip')).toContainText('S');
+  await expect(taipei.getByRole('tooltip')).toContainText('N');
+
+  const bounds = await map.boundingBox();
+  const legendBounds = await map.getByLabel('Coverage legend').boundingBox();
+  expect(bounds?.x).toBeLessThanOrEqual(1);
+  expect(bounds?.width).toBeGreaterThanOrEqual(1439);
+  expect(
+    bounds && legendBounds ? legendBounds.x - bounds.x : Number.POSITIVE_INFINITY
+  ).toBeLessThanOrEqual(20);
+  expect(
+    bounds && legendBounds
+      ? bounds.y + bounds.height - (legendBounds.y + legendBounds.height)
+      : Number.POSITIVE_INFINITY
+  ).toBeLessThanOrEqual(20);
+  expect(bounds ? bounds.width / bounds.height : 0).toBeGreaterThan(2.45);
+  expect(bounds ? bounds.width / bounds.height : Number.POSITIVE_INFINITY).toBeLessThan(2.55);
+});
+
+test('Global Service uses a taller map ratio on phones', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/en');
+
+  const map = page.getByTestId('global-service-map');
+  const bounds = await map.boundingBox();
+  const legendBounds = await map.getByLabel('Coverage legend').boundingBox();
+  expect(
+    bounds && legendBounds ? legendBounds.x - bounds.x : Number.POSITIVE_INFINITY
+  ).toBeLessThanOrEqual(8);
+  expect(
+    bounds && legendBounds
+      ? bounds.y + bounds.height - (legendBounds.y + legendBounds.height)
+      : Number.POSITIVE_INFINITY
+  ).toBeLessThanOrEqual(8);
+  expect(bounds ? bounds.width / bounds.height : 0).toBeGreaterThan(1.95);
+  expect(bounds ? bounds.width / bounds.height : Number.POSITIVE_INFINITY).toBeLessThan(2.05);
 });
