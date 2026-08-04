@@ -5,13 +5,13 @@
   min-height: $max-height;
   @include flex-column-center-start;
   overflow: hidden;
-  background-color: #fdfcf7;
+  background-color: var(--color-bg-warm);
   background-image:
     radial-gradient(at 0% 0%, rgba(255, 204, 0, 0.08) 0px, transparent 50%),
     radial-gradient(at 100% 100%, rgba(255, 255, 255, 1) 0px, transparent 50%);
 
   :global(.dark) & {
-    background-color: #0a0a1a;
+    background-color: var(--color-bg-primary);
     background-image:
       radial-gradient(at 0% 0%, rgba(255, 204, 0, 0.06) 0px, transparent 50%),
       radial-gradient(at 100% 100%, rgba(17, 17, 39, 1) 0px, transparent 50%);
@@ -84,12 +84,19 @@
         font-weight: 600;
         transition:
           background-color 0.2s ease,
-          box-shadow 0.2s ease;
+          box-shadow 0.2s ease,
+          transform 0.2s ease;
 
         &:hover {
           background-color: $primary-color-hover;
           color: $secondary-color;
-          box-shadow: 0 4px 12px rgba(255, 204, 0, 0.35);
+          box-shadow: 0 4px 16px rgba(255, 204, 0, 0.4), 0 0 0 1px rgba(255, 204, 0, 0.15);
+          transform: translateY(-1px);
+        }
+
+        &:active {
+          transform: translateY(0);
+          box-shadow: 0 2px 8px rgba(255, 204, 0, 0.3);
         }
 
         // Larger touch target on mobile

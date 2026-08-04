@@ -1,31 +1,10 @@
 @mixin register_root_variables {
   :root {
-    --primary-color: #fc0;
-    --primary-color-hover: #e6b800;
-    --primary-color-light: #fff3b3;
-    --primary-color-dark: #b38f00;
-    --secondary-color: #0a192f;
-    --secondary-color-hover: #13264a;
-    --secondary-color-light: #2b466f;
-    --secondary-color-dark: #060f1f;
-    --background-color: #ffffff;
-    --primary-background-color: #f9fafb;
-    --primary-dark-background-color: #f3f4f6;
-
-    --primary-border-color: #e5e7eb;
-
-    --screen-xs: 30rem;
-    --screen-sm: 40rem;
-    --screen-md: 48rem;
-    --screen-lg: 64rem;
-    --screen-xl: 80rem;
-
-    --max-height: 100vh;
-    --max-width: 100vw;
-
+    // ── Canonical color tokens ───────────────────────────────────────────────
     --color-primary: #ffcc00;
     --color-primary-hover: #e6b800;
     --color-primary-light: #fff3b3;
+    --color-primary-dark: #b38f00;
 
     --color-text-primary: #000a3c;
     --color-text-secondary: #667085;
@@ -34,15 +13,62 @@
 
     --color-bg-primary: #ffffff;
     --color-bg-secondary: #f8f9fa;
+    --color-bg-warm: #fdfcf7;
     --color-bg-accent: #ffcc00;
+    --color-bg-card: #ffffff;
+    --color-bg-card-secondary: #f9fafb;
 
     --color-border: #e5e7eb;
     --color-border-light: #f3f4f6;
-
-    --color-bg-card: #ffffff;
-    --color-bg-card-secondary: #f9fafb;
     --color-text-muted-dark: #d1d5db;
 
+    // ── Legacy aliases (backward-compat — prefer --color-* above) ────────
+    --primary-color: var(--color-primary);
+    --primary-color-hover: var(--color-primary-hover);
+    --primary-color-light: var(--color-primary-light);
+    --primary-color-dark: var(--color-primary-dark);
+    --secondary-color: var(--color-text-primary);
+    --secondary-color-hover: #13264a;
+    --secondary-color-light: #2b466f;
+    --secondary-color-dark: #060f1f;
+    --background-color: var(--color-bg-primary);
+    --primary-background-color: #f9fafb;
+    --primary-dark-background-color: #f3f4f6;
+    --primary-border-color: var(--color-border);
+
+    // ── Typography tokens ────────────────────────────────────────────────────
+    --font-primary: var(--font-roboto, 'Roboto'), system-ui, -apple-system, sans-serif;
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 2.25rem;
+    --text-4xl: clamp(2rem, 5vw, 4rem);
+
+    // ── Spacing & layout ─────────────────────────────────────────────────────
+    --screen-xs: 30rem;
+    --screen-sm: 40rem;
+    --screen-md: 48rem;
+    --screen-lg: 64rem;
+    --screen-xl: 80rem;
+    --max-height: 100vh;
+    --max-width: 100vw;
+
+    // ── Border-radius tokens ─────────────────────────────────────────────────
+    --radius-sm: 0.5rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.5rem;
+    --radius-full: 9999px;
+
+    // ── Shadow tokens ────────────────────────────────────────────────────────
+    --shadow-sm: 0 1px 3px rgba(0, 10, 60, 0.06), 0 1px 2px rgba(0, 10, 60, 0.04);
+    --shadow-md: 0 4px 12px rgba(0, 10, 60, 0.08), 0 2px 4px rgba(0, 10, 60, 0.04);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 10, 60, 0.1), 0 8px 10px -6px rgba(0, 10, 60, 0.06);
+    --shadow-hover: 0 20px 40px -12px rgba(0, 10, 60, 0.18), 0 10px 24px -14px rgba(0, 10, 60, 0.12);
+
+    // ── Background gradient tokens ───────────────────────────────────────────
     --gradiant-backup-bg-color: #a6a6a6;
     --gradiant-primary-bg-color: radial-gradient(
       circle at 30% 50%,
@@ -57,9 +83,6 @@
 
 @mixin register_dark_variables {
   .dark {
-    --background-color: #0a0a1a;
-    --primary-background-color: #111127;
-
     --color-primary: #ffcc00;
     --color-primary-hover: #ffd633;
     --color-primary-light: rgba(255, 204, 0, 0.15);
@@ -72,14 +95,26 @@
 
     --color-bg-primary: #0a0a1a;
     --color-bg-secondary: #111127;
+    --color-bg-warm: #0a0a1a;
     --color-bg-accent: #ffcc00;
+    --color-bg-card: #111127;
+    --color-bg-card-secondary: #111127;
+    --color-text-muted-dark: #9ca3af;
 
     --color-border: #2a2a4a;
     --color-border-light: #1f1f3a;
 
-    --color-bg-card: #111127;
-    --color-bg-card-secondary: #111127;
-    --color-text-muted-dark: #9ca3af;
+    // ── Legacy aliases (dark mode) ───────────────────────────────────────
+    --background-color: var(--color-bg-primary);
+    --primary-background-color: var(--color-bg-secondary);
+
+    // ── Shadow tokens (dark) ─────────────────────────────────────────────
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.12);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+    --shadow-hover: 0 20px 44px -20px rgba(0, 0, 0, 0.65),
+      0 0 0 1px rgba(255, 204, 0, 0.14),
+      0 0 28px -16px rgba(255, 204, 0, 0.1);
 
     --gradiant-primary-bg-color: radial-gradient(
       circle at 30% 50%,
@@ -102,19 +137,20 @@
   }
 }
 
-$primary-color: var(--primary-color);
-$primary-color-hover: var(--primary-color-hover);
-$primary-color-light: var(--primary-color-light);
-$primary-color-dark: var(--primary-color-dark);
-$secondary-color: var(--secondary-color);
+// ── SASS variables bridging CSS custom properties ─────────────────────────────
+$primary-color: var(--color-primary);
+$primary-color-hover: var(--color-primary-hover);
+$primary-color-light: var(--color-primary-light);
+$primary-color-dark: var(--color-primary-dark);
+$secondary-color: var(--color-text-primary);
 $secondary-color-hover: var(--secondary-color-hover);
 $secondary-color-light: var(--secondary-color-light);
 $secondary-color-dark: var(--secondary-color-dark);
 $border-color: var(--color-border);
-$background-color: var(--background-color);
+$background-color: var(--color-bg-primary);
 $primary-background-color: var(--primary-background-color);
 $primary-dark-background-color: var(--primary-dark-background-color);
-$primary-border-color: var(--primary-border-color);
+$primary-border-color: var(--color-border);
 
 $breakpoints: (
   xs: 30rem,

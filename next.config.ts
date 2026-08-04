@@ -28,7 +28,7 @@ const nextConfig: NextConfig = {
               "form-action 'self'",
               "object-src 'none'",
               "img-src 'self' data: blob: https://*.basemaps.cartocdn.com",
-              "font-src 'self' data:",
+              `font-src 'self' data:${isDevelopment ? ' https://www.slant.co' : ''}`,
               "style-src 'self' 'unsafe-inline'",
               `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ''}`,
               "connect-src 'self' https://api.resend.com https://*.basemaps.cartocdn.com",

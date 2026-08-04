@@ -7,7 +7,7 @@ import useInView from '@/hooks/useInView';
 const Map = dynamic(() => import('@/components/Map/Map'), {
   ssr: false,
   loading: () => (
-    <div className="h-[400px] w-full bg-gray-100 dark:bg-gray-800 rounded-xl animate-pulse flex items-center justify-center">
+    <div className="h-[280px] w-full bg-gray-100 dark:bg-gray-800 rounded-xl animate-pulse flex items-center justify-center">
       <span className="text-gray-600 dark:text-gray-300">Loading map...</span>
     </div>
   ),

@@ -31,12 +31,20 @@
   &_card_iconWrap {
     @include icon-circle;
     margin: 0 auto 1.5rem;
+    transition:
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &_card_iconSvg {
     width: 2rem;
     height: 2rem;
     color: var(--color-brand-yellow);
+  }
+
+  &_card:hover &_card_iconWrap {
+    transform: scale(1.08);
+    background-color: color-mix(in srgb, var(--color-primary) 24%, transparent);
   }
 
   &_card_title {

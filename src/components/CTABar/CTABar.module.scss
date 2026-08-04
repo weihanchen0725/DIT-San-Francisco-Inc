@@ -1,5 +1,5 @@
-@use '../../assets/styles/mixin' as *;
-@use '../../assets/styles/variables' as *;
+@use '@/assets/styles/mixin' as *;
+@use '@/assets/styles/variables' as *;
 
 .ctaBar {
   @include flex-row-center-center;
