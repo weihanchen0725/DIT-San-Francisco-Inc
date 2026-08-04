@@ -31,55 +31,22 @@
     display: flex;
     flex-direction: column;
     text-align: left;
-    padding: 2rem;
-    border-radius: var(--radius-md);
-    background-color: var(--color-bg-primary);
-    border: 1px solid var(--color-border-light);
-    transition:
-      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    :global(.dark) & {
-      background-color: var(--color-bg-secondary);
-    }
-
-    &:hover {
-      transform: translateY(-4px);
-      border-color: var(--color-primary);
-      box-shadow: var(--shadow-hover);
-    }
-
-    &:hover .services_iconWrapper {
-      transform: scale(1.08);
-      background-color: color-mix(in srgb, var(--color-primary) 24%, transparent);
-    }
+    @include card-surface;
+    @include card-interactive;
+    @include icon-interactive-on-parent-hover('.services_iconWrapper');
   }
 
   &_iconWrapper {
-    width: 4rem;
-    height: 4rem;
+    @include icon-circle;
     margin-bottom: 1.25rem;
-    border-radius: var(--radius-full);
-    color: var(--color-primary);
-    background-color: var(--color-primary-light);
-    @include flex-row-center-center;
-    transition:
-      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &_cardTitle {
-    font-size: 1.25rem;
-    line-height: 1.35;
-    font-weight: 600;
-    color: var(--color-text-primary);
+    @include card-title;
   }
 
   &_cardDescription {
-    margin-top: 0.75rem;
-    color: var(--color-text-secondary);
-    line-height: 1.7;
+    @include card-description;
   }
 
   &_cardDetails {

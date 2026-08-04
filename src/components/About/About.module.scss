@@ -43,20 +43,8 @@
     min-height: 9rem;
     align-content: start;
     gap: 0.65rem;
-    border: 1px solid $border-color;
-    border-radius: var(--radius-sm);
-    padding: 1.25rem;
-    background: var(--color-bg-primary);
-    transition:
-      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    &:hover {
-      transform: translateY(-2px);
-      border-color: var(--color-primary);
-      box-shadow: var(--shadow-md);
-    }
+    @include card-surface($padding: 1.25rem, $radius: var(--radius-sm));
+    @include card-interactive($translate-y: -2px, $shadow: var(--shadow-md));
 
     svg {
       width: 1.75rem;

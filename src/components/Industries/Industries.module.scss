@@ -1,4 +1,5 @@
 @use '@/assets/styles/variables' as *;
+@use '@/assets/styles/mixin' as *;
 
 .industries {
   background: color-mix(in srgb, var(--color-primary) 5%, var(--color-bg-primary));
@@ -16,8 +17,8 @@
 }
 
 .title {
+  @include section-heading;
   margin: 0 0 0.5rem;
-  color: var(--color-text-primary);
   font-size: clamp(1.75rem, 4vw, 2.5rem);
 }
 
@@ -28,7 +29,7 @@
 }
 
 .description {
-  max-width: 48rem;
+  @include section-description($max-width: 48rem);
   margin: 0;
 }
 
@@ -40,10 +41,8 @@
 
 .card {
   min-width: 0;
-  border: 1px solid $border-color;
-  border-radius: 1rem;
-  padding: 1.25rem;
-  background: var(--color-bg-primary);
+  @include card-surface($padding: 1.25rem);
+  @include card-interactive;
 }
 
 .icon {
@@ -51,7 +50,7 @@
   width: 3rem;
   height: 3rem;
   place-items: center;
-  border-radius: 0.9rem;
+  border-radius: var(--radius-sm);
   background: var(--color-primary);
   color: var(--color-text-primary);
 }

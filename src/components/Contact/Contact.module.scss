@@ -48,6 +48,7 @@
 
   &_card {
     @include card-surface;
+    @include card-interactive;
   }
 
   // Variant: card that lays out its own children as a flex column (business hours)
@@ -72,7 +73,6 @@
   &_cardIcon {
     @include icon-circle($size: 3.5rem);
     flex-shrink: 0;
-    color: var(--color-brand-yellow);
   }
 
   &_cardIconSvg {
@@ -81,19 +81,12 @@
   }
 
   &_cardTitle {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
+    @include card-title;
   }
 
   // Detail paragraphs below the card header; siblings share no top margin
   &_cardDetail {
-    margin-top: 0.75rem;
-    color: var(--color-brand-gray);
-
-    :global(.dark) & {
-      color: var(--color-text-muted-dark);
-    }
+    @include card-description;
 
     & + & {
       margin-top: 0;
@@ -102,12 +95,8 @@
 
   // Smaller text for address lines
   &_cardAddressText {
-    font-size: 0.875rem;
-    color: var(--color-brand-gray);
-
-    :global(.dark) & {
-      color: var(--color-text-muted-dark);
-    }
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
   }
 
   // Map container uses negative margins to bleed to card edges
