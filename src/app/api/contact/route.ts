@@ -80,7 +80,7 @@ export async function POST(request: Request) {
       {
         status: 429,
         headers: { 'Retry-After': String(rateResult.retryAfterSeconds) },
-      },
+      }
     );
   }
 

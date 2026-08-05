@@ -117,17 +117,9 @@ const ReferenceGuide = () => {
         <div className={referenceClass['title']}>
           <h1>{t('reference_guide_title')}</h1>
           <p>{t('reference_guide_description')}</p>
+          <p>{t('disclaimer')}</p>
         </div>
         <div className={referenceClass['buttons']}>
-          <button className={referenceClass['button'] + ' ' + referenceClass['darkButton']}>
-            {t('btn_download_pdf')}
-          </button>
-          <button
-            className={referenceClass['button'] + ' ' + referenceClass['lightButton']}
-            disabled
-          >
-            {t('btn_print_summary')}
-          </button>
           <button
             className={referenceClass['button'] + ' ' + referenceClass['lightButton']}
             onClick={() => handleRouting(2)}

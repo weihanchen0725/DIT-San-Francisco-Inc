@@ -11,6 +11,7 @@ test('localized SEO route inventory includes all public tool pages', () => {
   expect(paths).toContain('/tools/incoterms');
   expect(paths).toContain('/tools/incoterms/advisor');
   expect(paths).toContain('/tools/incoterms/reference-guide');
+  expect(paths).not.toContain('/news');
 });
 
 test('localized SEO URLs preserve locale prefixes', () => {
@@ -20,3 +21,11 @@ test('localized SEO URLs preserve locale prefixes', () => {
     );
   }
 });
+
+for (const locale of locales) {
+  test(`/${locale}/news is not a public route`, async ({ page }) => {
+    const response = await page.goto(`/${locale}/news`);
+
+    expect(response?.status()).toBe(404);
+  });
+}

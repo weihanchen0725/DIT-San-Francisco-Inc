@@ -2,23 +2,19 @@
   "Metadata": {
     "home": {
       "title": "DIT San Francisco Inc.",
-      "description": "Bay Area logistics, freight shipping, warehousing, tracking, and supply chain solutions from DIT San Francisco Inc."
+      "description": "International freight coordination, warehousing support, shipment tracking access, and supply chain coordination from DIT San Francisco Inc. in the Bay Area."
     },
     "about": {
       "title": "About",
-      "description": "Learn about DIT San Francisco Inc. and our logistics management services for shipping, tracking, warehousing, and supply chain operations."
+      "description": "Learn about DIT San Francisco Inc. and our freight and logistics coordination services from Fremont, California."
     },
     "services": {
       "title": "Logistics Services",
-      "description": "Explore freight shipping, warehousing, supply chain management, and tracking solutions from DIT San Francisco Inc."
+      "description": "Explore freight coordination, warehousing support, supply chain coordination, and customer tracking access from DIT San Francisco Inc."
     },
     "tools": {
       "title": "Logistics Tools",
-      "description": "Access logistics tools for shipment tracking, freight terms, Incoterms guidance, and volume calculations."
-    },
-    "news": {
-      "title": "News",
-      "description": "Read updates and logistics news from DIT San Francisco Inc."
+      "description": "Access a GoFreight customer tracking portal link, freight dictionary, Incoterms guidance, and shipment volume calculator."
     },
     "contact": {
       "title": "Contact",
@@ -52,33 +48,22 @@
     "headline": "International freight forwarding from",
     "headline_location": "Fremont, California",
     "description": "Work with a local team for shipment planning, freight coordination, and support across the Bay Area and global trade lanes.",
-    "our_services": "Our Services",
-    "contact": "Request a Freight Quote",
-    "fast_delivery_title": "Fast Delivery",
-    "fast_delivery_desc": "We ensure your packages arrive on time, every time.",
-    "secure_handling_title": "Reliable Service",
-    "secure_handling_desc": "Quick and reliable shipping solutions for your business needs.",
-    "global_reach_title": "Global Reach",
-    "global_reach_desc": "Worldwide logistics network to serve you anywhere."
+    "contact": "Request a Freight Quote"
   },
   "About": {
     "title": "About Us",
-    "description": "Founded in 2021, DIT San Francisco Inc. is the San Francisco operation of Dolphin Logistics. From our Fremont team, we coordinate freight shipping, warehousing, tracking, and supply chain support for businesses moving goods through the Bay Area and global trade lanes."
+    "description": "Founded in 2021, DIT San Francisco Inc. is the Bay Area OTI office of Dolphin Logistics, operating from Fremont, California. Our local team coordinates freight shipping, warehousing support, shipment tracking access, and supply chain services for commercial cargo."
   },
   "Credibility": {
-    "title": "Verified company information",
+    "title": "Company information",
     "founded_label": "Founded",
     "founded_value": "2021",
     "identity_label": "Company relationship",
-    "identity_value": "Dolphin Logistics is DIT",
+    "identity_value": "Bay Area OTI office of Dolphin Logistics",
     "license_label": "FMC OTI License",
-    "license_value": "No. 033692",
+    "license_value": "No. 29166",
     "trade_label": "Public trade activity",
     "trade_value": "View attributed ImportKey company data"
-  },
-  "Showcase": {
-    "partners_title": "Partner network preview",
-    "development_notice": "Fictional development preview — not actual partners or clients"
   },
   "Industries": {
     "title": "Industries We Support",
@@ -104,7 +89,7 @@
     "disclaimer": "Service availability depends on cargo details, origin, destination, and handling requirements."
   },
   "GlobalService": {
-    "eyebrow": "Worldwide coordination",
+    "eyebrow": "Network coordination",
     "title": "Global Service",
     "description": "Coordinate freight through major ports and cities with DIT San Francisco and the Dolphin Logistics network.",
     "legend_label": "Coverage legend",
@@ -128,15 +113,15 @@
     "freight_shipping_for": "Importers and exporters moving commercial cargo internationally.",
     "freight_shipping_provide": "Origin, destination, cargo ready date, commodity, and approximate dimensions or weight.",
     "warehousing_title": "Warehousing",
-    "warehousing_desc": "Storage and handling support coordinated near Bay Area ports and airports for cargo before or after transport.",
+    "warehousing_desc": "Storage and handling support coordinated according to cargo needs, location, timing, and provider availability.",
     "warehousing_for": "Shippers who need short- or long-term storage around a freight move.",
     "warehousing_provide": "Cargo type, volume, expected storage duration, and handling requirements.",
     "supply_chain_management_title": "Supply Chain Management",
     "supply_chain_management_desc": "Shipment planning and coordination across carriers, documentation, and delivery milestones.",
     "supply_chain_management_for": "Businesses managing recurring shipments across multiple suppliers or destinations.",
     "supply_chain_management_provide": "Your current shipping routine, volumes, and where delays or handoffs cause problems.",
-    "tracking_solutions_title": "Tracking Solutions",
-    "tracking_solutions_desc": "Shipment status visibility through our tracking portal for cargo moving under DIT coordination.",
+    "tracking_solutions_title": "Customer Tracking Access",
+    "tracking_solutions_desc": "Access to the third-party GoFreight customer portal for cargo moving under DIT coordination.",
     "tracking_solutions_for": "Existing customers following active shipments.",
     "tracking_solutions_provide": "Your shipment or booking reference from DIT.",
     "ideal_for_label": "Ideal for",
@@ -144,18 +129,15 @@
   },
   "Tools": {
     "title": "Tools",
-    "description": "Explore our suite of logistics tools designed to enhance your shipping experience.",
-    "tracking_title": "Tracking System",
-    "tracking_desc": "Advanced tracking system to monitor your shipments in real-time.",
+    "description": "Use free logistics reference tools and access the customer shipment-tracking portal.",
+    "tracking_title": "Customer Tracking Portal",
+    "tracking_desc": "Open the third-party GoFreight customer portal to check an active DIT shipment.",
     "dictionary_title": "Dictionary",
     "dictionary_desc": "Explanation of industry terminology.",
     "incoterms_title": "Incoterms® Reference Guide",
-    "incoterms_desc": "A comprehensive reference guide providing detailed information on each Incoterm, including responsibilities, costs, and risks for buyers and sellers.",
+    "incoterms_desc": "Reference Incoterms responsibilities, costs, and risk transfer points for buyers and sellers.",
     "cost_calculator_title": "Calculator",
-    "cost_calculator_desc": "Calculate shipment volume in CBM and CFT from package dimensions and quantity.",
-    "schedule_pickup_desc": "Conveniently schedule pickups for your shipments online.",
-    "route_optimization_title": "Route Optimization",
-    "route_optimization_desc": "Optimize your delivery routes for maximum efficiency."
+    "cost_calculator_desc": "Calculate shipment volume in CBM and CFT from package dimensions and quantity."
   },
   "Calculator": {
     "input_dimension": "Input the dimension",
@@ -174,12 +156,8 @@
     "cft_label": "Cubic Feet (CFT)",
     "cbm_label": "Cubic Meters (CBM)"
   },
-  "News": {
-    "title": "Latest News",
-    "description": "Stay updated with the latest news and updates from DIT San Francisco Inc."
-  },
   "Header": {
-    "location": "San Francisco",
+    "location": "Fremont, CA",
     "alternativeText": "DIT San Francisco Inc. Logo",
     "open_menu": "Open menu",
     "close_menu": "Close menu"
@@ -193,7 +171,6 @@
     "about": "About",
     "services": "Services",
     "tools": "Tools",
-    "news": "News",
     "contact": "Contact"
   },
   "CTABar": {
@@ -207,20 +184,19 @@
     "caption": "Language"
   },
   "Incoterms": {
-    "hero_title": "Determine the right Incoterm for your global shipment in seconds",
-    "hero_description": "Choose our smart guide advisor for a personalized recommendation, or jump straight to our quick-access Incoterm cheat sheet.",
-    "hero_button_title": "Global compliance standard",
-    "hero_button_description": "Updated for ICC 2020 rules",
+    "hero_title": "Find a suitable Incoterm for your trade scenario",
+    "hero_description": "Use the guided, rule-based advisor or compare Incoterms in the reference guide.",
+    "hero_button_title": "Official ICC information",
+    "hero_button_description": "Review the Incoterms® 2020 source",
+    "disclaimer": "For general guidance only. Confirm the selected Incoterm with your trade, legal, and insurance advisers before using it in a contract.",
     "btn1_title": "interactive advisor",
-    "btn1_description": "Answer a few questions about your shipment and get a tailored Incoterm recommendation.",
+    "btn1_description": "Answer a few questions about your shipment and receive a rule-based suggestion.",
     "btn1_name": "Launch advisor",
     "btn2_title": "reference guide",
     "btn2_description": "Quickly access the Incoterm cheat sheet for reference.",
     "btn2_name": "Open reference guide",
     "reference_guide_title": "Incoterms® Reference Guide",
-    "reference_guide_description": "A comprehensive reference guide providing detailed information on each Incoterm, including responsibilities, costs, and risks for buyers and sellers.",
-    "btn_download_pdf": "Download PDF",
-    "btn_print_summary": "Print Summary",
+    "reference_guide_description": "Compare Incoterms responsibilities, costs, and risk transfer points for buyers and sellers.",
     "btn_switch_to_advisor": "Switch to Advisor",
     "col_code": "Code",
     "col_code_name": "Full Name & Use Case",
@@ -301,7 +277,7 @@
     "advisor_continue": "Continue to Transport",
     "advisor_s2_badge": "Step 02 — Logistics Mapping",
     "advisor_s2_title": "Define Transport Needs",
-    "advisor_s2_description": "Customize your logistical responsibilities to determine the most efficient Incoterm for your transaction. Your choices directly impact cost and risk allocation.",
+    "advisor_s2_description": "Describe the intended responsibility split so the rule-based advisor can suggest an Incoterm to review. Your choices affect cost and risk allocation.",
     "advisor_s2_transport_title": "Transport Mode",
     "advisor_s2_mode_sea": "Sea",
     "advisor_s2_mode_air": "Air",
@@ -321,10 +297,10 @@
     "advisor_s2_insurance_none": "No specific requirement",
     "advisor_s2_btn_previous": "Previous Stage",
     "advisor_s2_btn_calculate": "Calculate Results",
-    "advisor_r_result_title": "Your Best-Fit Incoterm",
-    "advisor_r_optimal": "Optimal Selection",
-    "advisor_r_confidence": "Confidence Match",
-    "advisor_r_quote_btn": "Get a Priority Quote",
+    "advisor_r_result_title": "Suggested Incoterm",
+    "advisor_r_optimal": "Rule-based suggestion",
+    "advisor_r_confidence": "Heuristic match",
+    "advisor_r_quote_btn": "Request a Freight Quote",
     "advisor_r_compare_btn": "Compare All Incoterms",
     "advisor_r_why_title": "Why this matches your profile",
     "advisor_r_risk_title": "Risk Transfer Journey",
@@ -349,6 +325,22 @@
     "country_placeholder": "United States",
     "state_placeholder": "California",
     "city_placeholder": "Fremont",
+    "shipment_details_title": "Shipment details for a freight quote",
+    "shipment_details_description": "Share what you know so our team can price or route your request more quickly.",
+    "transport_mode_label": "Transport Mode",
+    "transport_mode_placeholder": "Select a mode",
+    "transport_mode_not_sure": "Not sure",
+    "transport_mode_ocean": "Ocean freight",
+    "transport_mode_air": "Air freight",
+    "transport_mode_trucking": "Trucking",
+    "transport_mode_warehousing": "Warehousing",
+    "origin_label": "Origin",
+    "origin_placeholder": "City, port, or airport",
+    "destination_label": "Destination",
+    "destination_placeholder": "City, port, or airport",
+    "cargo_ready_date_label": "Cargo Ready Date",
+    "commodity_label": "Commodity / Cargo",
+    "commodity_placeholder": "Commodity, quantity, dimensions, and weight",
     "send_button": "Send Message",
     "sending_button": "Sending…",
     "email_title": "Email",
@@ -385,8 +377,8 @@
   },
   "Footer": {
     "company_heading": "DIT San Francisco Inc.",
-    "company_line_1": "San Francisco operation of Dolphin Logistics",
-    "company_line_2": "FMC OTI License No. 033692",
+    "company_line_1": "Bay Area OTI office of Dolphin Logistics in Fremont, CA",
+    "company_line_2": "FMC OTI License No. 29166",
     "contact_heading": "Contact",
     "services_heading": "Services",
     "services_freight": "Freight Shipping",

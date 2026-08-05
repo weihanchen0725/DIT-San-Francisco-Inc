@@ -7,9 +7,10 @@
     --color-primary-dark: #b38f00;
 
     --color-text-primary: #000a3c;
-    --color-text-secondary: #667085;
+    --color-text-secondary: #5f6878;
     --color-text-light: #ffffff;
     --color-accent-text: #806600;
+    --color-on-accent: #000a3c;
 
     --color-bg-primary: #ffffff;
     --color-bg-secondary: #f8f9fa;
@@ -66,7 +67,8 @@
     --shadow-sm: 0 1px 3px rgba(0, 10, 60, 0.06), 0 1px 2px rgba(0, 10, 60, 0.04);
     --shadow-md: 0 4px 12px rgba(0, 10, 60, 0.08), 0 2px 4px rgba(0, 10, 60, 0.04);
     --shadow-lg: 0 20px 25px -5px rgba(0, 10, 60, 0.1), 0 8px 10px -6px rgba(0, 10, 60, 0.06);
-    --shadow-hover: 0 20px 40px -12px rgba(0, 10, 60, 0.18), 0 10px 24px -14px rgba(0, 10, 60, 0.12);
+    --shadow-hover:
+      0 20px 40px -12px rgba(0, 10, 60, 0.18), 0 10px 24px -14px rgba(0, 10, 60, 0.12);
 
     // ── Background gradient tokens ───────────────────────────────────────────
     --gradiant-backup-bg-color: #a6a6a6;
@@ -91,6 +93,7 @@
     --color-text-secondary: #a3a3a3;
     --color-text-light: #000a3c;
     --color-accent-text: #ffcc00;
+    --color-on-accent: #000a3c;
     --color-brand-gray: #a3a3a3;
 
     --color-bg-primary: #0a0a1a;
@@ -112,8 +115,8 @@
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.12);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.15);
     --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
-    --shadow-hover: 0 20px 44px -20px rgba(0, 0, 0, 0.65),
-      0 0 0 1px rgba(255, 204, 0, 0.14),
+    --shadow-hover:
+      0 20px 44px -20px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 204, 0, 0.14),
       0 0 28px -16px rgba(255, 204, 0, 0.1);
 
     --gradiant-primary-bg-color: radial-gradient(

@@ -8,11 +8,11 @@ Inferred from the live codebase (impeccable **document**). Source of truth for t
 
 **Modes**
 
-| Surface | Mode | Priority |
-| --- | --- | --- |
-| Homepage / marketing sections | Persuade | Clarity, proof, distinctive hero |
-| Tools (calculator, dictionary, incoterms) | Operate | Density, form clarity, system chrome |
-| News / long copy (future) | Read | Measure, hierarchy |
+| Surface                                   | Mode     | Priority                             |
+| ----------------------------------------- | -------- | ------------------------------------ |
+| Homepage / marketing sections             | Persuade | Clarity, proof, distinctive hero     |
+| Tools (calculator, dictionary, incoterms) | Operate  | Density, form clarity, system chrome |
+| News / long copy (future)                 | Read     | Measure, hierarchy                   |
 
 ---
 
@@ -20,22 +20,22 @@ Inferred from the live codebase (impeccable **document**). Source of truth for t
 
 Canonical CSS variables live in [`src/assets/styles/_variables.scss`](src/assets/styles/_variables.scss) (`register_root_variables` / `register_dark_variables`). Tailwind bridges via `register_theme_tokens` (`@theme`).
 
-| Token | Light | Role |
-| --- | --- | --- |
-| `--color-primary` | `#ffcc00` | Brand yellow — CTAs, accents, focus |
-| `--color-primary-hover` | `#e6b800` | CTA hover |
-| `--color-primary-light` | `#fff3b3` | Icon washes, soft fills |
-| `--color-primary-dark` | `#b38f00` | Emphasized yellow text/edges |
-| `--color-text-primary` | `#000a3c` | Navy body/headings |
-| `--color-text-secondary` | `#667085` | Supporting copy |
-| `--color-text-light` | `#ffffff` | Text on dark/yellow surfaces |
-| `--color-accent-text` | `#806600` | Inline accent words |
-| `--color-bg-primary` | `#ffffff` | Page/panel |
-| `--color-bg-secondary` | `#f8f9fa` | Alternate bands |
-| `--color-bg-warm` | `#fdfcf7` | Hero/warm sections |
-| `--color-bg-card` | `#ffffff` | Card fill |
-| `--color-border` | `#e5e7eb` | Strong borders |
-| `--color-border-light` | `#f3f4f6` | Card borders |
+| Token                    | Light     | Role                                |
+| ------------------------ | --------- | ----------------------------------- |
+| `--color-primary`        | `#ffcc00` | Brand yellow — CTAs, accents, focus |
+| `--color-primary-hover`  | `#e6b800` | CTA hover                           |
+| `--color-primary-light`  | `#fff3b3` | Icon washes, soft fills             |
+| `--color-primary-dark`   | `#b38f00` | Emphasized yellow text/edges        |
+| `--color-text-primary`   | `#000a3c` | Navy body/headings                  |
+| `--color-text-secondary` | `#667085` | Supporting copy                     |
+| `--color-text-light`     | `#ffffff` | Text on dark/yellow surfaces        |
+| `--color-accent-text`    | `#806600` | Inline accent words                 |
+| `--color-bg-primary`     | `#ffffff` | Page/panel                          |
+| `--color-bg-secondary`   | `#f8f9fa` | Alternate bands                     |
+| `--color-bg-warm`        | `#fdfcf7` | Hero/warm sections                  |
+| `--color-bg-card`        | `#ffffff` | Card fill                           |
+| `--color-border`         | `#e5e7eb` | Strong borders                      |
+| `--color-border-light`   | `#f3f4f6` | Card borders                        |
 
 **Tailwind brand aliases** (prefer for utility classes): `--color-brand-yellow`, `--color-brand-navy`, `--color-brand-gray` (+ hover/light variants).
 
@@ -51,21 +51,21 @@ Canonical CSS variables live in [`src/assets/styles/_variables.scss`](src/assets
 
 ## 2. Typography
 
-| Token | Value | Use |
-| --- | --- | --- |
-| `--font-primary` | Roboto (`--font-roboto`) + system sans | All UI |
-| `--text-xs` … `--text-2xl` | 0.75rem → 1.5rem | UI chrome, cards |
-| `--text-3xl` | `2.25rem` | Section titles (`section-heading`) |
-| `--text-4xl` | `clamp(2rem, 5vw, 4rem)` | Hero display |
+| Token                      | Value                                  | Use                                |
+| -------------------------- | -------------------------------------- | ---------------------------------- |
+| `--font-primary`           | Roboto (`--font-roboto`) + system sans | All UI                             |
+| `--text-xs` … `--text-2xl` | 0.75rem → 1.5rem                       | UI chrome, cards                   |
+| `--text-3xl`               | `2.25rem`                              | Section titles (`section-heading`) |
+| `--text-4xl`               | `clamp(2rem, 5vw, 4rem)`               | Hero display                       |
 
 **Recipes (mixins in [`_mixin.scss`](src/assets/styles/_mixin.scss))**
 
-| Mixin | Role |
-| --- | --- |
-| `section-heading` | Page/section H1–H2 |
+| Mixin                 | Role                     |
+| --------------------- | ------------------------ |
+| `section-heading`     | Page/section H1–H2       |
 | `section-description` | Lead under section title |
-| `card-title` | Card H2/H3 |
-| `card-description` | Card body |
+| `card-title`          | Card H2/H3               |
+| `card-description`    | Card body                |
 
 **Rules**
 
@@ -77,12 +77,12 @@ Canonical CSS variables live in [`src/assets/styles/_variables.scss`](src/assets
 
 ## 3. Radius
 
-| Token | Value | Use |
-| --- | --- | --- |
-| `--radius-sm` | `0.5rem` | Buttons, compact chips, fact tiles |
-| `--radius-md` | `1rem` | **Default cards** |
-| `--radius-lg` | `1.5rem` | Large panels only when needed |
-| `--radius-full` | `9999px` | Pills, icon circles |
+| Token           | Value    | Use                                |
+| --------------- | -------- | ---------------------------------- |
+| `--radius-sm`   | `0.5rem` | Buttons, compact chips, fact tiles |
+| `--radius-md`   | `1rem`   | **Default cards**                  |
+| `--radius-lg`   | `1.5rem` | Large panels only when needed      |
+| `--radius-full` | `9999px` | Pills, icon circles                |
 
 Do not hardcode `border-radius: 1rem` / `9999px` in components — use tokens.
 
@@ -90,11 +90,11 @@ Do not hardcode `border-radius: 1rem` / `9999px` in components — use tokens.
 
 ## 4. Shadow
 
-| Token | Use |
-| --- | --- |
-| `--shadow-sm` | Resting low elevation (rare) |
-| `--shadow-md` | Compact interactive tiles (e.g. About facts) |
-| `--shadow-lg` | Large resting elevation |
+| Token            | Use                                           |
+| ---------------- | --------------------------------------------- |
+| `--shadow-sm`    | Resting low elevation (rare)                  |
+| `--shadow-md`    | Compact interactive tiles (e.g. About facts)  |
+| `--shadow-lg`    | Large resting elevation                       |
 | `--shadow-hover` | **Default card hover** (light + dark recipes) |
 
 Interactive marketing cards use `--shadow-hover` via `card-interactive`. Do not invent per-component `box-shadow` hover stacks.
@@ -108,12 +108,12 @@ Interactive marketing cards use `--shadow-hover` via `card-interactive`. Do not 
 **Breakpoints** (`$breakpoints` / `--screen-*`)
 
 | Key | Width |
-| --- | --- |
-| xs | 30rem |
-| sm | 40rem |
-| md | 48rem |
-| lg | 64rem |
-| xl | 80rem |
+| --- | ----- |
+| xs  | 30rem |
+| sm  | 40rem |
+| md  | 48rem |
+| lg  | 64rem |
+| xl  | 80rem |
 
 Use `@include respond(md)` or matching `min-width` media with the same rem values. Prefer the shared map over magic px when adding layout.
 
@@ -163,12 +163,12 @@ Shared SCSS: [`src/assets/styles/_mixin.scss`](src/assets/styles/_mixin.scss)
 }
 ```
 
-| Mixin | Includes |
-| --- | --- |
-| `card-surface($padding, $radius)` | padding, radius, bg-card, border-light — **no hover** |
-| `card-interactive($translate-y, $shadow)` | hover/focus lift, primary border, shadow |
-| `icon-circle($size, $bg, $color)` | circular icon well |
-| `icon-interactive` / `icon-interactive-active` / `icon-interactive-on-parent-hover` | shared icon hover |
+| Mixin                                                                               | Includes                                              |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| `card-surface($padding, $radius)`                                                   | padding, radius, bg-card, border-light — **no hover** |
+| `card-interactive($translate-y, $shadow)`                                           | hover/focus lift, primary border, shadow              |
+| `icon-circle($size, $bg, $color)`                                                   | circular icon well                                    |
+| `icon-interactive` / `icon-interactive-active` / `icon-interactive-on-parent-hover` | shared icon hover                                     |
 
 **Do not** re-declare card hover (`translateY`, yellow border, custom shadow) in feature modules.
 
@@ -180,26 +180,26 @@ Use `card-surface` + `card-interactive` (same system). Icon wells: `icon-circle`
 
 Document before copying these patterns elsewhere:
 
-| Surface | Why different |
-| --- | --- |
-| Header / NavBar / CTABar | App chrome, sticky, brand bar |
-| Home hero CTA | Primary button, not a card |
-| Map markers / GlobalService pins | Geographic UI |
-| Incoterms advisor / calculator forms | Operate-mode controls, denser radius-sm controls |
-| Dictionary category chips | Multi-hue taxonomy (content color, not brand system) |
-| Industries icon tile | Filled primary square badge (not `icon-circle`) — OK until a second badge pattern appears |
-| Theme / language switchers | Compact controls |
+| Surface                              | Why different                                                                             |
+| ------------------------------------ | ----------------------------------------------------------------------------------------- |
+| Header / NavBar / CTABar             | App chrome, sticky, brand bar                                                             |
+| Home hero CTA                        | Primary button, not a card                                                                |
+| Map markers / GlobalService pins     | Geographic UI                                                                             |
+| Incoterms advisor / calculator forms | Operate-mode controls, denser radius-sm controls                                          |
+| Dictionary category chips            | Multi-hue taxonomy (content color, not brand system)                                      |
+| Industries icon tile                 | Filled primary square badge (not `icon-circle`) — OK until a second badge pattern appears |
+| Theme / language switchers           | Compact controls                                                                          |
 
 ---
 
 ## 7. Motion
 
-| Token / value | Use |
-| --- | --- |
-| `$motion-duration` (`0.3s`) | Card/icon transitions |
-| `$motion-ease-out` (`cubic-bezier(0.4, 0, 0.2, 1)`) | Interactive ease |
-| Scroll reveal | `[data-scroll-reveal]` in `globals.scss` — one entrance language |
-| `prefers-reduced-motion` | Honored globally for scroll reveal |
+| Token / value                                       | Use                                                              |
+| --------------------------------------------------- | ---------------------------------------------------------------- |
+| `$motion-duration` (`0.3s`)                         | Card/icon transitions                                            |
+| `$motion-ease-out` (`cubic-bezier(0.4, 0, 0.2, 1)`) | Interactive ease                                                 |
+| Scroll reveal                                       | `[data-scroll-reveal]` in `globals.scss` — one entrance language |
+| `prefers-reduced-motion`                            | Honored globally for scroll reveal                               |
 
 Rules:
 
@@ -229,14 +229,14 @@ Rules:
 
 ## 10. File map
 
-| Concern | Path |
-| --- | --- |
-| Tokens | `src/assets/styles/_variables.scss` |
-| Mixins / recipes | `src/assets/styles/_mixin.scss` |
-| Global base + reveal | `src/app/[locale]/globals.scss` |
-| Reset | `src/assets/styles/modern_reset.scss` |
-| Section UI | `src/components/*/*.module.scss` |
-| Heading primitive | `src/components/ui/SectionHeading.tsx` |
+| Concern              | Path                                   |
+| -------------------- | -------------------------------------- |
+| Tokens               | `src/assets/styles/_variables.scss`    |
+| Mixins / recipes     | `src/assets/styles/_mixin.scss`        |
+| Global base + reveal | `src/app/[locale]/globals.scss`        |
+| Reset                | `src/assets/styles/modern_reset.scss`  |
+| Section UI           | `src/components/*/*.module.scss`       |
+| Heading primitive    | `src/components/ui/SectionHeading.tsx` |
 
 ---
 

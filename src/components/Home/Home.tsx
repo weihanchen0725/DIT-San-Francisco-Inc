@@ -26,12 +26,6 @@ const Home = async () => {
 
           {/* CTA Buttons */}
           <div className={homeClass.ctaBar}>
-            {/* <Link
-              href="/services"
-              className="px-8 py-4 rounded-lg bg-brand-yellow text-brand-navy font-semibold hover:bg-brand-yellow-hover shadow-lg hover:shadow-xl transition-all duration-200"
-            >
-              {translateHome('our_services')}
-            </Link> */}
             <Link href="#contact" className={homeClass.ctaButton}>
               {translateHome('contact')}
             </Link>
@@ -43,14 +37,16 @@ const Home = async () => {
           {/* Plane: top of the stack — flies upward on scroll */}
           <Image
             src={cargoPlane}
-            alt="Cargo Plane"
+            alt=""
+            aria-hidden="true"
             sizes="(max-width: 768px) 0px, 38vw"
             className={`${homeClass.image} ${homeClass.cargoPlane}`}
           />
           {/* Golden Gate: centre backdrop — static */}
           <Image
             src={goldenGate}
-            alt="Golden Gate"
+            alt=""
+            aria-hidden="true"
             priority
             fetchPriority="high"
             sizes="(max-width: 768px) 0px, 50vw"
@@ -59,31 +55,13 @@ const Home = async () => {
           {/* Ship: below the golden gate — sails downward on scroll */}
           <Image
             src={cargoShip}
-            alt="Cargo Ship"
+            alt=""
+            aria-hidden="true"
             sizes="(max-width: 768px) 0px, 38vw"
             className={`${homeClass.image} ${homeClass.cargoShip}`}
           />
         </HomeParallax>
       </div>
-
-      {/* Features Section */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <Features
-          icon={<FastDeliveryIcon className="w-8 h-8 text-brand-yellow" />}
-          title={translateHome("fast_delivery_title")}
-          description={translateHome("fast_delivery_desc")}
-        />
-        <Features
-          icon={<SecureHandleIcon className="w-8 h-8 text-brand-yellow" />}
-          title={translateHome("secure_handling_title")}
-          description={translateHome("secure_handling_desc")}
-        />
-        <Features
-          icon={<GlobalReachIcon className="w-8 h-8 text-brand-yellow" />}
-          title={translateHome("global_reach_title")}
-          description={translateHome("global_reach_desc")}
-        />
-      </div> */}
     </section>
   );
 };

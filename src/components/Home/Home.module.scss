@@ -79,7 +79,7 @@
         border: 1px solid $primary-color;
         padding: 0.75rem 1.5rem;
         border-radius: 0.5rem;
-        color: $secondary-color;
+        color: var(--color-on-accent);
         background-color: $primary-color;
         font-weight: 600;
         transition:
@@ -89,8 +89,10 @@
 
         &:hover {
           background-color: $primary-color-hover;
-          color: $secondary-color;
-          box-shadow: 0 4px 16px rgba(255, 204, 0, 0.4), 0 0 0 1px rgba(255, 204, 0, 0.15);
+          color: var(--color-on-accent);
+          box-shadow:
+            0 4px 16px rgba(255, 204, 0, 0.4),
+            0 0 0 1px rgba(255, 204, 0, 0.15);
           transform: translateY(-1px);
         }
 

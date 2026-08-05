@@ -3,8 +3,15 @@ import { expect, test } from '@playwright/test';
 const localizedContent = {
   en: {
     aboutTitle: 'About Us',
-    credibilityTitle: 'Verified company information',
-    facts: ['Founded', '2021', 'Company relationship', 'FMC OTI License', 'Public trade activity'],
+    credibilityTitle: 'Company information',
+    facts: [
+      'Founded',
+      '2021',
+      'Company relationship',
+      'FMC OTI License',
+      'No. 29166',
+      'Public trade activity',
+    ],
     removedCaptions: [
       'Public details buyers can use when evaluating DIT San Francisco Inc.',
       'ImportKey is an independent third-party data source. Its records are not a customer endorsement.',
@@ -12,8 +19,8 @@ const localizedContent = {
   },
   'zh-TW': {
     aboutTitle: '關於我們',
-    credibilityTitle: '已核實的公司資訊',
-    facts: ['成立年份', '2021', '公司關係', 'FMC OTI 執照', '公開貿易活動'],
+    credibilityTitle: '公司資訊',
+    facts: ['成立年份', '2021', '公司關係', 'FMC OTI 執照', '編號 29166', '公開貿易活動'],
     removedCaptions: [
       '買方評估 DIT San Francisco Inc. 時可查核的公開資訊。',
       'ImportKey 為獨立第三方資料來源；其紀錄不代表客戶背書。',
@@ -103,40 +110,6 @@ test('homepage service cards keep titles and descriptions but omit page-only det
   await expect(services.getByText('For a quote, share')).toHaveCount(0);
 });
 
-test('Global Service map and legend integrate with the selected theme', async ({ page }) => {
-  const readMapTheme = () =>
-    page.getByTestId('global-service-map').evaluate((map) => {
-      const legend = map.querySelector('aside');
-      const mapStyle = getComputedStyle(map);
-      const legendStyle = legend ? getComputedStyle(legend) : null;
-
-      return {
-        mapBackground: mapStyle.backgroundColor,
-        landBackground: getComputedStyle(map, '::before').backgroundColor,
-        legendBackground: legendStyle?.backgroundColor ?? '',
-        legendBorderWidth: legendStyle?.borderTopWidth ?? '',
-        legendShadow: legendStyle?.boxShadow ?? '',
-        legendColor: legendStyle?.color ?? '',
-      };
-    });
-
-  await page.goto('/en');
-  await page.evaluate(() => localStorage.setItem('dit-theme', 'light'));
-  await page.reload();
-  const light = await readMapTheme();
-
-  await page.evaluate(() => localStorage.setItem('dit-theme', 'dark'));
-  await page.reload();
-  const dark = await readMapTheme();
-
-  expect(light.legendBackground).toBe('rgba(0, 0, 0, 0)');
-  expect(light.legendBorderWidth).toBe('0px');
-  expect(light.legendShadow).toBe('none');
-  expect(light.mapBackground).not.toBe(dark.mapBackground);
-  expect(light.landBackground).not.toBe(dark.landBackground);
-  expect(light.legendColor).not.toBe(dark.legendColor);
-});
-
 test('contact form placeholders are visually lighter than entered text in each theme', async ({
   page,
 }) => {
@@ -223,23 +196,23 @@ test('marketing content remains visible when JavaScript is unavailable', async (
   await context.close();
 });
 
-test('contact form omits the freight-quote shipment fields', async ({ page }) => {
+test('contact form collects optional freight-quote shipment context', async ({ page }) => {
   await page.goto('/en/contact');
 
-  await expect(page.getByText('Shipment details (for freight quotes)')).toHaveCount(0);
-  await expect(page.locator('select[name="transportMode"]')).toHaveCount(0);
-  await expect(page.locator('input[name="origin"]')).toHaveCount(0);
-  await expect(page.locator('input[name="destination"]')).toHaveCount(0);
-  await expect(page.locator('input[name="cargoReadyDate"]')).toHaveCount(0);
-  await expect(page.locator('input[name="commodity"]')).toHaveCount(0);
+  await expect(page.getByText('Shipment details for a freight quote')).toBeVisible();
+  await expect(page.locator('select[name="transportMode"]')).toBeVisible();
+  await expect(page.locator('input[name="origin"]')).toBeVisible();
+  await expect(page.locator('input[name="destination"]')).toBeVisible();
+  await expect(page.locator('input[name="cargoReadyDate"]')).toBeVisible();
+  await expect(page.locator('input[name="commodity"]')).toBeVisible();
 });
 
 test('footer presents company identity, license, contact, and service links', async ({ page }) => {
   await page.goto('/en');
 
   const footer = page.locator('footer');
-  await expect(footer).toContainText('San Francisco operation of Dolphin Logistics');
-  await expect(footer).toContainText('FMC OTI License No. 033692');
+  await expect(footer).toContainText('Bay Area OTI office of Dolphin Logistics in Fremont, CA');
+  await expect(footer).toContainText('FMC OTI License No. 29166');
   await expect(footer).toContainText('46750 Fremont Blvd #200');
   await expect(footer.getByRole('link', { name: 'Freight Shipping' })).toHaveAttribute(
     'href',

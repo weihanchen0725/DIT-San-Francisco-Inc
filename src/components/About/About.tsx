@@ -5,6 +5,7 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import aboutClass from './About.module.scss';
 
 const IMPORTKEY_URL = 'https://importkey.com/i/dit-san-francisco-inc';
+const FMC_OTI_URL = 'https://www2.fmc.gov/oti/';
 
 const About = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
   const translateAbout = await getTranslations('About');
@@ -14,16 +15,19 @@ const About = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
       label: translateCredibility('founded_label'),
       value: translateCredibility('founded_value'),
       icon: Building2,
+      href: undefined,
     },
     {
       label: translateCredibility('identity_label'),
       value: translateCredibility('identity_value'),
       icon: Network,
+      href: undefined,
     },
     {
       label: translateCredibility('license_label'),
       value: translateCredibility('license_value'),
       icon: FileCheck2,
+      href: FMC_OTI_URL,
     },
   ];
 
@@ -43,7 +47,7 @@ const About = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
 
       <div className={aboutClass.About_verification}>
         <dl className={aboutClass.About_facts}>
-          {facts.map(({ label, value, icon: Icon }, index) => (
+          {facts.map(({ label, value, icon: Icon, href }, index) => (
             <div
               key={label}
               className={aboutClass.About_fact}
@@ -53,7 +57,13 @@ const About = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
               <Icon aria-hidden="true" />
               <dt>{label}</dt>
               <dd>
-                <strong>{value}</strong>
+                {href ? (
+                  <a href={href} target="_blank" rel="noopener noreferrer">
+                    <strong>{value}</strong>
+                  </a>
+                ) : (
+                  <strong>{value}</strong>
+                )}
               </dd>
             </div>
           ))}

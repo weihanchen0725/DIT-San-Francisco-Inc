@@ -192,7 +192,7 @@
 
 .icon-active {
   background-color: var(--color-primary);
-  color: var(--color-text-primary);
+  color: var(--color-on-accent);
 }
 
 .scope-text {
@@ -227,13 +227,13 @@
   &:hover {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
-    color: var(--color-text-primary);
+    color: var(--color-on-accent);
   }
 
   &.selected {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
-    color: var(--color-text-primary);
+    color: var(--color-on-accent);
   }
 }
 
@@ -271,7 +271,7 @@
 
 .continue-btn {
   background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
-  color: var(--color-text-primary);
+  color: var(--color-on-accent);
   padding: 1rem 2.5rem;
   border-radius: 0.75rem;
   font-weight: 700;
@@ -331,7 +331,7 @@
   display: inline-block;
   padding: 0.25rem 0.75rem;
   background-color: var(--color-primary);
-  color: var(--color-text-primary);
+  color: var(--color-on-accent);
   font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -615,7 +615,7 @@
 
 .r-optimal-badge {
   background-color: var(--color-primary);
-  color: var(--color-text-primary);
+  color: var(--color-on-accent);
   font-size: 0.65rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -1016,7 +1016,7 @@
     border-color: var(--color-border);
   }
 
-  // Step 3 – "Optimal Selection" badge: color-text-primary = white in dark, but bg is yellow
+  // Step 3 suggestion badge: color-text-primary = white in dark, but bg is yellow
   .r-optimal-badge {
     color: #000a3c;
   }

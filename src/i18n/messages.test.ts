@@ -40,11 +40,11 @@ describe('localized messages', () => {
     expect(zhTwMessages.CTABar.join_us).toBe('申請貨運報價');
   });
 
-  it('defines verified credibility copy in both locales', () => {
+  it('defines current FMC credibility copy in both locales', () => {
     expect(enMessages.Credibility.founded_value).toContain('2021');
-    expect(enMessages.Credibility.license_value).toContain('033692');
+    expect(enMessages.Credibility.license_value).toContain('29166');
     expect(zhTwMessages.Credibility.founded_value).toContain('2021');
-    expect(zhTwMessages.Credibility.license_value).toContain('033692');
+    expect(zhTwMessages.Credibility.license_value).toContain('29166');
   });
 
   it('defines buyer-useful service details in both locales', () => {
@@ -61,9 +61,21 @@ describe('localized messages', () => {
 
   it('defines footer content in both locales', () => {
     for (const messages of [enMessages, zhTwMessages]) {
-      expect(messages.Footer.company_line_2).toContain('033692');
+      expect(messages.Footer.company_line_2).toContain('29166');
       expect(messages.Footer.services_heading).toBeTruthy();
       expect(messages.Footer.quote_cta).toBeTruthy();
+    }
+  });
+
+  it('does not ship placeholder news, fictional partners, or nonexistent tools', () => {
+    for (const messages of [enMessages, zhTwMessages]) {
+      expect(messages).not.toHaveProperty('News');
+      expect(messages).not.toHaveProperty('Showcase');
+      expect(messages.Metadata).not.toHaveProperty('news');
+      expect(messages.NavBar).not.toHaveProperty('news');
+      expect(messages.Tools).not.toHaveProperty('schedule_pickup_desc');
+      expect(messages.Tools).not.toHaveProperty('route_optimization_title');
+      expect(messages.Tools).not.toHaveProperty('route_optimization_desc');
     }
   });
 

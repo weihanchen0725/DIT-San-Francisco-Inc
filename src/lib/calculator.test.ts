@@ -28,13 +28,23 @@ describe('unit conversions', () => {
 describe('calculateVolume', () => {
   it('computes CBM and CFT for pieces of given dimensions', () => {
     // 2 pieces of 100x100x100 cm: CBM = 2, CFT = 70.6294 (approx)
-    const { cbm, cft } = calculateVolume({ pieces: '2', lengthCm: '100', widthCm: '100', heightCm: '100' });
+    const { cbm, cft } = calculateVolume({
+      pieces: '2',
+      lengthCm: '100',
+      widthCm: '100',
+      heightCm: '100',
+    });
     expect(cbm).toBeCloseTo(2, 5);
     expect(cft).toBeCloseTo(70.6294, 3);
   });
 
   it('treats invalid values as zero', () => {
-    const { cbm, cft } = calculateVolume({ pieces: '', lengthCm: 'x', widthCm: '100', heightCm: '100' });
+    const { cbm, cft } = calculateVolume({
+      pieces: '',
+      lengthCm: 'x',
+      widthCm: '100',
+      heightCm: '100',
+    });
     expect(cbm).toBe(0);
     expect(cft).toBe(0);
   });

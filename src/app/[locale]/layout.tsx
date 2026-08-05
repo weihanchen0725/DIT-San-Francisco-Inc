@@ -23,7 +23,7 @@ const roboto = Roboto({
 // Site configuration - update these values for production
 const COMPANY_NAME = 'DIT San Francisco Inc.';
 const COMPANY_DESCRIPTION =
-  'DIT San Francisco Inc. is a leading logistics management company providing efficient shipping, tracking, warehousing, and supply chain solutions in the San Francisco Bay Area.';
+  'DIT San Francisco Inc. coordinates international freight, warehousing support, shipment tracking access, and supply chain services from Fremont, California.';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -55,7 +55,6 @@ export const metadata: Metadata = {
     'Bay Area',
     'e-commerce logistics',
     'B2B shipping',
-    'B2C fulfillment',
     'DIT San Francisco',
   ],
   authors: [{ name: COMPANY_NAME, url: SITE_URL }],
@@ -92,7 +91,7 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: `${COMPANY_NAME} - Logistics Solutions`,
+        alt: `${COMPANY_NAME} - Freight coordination`,
         type: 'image/png',
       },
     ],
@@ -149,7 +148,7 @@ const organizationJsonLd = {
   identifier: {
     '@type': 'PropertyValue',
     propertyID: 'FMC OTI License',
-    value: '033692',
+    value: '29166',
   },
   contactPoint: {
     '@type': 'ContactPoint',
@@ -251,7 +250,7 @@ export default async function RootLayout({
             <Footer />
           </ClientProviders>
         </ServerProviders>
-        <Analytics />
+        {process.env.VERCEL === '1' ? <Analytics /> : null}
       </body>
     </html>
   );

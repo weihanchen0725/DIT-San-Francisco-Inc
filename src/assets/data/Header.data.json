@@ -45,14 +45,6 @@
     },
     {
       "id": "5",
-      "Key": "news",
-      "Value": "#news",
-      "isActive": true,
-      "isEnabled": true,
-      "isExternal": false
-    },
-    {
-      "id": "6",
       "Key": "contact",
       "Value": "#contact",
       "isActive": true,

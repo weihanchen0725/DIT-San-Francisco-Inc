@@ -5,7 +5,7 @@ import { locales } from './config';
 
 type Dictionary = Record<string, unknown>;
 
-const NAMESPACE_FILES = ['common', 'auth', 'dashboard', 'dictionary'] as const;
+const NAMESPACE_FILES = ['common', 'dictionary'] as const;
 
 const loadDictionary = async (locale: AppLocale): Promise<Dictionary> => {
   const modules = await Promise.all(

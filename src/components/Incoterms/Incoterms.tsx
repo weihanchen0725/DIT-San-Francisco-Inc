@@ -34,6 +34,7 @@ const IncoTerms = () => {
           <div className={incotermsClass['hero-text']}>
             <h1>{t('hero_title')}</h1>
             <p>{t('hero_description')}</p>
+            <p>{t('disclaimer')}</p>
             <div className={incotermsClass['buttons']}>
               <Button
                 Title={t('btn1_title')}

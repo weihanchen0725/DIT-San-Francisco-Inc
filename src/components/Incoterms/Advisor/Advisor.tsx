@@ -493,6 +493,7 @@ const Advisor = () => {
                 </div>
               </div>
               <p className={advisorClass['r-description']}>{result.description}</p>
+              <p className={advisorClass['r-description']}>{t('disclaimer')}</p>
             </div>
 
             {/* Bento Grid */}

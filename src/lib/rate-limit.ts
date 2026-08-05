@@ -3,9 +3,7 @@ export type RateLimitOptions = {
   windowMs: number;
 };
 
-export type RateLimitResult =
-  | { allowed: true }
-  | { allowed: false; retryAfterSeconds: number };
+export type RateLimitResult = { allowed: true } | { allowed: false; retryAfterSeconds: number };
 
 // Sliding-window: Map<key, timestamps[]>
 // Evicts oldest entries when size > MAX_KEYS so memory stays bounded.
@@ -32,7 +30,7 @@ const sweep = (key: string, windowMs: number) => {
 
 export const checkRateLimit = (
   key: string,
-  { limit, windowMs }: RateLimitOptions,
+  { limit, windowMs }: RateLimitOptions
 ): RateLimitResult => {
   // Evict stale entries first
   const active = sweep(key, windowMs);

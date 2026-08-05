@@ -218,6 +218,87 @@ const ContactForm = () => {
           />
         </div>
 
+        <fieldset className={styles.shipmentFields}>
+          <legend className={styles.shipmentLegend}>
+            {translateContact('shipment_details_title')}
+            <span className={styles.labelOptional}> {translateContact('optional_tag')}</span>
+          </legend>
+          <p className={styles.shipmentDescription}>
+            {translateContact('shipment_details_description')}
+          </p>
+          <div className={styles.shipmentGrid}>
+            <div>
+              <label htmlFor="transportMode" className={styles.label}>
+                {translateContact('transport_mode_label')}
+              </label>
+              <select id="transportMode" name="transportMode" className={styles.input}>
+                <option value="">{translateContact('transport_mode_placeholder')}</option>
+                <option value="not_sure">{translateContact('transport_mode_not_sure')}</option>
+                <option value="ocean">{translateContact('transport_mode_ocean')}</option>
+                <option value="air">{translateContact('transport_mode_air')}</option>
+                <option value="trucking">{translateContact('transport_mode_trucking')}</option>
+                <option value="warehousing">
+                  {translateContact('transport_mode_warehousing')}
+                </option>
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="cargoReadyDate" className={styles.label}>
+                {translateContact('cargo_ready_date_label')}
+              </label>
+              <input
+                type="date"
+                id="cargoReadyDate"
+                name="cargoReadyDate"
+                className={styles.input}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="origin" className={styles.label}>
+                {translateContact('origin_label')}
+              </label>
+              <input
+                type="text"
+                id="origin"
+                name="origin"
+                maxLength={200}
+                placeholder={translateContact('origin_placeholder')}
+                className={styles.input}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="destination" className={styles.label}>
+                {translateContact('destination_label')}
+              </label>
+              <input
+                type="text"
+                id="destination"
+                name="destination"
+                maxLength={200}
+                placeholder={translateContact('destination_placeholder')}
+                className={styles.input}
+              />
+            </div>
+
+            <div className={styles.fieldGroupSpan}>
+              <label htmlFor="commodity" className={styles.label}>
+                {translateContact('commodity_label')}
+              </label>
+              <input
+                type="text"
+                id="commodity"
+                name="commodity"
+                maxLength={300}
+                placeholder={translateContact('commodity_placeholder')}
+                className={styles.input}
+              />
+            </div>
+          </div>
+        </fieldset>
+
         <div className={styles.fieldGroupSpan}>
           <label htmlFor="subject" className={styles.label}>
             {translateContact('subject_label')}{' '}

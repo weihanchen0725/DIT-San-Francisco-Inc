@@ -65,7 +65,7 @@
 
       &:hover {
         background-color: $primary-color;
-        color: $secondary-color;
+        color: var(--color-on-accent);
         border: 1px solid $primary-color;
       }
     }
@@ -74,8 +74,17 @@
       background-color: $secondary-color;
       color: $primary-color;
 
+      :global(.dark) & {
+        background-color: var(--color-primary);
+        color: var(--color-on-accent);
+      }
+
       &:hover {
         background-color: $secondary-color-hover;
+
+        :global(.dark) & {
+          background-color: var(--color-primary-hover);
+        }
       }
     }
   }
