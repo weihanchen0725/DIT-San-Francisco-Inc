@@ -143,13 +143,33 @@ for (const width of [320, 375, 768, 900, 1024, 1239, 1240, 1280, 1300]) {
   });
 }
 
-test('production homepage omits unverified network, fictional partner, and news surfaces', async ({
+test('production homepage includes global service coverage while omitting fictional partner and news surfaces', async ({
   page,
 }) => {
   await page.goto('/en');
 
+  const globalServiceMap = page.getByTestId('global-service-map');
+
   await expect(page.getByRole('heading', { name: 'Industries We Support' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Global Service', exact: true })).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'Global Service', exact: true })).toHaveCount(1);
+  await expect(globalServiceMap).toBeVisible();
+  await expect(globalServiceMap.locator('[data-hub-pin]')).toHaveCount(86);
+  await expect(globalServiceMap.getByTestId('coverage-legend-item')).toHaveCount(4);
+
+  const homepageSectionOrder = await page
+    .locator('main > section')
+    .evaluateAll((sections) =>
+      sections.map(
+        (section) => section.id || section.getAttribute('aria-labelledby') || 'unnamed-section'
+      )
+    );
+
+  expect(homepageSectionOrder.indexOf('global-service-title')).toBe(
+    homepageSectionOrder.indexOf('services') + 1
+  );
+  expect(homepageSectionOrder.indexOf('industries-title')).toBe(
+    homepageSectionOrder.indexOf('global-service-title') + 1
+  );
   await expect(page.getByText('Fictional development preview')).toHaveCount(0);
   await expect(page.getByRole('heading', { name: 'Latest News' })).toHaveCount(0);
 });

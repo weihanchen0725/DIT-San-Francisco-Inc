@@ -3,6 +3,7 @@ import type { AppLocale } from '@/i18n/config';
 import { getLocalizedMetadata } from '@/lib/seo';
 import About from '@/components/About/About';
 import Contact from '@/components/Contact/Contact';
+import GlobalService from '@/components/GlobalService/GlobalService';
 import Home from '@/components/Home/Home';
 import Industries from '@/components/Industries/Industries';
 import Services from '@/components/Services/Services';
@@ -27,6 +28,7 @@ const HomePage = async ({ params }: PageProps) => {
       <Home />
       <About />
       <Services />
+      <GlobalService />
       <Industries />
       <Tools />
       <Contact />
