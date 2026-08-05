@@ -31,7 +31,7 @@ const IncoTerms = () => {
     <React.Fragment>
       <section className={incotermsClass['container']}>
         <div className={incotermsClass['hero']}>
-          <div className={incotermsClass['hero-text']}>
+          <div className={incotermsClass['heroText']}>
             <h1>{t('hero_title')}</h1>
             <p>{t('hero_description')}</p>
             <p>{t('disclaimer')}</p>
@@ -56,11 +56,11 @@ const IncoTerms = () => {
           </div>
           <Link
             href={incotermsData.Hero_Button.Link}
-            className={incotermsClass['hero-button']}
+            className={incotermsClass['heroButton']}
             target="_blank"
           >
-            <div className={incotermsClass['hero-button-logo-container']}>
-              <Image src={ICC_Logo} alt="ICC Logo" className={incotermsClass['hero-button-logo']} />
+            <div className={incotermsClass['heroButtonLogoContainer']}>
+              <Image src={ICC_Logo} alt="ICC Logo" className={incotermsClass['heroButtonLogo']} />
             </div>
             <span>{t('hero_button_title')}</span>
             <span>{t('hero_button_description')}</span>

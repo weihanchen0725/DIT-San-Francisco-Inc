@@ -29,12 +29,14 @@ describe('localized messages', () => {
 
   it('uses a quote-focused primary action in both locales', () => {
     expect(enMessages.Home.headline).toBe('International freight forwarding from');
-    expect(enMessages.Home.headline_location).toBe('Fremont, California');
+    expect(enMessages.Home.headline_location).toBe('San Francisco');
+    expect(enMessages.Header.location).toBe('San Francisco');
     expect(enMessages.Home.contact).toBe('Request a Freight Quote');
     expect(enMessages.CTABar.tracking).toBe('Track a Shipment');
     expect(enMessages.CTABar.join_us).toBe('Request a Freight Quote');
-    expect(zhTwMessages.Home.headline).toBe('從加州 Fremont 出發的');
+    expect(zhTwMessages.Home.headline).toBe('從舊金山出發的');
     expect(zhTwMessages.Home.headline_location).toBe('國際貨運代理服務');
+    expect(zhTwMessages.Header.location).toBe('舊金山');
     expect(zhTwMessages.Home.contact).toBe('申請貨運報價');
     expect(zhTwMessages.CTABar.tracking).toBe('追蹤貨件');
     expect(zhTwMessages.CTABar.join_us).toBe('申請貨運報價');

@@ -4,7 +4,7 @@
 .ctaBar {
   @include flex-row-center-center;
 
-  &_list {
+  &List {
     @include flex-row-center-center;
     flex-wrap: wrap;
     list-style: none;
@@ -16,7 +16,7 @@
       @include flex-row-center-center;
       flex: 0 1 auto;
     }
-    &_column {
+    &Column {
       @include flex-column-start-center;
       gap: 0.5rem;
 
@@ -31,7 +31,7 @@
     }
   }
 
-  &_button {
+  &Button {
     @include flex-row-center-center;
     text-decoration: none;
     white-space: nowrap;
@@ -40,7 +40,10 @@
     padding: 0.5rem 1rem;
     font-weight: 600;
     line-height: 1.2;
-    transition: all 0.25s ease;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease,
+      color 0.25s ease;
 
     &:focus-visible {
       outline: 0.125rem solid $primary-color;
@@ -53,7 +56,7 @@
     }
   }
 
-  &_button_primary {
+  &ButtonPrimary {
     background-color: $secondary-color;
     color: $primary-color;
 
@@ -73,7 +76,7 @@
     }
   }
 
-  &_button_secondary {
+  &ButtonSecondary {
     background-color: transparent;
     border-color: $secondary-color;
     color: $secondary-color;
@@ -97,19 +100,19 @@
   @include respond(md) {
     padding: 0.75rem;
 
-    &_list {
+    &List {
       gap: 0.75rem;
       justify-content: center;
     }
 
-    &_button {
+    &Button {
       padding: 0.5625rem 0.875rem;
       font-size: 0.9375rem;
     }
   }
 
   @include cq-max(34rem) {
-    &_list {
+    &List {
       flex-direction: column;
       align-items: stretch;
       gap: 0.625rem;
@@ -119,7 +122,7 @@
       }
     }
 
-    &_button {
+    &Button {
       width: 100%;
       justify-content: center;
       white-space: normal;

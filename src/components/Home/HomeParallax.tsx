@@ -73,7 +73,7 @@ const HomeParallax = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   return (
-    <div ref={containerRef} className={homeClass.hero_images}>
+    <div ref={containerRef} className={homeClass.heroImages}>
       {children}
     </div>
   );

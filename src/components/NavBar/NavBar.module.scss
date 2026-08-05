@@ -7,7 +7,7 @@
   min-width: 0;
   container-type: inline-size;
 
-  &_list {
+  &List {
     @include flex-row-center-center;
     flex-wrap: nowrap;
     gap: clamp(0.45rem, 1vw, 1rem);
@@ -105,7 +105,7 @@
   }
 
   @include respond(lg) {
-    &_list {
+    &List {
       gap: 1rem;
     }
   }
@@ -113,14 +113,14 @@
   @include respond(md) {
     width: 100%;
 
-    &_list {
+    &List {
       justify-content: flex-start;
       gap: 0.75rem 1rem;
     }
   }
 
   @include cq-max(35rem) {
-    &_list {
+    &List {
       gap: 0.625rem 0.875rem;
     }
   }

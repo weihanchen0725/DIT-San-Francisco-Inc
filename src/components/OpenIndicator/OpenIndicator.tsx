@@ -155,7 +155,7 @@ const OpenIndicator = () => {
       {/* Main indicator button */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-[#111127] border border-gray-200 dark:border-brand-navy-light hover:border-brand-yellow dark:hover:border-brand-yellow transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer"
+        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-[#111127] border border-gray-200 dark:border-brand-navy-light hover:border-brand-yellow dark:hover:border-brand-yellow transition-[border-color,box-shadow] duration-200 shadow-sm hover:shadow-md cursor-pointer"
         aria-expanded={isExpanded}
         aria-haspopup="true"
       >

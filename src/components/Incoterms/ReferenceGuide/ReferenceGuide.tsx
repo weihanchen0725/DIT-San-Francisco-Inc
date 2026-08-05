@@ -100,7 +100,7 @@ const ReferenceGuide = () => {
 
     return (
       <span
-        className={referenceClass['mode-icon-wrapper']}
+        className={referenceClass['modeIconWrapper']}
         data-mode-label={label}
         title={label}
         role="img"
@@ -129,23 +129,23 @@ const ReferenceGuide = () => {
         </div>
       </div>
       <div className={referenceClass['content']}>
-        <div className={referenceClass['table-header']}>
+        <div className={referenceClass['tableHeader']}>
           {tableHeaders.map((header, index) => (
             <span
               key={`${header.id}-${index}`}
-              className={referenceClass['table-header-item'] + ' ' + referenceClass[header.id]}
+              className={referenceClass['tableHeaderItem'] + ' ' + referenceClass[header.id]}
             >
               {header.label}
             </span>
           ))}
         </div>
-        <div className={referenceClass['table-body']}>
+        <div className={referenceClass['tableBody']}>
           {REFERENCE_GUIDE_TABLE_DATA.map((row) => (
-            <div key={row.id} className={referenceClass['table-row']}>
+            <div key={row.id} className={referenceClass['tableRow']}>
               <span className={referenceClass['code']}>{row.code}</span>
-              <div className={referenceClass['code-name']}>
-                <span className={referenceClass['code-name-text']}>{t(`${row.code}_name`)}</span>
-                <span className={referenceClass['use-case-text']}>{t(`${row.code}_use_case`)}</span>
+              <div className={referenceClass['codeName']}>
+                <span className={referenceClass['codeNameText']}>{t(`${row.code}_name`)}</span>
+                <span className={referenceClass['useCaseText']}>{t(`${row.code}_use_case`)}</span>
               </div>
               <span className={referenceClass['mode']}>{getModeIcon(row?.mode)}</span>
               <div className={referenceClass['responsibilities']}>
@@ -155,22 +155,22 @@ const ReferenceGuide = () => {
                     icon={STEP_ICONS[i].component}
                     size={48}
                     tooltip={t(STEP_ICONS[i].tooltipKey)}
-                    className={referenceClass[owner === 'seller' ? 'icon-seller' : 'icon-buyer']}
+                    className={referenceClass[owner === 'seller' ? 'iconSeller' : 'iconBuyer']}
                   />
                 ))}
                 <progress
                   value={row.responsibilities?.seller ?? 0}
                   max={1}
-                  className={referenceClass['responsibility-bar']}
+                  className={referenceClass['responsibilityBar']}
                 ></progress>
-                <span className={referenceClass['responsibility-seller']}>{t('label_seller')}</span>
-                <span className={referenceClass['responsibility-percentages']}>
+                <span className={referenceClass['responsibilitySeller']}>{t('label_seller')}</span>
+                <span className={referenceClass['responsibilityPercentages']}>
                   {getResponsibilityPercentages(
                     row.responsibilities?.seller ?? 0,
                     row.responsibilities?.buyer ?? 0
                   )}
                 </span>
-                <span className={referenceClass['responsibility-buyer']}>{t('label_buyer')}</span>
+                <span className={referenceClass['responsibilityBuyer']}>{t('label_buyer')}</span>
               </div>
               <span className={referenceClass['risk']}>{t(`${row.code}_risk`)}</span>
             </div>

@@ -10,7 +10,7 @@
     border-color 0.2s ease,
     color 0.2s ease;
 
-  & .social_icons {
+  & .socialIcons {
     color: currentColor;
   }
 }
@@ -74,7 +74,7 @@
   align-items: center;
   margin-top: 0.75rem;
   padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-sm);
   background-color: $primary-color;
   color: var(--color-on-accent);
   font-size: 0.85rem;

@@ -17,10 +17,12 @@ const Home = async () => {
       {/* Hero Section */}
       <div className={homeClass.hero}>
         {/* Left — text content */}
-        <div className={homeClass.hero_content}>
-          <h1 className={homeClass.hero_title}>
+        <div className={homeClass.heroContent}>
+          <h1 className={homeClass.heroTitle}>
             {translateHome('headline')}{' '}
-            <span className={homeClass.hero_title_1}>{translateHome('headline_location')}</span>
+            <span className={homeClass.heroTitleLocation}>
+              {translateHome('headline_location')}
+            </span>
           </h1>
           <p>{translateHome('description')}</p>
 

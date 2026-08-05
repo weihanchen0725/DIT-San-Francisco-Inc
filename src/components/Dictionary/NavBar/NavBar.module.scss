@@ -9,11 +9,11 @@
   padding: 1rem 2rem;
   width: 100%;
   background-color: $background-color;
-  border-radius: 1.25rem;
+  border-radius: var(--radius-md);
 
   & a {
     padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
+    border-radius: var(--radius-xs);
     text-decoration: none;
     color: $secondary-color;
 

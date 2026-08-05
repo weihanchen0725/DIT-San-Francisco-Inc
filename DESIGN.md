@@ -27,7 +27,7 @@ Canonical CSS variables live in [`src/assets/styles/_variables.scss`](src/assets
 | `--color-primary-light`  | `#fff3b3` | Icon washes, soft fills             |
 | `--color-primary-dark`   | `#b38f00` | Emphasized yellow text/edges        |
 | `--color-text-primary`   | `#000a3c` | Navy body/headings                  |
-| `--color-text-secondary` | `#667085` | Supporting copy                     |
+| `--color-text-secondary` | `#596273` | Supporting copy                     |
 | `--color-text-light`     | `#ffffff` | Text on dark/yellow surfaces        |
 | `--color-accent-text`    | `#806600` | Inline accent words                 |
 | `--color-bg-primary`     | `#ffffff` | Page/panel                          |
@@ -77,14 +77,15 @@ Canonical CSS variables live in [`src/assets/styles/_variables.scss`](src/assets
 
 ## 3. Radius
 
-| Token           | Value    | Use                                |
-| --------------- | -------- | ---------------------------------- |
-| `--radius-sm`   | `0.5rem` | Buttons, compact chips, fact tiles |
-| `--radius-md`   | `1rem`   | **Default cards**                  |
-| `--radius-lg`   | `1.5rem` | Large panels only when needed      |
-| `--radius-full` | `9999px` | Pills, icon circles                |
+| Token           | Value     | Use                                |
+| --------------- | --------- | ---------------------------------- |
+| `--radius-xs`   | `0.25rem` | Dense tool controls                |
+| `--radius-sm`   | `0.5rem`  | Buttons, compact chips, fact tiles |
+| `--radius-md`   | `1rem`    | **Default cards**                  |
+| `--radius-lg`   | `1.5rem`  | Large panels only when needed      |
+| `--radius-full` | `9999px`  | Pills, icon circles                |
 
-Do not hardcode `border-radius: 1rem` / `9999px` in components — use tokens.
+Do not hardcode non-zero `border-radius` values in components — use tokens. Third-party map chrome is exempt because it follows Leaflet's geometry.
 
 ---
 
@@ -128,14 +129,14 @@ Shared SCSS: [`src/assets/styles/_mixin.scss`](src/assets/styles/_mixin.scss)
 ```scss
 .section {
   @include page-section;
+}
 
-  &_title {
-    @include section-heading;
-  }
+.sectionTitle {
+  @include section-heading;
+}
 
-  &_description {
-    @include section-description;
-  }
+.sectionDescription {
+  @include section-description;
 }
 ```
 
@@ -146,20 +147,20 @@ Shared SCSS: [`src/assets/styles/_mixin.scss`](src/assets/styles/_mixin.scss)
   @include card-surface; // static chrome
   @include card-interactive; // lift + border + shadow-hover
   // child selector is the composed local class name (no leading &)
-  @include icon-interactive-on-parent-hover('.card_iconWrapper');
+  @include icon-interactive-on-parent-hover('.iconWrapper');
+}
 
-  &_iconWrapper {
-    @include icon-circle;
-    // local margin only
-  }
+.iconWrapper {
+  @include icon-circle;
+  // local margin only
+}
 
-  &_title {
-    @include card-title;
-  }
+.cardTitle {
+  @include card-title;
+}
 
-  &_description {
-    @include card-description;
-  }
+.cardDescription {
+  @include card-description;
 }
 ```
 
@@ -240,20 +241,32 @@ Rules:
 
 ---
 
-## 11. Contribution checklist
+## 11. Naming conventions
+
+- CSS Module classes use semantic lower camelCase: `.cardTitle`, `.iconWrapper`, `.isSelected`.
+- Prefer concise local names (`.root`, `.title`, `.description`) because CSS Modules already provide component scope. Prefix only when it adds meaning.
+- State classes start with `is` or `has`; behavior and layout state should prefer `data-*` attributes.
+- Sass variables and mixins use kebab-case. CSS custom properties use kebab-case with a domain prefix (`--color-*`, `--shadow-*`).
+- Third-party selectors remain inside `:global(...)` and keep the provider's naming.
+- Tailwind utility names remain unchanged.
+- Run `npm run lint:styles` after editing module styles. The normal `npm run lint` command includes this check.
+
+---
+
+## 12. Contribution checklist
 
 Before adding UI:
 
 1. Can an existing token express color/type/radius/shadow?
 2. Can `page-section` / `card-surface` + `card-interactive` / `icon-circle` express the layout?
 3. If not, extend the **token or mixin** first, then consume it — do not fork a one-off hover recipe.
-4. Keep SCSS nesting shallow; BEM-ish `block_element` matches existing modules.
+4. Keep SCSS nesting shallow and use semantic lower camelCase CSS Module classes.
 5. Light + dark both checked for contrast and border visibility.
 6. No new design dependencies without approval.
 
 ---
 
-## 12. Out of scope (later tracks)
+## 13. Out of scope (later tracks)
 
 - Homepage CRO / layout variety (Track B)
 - SEO structured data / GEO (Track C)

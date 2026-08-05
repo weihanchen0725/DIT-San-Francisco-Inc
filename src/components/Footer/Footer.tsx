@@ -111,7 +111,7 @@ const Footer = () => {
               className={footerClass.socialLink}
               aria-label="LinkedIn"
             >
-              <Linkedin className={footerClass.social_icons} width={24} />
+              <Linkedin className={footerClass.socialIcons} width={24} />
             </a>
           </div>
         </div>

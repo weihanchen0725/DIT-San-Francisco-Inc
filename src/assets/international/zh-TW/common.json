@@ -45,7 +45,7 @@
     "Name": "DIT San Francisco Inc."
   },
   "Home": {
-    "headline": "從加州 Fremont 出發的",
+    "headline": "從舊金山出發的",
     "headline_location": "國際貨運代理服務",
     "description": "由在地團隊為您提供貨運規劃、運輸協調與支援，連結灣區與全球貿易航線。",
     "contact": "申請貨運報價"
@@ -201,7 +201,7 @@
     "optional_tag": "(選填)"
   },
   "Header": {
-    "location": "加州 Fremont",
+    "location": "舊金山",
     "alternativeText": "DIT舊金山標誌",
     "open_menu": "開啟選單",
     "close_menu": "關閉選單"

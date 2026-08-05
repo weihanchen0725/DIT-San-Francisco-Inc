@@ -34,23 +34,23 @@ const About = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
   return (
     <section
       id="about"
-      className={aboutClass.About}
+      className={aboutClass.about}
       aria-labelledby="about-title"
       data-scroll-reveal=""
     >
-      <div className={aboutClass.About_intro}>
-        <SectionHeading level={headingLevel} className={aboutClass.About_title}>
+      <div className={aboutClass.aboutIntro}>
+        <SectionHeading level={headingLevel} className={aboutClass.aboutTitle}>
           <span id="about-title">{translateAbout('title')}</span>
         </SectionHeading>
-        <p className={aboutClass.About_description}>{translateAbout('description')}</p>
+        <p className={aboutClass.aboutDescription}>{translateAbout('description')}</p>
       </div>
 
-      <div className={aboutClass.About_verification}>
-        <dl className={aboutClass.About_facts}>
+      <div className={aboutClass.aboutVerification}>
+        <dl className={aboutClass.aboutFacts}>
           {facts.map(({ label, value, icon: Icon, href }, index) => (
             <div
               key={label}
-              className={aboutClass.About_fact}
+              className={aboutClass.aboutFact}
               data-scroll-reveal-item=""
               style={{ '--scroll-item-index': index } as React.CSSProperties}
             >
@@ -68,7 +68,7 @@ const About = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
             </div>
           ))}
           <div
-            className={aboutClass.About_fact}
+            className={aboutClass.aboutFact}
             data-scroll-reveal-item=""
             style={{ '--scroll-item-index': facts.length } as React.CSSProperties}
           >

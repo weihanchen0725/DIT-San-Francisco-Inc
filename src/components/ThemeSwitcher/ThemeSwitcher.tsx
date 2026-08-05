@@ -28,8 +28,8 @@ const ThemeSwitcher = ({ styleMode = 'row' }: ThemeSwitcherProps) => {
   // Don't render theme-dependent UI until mounted
   if (!mounted) {
     return (
-      <div className={themeSwitcherClass.themeSwitcher_skeleton}>
-        <div className={themeSwitcherClass.themeSwitcher_knob} />
+      <div className={themeSwitcherClass.themeSwitcherSkeleton}>
+        <div className={themeSwitcherClass.themeSwitcherKnob} />
       </div>
     );
   }
@@ -42,55 +42,55 @@ const ThemeSwitcher = ({ styleMode = 'row' }: ThemeSwitcherProps) => {
         <button
           onClick={toggleTheme}
           className={`${themeSwitcherClass.themeSwitcher} ${
-            isDark ? themeSwitcherClass.themeSwitcher_dark : ''
+            isDark ? themeSwitcherClass.themeSwitcherDark : ''
           }`}
           aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
           role="switch"
           aria-checked={isDark}
         >
           {/* Icons on the track */}
-          <Sun className={themeSwitcherClass.themeSwitcher_trackIconSun} />
-          <Moon className={themeSwitcherClass.themeSwitcher_trackIconMoon} />
+          <Sun className={themeSwitcherClass.themeSwitcherTrackIconSun} />
+          <Moon className={themeSwitcherClass.themeSwitcherTrackIconMoon} />
 
           {/* Toggle knob */}
           <div
-            className={`${themeSwitcherClass.themeSwitcher_knob} ${
-              isDark ? themeSwitcherClass.themeSwitcher_knobDark : ''
+            className={`${themeSwitcherClass.themeSwitcherKnob} ${
+              isDark ? themeSwitcherClass.themeSwitcherKnobDark : ''
             }`}
           >
             {isDark ? (
-              <Moon className={themeSwitcherClass.themeSwitcher_knobIconDark} />
+              <Moon className={themeSwitcherClass.themeSwitcherKnobIconDark} />
             ) : (
-              <Sun className={themeSwitcherClass.themeSwitcher_knobIconLight} />
+              <Sun className={themeSwitcherClass.themeSwitcherKnobIconLight} />
             )}
           </div>
         </button>
       ) : (
-        <div className={themeSwitcherClass.themeSwitcher_columnMode}>
+        <div className={themeSwitcherClass.themeSwitcherColumnMode}>
           <span>{themeTranslate('caption')}</span>
           <button
             onClick={toggleTheme}
             className={`${themeSwitcherClass.themeSwitcher} ${
-              isDark ? themeSwitcherClass.themeSwitcher_dark : ''
+              isDark ? themeSwitcherClass.themeSwitcherDark : ''
             }`}
             aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
             role="switch"
             aria-checked={isDark}
           >
             {/* Icons on the track */}
-            <Sun className={themeSwitcherClass.themeSwitcher_trackIconSun} />
-            <Moon className={themeSwitcherClass.themeSwitcher_trackIconMoon} />
+            <Sun className={themeSwitcherClass.themeSwitcherTrackIconSun} />
+            <Moon className={themeSwitcherClass.themeSwitcherTrackIconMoon} />
 
             {/* Toggle knob */}
             <div
-              className={`${themeSwitcherClass.themeSwitcher_knob} ${
-                isDark ? themeSwitcherClass.themeSwitcher_knobDark : ''
+              className={`${themeSwitcherClass.themeSwitcherKnob} ${
+                isDark ? themeSwitcherClass.themeSwitcherKnobDark : ''
               }`}
             >
               {isDark ? (
-                <Moon className={themeSwitcherClass.themeSwitcher_knobIconDark} />
+                <Moon className={themeSwitcherClass.themeSwitcherKnobIconDark} />
               ) : (
-                <Sun className={themeSwitcherClass.themeSwitcher_knobIconLight} />
+                <Sun className={themeSwitcherClass.themeSwitcherKnobIconLight} />
               )}
             </div>
           </button>

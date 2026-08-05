@@ -55,7 +55,7 @@ const NavBar = ({
 
   return (
     <nav className={navClass.nav} aria-label={ariaLabel}>
-      <ul className={`${navClass.nav_list} ${navClass[styleMode]}`} data-style-mode={styleMode}>
+      <ul className={`${navClass.navList} ${navClass[styleMode]}`} data-style-mode={styleMode}>
         {visibleItems.map((item: LinkProps, index: number) => (
           <li
             key={item?.id ?? startIndex + index}

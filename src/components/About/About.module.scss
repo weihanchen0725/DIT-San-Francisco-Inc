@@ -1,43 +1,43 @@
 @use '@/assets/styles/variables.scss' as *;
 @use '@/assets/styles/mixin' as *;
 
-.About {
+.about {
   @include page-section;
 
-  &_intro,
-  &_verification {
+  &Intro,
+  &Verification {
     width: 100%;
   }
 
-  &_intro {
+  &Intro {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
   }
 
-  &_title {
+  &Title {
     @include section-heading;
     margin: 0;
   }
 
-  &_description {
+  &Description {
     @include section-description($max-width: 48rem);
     max-width: none;
     margin-top: 0;
   }
 
-  &_verification {
+  &Verification {
     margin-top: clamp(2rem, 5vw, 4rem);
   }
 
-  &_facts {
+  &Facts {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
     margin: 0;
   }
 
-  &_fact {
+  &Fact {
     display: grid;
     min-width: 0;
     min-height: 9rem;
@@ -80,13 +80,13 @@
 }
 
 @media (max-width: 64rem) {
-  .About_facts {
+  .aboutFacts {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 36rem) {
-  .About_facts {
+  .aboutFacts {
     grid-template-columns: 1fr;
   }
 }

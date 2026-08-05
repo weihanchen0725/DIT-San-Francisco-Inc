@@ -37,7 +37,7 @@ const Features = (featureProp: FeaturesProps) => {
 
   const content = (
     <>
-      <div className={featuresClass['icon-wrapper']}>{icon}</div>
+      <div className={featuresClass['iconWrapper']}>{icon}</div>
       <SectionHeading level={titleLevel} className={featuresClass['title']}>
         {title}
       </SectionHeading>

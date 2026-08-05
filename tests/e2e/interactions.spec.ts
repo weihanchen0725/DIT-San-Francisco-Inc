@@ -53,6 +53,19 @@ test('homepage header actions distinguish shipment tracking from freight quotes'
   );
 });
 
+test('homepage header actions retain their button treatments', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/en');
+
+  const header = page.getByRole('banner');
+  const tracking = header.getByRole('link', { name: 'Track a Shipment', exact: true });
+  const quote = header.getByRole('link', { name: 'Request a Freight Quote', exact: true });
+
+  await expect(tracking).toHaveCSS('background-color', 'rgb(0, 10, 60)');
+  await expect(tracking).toHaveCSS('color', 'rgb(255, 204, 0)');
+  await expect(quote).toHaveCSS('border-top-color', 'rgb(0, 10, 60)');
+});
+
 test('subpage header section links return to localized homepage sections', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto('/zh-TW/services');

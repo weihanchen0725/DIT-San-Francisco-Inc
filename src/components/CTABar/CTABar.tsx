@@ -40,7 +40,7 @@ const CTABar = ({ styleMode = 'row', ctaLinks: ctaLinksProp }: CTAProps) => {
       return (
         <li key={`cta-item-${cta?.id || index}`}>
           <a
-            className={`${ctaClass?.ctaBar_button} ${isPrimary ? ctaClass?.ctaBar_button_primary : ctaClass?.ctaBar_button_secondary} ${cta?.isEnabled === false ? ctaClass?.ctaBar_button_disabled : ''}`}
+            className={`${ctaClass.ctaBarButton} ${isPrimary ? ctaClass.ctaBarButtonPrimary : ctaClass.ctaBarButtonSecondary}`}
             href={getHref(cta)}
             aria-disabled={cta?.isEnabled === false}
             target={cta?.isExternal ? '_blank' : '_self'}
@@ -55,14 +55,12 @@ const CTABar = ({ styleMode = 'row', ctaLinks: ctaLinksProp }: CTAProps) => {
   return (
     <React.Fragment>
       {styleMode === 'row' ? (
-        <div className={ctaClass?.ctaBar}>
-          <ul className={ctaClass?.ctaBar_list}>{renderLinks()}</ul>
+        <div className={ctaClass.ctaBar}>
+          <ul className={ctaClass.ctaBarList}>{renderLinks()}</ul>
         </div>
       ) : (
-        <div className={`${ctaClass?.ctaBar}`}>
-          <ul className={`${ctaClass?.ctaBar_list} ${ctaClass?.ctaBar_list_column}`}>
-            {renderLinks()}
-          </ul>
+        <div className={ctaClass.ctaBar}>
+          <ul className={`${ctaClass.ctaBarList} ${ctaClass.ctaBarListColumn}`}>{renderLinks()}</ul>
         </div>
       )}
     </React.Fragment>

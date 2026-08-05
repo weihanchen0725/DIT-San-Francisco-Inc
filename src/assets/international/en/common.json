@@ -46,7 +46,7 @@
   },
   "Home": {
     "headline": "International freight forwarding from",
-    "headline_location": "Fremont, California",
+    "headline_location": "San Francisco",
     "description": "Work with a local team for shipment planning, freight coordination, and support across the Bay Area and global trade lanes.",
     "contact": "Request a Freight Quote"
   },
@@ -157,7 +157,7 @@
     "cbm_label": "Cubic Meters (CBM)"
   },
   "Header": {
-    "location": "Fremont, CA",
+    "location": "San Francisco",
     "alternativeText": "DIT San Francisco Inc. Logo",
     "open_menu": "Open menu",
     "close_menu": "Close menu"

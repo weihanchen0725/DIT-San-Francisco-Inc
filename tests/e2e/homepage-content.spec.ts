@@ -82,6 +82,35 @@ test('hero omits the duplicate verified proof strip', async ({ page }) => {
   await expect(page.getByTestId('hero-proof-strip')).toHaveCount(0);
 });
 
+test('header and hero use the San Francisco brand location with a yellow hero accent', async ({
+  page,
+}) => {
+  await page.goto('/en');
+
+  const header = page.getByRole('banner');
+  await expect(header.getByText('(San Francisco)', { exact: true })).toBeVisible();
+
+  const heading = page.getByRole('heading', {
+    name: 'International freight forwarding from San Francisco',
+    exact: true,
+  });
+  const location = heading.getByText('San Francisco', { exact: true });
+
+  await expect(heading).toBeVisible();
+  await expect(location).toHaveCSS('color', 'rgb(255, 204, 0)');
+
+  await page.goto('/zh-TW');
+
+  const zhHeader = page.getByRole('banner');
+  await expect(zhHeader.getByText('(舊金山)', { exact: true })).toBeVisible();
+  await expect(
+    page.getByRole('heading', {
+      name: '從舊金山出發的 國際貨運代理服務',
+      exact: true,
+    })
+  ).toBeVisible();
+});
+
 test('services cards explain who each service is for and what to share for a quote', async ({
   page,
 }) => {
@@ -131,6 +160,15 @@ test('contact form placeholders are visually lighter than entered text in each t
   expect(light.placeholder).not.toBe(light.text);
   expect(dark.placeholder).not.toBe(dark.text);
   expect(light.placeholder).not.toBe(dark.placeholder);
+});
+
+test('dictionary category chips retain their taxonomy colors', async ({ page }) => {
+  await page.goto('/en/tools/dictionary');
+
+  const category = page.getByText('Customs & Compliance', { exact: true }).first();
+  await expect(category).toBeVisible();
+  await expect(category).toHaveCSS('background-color', 'rgb(237, 233, 254)');
+  await expect(category).toHaveCSS('border-color', 'rgb(196, 181, 253)');
 });
 
 test('marketing sections defer off-screen rendering and stagger their entrance', async ({

@@ -260,35 +260,35 @@ const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) =
   return (
     <header
       ref={headerRef}
-      className={`${headerClass.header} ${isMenuOpen ? headerClass.header_menuOpen : ''}`}
+      className={`${headerClass.header} ${isMenuOpen ? headerClass.headerMenuOpen : ''}`}
     >
       {/* Brand — always visible (name hides at very narrow widths via CSS) */}
-      <div className={headerClass.header_content}>
+      <div className={headerClass.headerContent}>
         {/* Two images rendered; CSS toggles visibility based on .dark on <html> */}
         <Image
           src={logoUrl}
           alt={translateHeader(headerData.Logo?.image?.alternativeText ?? '')}
-          className={`${headerClass.header_logo} ${headerClass.header_logo_light}`}
+          className={`${headerClass.headerLogo} ${headerClass.headerLogoLight}`}
           sizes="125px"
         />
         <Image
           src={darkLogoUrl}
           alt={translateHeader(headerData.Logo?.image?.alternativeText ?? '')}
-          className={`${headerClass.header_logo} ${headerClass.header_logo_dark}`}
+          className={`${headerClass.headerLogo} ${headerClass.headerLogoDark}`}
           aria-hidden="true"
           sizes="125px"
         />
-        <span className={headerClass.header_name}>({translateHeader(headerData?.Name ?? '')})</span>
+        <span className={headerClass.headerName}>({translateHeader(headerData?.Name ?? '')})</span>
       </div>
 
       {inlineNavCount > 0 ? (
-        <div className={headerClass.header_nav}>
+        <div className={headerClass.headerNav}>
           <NavBar endIndex={inlineNavCount} ariaLabel={translateNavBar('primary_navigation')} />
         </div>
       ) : null}
 
       {showInlineContact ? (
-        <div className={headerClass.header_contact}>
+        <div className={headerClass.headerContact}>
           <CTABar ctaLinks={headerData?.CTA} />
           <ThemeSwitcher />
           <LanguageSwitcher />
@@ -297,12 +297,12 @@ const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) =
 
       {hasMenu ? (
         <div
-          className={`${headerClass.header_menuButtonWrapper} ${inlineNavCount === 0 ? headerClass.narrow : ''}`}
+          className={`${headerClass.headerMenuButtonWrapper} ${inlineNavCount === 0 ? headerClass.narrow : ''}`}
         >
           <button
             ref={menuButtonRef}
             type="button"
-            className={headerClass.header_menuButton}
+            className={headerClass.headerMenuButton}
             onClick={() => setIsMenuOpen((prev) => !prev)}
             aria-expanded={isMenuOpen}
             aria-controls={menuPanelId}
@@ -318,14 +318,14 @@ const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) =
         <div
           ref={menuPanelRef}
           id={menuPanelId}
-          className={`${headerClass.header_menuPanel} ${headerClass.header_menuPanelOpen}`}
+          className={`${headerClass.headerMenuPanel} ${headerClass.headerMenuPanelOpen}`}
           onClickCapture={(event) => {
             if (!(event.target as HTMLElement).closest('a')) return;
             setIsMenuOpen(false);
           }}
         >
           {hasOverflowNavigation ? (
-            <div className={headerClass.header_menuPanelNav}>
+            <div className={headerClass.headerMenuPanelNav}>
               <NavBar
                 styleMode="column"
                 startIndex={inlineNavCount}
@@ -336,7 +336,7 @@ const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) =
             </div>
           ) : null}
           {!showInlineContact ? (
-            <div className={headerClass.header_menuPanelContact}>
+            <div className={headerClass.headerMenuPanelContact}>
               <CTABar ctaLinks={headerData?.CTA} styleMode="column" />
               <ThemeSwitcher styleMode="column" />
               <LanguageSwitcher styleMode="column" />

@@ -7,7 +7,7 @@
   height: 2rem;
   padding: 0.25rem;
   border: 0;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   background-color: color-mix(in srgb, $secondary-color-light 28%, transparent);
   cursor: pointer;
   transition: background-color 300ms ease;
@@ -17,21 +17,21 @@
     outline-offset: 2px;
   }
 
-  &_dark {
+  &Dark {
     background-color: $secondary-color;
   }
 
-  &_skeleton {
+  &Skeleton {
     position: relative;
     width: 4rem;
     height: 2rem;
     padding: 0.25rem;
-    border-radius: 9999px;
+    border-radius: var(--radius-full);
     background-color: color-mix(in srgb, $secondary-color-light 28%, transparent);
   }
 
-  &_trackIconSun,
-  &_trackIconMoon {
+  &TrackIconSun,
+  &TrackIconMoon {
     position: absolute;
     top: 50%;
     width: 1rem;
@@ -40,12 +40,12 @@
     pointer-events: none;
   }
 
-  &_trackIconSun {
+  &TrackIconSun {
     left: 0.375rem;
     color: $primary-color;
   }
 
-  &_trackIconMoon {
+  &TrackIconMoon {
     right: 0.375rem;
     color: $secondary-color-light;
 
@@ -54,11 +54,11 @@
     }
   }
 
-  &_knob {
+  &Knob {
     @include flex-row-center-center;
     width: 1.5rem;
     height: 1.5rem;
-    border-radius: 9999px;
+    border-radius: var(--radius-full);
     background-color: var(--color-bg-primary);
     box-shadow: 0 0.125rem 0.5rem color-mix(in srgb, $secondary-color 25%, transparent);
     transform: translateX(0);
@@ -69,25 +69,25 @@
     }
   }
 
-  &_knobDark {
+  &KnobDark {
     transform: translateX(2rem);
   }
 
-  &_knobIconLight,
-  &_knobIconDark {
+  &KnobIconLight,
+  &KnobIconDark {
     width: 1rem;
     height: 1rem;
   }
 
-  &_knobIconLight {
+  &KnobIconLight {
     color: $primary-color;
   }
 
-  &_knobIconDark {
+  &KnobIconDark {
     color: $secondary-color;
   }
 
-  &_columnMode {
+  &ColumnMode {
     @include flex-row-between-center;
   }
 }

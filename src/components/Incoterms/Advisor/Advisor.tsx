@@ -155,7 +155,7 @@ const Advisor = () => {
 
   return (
     <section className={advisorClass['container']}>
-      <div className={advisorClass['questions-column']}>
+      <div className={advisorClass['questionsColumn']}>
         {step === 1 && (
           <>
             {/* Header */}
@@ -167,84 +167,84 @@ const Advisor = () => {
             <div className={advisorClass['questions']}>
               {/* Q1: Role Selection */}
               <section className={advisorClass['question']}>
-                <p className={advisorClass['question-label']}>{t('advisor_q1_label')}</p>
-                <h2 id="advisor-role-question" className={advisorClass['question-title']}>
+                <p className={advisorClass['questionLabel']}>{t('advisor_q1_label')}</p>
+                <h2 id="advisor-role-question" className={advisorClass['questionTitle']}>
                   {t('advisor_q1_title')}
                 </h2>
                 <div
-                  className={advisorClass['grid-2']}
+                  className={advisorClass['grid2']}
                   role="group"
                   aria-labelledby="advisor-role-question"
                 >
                   <button
                     type="button"
                     aria-pressed={role === 'seller'}
-                    className={`${advisorClass['role-card']} ${role === 'seller' ? advisorClass['selected'] : ''}`}
+                    className={`${advisorClass['roleCard']} ${role === 'seller' ? advisorClass['selected'] : ''}`}
                     onClick={() => {
                       setRole('seller');
                       setStepOneError(false);
                     }}
                   >
                     {role === 'seller' && (
-                      <div className={advisorClass['check-icon']}>
+                      <div className={advisorClass['checkIcon']}>
                         <CheckCircle2 />
                       </div>
                     )}
-                    <Factory className={advisorClass['card-icon']} />
-                    <p className={advisorClass['card-title']}>{t('advisor_q1_seller_title')}</p>
-                    <p className={advisorClass['card-desc']}>{t('advisor_q1_seller_desc')}</p>
+                    <Factory className={advisorClass['cardIcon']} />
+                    <p className={advisorClass['cardTitle']}>{t('advisor_q1_seller_title')}</p>
+                    <p className={advisorClass['cardDesc']}>{t('advisor_q1_seller_desc')}</p>
                   </button>
                   <button
                     type="button"
                     aria-pressed={role === 'buyer'}
-                    className={`${advisorClass['role-card']} ${role === 'buyer' ? advisorClass['selected'] : ''}`}
+                    className={`${advisorClass['roleCard']} ${role === 'buyer' ? advisorClass['selected'] : ''}`}
                     onClick={() => {
                       setRole('buyer');
                       setStepOneError(false);
                     }}
                   >
                     {role === 'buyer' && (
-                      <div className={advisorClass['check-icon']}>
+                      <div className={advisorClass['checkIcon']}>
                         <CheckCircle2 />
                       </div>
                     )}
-                    <ShoppingCart className={advisorClass['card-icon']} />
-                    <p className={advisorClass['card-title']}>{t('advisor_q1_buyer_title')}</p>
-                    <p className={advisorClass['card-desc']}>{t('advisor_q1_buyer_desc')}</p>
+                    <ShoppingCart className={advisorClass['cardIcon']} />
+                    <p className={advisorClass['cardTitle']}>{t('advisor_q1_buyer_title')}</p>
+                    <p className={advisorClass['cardDesc']}>{t('advisor_q1_buyer_desc')}</p>
                   </button>
                 </div>
               </section>
 
               {/* Q2: Scope Selection */}
               <section className={advisorClass['question']}>
-                <p className={advisorClass['question-label']}>{t('advisor_q2_label')}</p>
-                <h2 id="advisor-scope-question" className={advisorClass['question-title']}>
+                <p className={advisorClass['questionLabel']}>{t('advisor_q2_label')}</p>
+                <h2 id="advisor-scope-question" className={advisorClass['questionTitle']}>
                   {t('advisor_q2_title')}
                 </h2>
                 <div
-                  className={advisorClass['scope-grid']}
+                  className={advisorClass['scopeGrid']}
                   role="group"
                   aria-labelledby="advisor-scope-question"
                 >
                   <button
                     type="button"
                     aria-pressed={scope === 'international'}
-                    className={`${advisorClass['scope-card']} ${scope === 'international' ? advisorClass['selected'] : ''}`}
+                    className={`${advisorClass['scopeCard']} ${scope === 'international' ? advisorClass['selected'] : ''}`}
                     onClick={() => {
                       setScope('international');
                       setStepOneError(false);
                     }}
                   >
                     <div
-                      className={`${advisorClass['scope-icon-wrap']} ${scope === 'international' ? advisorClass['icon-active'] : ''}`}
+                      className={`${advisorClass['scopeIconWrap']} ${scope === 'international' ? advisorClass['iconActive'] : ''}`}
                     >
                       <Globe />
                     </div>
-                    <div className={advisorClass['scope-text']}>
-                      <p className={advisorClass['card-title']}>
+                    <div className={advisorClass['scopeText']}>
+                      <p className={advisorClass['cardTitle']}>
                         {t('advisor_q2_international_title')}
                       </p>
-                      <p className={advisorClass['card-desc']}>
+                      <p className={advisorClass['cardDesc']}>
                         {t('advisor_q2_international_desc')}
                       </p>
                     </div>
@@ -252,20 +252,20 @@ const Advisor = () => {
                   <button
                     type="button"
                     aria-pressed={scope === 'domestic'}
-                    className={`${advisorClass['scope-card']} ${scope === 'domestic' ? advisorClass['selected'] : ''}`}
+                    className={`${advisorClass['scopeCard']} ${scope === 'domestic' ? advisorClass['selected'] : ''}`}
                     onClick={() => {
                       setScope('domestic');
                       setStepOneError(false);
                     }}
                   >
                     <div
-                      className={`${advisorClass['scope-icon-wrap']} ${scope === 'domestic' ? advisorClass['icon-active'] : ''}`}
+                      className={`${advisorClass['scopeIconWrap']} ${scope === 'domestic' ? advisorClass['iconActive'] : ''}`}
                     >
                       <MapPin />
                     </div>
-                    <div className={advisorClass['scope-text']}>
-                      <p className={advisorClass['card-title']}>{t('advisor_q2_domestic_title')}</p>
-                      <p className={advisorClass['card-desc']}>{t('advisor_q2_domestic_desc')}</p>
+                    <div className={advisorClass['scopeText']}>
+                      <p className={advisorClass['cardTitle']}>{t('advisor_q2_domestic_title')}</p>
+                      <p className={advisorClass['cardDesc']}>{t('advisor_q2_domestic_desc')}</p>
                     </div>
                   </button>
                 </div>
@@ -273,12 +273,12 @@ const Advisor = () => {
 
               {/* Q3: Goal Selection */}
               <section className={advisorClass['question']}>
-                <p className={advisorClass['question-label']}>{t('advisor_q3_label')}</p>
-                <h2 id="advisor-goal-question" className={advisorClass['question-title']}>
+                <p className={advisorClass['questionLabel']}>{t('advisor_q3_label')}</p>
+                <h2 id="advisor-goal-question" className={advisorClass['questionTitle']}>
                   {t('advisor_q3_title')}
                 </h2>
                 <div
-                  className={advisorClass['goal-grid']}
+                  className={advisorClass['goalGrid']}
                   role="group"
                   aria-labelledby="advisor-goal-question"
                 >
@@ -287,14 +287,14 @@ const Advisor = () => {
                       type="button"
                       aria-pressed={goal === value}
                       key={value}
-                      className={`${advisorClass['goal-card']} ${goal === value ? advisorClass['selected'] : ''}`}
+                      className={`${advisorClass['goalCard']} ${goal === value ? advisorClass['selected'] : ''}`}
                       onClick={() => {
                         setGoal(value);
                         setStepOneError(false);
                       }}
                     >
-                      <AdvisorIcon name={icon} className={advisorClass['goal-icon']} />
-                      <span className={advisorClass['goal-label']}>{t(labelKey)}</span>
+                      <AdvisorIcon name={icon} className={advisorClass['goalIcon']} />
+                      <span className={advisorClass['goalLabel']}>{t(labelKey)}</span>
                     </button>
                   ))}
                 </div>
@@ -304,13 +304,13 @@ const Advisor = () => {
             {/* Footer */}
             <div className={advisorClass['footer']}>
               {stepOneError && (
-                <p className={advisorClass['validation-error']} role="alert">
+                <p className={advisorClass['validationError']} role="alert">
                   {t('advisor_required_error')}
                 </p>
               )}
               <button
                 type="button"
-                className={advisorClass['continue-btn']}
+                className={advisorClass['continueBtn']}
                 onClick={handleContinue}
                 disabled={!canContinue}
               >
@@ -324,21 +324,21 @@ const Advisor = () => {
         {step === 2 && (
           <>
             {/* Step 2 Header */}
-            <section className={advisorClass['s2-header']}>
-              <span className={advisorClass['s2-badge']}>{t('advisor_s2_badge')}</span>
+            <section className={advisorClass['s2Header']}>
+              <span className={advisorClass['s2Badge']}>{t('advisor_s2_badge')}</span>
               <h1>{t('advisor_s2_title')}</h1>
               <p>{t('advisor_s2_description')}</p>
             </section>
 
-            <div className={advisorClass['s2-configurator']}>
+            <div className={advisorClass['s2Configurator']}>
               {/* Transport Mode */}
-              <div className={advisorClass['s2-panel']}>
-                <div className={advisorClass['s2-panel-header']}>
-                  <Ship className={advisorClass['s2-panel-icon']} />
+              <div className={advisorClass['s2Panel']}>
+                <div className={advisorClass['s2PanelHeader']}>
+                  <Ship className={advisorClass['s2PanelIcon']} />
                   <h2 id="advisor-transport-question">{t('advisor_s2_transport_title')}</h2>
                 </div>
                 <div
-                  className={advisorClass['transport-grid']}
+                  className={advisorClass['transportGrid']}
                   role="group"
                   aria-labelledby="advisor-transport-question"
                 >
@@ -347,10 +347,10 @@ const Advisor = () => {
                       type="button"
                       aria-pressed={transportMode === value}
                       key={value}
-                      className={`${advisorClass['transport-btn']} ${transportMode === value ? advisorClass['active'] : ''}`}
+                      className={`${advisorClass['transportBtn']} ${transportMode === value ? advisorClass['active'] : ''}`}
                       onClick={() => setTransportMode(value)}
                     >
-                      <AdvisorIcon name={icon} className={advisorClass['transport-icon']} />
+                      <AdvisorIcon name={icon} className={advisorClass['transportIcon']} />
                       <span>{t(labelKey)}</span>
                     </button>
                   ))}
@@ -358,12 +358,12 @@ const Advisor = () => {
               </div>
 
               {/* Responsibilities */}
-              <div className={advisorClass['s2-panel']}>
-                <div className={advisorClass['s2-panel-header']}>
-                  <ClipboardCheck className={advisorClass['s2-panel-icon']} />
+              <div className={advisorClass['s2Panel']}>
+                <div className={advisorClass['s2PanelHeader']}>
+                  <ClipboardCheck className={advisorClass['s2PanelIcon']} />
                   <h2>{t('advisor_s2_resp_title')}</h2>
                 </div>
-                <div className={advisorClass['toggle-list']}>
+                <div className={advisorClass['toggleList']}>
                   {(
                     [
                       {
@@ -391,18 +391,18 @@ const Advisor = () => {
                       setter: (v: boolean) => void;
                     }[]
                   ).map(({ label, question, value, setter }) => (
-                    <div key={label} className={advisorClass['toggle-row']}>
+                    <div key={label} className={advisorClass['toggleRow']}>
                       <div>
-                        <p className={advisorClass['toggle-label']}>{label}</p>
-                        <p className={advisorClass['toggle-question']}>{question}</p>
+                        <p className={advisorClass['toggleLabel']}>{label}</p>
+                        <p className={advisorClass['toggleQuestion']}>{question}</p>
                       </div>
                       <button
                         role="switch"
                         aria-checked={value}
-                        className={`${advisorClass['toggle-track']} ${value ? advisorClass['toggle-on'] : ''}`}
+                        className={`${advisorClass['toggleTrack']} ${value ? advisorClass['toggleOn'] : ''}`}
                         onClick={() => setter(!value)}
                       >
-                        <span className={advisorClass['toggle-thumb']} />
+                        <span className={advisorClass['toggleThumb']} />
                       </button>
                     </div>
                   ))}
@@ -410,12 +410,12 @@ const Advisor = () => {
               </div>
 
               {/* Insurance Preference */}
-              <div className={advisorClass['s2-panel']}>
-                <div className={advisorClass['s2-panel-header']}>
-                  <ShieldCheck className={advisorClass['s2-panel-icon']} />
+              <div className={advisorClass['s2Panel']}>
+                <div className={advisorClass['s2PanelHeader']}>
+                  <ShieldCheck className={advisorClass['s2PanelIcon']} />
                   <h2>{t('advisor_s2_insurance_title')}</h2>
                 </div>
-                <div className={advisorClass['segmented-control']}>
+                <div className={advisorClass['segmentedControl']}>
                   {(
                     [
                       { value: 'self', labelKey: 'advisor_s2_insurance_self' },
@@ -431,7 +431,7 @@ const Advisor = () => {
                   ).map(({ value, labelKey }) => (
                     <button
                       key={value}
-                      className={`${advisorClass['seg-btn']} ${insurance === value ? advisorClass['seg-active'] : ''}`}
+                      className={`${advisorClass['segBtn']} ${insurance === value ? advisorClass['segActive'] : ''}`}
                       onClick={() => setInsurance(value)}
                     >
                       {t(labelKey)}
@@ -441,12 +441,12 @@ const Advisor = () => {
               </div>
 
               {/* Navigation */}
-              <div className={advisorClass['s2-nav']}>
-                <button className={advisorClass['prev-btn']} onClick={() => setStep(1)}>
+              <div className={advisorClass['s2Nav']}>
+                <button className={advisorClass['prevBtn']} onClick={() => setStep(1)}>
                   <ArrowLeft />
                   <span>{t('advisor_s2_btn_previous')}</span>
                 </button>
-                <button className={advisorClass['calc-btn']} onClick={handleCalculate}>
+                <button className={advisorClass['calcBtn']} onClick={handleCalculate}>
                   <span>{t('advisor_s2_btn_calculate')}</span>
                   <ChevronRight />
                 </button>
@@ -458,13 +458,13 @@ const Advisor = () => {
         {step === 3 && result && (
           <>
             {/* Result Header */}
-            <div className={advisorClass['r-header']}>
-              <div className={advisorClass['r-heading-group']}>
+            <div className={advisorClass['rHeader']}>
+              <div className={advisorClass['rHeadingGroup']}>
                 <h1>{t('advisor_r_result_title')}</h1>
-                <span className={advisorClass['r-optimal-badge']}>{t('advisor_r_optimal')}</span>
+                <span className={advisorClass['rOptimalBadge']}>{t('advisor_r_optimal')}</span>
               </div>
               <button
-                className={advisorClass['r-restart-btn']}
+                className={advisorClass['rRestartBtn']}
                 onClick={() => {
                   setStep(1);
                   setRole(null);
@@ -479,12 +479,12 @@ const Advisor = () => {
             </div>
 
             {/* Main Result Card */}
-            <div className={advisorClass['r-main-card']}>
-              <div className={advisorClass['r-code-row']}>
-                <span className={advisorClass['r-code']}>{result.code}</span>
-                <div className={advisorClass['r-code-info']}>
-                  <p className={advisorClass['r-full-name']}>{result.fullName}</p>
-                  <div className={advisorClass['r-confidence-badge']}>
+            <div className={advisorClass['rMainCard']}>
+              <div className={advisorClass['rCodeRow']}>
+                <span className={advisorClass['rCode']}>{result.code}</span>
+                <div className={advisorClass['rCodeInfo']}>
+                  <p className={advisorClass['rFullName']}>{result.fullName}</p>
+                  <div className={advisorClass['rConfidenceBadge']}>
                     <BadgeCheck />
                     <span>
                       {result.confidence}% {t('advisor_r_confidence')}
@@ -492,26 +492,26 @@ const Advisor = () => {
                   </div>
                 </div>
               </div>
-              <p className={advisorClass['r-description']}>{result.description}</p>
-              <p className={advisorClass['r-description']}>{t('disclaimer')}</p>
+              <p className={advisorClass['rDescription']}>{result.description}</p>
+              <p className={advisorClass['rDescription']}>{t('disclaimer')}</p>
             </div>
 
             {/* Bento Grid */}
-            <div className={advisorClass['r-bento']}>
-              <div className={advisorClass['r-why']}>
-                <h2 className={advisorClass['r-section-title']}>{t('advisor_r_why_title')}</h2>
-                <ul className={advisorClass['r-reasons']}>
+            <div className={advisorClass['rBento']}>
+              <div className={advisorClass['rWhy']}>
+                <h2 className={advisorClass['rSectionTitle']}>{t('advisor_r_why_title')}</h2>
+                <ul className={advisorClass['rReasons']}>
                   {result.reasons.map((reason, i) => (
-                    <li key={i} className={advisorClass['r-reason-item']}>
-                      <CheckCircle2 className={advisorClass['r-reason-icon']} />
+                    <li key={i} className={advisorClass['rReasonItem']}>
+                      <CheckCircle2 className={advisorClass['rReasonIcon']} />
                       <span>{reason}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className={advisorClass['r-resp-panel']}>
-                <h2 className={advisorClass['r-section-title']}>{t('advisor_r_resp_title')}</h2>
-                <div className={advisorClass['r-resp-labels']}>
+              <div className={advisorClass['rRespPanel']}>
+                <h2 className={advisorClass['rSectionTitle']}>{t('advisor_r_resp_title')}</h2>
+                <div className={advisorClass['rRespLabels']}>
                   <span>
                     {t('advisor_r_resp_seller')} {result.sellerPct}%
                   </span>
@@ -519,13 +519,13 @@ const Advisor = () => {
                     {t('advisor_r_resp_buyer')} {result.buyerPct}%
                   </span>
                 </div>
-                <div className={advisorClass['r-bars']}>
+                <div className={advisorClass['rBars']}>
                   <div
-                    className={`${advisorClass['r-bar-fill']} ${advisorClass['seller-fill']}`}
+                    className={`${advisorClass['rBarFill']} ${advisorClass['sellerFill']}`}
                     style={{ width: `${result.sellerPct}%` }}
                   />
                   <div
-                    className={`${advisorClass['r-bar-fill']} ${advisorClass['buyer-fill']}`}
+                    className={`${advisorClass['rBarFill']} ${advisorClass['buyerFill']}`}
                     style={{ width: `${result.buyerPct}%` }}
                   />
                 </div>
@@ -533,50 +533,48 @@ const Advisor = () => {
             </div>
 
             {/* Risk Transfer Journey */}
-            <div className={advisorClass['r-risk-section']}>
-              <h2 className={advisorClass['r-section-title']}>{t('advisor_r_risk_title')}</h2>
-              <div className={advisorClass['r-journey-wrap']}>
-                <span className={advisorClass['r-risk-label-seller']}>
+            <div className={advisorClass['rRiskSection']}>
+              <h2 className={advisorClass['rSectionTitle']}>{t('advisor_r_risk_title')}</h2>
+              <div className={advisorClass['rJourneyWrap']}>
+                <span className={advisorClass['rRiskLabelSeller']}>
                   {t('advisor_r_risk_seller')}
                 </span>
-                <div className={advisorClass['r-journey']}>
+                <div className={advisorClass['rJourney']}>
                   {result.riskJourney.map((stop, i) => {
                     const isTransfer = i > 0 && result.riskJourney[i - 1].owner !== stop.owner;
                     return (
                       <div
                         key={i}
-                        className={`${advisorClass['r-stop']} ${advisorClass[stop.owner === 'seller' ? 'r-seller-stop' : 'r-buyer-stop']}`}
+                        className={`${advisorClass['rStop']} ${advisorClass[stop.owner === 'seller' ? 'rSellerStop' : 'rBuyerStop']}`}
                       >
                         <div
-                          className={`${advisorClass['r-stop-dot']} ${isTransfer ? advisorClass['r-pulse'] : ''}`}
+                          className={`${advisorClass['rStopDot']} ${isTransfer ? advisorClass['rPulse'] : ''}`}
                         />
                         {i < result.riskJourney.length - 1 && (
                           <div
-                            className={`${advisorClass['r-stop-line']} ${advisorClass[stop.owner === 'seller' ? 'r-seller-line' : 'r-buyer-line']}`}
+                            className={`${advisorClass['rStopLine']} ${advisorClass[stop.owner === 'seller' ? 'rSellerLine' : 'rBuyerLine']}`}
                           />
                         )}
-                        <span className={advisorClass['r-stop-label']}>{stop.label}</span>
+                        <span className={advisorClass['rStopLabel']}>{stop.label}</span>
                       </div>
                     );
                   })}
                 </div>
-                <span className={advisorClass['r-risk-label-buyer']}>
-                  {t('advisor_r_risk_buyer')}
-                </span>
+                <span className={advisorClass['rRiskLabelBuyer']}>{t('advisor_r_risk_buyer')}</span>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className={advisorClass['r-actions']}>
+            <div className={advisorClass['rActions']}>
               <button
-                className={advisorClass['r-quote-btn']}
+                className={advisorClass['rQuoteBtn']}
                 onClick={() => router.push(`/${locale}/contact`)}
               >
                 <FileText />
                 <span>{t('advisor_r_quote_btn')}</span>
               </button>
               <button
-                className={advisorClass['r-compare-btn']}
+                className={advisorClass['rCompareBtn']}
                 onClick={() => router.push(`/${locale}/tools/incoterms/reference-guide`)}
               >
                 <span>{t('advisor_r_compare_btn')}</span>

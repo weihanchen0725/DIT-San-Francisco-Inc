@@ -1,19 +1,19 @@
 @use '@/assets/styles/variables.scss' as *;
 @use '@/assets/styles/mixin' as *;
 
-.dictionary-title {
+.dictionaryTitle {
   @include section-heading;
   width: 100%;
   margin: 0 0 1rem;
 }
 
-.dictionary-content {
+.dictionaryContent {
   @include flex-column-start-start;
   gap: 1.5rem;
   width: 100%;
 }
 
-.dictionary-section {
+.dictionarySection {
   width: 100%;
   padding: 0rem;
 
@@ -32,7 +32,7 @@
   }
 }
 
-.dictionary-list {
+.dictionaryList {
   --subtitle-font-size: 0.75rem;
   @include flex-column-start-start;
   gap: 1.5rem;
@@ -40,14 +40,14 @@
   width: 100%;
   margin-top: 1rem;
 
-  & .dictionary-item {
+  & .dictionaryItem {
     width: 100%;
     display: grid;
     grid-template-columns: 7fr 3fr;
     border: 1px solid $border-color;
     padding: 1rem 2rem;
     background-color: $background-color;
-    border-radius: 1.25rem;
+    border-radius: var(--radius-md);
 
     &:hover {
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -60,144 +60,144 @@
       color: $secondary-color;
     }
 
-    & .dictionary-category-wrapper {
+    & .dictionaryCategoryWrapper {
       @include flex-row-end-center;
 
-      & .dictionary-category {
+      & .dictionaryCategory {
         @include flex-row-center-center;
         font-size: var(--subtitle-font-size);
         min-width: 10.5rem;
         padding: 0.25rem 0.5rem;
         border: 1px solid #000;
-        border-radius: 0.25rem;
+        border-radius: var(--radius-xs);
 
         // ── Category colour palette (keys mirror categories{} slugs in dictionary.json) ──
-        &.category-abbreviations {
+        &.categoryAbbreviations {
           background: #e2e8f0;
           color: #475569;
           border-color: #94a3b8;
         }
-        &.category-agriculture-perishables {
+        &.categoryAgriculturePerishables {
           background: #dcfce7;
           color: #166534;
           border-color: #86efac;
         }
-        &.category-air-freight {
+        &.categoryAirFreight {
           background: #e0f2fe;
           color: #0369a1;
           border-color: #7dd3fc;
         }
-        &.category-air-freight-parcel {
+        &.categoryAirFreightParcel {
           background: #ffe4e6;
           color: #be123c;
           border-color: #fda4af;
         }
-        &.category-automotive-manufacturing {
+        &.categoryAutomotiveManufacturing {
           background: #dbeafe;
           color: #1e3a8a;
           border-color: #93c5fd;
         }
-        &.category-charges-fees {
+        &.categoryChargesFees {
           background: #ffedd5;
           color: #9a3412;
           border-color: #fdba74;
         }
-        &.category-cold-chain-pharma {
+        &.categoryColdChainPharma {
           background: #ccfbf1;
           color: #0f766e;
           border-color: #5eead4;
         }
-        &.category-compliance-safety {
+        &.categoryComplianceSafety {
           background: #fef9c3;
           color: #854d0e;
           border-color: #fde047;
         }
-        &.category-customs-compliance {
+        &.categoryCustomsCompliance {
           background: #ede9fe;
           color: #5b21b6;
           border-color: #c4b5fd;
         }
-        &.category-documents {
+        &.categoryDocuments {
           background: #e0e7ff;
           color: #3730a3;
           border-color: #a5b4fc;
         }
-        &.category-ecommerce-retail {
+        &.categoryEcommerceRetail {
           background: #fce7f3;
           color: #9d174d;
           border-color: #f9a8d4;
         }
-        &.category-equipment {
+        &.categoryEquipment {
           background: #fef3c7;
           color: #78350f;
           border-color: #fcd34d;
         }
-        &.category-freight-forwarding {
+        &.categoryFreightForwarding {
           background: #fae8ff;
           color: #86198f;
           border-color: #f5d0fe;
         }
-        &.category-hazmat-chemicals {
+        &.categoryHazmatChemicals {
           background: #fee2e2;
           color: #991b1b;
           border-color: #fca5a5;
         }
-        &.category-incoterms {
+        &.categoryIncoterms {
           background: #f3e8ff;
           color: #6b21a8;
           border-color: #d8b4fe;
         }
-        &.category-legal-finance {
+        &.categoryLegalFinance {
           background: #ecfccb;
           color: #3f6212;
           border-color: #d9f99d;
         }
-        &.category-logistics-models {
+        &.categoryLogisticsModels {
           background: #cffafe;
           color: #0e7490;
           border-color: #67e8f9;
         }
-        &.category-logistics-tech {
+        &.categoryLogisticsTech {
           background: #d1fae5;
           color: #065f46;
           border-color: #6ee7b7;
         }
-        &.category-maritime-ocean {
+        &.categoryMaritimeOcean {
           background: #c7d2fe;
           color: #312e81;
           border-color: #818cf8;
         }
-        &.category-measurement {
+        &.categoryMeasurement {
           background: #f1f5f9;
           color: #334155;
           border-color: #cbd5e1;
         }
-        &.category-ocean-freight {
+        &.categoryOceanFreight {
           background: #eff6ff;
           color: #1e40af;
           border-color: #bfdbfe;
         }
-        &.category-ports-terminals {
+        &.categoryPortsTerminals {
           background: #f4f4f5;
           color: #3f3f46;
           border-color: #d4d4d8;
         }
-        &.category-supply-chain-management {
+        &.categorySupplyChainManagement {
           background: #f0fdf4;
           color: #14532d;
           border-color: #bbf7d0;
         }
-        &.category-warehousing-inland {
+        &.categoryWarehousingInland {
           background: #fff7ed;
           color: #c2410c;
           border-color: #fed7aa;
         }
-        &.category-maritime-inland {
+        &.categoryMaritimeInland {
           background: #f0f9ff;
           color: #075985;
           border-color: #bae6fd;
         }
-        &.category-legal-regulatory {
+        &.categoryLegalRegulatory {
           background: #f5f3ff;
           color: #4c1d95;
           border-color: #ddd6fe;
@@ -205,12 +205,12 @@
       }
     }
 
-    & .dictionary-definition {
+    & .dictionaryDefinition {
       grid-column: span 2;
       margin-top: 1rem;
     }
 
-    & .dictionary-related-terms {
+    & .dictionaryRelatedTerms {
       padding: 0;
       @include flex-row-start-center;
       gap: 0.25rem;
@@ -232,15 +232,15 @@
         color: var(--color-text-primary);
       }
 
-      & .dictionary-category {
+      & .dictionaryCategory {
         border-color: rgba(255, 255, 255, 0.2) !important;
       }
 
-      & .dictionary-definition {
+      & .dictionaryDefinition {
         color: var(--color-text-primary);
       }
 
-      & .dictionary-related-terms li {
+      & .dictionaryRelatedTerms li {
         color: var(--color-text-secondary);
       }
     }
@@ -254,11 +254,11 @@
         font-size: 1.25rem;
       }
 
-      & .dictionary-definition {
+      & .dictionaryDefinition {
         grid-column: span 1;
       }
 
-      & .dictionary-related-terms {
+      & .dictionaryRelatedTerms {
         grid-column: span 1;
         flex-wrap: wrap;
       }

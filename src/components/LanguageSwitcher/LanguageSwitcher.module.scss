@@ -6,7 +6,11 @@
   // gap: 0.5rem;
   white-space: nowrap;
 
-  &_selectWrap {
+  &[data-layout='column'] {
+    width: 100%;
+  }
+
+  &SelectWrap {
     position: relative;
     @include flex-row-center-center;
     border-radius: 0;
@@ -15,7 +19,7 @@
     background-color: transparent;
   }
 
-  &_icon {
+  &Icon {
     width: 1.25rem;
     height: 1.25rem;
     color: $secondary-color-hover;
@@ -29,18 +33,18 @@
     }
   }
 
-  &:hover &_icon,
-  &:focus-within &_icon {
+  &:hover &Icon,
+  &:focus-within &Icon {
     color: $secondary-color;
     transform: scale(1.03);
   }
 
-  :global(.dark) &:hover &_icon,
-  :global(.dark) &:focus-within &_icon {
+  :global(.dark) &:hover &Icon,
+  :global(.dark) &:focus-within &Icon {
     color: var(--color-primary);
   }
 
-  &_select {
+  &Select {
     border: 0;
     appearance: none;
     background: transparent;
@@ -66,13 +70,9 @@
     :global(.dark) &:focus-visible {
       color: var(--color-primary);
     }
-
-    &:focus-visible {
-      outline: none;
-    }
   }
 
-  &_chevron {
+  &Chevron {
     position: absolute;
     right: 0.5rem;
     width: 0.875rem;
@@ -87,13 +87,13 @@
       color: rgba(255, 255, 255, 0.45);
     }
 
-    .languageSwitcher_selectWrap:focus-within & {
+    .languageSwitcherSelectWrap:focus-within & {
       color: $primary-color;
       transform: translateY(1px);
     }
   }
 
-  &_option {
+  &Option {
     background-color: var(--color-bg-primary);
     color: $secondary-color;
 
@@ -104,20 +104,17 @@
   }
 
   @include respond(md) {
-    &_selectWrap {
+    &SelectWrap {
       padding: 0.5625rem 0.875rem;
       min-height: 2.125rem;
     }
 
-    &_select {
+    &Select {
       font-size: 1rem;
     }
   }
 
-  &_columnMode {
+  &ColumnMode {
     @include flex-row-end-center;
   }
-}
-.header_menuPanel .languageSwitcher {
-  width: 100%;
 }

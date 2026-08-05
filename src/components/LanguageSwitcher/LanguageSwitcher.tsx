@@ -30,7 +30,7 @@ const LanguageSwitcher = ({ styleMode = 'row' }: LanguageSwitcherProps) => {
 
   const renderOptions = () =>
     locales.map((code) => (
-      <option key={code} value={code} className={styles.languageSwitcher_option}>
+      <option key={code} value={code} className={styles.languageSwitcherOption}>
         {translateCommon(code).toUpperCase()}
       </option>
     ));
@@ -38,37 +38,37 @@ const LanguageSwitcher = ({ styleMode = 'row' }: LanguageSwitcherProps) => {
   return (
     <React.Fragment>
       {styleMode === 'row' ? (
-        <span className={`${styles.languageSwitcher}`}>
-          <Globe className={styles.languageSwitcher_icon} />
-          <span className={styles.languageSwitcher_selectWrap}>
+        <span className={styles.languageSwitcher} data-layout="row">
+          <Globe className={styles.languageSwitcherIcon} />
+          <span className={styles.languageSwitcherSelectWrap}>
             <select
               id="language-select"
               value={locale}
               onChange={handleLanguageChange}
-              className={styles.languageSwitcher_select}
+              className={styles.languageSwitcherSelect}
               aria-label={translateCommon('select_language')}
             >
               {renderOptions()}
             </select>
-            <ChevronDown className={styles.languageSwitcher_chevron} />
+            <ChevronDown className={styles.languageSwitcherChevron} />
           </span>
         </span>
       ) : (
-        <span className={`${styles.languageSwitcher}`}>
+        <span className={styles.languageSwitcher} data-layout="column">
           <span>{languageTranslate('caption')}</span>
-          <div className={`${styles.languageSwitcher_columnMode}`}>
-            <Globe className={styles.languageSwitcher_icon} />
-            <span className={styles.languageSwitcher_selectWrap}>
+          <div className={`${styles.languageSwitcherColumnMode}`}>
+            <Globe className={styles.languageSwitcherIcon} />
+            <span className={styles.languageSwitcherSelectWrap}>
               <select
                 id="language-select"
                 value={locale}
                 onChange={handleLanguageChange}
-                className={styles.languageSwitcher_select}
+                className={styles.languageSwitcherSelect}
                 aria-label={translateCommon('select_language')}
               >
                 {renderOptions()}
               </select>
-              <ChevronDown className={styles.languageSwitcher_chevron} />
+              <ChevronDown className={styles.languageSwitcherChevron} />
             </span>
           </div>
         </span>

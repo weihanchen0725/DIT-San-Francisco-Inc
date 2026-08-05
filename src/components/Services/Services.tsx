@@ -24,29 +24,29 @@ const Services = async ({ headingLevel = 2, showDetails = false }: ServicesProps
 
   return (
     <section id="services" className={servicesClass.services} data-scroll-reveal="">
-      <SectionHeading level={headingLevel} className={servicesClass.services_title}>
+      <SectionHeading level={headingLevel} className={servicesClass.servicesTitle}>
         {translateServices('title')}
       </SectionHeading>
-      <p className={servicesClass.services_description}>{translateServices('description')}</p>
-      <div className={servicesClass.services_grid}>
+      <p className={servicesClass.servicesDescription}>{translateServices('description')}</p>
+      <div className={servicesClass.servicesGrid}>
         {SERVICE_KEYS.map(({ key, Icon }, index) => (
           <article
             key={key}
-            className={servicesClass.services_card}
+            className={servicesClass.servicesCard}
             data-scroll-reveal-item=""
             style={{ '--scroll-item-index': index } as React.CSSProperties}
           >
-            <div className={servicesClass.services_iconWrapper}>
+            <div className={servicesClass.servicesIconWrapper}>
               <Icon className="w-8 h-8 text-brand-yellow" />
             </div>
-            <SectionHeading level={itemHeadingLevel} className={servicesClass.services_cardTitle}>
+            <SectionHeading level={itemHeadingLevel} className={servicesClass.servicesCardTitle}>
               {translateServices(`${key}_title`)}
             </SectionHeading>
-            <p className={servicesClass.services_cardDescription}>
+            <p className={servicesClass.servicesCardDescription}>
               {translateServices(`${key}_desc`)}
             </p>
             {showDetails && (
-              <dl className={servicesClass.services_cardDetails}>
+              <dl className={servicesClass.servicesCardDetails}>
                 <div>
                   <dt>{translateServices('ideal_for_label')}</dt>
                   <dd>{translateServices(`${key}_for`)}</dd>

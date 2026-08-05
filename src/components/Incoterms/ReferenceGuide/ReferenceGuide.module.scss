@@ -97,7 +97,7 @@
     width: 100%;
     padding: 2rem 0;
 
-    & .table-header {
+    & .tableHeader {
       display: grid;
       grid-template-columns: 0.5fr 2fr 0.5fr 3fr 2fr;
       align-items: center;
@@ -125,7 +125,7 @@
         border-color: var(--color-border);
       }
 
-      &-item {
+      &Item {
         font-size: 0.75rem;
         font-weight: 600;
         color: $secondary-color;
@@ -141,7 +141,7 @@
       }
     }
 
-    & .table-body {
+    & .tableBody {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -149,7 +149,7 @@
       gap: 1rem;
       width: 100%;
 
-      & .table-row {
+      & .tableRow {
         display: grid;
         grid-template-columns: 0.5fr 2fr 0.5fr 3fr 2fr;
         align-items: center;
@@ -174,7 +174,7 @@
           }
         }
 
-        & .code-name {
+        & .codeName {
           font-size: 1rem;
           color: $secondary-color;
           display: flex;
@@ -187,10 +187,10 @@
             color: var(--color-text-primary);
           }
 
-          &-text {
+          &Text {
             font-weight: 600;
           }
-          & .use-case-text {
+          & .useCaseText {
             font-size: 0.875rem;
             color: $secondary-color;
 
@@ -207,7 +207,7 @@
           justify-content: center;
           gap: 0.5rem;
 
-          & .mode-icon-wrapper {
+          & .modeIconWrapper {
             position: relative;
             display: inline-flex;
             align-items: center;
@@ -231,7 +231,7 @@
               background-color: $secondary-color;
               color: #ffffff;
               padding: 0.25rem 0.625rem;
-              border-radius: 0.25rem;
+              border-radius: var(--radius-xs);
               font-size: 0.75rem;
               line-height: 1.2;
               white-space: nowrap;
@@ -260,16 +260,16 @@
           gap: 0.25rem;
           width: 100%;
 
-          & .icon-seller {
+          & .iconSeller {
             opacity: 1;
             color: $primary-color;
           }
 
-          & .icon-buyer {
+          & .iconBuyer {
             opacity: 0.2;
           }
 
-          & .responsibility-seller {
+          & .responsibilitySeller {
             grid-row: 3;
             grid-column: 1 / span 3;
             justify-self: start;
@@ -282,7 +282,7 @@
             }
           }
 
-          & .responsibility-percentages {
+          & .responsibilityPercentages {
             grid-row: 3;
             grid-column: 4 / span 5;
             justify-self: center;
@@ -296,7 +296,7 @@
             }
           }
 
-          & .responsibility-buyer {
+          & .responsibilityBuyer {
             grid-row: 3;
             grid-column: 9 / span 3;
             justify-self: end;
@@ -309,15 +309,15 @@
             }
           }
 
-          & .responsibility-bar {
+          & .responsibilityBar {
             grid-column: span 11;
             width: 100%;
             height: 12px;
-            border-radius: 0.5rem;
+            border-radius: var(--radius-sm);
             background-color: $border-color;
             &::-webkit-progress-value {
               background-color: $primary-color;
-              border-radius: 0.5rem;
+              border-radius: var(--radius-sm);
             }
           }
         }

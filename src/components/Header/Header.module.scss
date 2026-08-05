@@ -90,7 +90,7 @@ $menu-ease-duration: 180ms;
 
   z-index: 1000;
 
-  &_menuOpen {
+  &MenuOpen {
     // box-shadow:
     //   0 2px 8px rgb(6 15 31 / calc(0.08 * var(--header-scroll-progress, 0))),
     //   0 1px 0 rgb(255 255 255 / calc(0.18 * var(--header-scroll-progress, 0))) inset;
@@ -110,7 +110,7 @@ $menu-ease-duration: 180ms;
   }
 
   // ── Brand block ──
-  &_content {
+  &Content {
     @include flex-row-center-end;
     flex-wrap: nowrap;
     gap: 0.5rem;
@@ -120,39 +120,39 @@ $menu-ease-duration: 180ms;
     max-width: min(16rem, 42vw);
   }
 
-  &_logo {
+  &Logo {
     display: block;
     width: auto;
     max-height: 4rem;
     max-width: min(8rem, 30vw);
     flex-shrink: 0;
 
-    &_dark {
+    &Dark {
       display: none;
     }
 
-    :global(.dark) &_light {
+    :global(.dark) &Light {
       display: none;
     }
 
-    :global(.dark) &_dark {
+    :global(.dark) &Dark {
       display: block;
     }
   }
 
-  &_name {
+  &Name {
     white-space: nowrap;
     flex-shrink: 0;
   }
 
   // ── Inline nav (direct child of header) ──
-  &_nav {
+  &Nav {
     flex: 1;
     min-width: 0;
   }
 
   // ── Inline contact (direct child of header) ──
-  &_contact {
+  &Contact {
     @include flex-row-center-center;
     margin-left: auto;
     min-width: 0;
@@ -163,7 +163,7 @@ $menu-ease-duration: 180ms;
   }
 
   // ── Menu button (hidden on full desktop) ──
-  &_menuButton {
+  &MenuButton {
     @include flex-row-center-center;
     flex-shrink: 0;
     border: 1px solid color-mix(in srgb, $secondary-color 85%, transparent);
@@ -186,7 +186,7 @@ $menu-ease-duration: 180ms;
   }
 
   // ── Dropdown panel (hidden by default at every width) ──
-  &_menuPanel {
+  &MenuPanel {
     display: none;
     @include flex-column-start-start;
     position: absolute;
@@ -225,23 +225,23 @@ $menu-ease-duration: 180ms;
       box-shadow $header-ease-duration ease;
   }
 
-  &_menuPanelOpen {
+  &MenuPanelOpen {
     display: flex;
   }
 
-  &_menuPanelNav,
-  &_menuPanelContact {
+  &MenuPanelNav,
+  &MenuPanelContact {
     width: 100%;
   }
 
-  &_menuPanelNav {
+  &MenuPanelNav {
     > *,
     > * > * {
       width: 100%;
     }
   }
 
-  &_menuPanelContact {
+  &MenuPanelContact {
     @include flex-column-start-start;
     align-items: stretch;
     gap: 0.5rem;
@@ -255,7 +255,7 @@ $menu-ease-duration: 180ms;
     }
   }
 
-  &_menuButtonWrapper {
+  &MenuButtonWrapper {
     @include flex-row-end-center;
 
     &.narrow {
@@ -269,11 +269,11 @@ $menu-ease-duration: 180ms;
     gap: 0.5rem;
     padding-inline: 0.75rem;
 
-    &_content {
+    &Content {
       max-width: calc(100% - 3rem);
     }
 
-    &_logo {
+    &Logo {
       min-width: 0;
       flex-shrink: 1;
       max-width: min(8rem, calc(100vw - 5rem));

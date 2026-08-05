@@ -41,19 +41,19 @@ const Calculator = () => {
   };
 
   return (
-    <div className={calculatorClass['page-view']}>
+    <div className={calculatorClass['pageView']}>
       <form onSubmit={handleCalculate}>
-        <div className={calculatorClass['item-box']}>
-          <h1 className={calculatorClass['left-subject']}>{t('input_dimension')}</h1>
-          <div className={calculatorClass['right-main']}>
+        <div className={calculatorClass['itemBox']}>
+          <h1 className={calculatorClass['leftSubject']}>{t('input_dimension')}</h1>
+          <div className={calculatorClass['rightMain']}>
             {/* Pieces */}
             <div className={calculatorClass['full']}>
-              <div className={calculatorClass['group-box']}>
+              <div className={calculatorClass['groupBox']}>
                 <div className={calculatorClass['label']}>
                   <span className={calculatorClass['required']}>*</span>
                   {t('pieces')}
                 </div>
-                <div className={calculatorClass['input-wrap']}>
+                <div className={calculatorClass['inputWrap']}>
                   <input
                     aria-label="piece"
                     type="number"
@@ -68,13 +68,13 @@ const Calculator = () => {
             </div>
 
             {/* Length */}
-            <div className={calculatorClass['col-left']}>
-              <div className={calculatorClass['group-box']}>
+            <div className={calculatorClass['colLeft']}>
+              <div className={calculatorClass['groupBox']}>
                 <div className={calculatorClass['label']}>
                   <span className={calculatorClass['required']}>*</span>
                   {t('length_cm')}
                 </div>
-                <div className={calculatorClass['input-wrap']}>
+                <div className={calculatorClass['inputWrap']}>
                   <input
                     aria-label="Length-cm"
                     type="number"
@@ -90,10 +90,10 @@ const Calculator = () => {
                 </div>
               </div>
             </div>
-            <div className={calculatorClass['col-right']}>
-              <div className={calculatorClass['group-box']}>
+            <div className={calculatorClass['colRight']}>
+              <div className={calculatorClass['groupBox']}>
                 <div className={calculatorClass['label']}>{t('length_inch')}</div>
-                <div className={calculatorClass['input-wrap']}>
+                <div className={calculatorClass['inputWrap']}>
                   <input
                     aria-label="Length-inch"
                     type="number"
@@ -111,13 +111,13 @@ const Calculator = () => {
             </div>
 
             {/* Width */}
-            <div className={calculatorClass['col-left']}>
-              <div className={calculatorClass['group-box']}>
+            <div className={calculatorClass['colLeft']}>
+              <div className={calculatorClass['groupBox']}>
                 <div className={calculatorClass['label']}>
                   <span className={calculatorClass['required']}>*</span>
                   {t('width_cm')}
                 </div>
-                <div className={calculatorClass['input-wrap']}>
+                <div className={calculatorClass['inputWrap']}>
                   <input
                     aria-label="Width-cm"
                     type="number"
@@ -133,10 +133,10 @@ const Calculator = () => {
                 </div>
               </div>
             </div>
-            <div className={calculatorClass['col-right']}>
-              <div className={calculatorClass['group-box']}>
+            <div className={calculatorClass['colRight']}>
+              <div className={calculatorClass['groupBox']}>
                 <div className={calculatorClass['label']}>{t('width_inch')}</div>
-                <div className={calculatorClass['input-wrap']}>
+                <div className={calculatorClass['inputWrap']}>
                   <input
                     aria-label="Width-inch"
                     type="number"
@@ -154,13 +154,13 @@ const Calculator = () => {
             </div>
 
             {/* Height */}
-            <div className={calculatorClass['col-left']}>
-              <div className={calculatorClass['group-box']}>
+            <div className={calculatorClass['colLeft']}>
+              <div className={calculatorClass['groupBox']}>
                 <div className={calculatorClass['label']}>
                   <span className={calculatorClass['required']}>*</span>
                   {t('height_cm')}
                 </div>
-                <div className={calculatorClass['input-wrap']}>
+                <div className={calculatorClass['inputWrap']}>
                   <input
                     aria-label="Height-cm"
                     type="number"
@@ -176,10 +176,10 @@ const Calculator = () => {
                 </div>
               </div>
             </div>
-            <div className={calculatorClass['col-right']}>
-              <div className={calculatorClass['group-box']}>
+            <div className={calculatorClass['colRight']}>
+              <div className={calculatorClass['groupBox']}>
                 <div className={calculatorClass['label']}>{t('height_inch')}</div>
-                <div className={calculatorClass['input-wrap']}>
+                <div className={calculatorClass['inputWrap']}>
                   <input
                     aria-label="Height-inch"
                     type="number"
@@ -197,13 +197,13 @@ const Calculator = () => {
             </div>
 
             {/* Gross Weight */}
-            <div className={calculatorClass['col-left']}>
-              <div className={calculatorClass['group-box']}>
+            <div className={calculatorClass['colLeft']}>
+              <div className={calculatorClass['groupBox']}>
                 <div className={calculatorClass['label']}>
                   <span className={calculatorClass['required']}>*</span>
                   {t('gross_weight_kg')}
                 </div>
-                <div className={calculatorClass['input-wrap']}>
+                <div className={calculatorClass['inputWrap']}>
                   <input
                     aria-label="Gross Weight-kg"
                     type="number"
@@ -219,10 +219,10 @@ const Calculator = () => {
                 </div>
               </div>
             </div>
-            <div className={calculatorClass['col-right']}>
-              <div className={calculatorClass['group-box']}>
+            <div className={calculatorClass['colRight']}>
+              <div className={calculatorClass['groupBox']}>
                 <div className={calculatorClass['label']}>{t('gross_weight_lb')}</div>
-                <div className={calculatorClass['input-wrap']}>
+                <div className={calculatorClass['inputWrap']}>
                   <input
                     aria-label="Gross Weight-lb"
                     type="number"
@@ -240,7 +240,7 @@ const Calculator = () => {
             </div>
 
             {/* Buttons */}
-            <div className={calculatorClass['submit-box']}>
+            <div className={calculatorClass['submitBox']}>
               <button
                 type="button"
                 name="reset"
@@ -252,7 +252,7 @@ const Calculator = () => {
               <button
                 type="submit"
                 name="calculate"
-                className={`${calculatorClass['btn']} ${calculatorClass['btn-primary']}`}
+                className={`${calculatorClass['btn']} ${calculatorClass['btnPrimary']}`}
               >
                 {t('calculate')}
               </button>
@@ -262,18 +262,18 @@ const Calculator = () => {
       </form>
 
       {/* Results */}
-      <div className={calculatorClass['result-wrap']}>
-        <div className={calculatorClass['result-subject']}>{t('results_title')}</div>
-        <div className={calculatorClass['result-grid']}>
-          <div className={calculatorClass['result-box']}>
-            <div className={calculatorClass['result-title']}>{t('cft_label')}</div>
-            <div className={calculatorClass['result-value']}>
+      <div className={calculatorClass['resultWrap']}>
+        <div className={calculatorClass['resultSubject']}>{t('results_title')}</div>
+        <div className={calculatorClass['resultGrid']}>
+          <div className={calculatorClass['resultBox']}>
+            <div className={calculatorClass['resultTitle']}>{t('cft_label')}</div>
+            <div className={calculatorClass['resultValue']}>
               {results !== null ? results.cft.toFixed(5) : '—'}
             </div>
           </div>
-          <div className={calculatorClass['result-box']}>
-            <div className={calculatorClass['result-title']}>{t('cbm_label')}</div>
-            <div className={calculatorClass['result-value']}>
+          <div className={calculatorClass['resultBox']}>
+            <div className={calculatorClass['resultTitle']}>{t('cbm_label')}</div>
+            <div className={calculatorClass['resultValue']}>
               {results !== null ? results.cbm.toFixed(5) : '—'}
             </div>
           </div>

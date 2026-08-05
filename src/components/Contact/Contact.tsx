@@ -14,22 +14,22 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
   return (
     <section id="contact" className={contactClass.contact} data-scroll-reveal="">
       {/* Header */}
-      <div className={contactClass.contact_header}>
-        <SectionHeading level={headingLevel} className={contactClass.contact_title}>
+      <div className={contactClass.contactHeader}>
+        <SectionHeading level={headingLevel} className={contactClass.contactTitle}>
           {translateContact('title_1')}
-          <span className={contactClass.contact_title_accent}>{translateContact('title_2')}</span>
+          <span className={contactClass.contactTitleAccent}>{translateContact('title_2')}</span>
         </SectionHeading>
-        <p className={contactClass.contact_description}>{translateContact('description')}</p>
+        <p className={contactClass.contactDescription}>{translateContact('description')}</p>
       </div>
 
-      <div className={contactClass.contact_layout}>
+      <div className={contactClass.contactLayout}>
         {/* Contact Info Cards */}
-        <div className={contactClass.contact_infoColumn}>
-          <div className={contactClass.contact_card}>
-            <div className={contactClass.contact_cardHeader}>
-              <div className={contactClass.contact_cardIcon}>
+        <div className={contactClass.contactInfoColumn}>
+          <div className={contactClass.contactCard}>
+            <div className={contactClass.contactCardHeader}>
+              <div className={contactClass.contactCardIcon}>
                 <svg
-                  className={contactClass.contact_cardIconSvg}
+                  className={contactClass.contactCardIconSvg}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -42,19 +42,19 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
                   />
                 </svg>
               </div>
-              <SectionHeading level={itemHeadingLevel} className={contactClass.contact_cardTitle}>
+              <SectionHeading level={itemHeadingLevel} className={contactClass.contactCardTitle}>
                 {translateContact('email_title')}
               </SectionHeading>
             </div>
-            <p className={contactClass.contact_cardDetail}>contact@ditsanfrancisco.com</p>
-            <p className={contactClass.contact_cardDetail}>support@ditsanfrancisco.com</p>
+            <p className={contactClass.contactCardDetail}>contact@ditsanfrancisco.com</p>
+            <p className={contactClass.contactCardDetail}>support@ditsanfrancisco.com</p>
           </div>
 
-          <div className={`${contactClass.contact_card} ${contactClass.contact_cardFlex}`}>
-            <div className={contactClass.contact_cardHeader}>
-              <div className={contactClass.contact_cardIcon}>
+          <div className={`${contactClass.contactCard} ${contactClass.contactCardFlex}`}>
+            <div className={contactClass.contactCardHeader}>
+              <div className={contactClass.contactCardIcon}>
                 <svg
-                  className={contactClass.contact_cardIconSvg}
+                  className={contactClass.contactCardIconSvg}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -67,18 +67,18 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
                   />
                 </svg>
               </div>
-              <SectionHeading level={itemHeadingLevel} className={contactClass.contact_cardTitle}>
+              <SectionHeading level={itemHeadingLevel} className={contactClass.contactCardTitle}>
                 {translateContact('business_hours_title')}
               </SectionHeading>
             </div>
             <OpenIndicatorWrapper />
           </div>
 
-          <div className={contactClass.contact_card}>
-            <div className={contactClass.contact_cardHeader}>
-              <div className={contactClass.contact_cardIcon}>
+          <div className={contactClass.contactCard}>
+            <div className={contactClass.contactCardHeader}>
+              <div className={contactClass.contactCardIcon}>
                 <svg
-                  className={contactClass.contact_cardIconSvg}
+                  className={contactClass.contactCardIconSvg}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -91,19 +91,19 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
                   />
                 </svg>
               </div>
-              <SectionHeading level={itemHeadingLevel} className={contactClass.contact_cardTitle}>
+              <SectionHeading level={itemHeadingLevel} className={contactClass.contactCardTitle}>
                 {translateContact('phone_title')}
               </SectionHeading>
             </div>
-            <p className={contactClass.contact_cardDetail}>{ContactData.data.phone}</p>
-            <p className={contactClass.contact_cardDetail}>{ContactData.data.business_hours}</p>
+            <p className={contactClass.contactCardDetail}>{ContactData.data.phone}</p>
+            <p className={contactClass.contactCardDetail}>{ContactData.data.business_hours}</p>
           </div>
 
-          <div className={contactClass.contact_card}>
-            <div className={contactClass.contact_cardHeaderMb}>
-              <div className={contactClass.contact_cardIcon}>
+          <div className={contactClass.contactCard}>
+            <div className={contactClass.contactCardHeaderMb}>
+              <div className={contactClass.contactCardIcon}>
                 <svg
-                  className={contactClass.contact_cardIconSvg}
+                  className={contactClass.contactCardIconSvg}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -123,21 +123,21 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
                 </svg>
               </div>
               <div>
-                <SectionHeading level={itemHeadingLevel} className={contactClass.contact_cardTitle}>
+                <SectionHeading level={itemHeadingLevel} className={contactClass.contactCardTitle}>
                   {translateContact('address_title')}
                 </SectionHeading>
-                <p className={contactClass.contact_cardAddressText}>{ContactData.data.address_1}</p>
-                <p className={contactClass.contact_cardAddressText}>{ContactData.data.address_2}</p>
+                <p className={contactClass.contactCardAddressText}>{ContactData.data.address_1}</p>
+                <p className={contactClass.contactCardAddressText}>{ContactData.data.address_2}</p>
               </div>
             </div>
-            <div className={contactClass.contact_cardMapWrap}>
+            <div className={contactClass.contactCardMapWrap}>
               <MapWrapper />
             </div>
           </div>
         </div>
 
         {/* Contact Form */}
-        <div className={contactClass.contact_formColumn}>
+        <div className={contactClass.contactFormColumn}>
           <ContactForm />
         </div>
       </div>

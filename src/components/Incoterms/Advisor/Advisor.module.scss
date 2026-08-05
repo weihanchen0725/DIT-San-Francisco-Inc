@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 
-.questions-column {
+.questionsColumn {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -55,7 +55,7 @@
   padding: 1.5rem 2rem;
 }
 
-.question-label {
+.questionLabel {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -63,7 +63,7 @@
   color: var(--color-text-secondary);
 }
 
-.question-title {
+.questionTitle {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--color-text-primary);
@@ -71,16 +71,16 @@
 }
 
 /* ── Q1 – Role cards ─────────────────────────────────── */
-.grid-2 {
+.grid2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
-.role-card {
+.roleCard {
   position: relative;
   padding: 1.5rem;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-sm);
   background-color: #fff;
   border: 2px solid transparent;
   text-align: left;
@@ -100,7 +100,7 @@
   }
 }
 
-.check-icon {
+.checkIcon {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -115,7 +115,7 @@
   }
 }
 
-.card-icon {
+.cardIcon {
   display: block;
   width: 2rem;
   height: 2rem;
@@ -123,18 +123,18 @@
   color: var(--color-text-primary);
   transition: transform 0.2s ease;
 
-  .role-card:hover & {
+  .roleCard:hover & {
     transform: scale(1.1);
   }
 }
 
-.card-title {
+.cardTitle {
   font-weight: 700;
   font-size: 1.05rem;
   color: var(--color-text-primary);
 }
 
-.card-desc {
+.cardDesc {
   font-size: 0.85rem;
   color: var(--color-text-secondary);
   margin-top: 0.25rem;
@@ -142,15 +142,15 @@
 }
 
 /* ── Q2 – Scope cards ────────────────────────────────── */
-.scope-grid {
+.scopeGrid {
   display: flex;
   gap: 1rem;
 }
 
-.scope-card {
+.scopeCard {
   flex: 1;
   padding: 1.25rem;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-sm);
   background-color: #fff;
   border: 2px solid transparent;
   display: flex;
@@ -170,11 +170,11 @@
   }
 }
 
-.scope-icon-wrap {
+.scopeIconWrap {
   flex-shrink: 0;
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-sm);
   background-color: var(--color-border-light);
   display: flex;
   align-items: center;
@@ -190,27 +190,27 @@
   }
 }
 
-.icon-active {
+.iconActive {
   background-color: var(--color-primary);
   color: var(--color-on-accent);
 }
 
-.scope-text {
+.scopeText {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
 }
 
 /* ── Q3 – Goal cards ─────────────────────────────────── */
-.goal-grid {
+.goalGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 
-.goal-card {
+.goalCard {
   padding: 1rem;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-sm);
   background-color: #fff;
   border: 2px solid transparent;
   display: flex;
@@ -237,7 +237,7 @@
   }
 }
 
-.goal-icon {
+.goalIcon {
   display: block;
   width: 1.5rem;
   height: 1.5rem;
@@ -245,7 +245,7 @@
   color: inherit;
 }
 
-.goal-label {
+.goalLabel {
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -263,17 +263,17 @@
   padding-top: 2rem;
 }
 
-.validation-error {
+.validationError {
   color: #dc2626;
   font-size: 0.9rem;
   font-weight: 600;
 }
 
-.continue-btn {
+.continueBtn {
   background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
   color: var(--color-on-accent);
   padding: 1rem 2.5rem;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-sm);
   font-weight: 700;
   font-size: 1rem;
   display: flex;
@@ -306,7 +306,7 @@
    ═══════════════════════════════════════════════════════ */
 
 /* Section header */
-.s2-header {
+.s2Header {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -327,7 +327,7 @@
   }
 }
 
-.s2-badge {
+.s2Badge {
   display: inline-block;
   padding: 0.25rem 0.75rem;
   background-color: var(--color-primary);
@@ -336,26 +336,26 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   width: fit-content;
 }
 
 /* Configurator container */
-.s2-configurator {
+.s2Configurator {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
 /* Generic panel */
-.s2-panel {
+.s2Panel {
   background-color: #fff;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-sm);
   padding: 2rem;
   box-shadow: 0 12px 32px rgba(25, 28, 31, 0.06);
 }
 
-.s2-panel-header {
+.s2PanelHeader {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -370,7 +370,7 @@
   }
 }
 
-.s2-panel-icon {
+.s2PanelIcon {
   width: 1.4rem;
   height: 1.4rem;
   color: var(--color-text-primary);
@@ -378,19 +378,19 @@
 }
 
 /* Transport mode grid */
-.transport-grid {
+.transportGrid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 0.75rem;
 }
 
-.transport-btn {
+.transportBtn {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
   padding: 1.25rem 0.5rem;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-sm);
   background-color: var(--color-bg-secondary);
   border: 2px solid transparent;
   cursor: pointer;
@@ -418,25 +418,25 @@
   }
 }
 
-.transport-icon {
+.transportIcon {
   width: 1.75rem;
   height: 1.75rem;
   color: inherit;
 }
 
 /* Responsibility toggles */
-.toggle-list {
+.toggleList {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.toggle-row {
+.toggleRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-sm);
   transition: background-color 0.15s ease;
 
   &:hover {
@@ -444,36 +444,36 @@
   }
 }
 
-.toggle-label {
+.toggleLabel {
   font-weight: 700;
   font-size: 0.95rem;
   color: var(--color-text-primary);
 }
 
-.toggle-question {
+.toggleQuestion {
   font-size: 0.8rem;
   color: var(--color-text-secondary);
   margin-top: 0.15rem;
 }
 
 /* Toggle switch */
-.toggle-track {
+.toggleTrack {
   position: relative;
   width: 2.75rem;
   height: 1.5rem;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   background-color: var(--color-border);
   border: none;
   cursor: pointer;
   flex-shrink: 0;
   transition: background-color 0.2s ease;
 
-  &.toggle-on {
+  &.toggleOn {
     background-color: var(--color-primary);
   }
 }
 
-.toggle-thumb {
+.toggleThumb {
   position: absolute;
   top: 2px;
   left: 2px;
@@ -484,24 +484,24 @@
   transition: transform 0.2s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 
-  .toggle-on & {
+  .toggleOn & {
     transform: translateX(1.25rem);
   }
 }
 
 /* Insurance segmented control */
-.segmented-control {
+.segmentedControl {
   display: flex;
   gap: 0.25rem;
   background-color: var(--color-bg-secondary);
-  border-radius: 0.75rem;
+  border-radius: var(--radius-sm);
   padding: 0.375rem;
 }
 
-.seg-btn {
+.segBtn {
   flex: 1;
   padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-sm);
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -515,11 +515,11 @@
     color 0.15s ease,
     box-shadow 0.15s ease;
 
-  &:hover:not(.seg-active) {
+  &:hover:not(.segActive) {
     background-color: var(--color-border-light);
   }
 
-  &.seg-active {
+  &.segActive {
     background-color: #fff;
     color: var(--color-text-primary);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
@@ -527,14 +527,14 @@
 }
 
 /* Navigation row */
-.s2-nav {
+.s2Nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 0.5rem;
 }
 
-.prev-btn {
+.prevBtn {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -558,14 +558,14 @@
   }
 }
 
-.calc-btn {
+.calcBtn {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   background-color: var(--color-text-primary);
   color: #fff;
   padding: 1rem 2.5rem;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-sm);
   font-weight: 800;
   font-size: 0.7rem;
   text-transform: uppercase;
@@ -593,14 +593,14 @@
 
 /* ═══ STEP 3 – Results ═══ */
 
-.r-header {
+.rHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.5rem;
 }
 
-.r-heading-group {
+.rHeadingGroup {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -613,7 +613,7 @@
   }
 }
 
-.r-optimal-badge {
+.rOptimalBadge {
   background-color: var(--color-primary);
   color: var(--color-on-accent);
   font-size: 0.65rem;
@@ -621,16 +621,16 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 0.35rem 0.9rem;
-  border-radius: 100px;
+  border-radius: var(--radius-full);
 }
 
-.r-restart-btn {
+.rRestartBtn {
   display: flex;
   align-items: center;
   gap: 0.4rem;
   background: none;
   border: 1.5px solid var(--color-border);
-  border-radius: 0.5rem;
+  border-radius: var(--radius-sm);
   padding: 0.5rem 1rem;
   font-size: 0.75rem;
   font-weight: 600;
@@ -648,22 +648,22 @@
   }
 }
 
-.r-main-card {
+.rMainCard {
   background: var(--color-text-primary);
   color: #fff;
-  border-radius: 1.25rem;
+  border-radius: var(--radius-md);
   padding: 2rem;
   margin-bottom: 1.25rem;
 }
 
-.r-code-row {
+.rCodeRow {
   display: flex;
   align-items: center;
   gap: 1.5rem;
   margin-bottom: 1rem;
 }
 
-.r-code {
+.rCode {
   font-size: 3.5rem;
   font-weight: 900;
   color: var(--color-primary);
@@ -671,19 +671,19 @@
   letter-spacing: -0.02em;
 }
 
-.r-code-info {
+.rCodeInfo {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.r-full-name {
+.rFullName {
   font-size: 1rem;
   font-weight: 700;
   color: #fff;
 }
 
-.r-confidence-badge {
+.rConfidenceBadge {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -692,7 +692,7 @@
   font-size: 0.7rem;
   font-weight: 700;
   padding: 0.3rem 0.75rem;
-  border-radius: 100px;
+  border-radius: var(--radius-full);
 
   svg {
     width: 0.9rem;
@@ -700,13 +700,13 @@
   }
 }
 
-.r-description {
+.rDescription {
   font-size: 0.85rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.75);
 }
 
-.r-bento {
+.rBento {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
@@ -717,15 +717,15 @@
   }
 }
 
-.r-why,
-.r-resp-panel {
+.rWhy,
+.rRespPanel {
   background: #fff;
   border: 1px solid var(--color-border-light);
-  border-radius: 1.25rem;
+  border-radius: var(--radius-md);
   padding: 1.5rem;
 }
 
-.r-section-title {
+.rSectionTitle {
   font-size: 0.72rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -734,7 +734,7 @@
   margin-bottom: 1rem;
 }
 
-.r-reasons {
+.rReasons {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -743,7 +743,7 @@
   gap: 0.75rem;
 }
 
-.r-reason-item {
+.rReasonItem {
   display: flex;
   align-items: flex-start;
   gap: 0.6rem;
@@ -752,7 +752,7 @@
   color: var(--color-text-primary);
 }
 
-.r-reason-icon {
+.rReasonIcon {
   color: var(--color-primary);
   flex-shrink: 0;
   width: 1.1rem;
@@ -760,7 +760,7 @@
   margin-top: 0.1rem;
 }
 
-.r-resp-labels {
+.rRespLabels {
   display: flex;
   justify-content: space-between;
   font-size: 0.72rem;
@@ -769,48 +769,47 @@
   margin-bottom: 0.6rem;
 }
 
-.r-bars {
+.rBars {
   display: flex;
   height: 0.75rem;
-  border-radius: 100px;
+  border-radius: var(--radius-full);
   overflow: hidden;
   background: var(--color-bg-secondary);
 }
 
-.r-bar-fill {
+.rBarFill {
   height: 100%;
-  transition: width 0.6s ease;
 }
 
-.seller-fill {
+.sellerFill {
   background-color: var(--color-text-primary);
 }
 
-.buyer-fill {
+.buyerFill {
   background-color: var(--color-primary);
 }
 
-.r-risk-section {
+.rRiskSection {
   background: #fff;
   border: 1px solid var(--color-border-light);
-  border-radius: 1.25rem;
+  border-radius: var(--radius-md);
   padding: 1.5rem;
   margin-bottom: 1.25rem;
 }
 
-.r-journey-wrap {
+.rJourneyWrap {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-.r-journey {
+.rJourney {
   flex: 1;
   display: flex;
   align-items: flex-start;
 }
 
-.r-stop {
+.rStop {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -818,7 +817,7 @@
   flex: 1;
 }
 
-.r-stop-dot {
+.rStopDot {
   width: 0.85rem;
   height: 0.85rem;
   border-radius: 50%;
@@ -828,7 +827,7 @@
   position: relative;
 }
 
-.r-stop-line {
+.rStopLine {
   position: absolute;
   top: 0.42rem;
   left: 50%;
@@ -838,26 +837,26 @@
   z-index: 0;
 }
 
-.r-stop-label {
+.rStopLabel {
   font-size: 0.6rem;
   font-weight: 600;
   text-align: center;
   color: inherit;
 }
 
-.r-seller-stop {
+.rSellerStop {
   color: var(--color-text-primary);
 }
 
-.r-buyer-stop {
+.rBuyerStop {
   color: var(--color-primary);
 }
 
-.r-seller-line {
+.rSellerLine {
   background-color: var(--color-text-primary);
 }
 
-.r-buyer-line {
+.rBuyerLine {
   background-color: var(--color-primary);
 }
 
@@ -873,39 +872,39 @@
   }
 }
 
-.r-pulse {
+.rPulse {
   animation: pulse-ring 1.5s ease-out infinite;
 }
 
-.r-risk-label-seller,
-.r-risk-label-buyer {
+.rRiskLabelSeller,
+.rRiskLabelBuyer {
   font-size: 0.65rem;
   font-weight: 700;
   white-space: nowrap;
 }
 
-.r-risk-label-seller {
+.rRiskLabelSeller {
   color: var(--color-text-primary);
 }
 
-.r-risk-label-buyer {
+.rRiskLabelBuyer {
   color: var(--color-primary);
 }
 
-.r-actions {
+.rActions {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
 }
 
-.r-quote-btn {
+.rQuoteBtn {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   background: var(--color-text-primary);
   color: #fff;
   border: none;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-sm);
   padding: 0.9rem 1.75rem;
   font-size: 0.75rem;
   font-weight: 700;
@@ -922,14 +921,14 @@
   }
 }
 
-.r-compare-btn {
+.rCompareBtn {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   background: none;
   color: var(--color-text-primary);
   border: 1.5px solid var(--color-border);
-  border-radius: 0.75rem;
+  border-radius: var(--radius-sm);
   padding: 0.9rem 1.75rem;
   font-size: 0.75rem;
   font-weight: 700;
@@ -950,16 +949,16 @@
 
 :global(.dark) {
   // Step 1 – selection cards
-  .role-card,
-  .scope-card,
-  .goal-card {
+  .roleCard,
+  .scopeCard,
+  .goalCard {
     background-color: var(--color-bg-secondary);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   }
 
   // Goal card hover/selected: dark block's base rule wins on specificity ties (same 0,2,0),
-  // so yellow bg must be re-declared here to beat the base .goal-card override above.
-  .goal-card {
+  // so yellow bg must be re-declared here to beat the base .goalCard override above.
+  .goalCard {
     &:hover,
     &.selected {
       background-color: var(--color-primary);
@@ -969,65 +968,65 @@
   }
 
   // Scope card active icon: color-text-primary = white in dark, but bg is yellow → poor contrast
-  .icon-active {
+  .iconActive {
     color: #000a3c;
   }
 
   // Toggle row hover: panel bg is color-bg-secondary in dark; use primary to differentiate
-  .toggle-row:hover {
+  .toggleRow:hover {
     background-color: var(--color-bg-primary);
   }
 
   // Step 2 – config panels
-  .s2-panel {
+  .s2Panel {
     background-color: var(--color-bg-secondary);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
   }
 
-  .seg-btn.seg-active {
+  .segBtn.segActive {
     background-color: var(--color-primary);
     color: #000a3c;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
   }
 
   // Step 1 – "Continue" button: color-text-primary = white in dark, but bg is yellow gradient
-  .continue-btn {
+  .continueBtn {
     color: #000a3c;
   }
 
   // Step 2 – "Calculate" button uses color-text-primary as bg (white in dark = invisible text)
-  .calc-btn {
+  .calcBtn {
     background-color: var(--color-primary);
     color: #000a3c;
   }
 
   // Step 2 – active transport mode button
-  .transport-btn.active {
+  .transportBtn.active {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
     color: #000a3c;
   }
 
   // Step 3 – result panels (white bg)
-  .r-why,
-  .r-resp-panel,
-  .r-risk-section {
+  .rWhy,
+  .rRespPanel,
+  .rRiskSection {
     background: var(--color-bg-secondary);
     border-color: var(--color-border);
   }
 
   // Step 3 suggestion badge: color-text-primary = white in dark, but bg is yellow
-  .r-optimal-badge {
+  .rOptimalBadge {
     color: #000a3c;
   }
 
   // Step 3 – main result card uses color-text-primary as bg (white in dark = invisible text)
-  .r-main-card {
+  .rMainCard {
     background: #0a192f;
   }
 
   // Step 3 – "Request Quote" button
-  .r-quote-btn {
+  .rQuoteBtn {
     background: var(--color-primary);
     color: #000a3c;
   }
