@@ -65,6 +65,11 @@
     "trade_label": "Public trade activity",
     "trade_value": "View attributed ImportKey company data"
   },
+  "Showcase": {
+    "partners_title": "Partner network preview",
+    "development_notice": "Fictional development preview — not actual partners or clients",
+    "pause_label": "Partner preview. Focus to pause the automatic scroll."
+  },
   "Industries": {
     "title": "Industries We Support",
     "description": "Logistics coordination for common cargo categories supported by our freight, warehousing, and supply chain services.",

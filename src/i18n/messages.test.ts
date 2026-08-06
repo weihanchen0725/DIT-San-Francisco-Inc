@@ -69,16 +69,22 @@ describe('localized messages', () => {
     }
   });
 
-  it('does not ship placeholder news, fictional partners, or nonexistent tools', () => {
+  it('does not ship placeholder news or nonexistent tools', () => {
     for (const messages of [enMessages, zhTwMessages]) {
       expect(messages).not.toHaveProperty('News');
-      expect(messages).not.toHaveProperty('Showcase');
       expect(messages.Metadata).not.toHaveProperty('news');
       expect(messages.NavBar).not.toHaveProperty('news');
       expect(messages.Tools).not.toHaveProperty('schedule_pickup_desc');
       expect(messages.Tools).not.toHaveProperty('route_optimization_title');
       expect(messages.Tools).not.toHaveProperty('route_optimization_desc');
     }
+  });
+
+  it('clearly labels the development-only partner preview in both locales', () => {
+    expect(enMessages.Showcase.development_notice).toContain('Fictional');
+    expect(enMessages.Showcase.development_notice).toContain('not actual');
+    expect(zhTwMessages.Showcase.development_notice).toContain('虛構');
+    expect(zhTwMessages.Showcase.development_notice).toContain('並非實際');
   });
 
   it('defines production-safe industries and global service copy in both locales', () => {

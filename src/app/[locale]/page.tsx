@@ -6,6 +6,7 @@ import Contact from '@/components/Contact/Contact';
 import GlobalService from '@/components/GlobalService/GlobalService';
 import Home from '@/components/Home/Home';
 import Industries from '@/components/Industries/Industries';
+import Partners from '@/components/Partners/Partners';
 import Services from '@/components/Services/Services';
 import Tools from '@/components/Tools/Tools';
 import React from 'react';
@@ -27,6 +28,7 @@ const HomePage = async ({ params }: PageProps) => {
     <React.Fragment>
       <Home />
       <About />
+      <Partners />
       <Services />
       <GlobalService />
       <Industries />

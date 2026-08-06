@@ -65,6 +65,11 @@
     "trade_label": "公開貿易活動",
     "trade_value": "查看註明來源的 ImportKey 公司資料"
   },
+  "Showcase": {
+    "partners_title": "合作夥伴網絡預覽",
+    "development_notice": "虛構的開發預覽 — 並非實際合作夥伴或客戶",
+    "pause_label": "合作夥伴預覽。聚焦此區域即可暫停自動捲動。"
+  },
   "Industries": {
     "title": "我們支援的產業",
     "description": "透過貨運、倉儲與供應鏈服務，為常見貨物類別提供物流協調。",

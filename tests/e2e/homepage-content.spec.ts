@@ -82,6 +82,13 @@ test('hero omits the duplicate verified proof strip', async ({ page }) => {
   await expect(page.getByTestId('hero-proof-strip')).toHaveCount(0);
 });
 
+test('production homepage excludes the fictional partner preview', async ({ page }) => {
+  await page.goto('/en');
+
+  await expect(page.locator('#partners')).toHaveCount(0);
+  await expect(page.getByText('Fictional development preview')).toHaveCount(0);
+});
+
 test('header and hero use the San Francisco brand location with a yellow hero accent', async ({
   page,
 }) => {
