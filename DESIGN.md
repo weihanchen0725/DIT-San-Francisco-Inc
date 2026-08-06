@@ -104,7 +104,7 @@ Interactive marketing cards use `--shadow-hover` via `card-interactive`. Do not 
 
 ## 5. Spacing & breakpoints
 
-**Section padding:** `page-section` → `clamp(2rem, 5vw, 5rem)` block, `clamp(1rem, 5vw, 2rem)` inline.
+**Section rhythm:** `page-section` uses intrinsic content height with `clamp(2rem, 5vw, 5rem)` block padding and `clamp(1rem, 5vw, 2rem)` inline padding. Reserve viewport-height layouts for authored hero moments.
 
 **Breakpoints** (`$breakpoints` / `--screen-*`)
 
@@ -175,7 +175,7 @@ Shared SCSS: [`src/assets/styles/_mixin.scss`](src/assets/styles/_mixin.scss)
 
 ### Contact / static info cards
 
-Use `card-surface` + `card-interactive` (same system). Icon wells: `icon-circle` with local size overrides (e.g. `3.5rem`).
+Use `card-surface` without lift for static contact information. Icon wells: `icon-circle` with local size overrides (e.g. `3.5rem`).
 
 ### Exceptions (intentional, not marketing cards)
 

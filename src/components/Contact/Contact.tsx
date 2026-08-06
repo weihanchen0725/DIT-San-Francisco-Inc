@@ -23,6 +23,11 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
       </div>
 
       <div className={contactClass.contactLayout}>
+        {/* Form stays first in DOM/mobile flow; the desktop grid places contact details left. */}
+        <div className={contactClass.contactFormColumn}>
+          <ContactForm />
+        </div>
+
         {/* Contact Info Cards */}
         <div className={contactClass.contactInfoColumn}>
           <div className={contactClass.contactCard}>
@@ -33,6 +38,7 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -46,8 +52,12 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
                 {translateContact('email_title')}
               </SectionHeading>
             </div>
-            <p className={contactClass.contactCardDetail}>contact@ditsanfrancisco.com</p>
-            <p className={contactClass.contactCardDetail}>support@ditsanfrancisco.com</p>
+            <a className={contactClass.contactCardDetail} href="mailto:contact@ditsanfrancisco.com">
+              contact@ditsanfrancisco.com
+            </a>
+            <a className={contactClass.contactCardDetail} href="mailto:support@ditsanfrancisco.com">
+              support@ditsanfrancisco.com
+            </a>
           </div>
 
           <div className={`${contactClass.contactCard} ${contactClass.contactCardFlex}`}>
@@ -58,6 +68,7 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -82,6 +93,7 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -95,7 +107,12 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
                 {translateContact('phone_title')}
               </SectionHeading>
             </div>
-            <p className={contactClass.contactCardDetail}>{ContactData.data.phone}</p>
+            <a
+              className={contactClass.contactCardDetail}
+              href={`tel:${ContactData.data.phone.replace(/[^+\d]/g, '')}`}
+            >
+              {ContactData.data.phone}
+            </a>
             <p className={contactClass.contactCardDetail}>{ContactData.data.business_hours}</p>
           </div>
 
@@ -107,6 +124,7 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -134,11 +152,6 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
               <MapWrapper />
             </div>
           </div>
-        </div>
-
-        {/* Contact Form */}
-        <div className={contactClass.contactFormColumn}>
-          <ContactForm />
         </div>
       </div>
     </section>

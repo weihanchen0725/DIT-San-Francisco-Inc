@@ -16,6 +16,31 @@
   }
 }
 
+.header {
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 2rem) 1.5rem;
+  color: var(--map-legend-text);
+}
+
+.eyebrow {
+  margin-bottom: 0.5rem;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.description {
+  max-width: 42rem;
+  margin-top: 0.75rem;
+  line-height: 1.7;
+}
+
 .mapWrap {
   --coverage-o: #003f5c;
   --coverage-s: #0072b2;
@@ -44,11 +69,10 @@
   border: 0;
   padding: 0;
   background: transparent;
-  cursor: pointer;
+  cursor: default;
   transform: translate(-50%, -100%);
 
-  &:hover,
-  &:focus-visible {
+  &:hover {
     z-index: 10;
     outline: none;
 
@@ -63,10 +87,6 @@
     }
   }
 
-  &:focus-visible .pinVisual {
-    outline: 2px solid #001f3f;
-    outline-offset: 2px;
-  }
 }
 
 .pinVisual {
@@ -147,8 +167,7 @@
     transform: translate(0, 0.25rem);
   }
 
-  &:hover .tooltip,
-  &:focus .tooltip {
+  &:hover .tooltip {
     transform: translate(0, 0);
   }
 }
@@ -160,8 +179,7 @@
     transform: translate(0, 0.25rem);
   }
 
-  &:hover .tooltip,
-  &:focus .tooltip {
+  &:hover .tooltip {
     transform: translate(0, 0);
   }
 }
@@ -197,14 +215,43 @@
   font-size: 0.62rem;
 }
 
-.srOnly {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
+.directory {
+  border-top: 1px solid color-mix(in srgb, var(--map-legend-text) 20%, transparent);
+  padding: 0 clamp(1rem, 5vw, 2rem) clamp(2rem, 5vw, 4rem);
+  color: var(--map-legend-text);
+}
+
+.directorySummary {
+  display: flex;
+  min-height: 2.75rem;
+  align-items: center;
+  width: fit-content;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.directoryList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  max-height: 24rem;
+  gap: 0.75rem;
+  overflow-y: auto;
+  margin-top: 1rem;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: grid;
+    min-width: 0;
+    gap: 0.15rem;
+    border: 1px solid color-mix(in srgb, var(--map-legend-text) 20%, transparent);
+    padding: 0.75rem;
+    font-size: var(--text-sm);
+  }
+
+  span {
+    color: color-mix(in srgb, var(--map-legend-text) 72%, transparent);
+  }
 }
 
 @media (max-width: 40rem) {

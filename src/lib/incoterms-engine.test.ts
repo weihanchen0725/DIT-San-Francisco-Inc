@@ -115,7 +115,7 @@ describe('recommendIncoterm', () => {
     expect(result.code).toBe('FOB');
   });
 
-  it('every result has a fullName, description, and riskJourney', () => {
+  it('returns only a code and does not invent confidence or responsibility percentages', () => {
     const result = recommendIncoterm({
       role: 'seller',
       scope: 'international',
@@ -126,8 +126,9 @@ describe('recommendIncoterm', () => {
       doorToDoor: false,
       insurance: 'self',
     });
-    expect(result.fullName).toBeTruthy();
-    expect(result.description).toBeTruthy();
-    expect(result.riskJourney.length).toBeGreaterThan(0);
+    expect(result).toEqual({ code: 'FOB' });
+    expect(result).not.toHaveProperty('confidence');
+    expect(result).not.toHaveProperty('sellerPct');
+    expect(result).not.toHaveProperty('buyerPct');
   });
 });

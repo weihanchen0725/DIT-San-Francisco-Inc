@@ -7,7 +7,6 @@ import {
   ArrowLeft,
   ArrowLeftRight,
   ArrowRight,
-  BadgeCheck,
   CheckCircle2,
   ChevronRight,
   ClipboardCheck,
@@ -483,86 +482,38 @@ const Advisor = () => {
               <div className={advisorClass['rCodeRow']}>
                 <span className={advisorClass['rCode']}>{result.code}</span>
                 <div className={advisorClass['rCodeInfo']}>
-                  <p className={advisorClass['rFullName']}>{result.fullName}</p>
-                  <div className={advisorClass['rConfidenceBadge']}>
-                    <BadgeCheck />
-                    <span>
-                      {result.confidence}% {t('advisor_r_confidence')}
-                    </span>
-                  </div>
+                  <p className={advisorClass['rFullName']}>
+                    {t(`${result.code.toLowerCase()}_name`)}
+                  </p>
                 </div>
               </div>
-              <p className={advisorClass['rDescription']}>{result.description}</p>
               <p className={advisorClass['rDescription']}>{t('disclaimer')}</p>
             </div>
 
-            {/* Bento Grid */}
+            {/* Canonical localized guidance. No fabricated match or allocation percentages. */}
             <div className={advisorClass['rBento']}>
               <div className={advisorClass['rWhy']}>
-                <h2 className={advisorClass['rSectionTitle']}>{t('advisor_r_why_title')}</h2>
-                <ul className={advisorClass['rReasons']}>
-                  {result.reasons.map((reason, i) => (
-                    <li key={i} className={advisorClass['rReasonItem']}>
-                      <CheckCircle2 className={advisorClass['rReasonIcon']} />
-                      <span>{reason}</span>
-                    </li>
-                  ))}
-                </ul>
+                <h2 className={advisorClass['rSectionTitle']}>{t('advisor_r_use_case_title')}</h2>
+                <p className={advisorClass['rReasonItem']}>
+                  {t(`${result.code.toLowerCase()}_use_case`)}
+                </p>
               </div>
               <div className={advisorClass['rRespPanel']}>
-                <h2 className={advisorClass['rSectionTitle']}>{t('advisor_r_resp_title')}</h2>
-                <div className={advisorClass['rRespLabels']}>
-                  <span>
-                    {t('advisor_r_resp_seller')} {result.sellerPct}%
-                  </span>
-                  <span>
-                    {t('advisor_r_resp_buyer')} {result.buyerPct}%
-                  </span>
-                </div>
-                <div className={advisorClass['rBars']}>
-                  <div
-                    className={`${advisorClass['rBarFill']} ${advisorClass['sellerFill']}`}
-                    style={{ width: `${result.sellerPct}%` }}
-                  />
-                  <div
-                    className={`${advisorClass['rBarFill']} ${advisorClass['buyerFill']}`}
-                    style={{ width: `${result.buyerPct}%` }}
-                  />
-                </div>
+                <h2 className={advisorClass['rSectionTitle']}>{t('advisor_r_risk_title')}</h2>
+                <p className={advisorClass['rReasonItem']}>
+                  {t(`${result.code.toLowerCase()}_risk`)}
+                </p>
               </div>
             </div>
 
-            {/* Risk Transfer Journey */}
-            <div className={advisorClass['rRiskSection']}>
-              <h2 className={advisorClass['rSectionTitle']}>{t('advisor_r_risk_title')}</h2>
-              <div className={advisorClass['rJourneyWrap']}>
-                <span className={advisorClass['rRiskLabelSeller']}>
-                  {t('advisor_r_risk_seller')}
-                </span>
-                <div className={advisorClass['rJourney']}>
-                  {result.riskJourney.map((stop, i) => {
-                    const isTransfer = i > 0 && result.riskJourney[i - 1].owner !== stop.owner;
-                    return (
-                      <div
-                        key={i}
-                        className={`${advisorClass['rStop']} ${advisorClass[stop.owner === 'seller' ? 'rSellerStop' : 'rBuyerStop']}`}
-                      >
-                        <div
-                          className={`${advisorClass['rStopDot']} ${isTransfer ? advisorClass['rPulse'] : ''}`}
-                        />
-                        {i < result.riskJourney.length - 1 && (
-                          <div
-                            className={`${advisorClass['rStopLine']} ${advisorClass[stop.owner === 'seller' ? 'rSellerLine' : 'rBuyerLine']}`}
-                          />
-                        )}
-                        <span className={advisorClass['rStopLabel']}>{stop.label}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-                <span className={advisorClass['rRiskLabelBuyer']}>{t('advisor_r_risk_buyer')}</span>
-              </div>
-            </div>
+            <a
+              className={advisorClass['rSourceLink']}
+              href="https://iccwbo.org/business-solutions/incoterms-rules/incoterms-2020/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t('advisor_r_official_source')}
+            </a>
 
             {/* Action Buttons */}
             <div className={advisorClass['rActions']}>

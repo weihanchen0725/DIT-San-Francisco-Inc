@@ -96,10 +96,9 @@ $motion-duration: 0.3s;
 
 // ─── Section layout shared patterns ──────────────────────────────────────────
 
-/// Full-viewport section with consistent page padding.
+/// Intrinsic-height section with consistent page padding.
 /// Use on the root <section> of every page section.
 @mixin page-section {
-  min-height: 100svh;
   padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 5vw, 2rem);
 }
 

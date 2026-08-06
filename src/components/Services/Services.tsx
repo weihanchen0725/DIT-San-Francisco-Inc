@@ -1,4 +1,5 @@
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
+import Link from 'next/link';
 import SectionHeading from '@/components/ui/SectionHeading';
 import FreightShippingIcon from '@/assets/icons/FreightShippingIcon';
 import WarehousingIcon from '@/assets/icons/WarehousingIcon';
@@ -20,6 +21,7 @@ type ServicesProps = {
 
 const Services = async ({ headingLevel = 2, showDetails = false }: ServicesProps) => {
   const translateServices = await getTranslations('Services');
+  const locale = await getLocale();
   const itemHeadingLevel = headingLevel === 1 ? 2 : 3;
 
   return (
@@ -60,6 +62,11 @@ const Services = async ({ headingLevel = 2, showDetails = false }: ServicesProps
           </article>
         ))}
       </div>
+      {headingLevel !== 1 && (
+        <Link className={servicesClass.servicesLink} href={`/${locale}/services`}>
+          {translateServices('explore_services')}
+        </Link>
+      )}
     </section>
   );
 };

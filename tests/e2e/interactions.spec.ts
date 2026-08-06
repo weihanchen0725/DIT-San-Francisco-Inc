@@ -66,6 +66,35 @@ test('homepage header actions retain their button treatments', async ({ page }) 
   await expect(quote).toHaveCSS('border-top-color', 'rgb(0, 10, 60)');
 });
 
+for (const width of [390, 1280]) {
+  test(`first freight-quote anchor jump keeps the Contact heading below the sticky header at ${width}px`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/en');
+
+    const quote = page
+      .locator('#home')
+      .getByRole('link', { name: 'Request a Freight Quote', exact: true });
+    await quote.click();
+
+    await expect(page).toHaveURL(/#contact$/);
+    await page.waitForTimeout(1_200);
+
+    const alignment = await page.evaluate(() => {
+      const header = document.querySelector('header')?.getBoundingClientRect();
+      const heading = document.querySelector('#contact h2')?.getBoundingClientRect();
+
+      return {
+        headerBottom: header?.bottom ?? 0,
+        headingTop: heading?.top ?? -1,
+      };
+    });
+
+    expect(alignment.headingTop).toBeGreaterThanOrEqual(alignment.headerBottom);
+  });
+}
+
 test('subpage header section links return to localized homepage sections', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto('/zh-TW/services');
@@ -154,7 +183,9 @@ test('production homepage includes global service coverage while omitting fictio
   await expect(page.getByRole('heading', { name: 'Global Service', exact: true })).toHaveCount(1);
   await expect(globalServiceMap).toBeVisible();
   await expect(globalServiceMap.locator('[data-hub-pin]')).toHaveCount(86);
+  await expect(globalServiceMap.locator('button')).toHaveCount(0);
   await expect(globalServiceMap.getByTestId('coverage-legend-item')).toHaveCount(4);
+  await expect(page.getByText('Browse all 86 coverage locations')).toBeVisible();
 
   const homepageSectionOrder = await page
     .locator('main > section')
@@ -172,6 +203,35 @@ test('production homepage includes global service coverage while omitting fictio
   );
   await expect(page.getByText('Fictional development preview')).toHaveCount(0);
   await expect(page.getByRole('heading', { name: 'Latest News' })).toHaveCount(0);
+});
+
+test('responsive menu closes with Escape and restores focus', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/en');
+
+  const menuButton = page.getByRole('button', { name: 'Open menu' });
+  await menuButton.click();
+  await expect(page.getByRole('button', { name: 'Close menu' })).toBeVisible();
+
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('button', { name: 'Open menu' })).toBeFocused();
+  await expect(page.locator('header ul[data-style-mode="column"]')).toHaveCount(0);
+});
+
+test('invalid contact submission focuses the first invalid field and shipment details are disclosed', async ({
+  page,
+}) => {
+  await page.goto('/en/contact');
+
+  const shipmentDetails = page.locator('details').filter({
+    hasText: 'Shipment details for a freight quote',
+  });
+  await expect(shipmentDetails).not.toHaveAttribute('open', '');
+  await shipmentDetails.locator('summary').click();
+  await expect(shipmentDetails).toHaveAttribute('open', '');
+
+  await page.getByRole('button', { name: 'Send Message' }).click();
+  await expect(page.locator('input[name="firstName"]')).toBeFocused();
 });
 
 test('desktop header shows the inline navigation without a menu button at 1280px', async ({

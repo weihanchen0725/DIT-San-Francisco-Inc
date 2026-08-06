@@ -29,7 +29,7 @@ const HomePage = async ({ params }: PageProps) => {
       <Home />
       <About />
       <Partners />
-      <Services />
+      <Services showDetails />
       <GlobalService />
       <Industries />
       <Tools />

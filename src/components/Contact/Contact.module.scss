@@ -26,29 +26,33 @@
     gap: 3rem;
 
     @media (min-width: 64rem) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 
   &InfoColumn {
     display: flex;
+    min-width: 0;
     flex-direction: column;
     gap: 1.5rem;
 
     @media (min-width: 64rem) {
-      grid-column: span 1;
+      grid-row: 1;
+      grid-column: 1;
     }
   }
 
   &FormColumn {
+    min-width: 0;
+
     @media (min-width: 64rem) {
-      grid-column: span 2;
+      grid-row: 1;
+      grid-column: 2 / span 2;
     }
   }
 
   &Card {
     @include card-surface;
-    @include card-interactive;
   }
 
   // Variant: card that lays out its own children as a flex column (business hours)
@@ -87,6 +91,13 @@
   // Detail paragraphs below the card header; siblings share no top margin
   &CardDetail {
     @include card-description;
+    display: block;
+    width: fit-content;
+
+    &:is(a) {
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
 
     & + & {
       margin-top: 0;

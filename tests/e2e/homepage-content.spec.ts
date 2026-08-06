@@ -130,7 +130,7 @@ test('services cards explain who each service is for and what to share for a quo
   ).toBeVisible();
 });
 
-test('homepage service cards keep titles and descriptions but omit page-only details', async ({
+test('homepage service cards explain fit and link to the full services page', async ({
   page,
 }) => {
   await page.goto('/en');
@@ -142,8 +142,43 @@ test('homepage service cards keep titles and descriptions but omit page-only det
       'Coordination of ocean and air freight shipments between the Bay Area and international ports through the Dolphin Logistics network.'
     )
   ).toBeVisible();
-  await expect(services.getByText('Ideal for')).toHaveCount(0);
-  await expect(services.getByText('For a quote, share')).toHaveCount(0);
+  await expect(services.getByText('Ideal for').first()).toBeVisible();
+  await expect(services.getByText('For a quote, share').first()).toBeVisible();
+  await expect(services.getByRole('link', { name: 'Explore all services' })).toHaveAttribute(
+    'href',
+    '/en/services'
+  );
+});
+
+test('normal homepage sections use intrinsic height and the contact form comes first', async ({
+  page,
+}) => {
+  await page.goto('/en');
+
+  await expect(page.locator('#services')).toHaveCSS('min-height', 'auto');
+  const contactChildren = page.locator('#contact > div').last().locator(':scope > div');
+  await expect(contactChildren.first().locator('form')).toHaveCount(1);
+});
+
+test('contact details sit left of the form on desktop and the form stays first on mobile', async ({
+  page,
+}) => {
+  const getColumnPositions = async () => {
+    const columns = page.locator('#contact > div').last().locator(':scope > div');
+    const form = await columns.nth(0).boundingBox();
+    const details = await columns.nth(1).boundingBox();
+    return { form, details };
+  };
+
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto('/en/contact');
+  const desktop = await getColumnPositions();
+  expect(desktop.details?.x ?? Infinity).toBeLessThan(desktop.form?.x ?? 0);
+  expect(desktop.form?.width ?? 0).toBeGreaterThan(desktop.details?.width ?? Infinity);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  const mobile = await getColumnPositions();
+  expect(mobile.form?.y ?? Infinity).toBeLessThan(mobile.details?.y ?? 0);
 });
 
 test('contact form placeholders are visually lighter than entered text in each theme', async ({
@@ -178,7 +213,7 @@ test('dictionary category chips retain their taxonomy colors', async ({ page }) 
   await expect(category).toHaveCSS('border-color', 'rgb(196, 181, 253)');
 });
 
-test('marketing sections defer off-screen rendering and stagger their entrance', async ({
+test('marketing sections use stable layout heights and stagger their entrance', async ({
   page,
 }) => {
   await page.setViewportSize({ width: 1280, height: 700 });
@@ -197,10 +232,10 @@ test('marketing sections defer off-screen rendering and stagger their entrance',
   await expect(page.locator('#about')).toHaveAttribute('data-scroll-visible', 'true');
   await page.evaluate(() => window.scrollTo(0, 0));
 
-  const deferredRendering = await services.evaluate(
+  const contentVisibility = await services.evaluate(
     (section) => getComputedStyle(section).contentVisibility
   );
-  expect(deferredRendering).toBe('auto');
+  expect(contentVisibility).toBe('visible');
 
   await services.scrollIntoViewIfNeeded();
   await expect(services).toHaveAttribute('data-scroll-visible', 'true');
@@ -245,6 +280,7 @@ test('contact form collects optional freight-quote shipment context', async ({ p
   await page.goto('/en/contact');
 
   await expect(page.getByText('Shipment details for a freight quote')).toBeVisible();
+  await page.getByText('Shipment details for a freight quote').click();
   await expect(page.locator('select[name="transportMode"]')).toBeVisible();
   await expect(page.locator('input[name="origin"]')).toBeVisible();
   await expect(page.locator('input[name="destination"]')).toBeVisible();

@@ -165,6 +165,8 @@ $menu-ease-duration: 180ms;
   // ── Menu button (hidden on full desktop) ──
   &MenuButton {
     @include flex-row-center-center;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
     flex-shrink: 0;
     border: 1px solid color-mix(in srgb, $secondary-color 85%, transparent);
     background-color: transparent;

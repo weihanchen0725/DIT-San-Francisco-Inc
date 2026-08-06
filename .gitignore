@@ -98,7 +98,8 @@ next-env.d.ts
 .cursor/
 .windsurf/
 .aide/
-
+.lavish/
+.impeccable/
 # Documentation
 /docs/
 

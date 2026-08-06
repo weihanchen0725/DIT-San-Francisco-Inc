@@ -57,14 +57,9 @@ html {
 }
 
 section {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 7rem;
   padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 5vw, 2rem);
   width: 100%;
-}
-
-[data-scroll-reveal] {
-  content-visibility: auto;
-  contain-intrinsic-block-size: auto var(--scroll-section-size, 48rem);
 }
 
 [data-scroll-enhanced='true'] [data-scroll-reveal]:not([data-scroll-visible='true']) {

@@ -35,7 +35,6 @@
 .shipmentFields {
   grid-column: 1 / -1;
   min-width: 0;
-  padding: 1.25rem;
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-sm);
 
@@ -44,20 +43,20 @@
   }
 }
 
-.shipmentLegend {
-  padding-inline: 0.25rem;
+.shipmentSummary {
+  display: grid;
+  min-height: 2.75rem;
+  cursor: pointer;
+  gap: 0.25rem;
+  padding: 0.9rem 1.25rem;
   color: var(--color-text-primary);
   font-weight: 700;
-}
 
-.shipmentDescription {
-  margin-bottom: 1rem;
-  color: var(--color-brand-gray);
-  font-size: 0.875rem;
-  line-height: 1.5;
-
-  :global(.dark) & {
-    color: #d1d5db;
+  small {
+    color: var(--color-brand-gray);
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.5;
   }
 }
 
@@ -65,6 +64,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
+  padding: 0.35rem 1.25rem 1.25rem;
 
   @media (min-width: 40rem) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -91,6 +91,7 @@
   color: var(--color-text-primary);
   font-size: 0.875rem;
   line-height: 1.5;
+  min-height: 2.75rem;
 
   input {
     margin-top: 0.2rem;
@@ -137,6 +138,11 @@
     &::placeholder {
       color: #6b7280;
     }
+  }
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.65;
   }
 }
 

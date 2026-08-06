@@ -32,8 +32,6 @@
     flex-direction: column;
     text-align: left;
     @include card-surface;
-    @include card-interactive;
-    @include icon-interactive-on-parent-hover('.servicesIconWrapper');
   }
 
   &IconWrapper {
@@ -71,5 +69,16 @@
       line-height: 1.6;
       color: var(--color-text-primary);
     }
+  }
+
+  &Link {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    margin-top: 2rem;
+    color: var(--color-text-primary);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
   }
 }

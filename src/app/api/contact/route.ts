@@ -128,5 +128,5 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'service_unavailable' }, { status: 503 });
   }
 
-  return NextResponse.json({ received: true }, { status: 202 });
+  return NextResponse.json({ outcome: 'accepted_for_delivery' }, { status: 202 });
 }

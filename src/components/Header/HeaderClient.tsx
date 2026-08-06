@@ -1,7 +1,7 @@
 'use client';
 
 import { Menu, X } from 'lucide-react';
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import type { StaticImageData } from 'next/image';
@@ -45,8 +45,8 @@ const getHeaderLayout = (width: number): HeaderLayout => {
 };
 
 const DEFAULT_HEADER_LAYOUT: HeaderLayout = {
-  inlineNavCount: ACTIVE_NAV_ITEM_COUNT,
-  showInlineContact: true,
+  inlineNavCount: 0,
+  showInlineContact: false,
 };
 
 const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) => {
@@ -68,7 +68,7 @@ const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) =
   const scrollProgressRef = useRef(0);
 
   // Effect to handle scroll state for the header's "scrolled" visual style.
-  useEffect(() => {
+  useLayoutEffect(() => {
     let animationFrameId: number | null = null;
 
     const syncPaddingBaseline = () => {
@@ -250,10 +250,18 @@ const HeaderClient = ({ headerData, logoUrl, darkLogoUrl }: HeaderClientProps) =
       setIsMenuOpen(false);
     };
 
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      setIsMenuOpen(false);
+      menuButtonRef.current?.focus();
+    };
+
     document.addEventListener('click', handleOutsideMenuClick);
+    document.addEventListener('keydown', handleEscape);
 
     return () => {
       document.removeEventListener('click', handleOutsideMenuClick);
+      document.removeEventListener('keydown', handleEscape);
     };
   }, [isMenuOpen]);
 

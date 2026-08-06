@@ -99,7 +99,7 @@
 
     & .tableHeader {
       display: grid;
-      grid-template-columns: 0.5fr 2fr 0.5fr 3fr 2fr;
+      grid-template-columns: 0.5fr 2fr 0.5fr 2fr;
       align-items: center;
       justify-content: flex-start;
       gap: 1rem;
@@ -151,7 +151,7 @@
 
       & .tableRow {
         display: grid;
-        grid-template-columns: 0.5fr 2fr 0.5fr 3fr 2fr;
+        grid-template-columns: 0.5fr 2fr 0.5fr 2fr;
         align-items: center;
         justify-content: flex-start;
         gap: 1rem;
@@ -252,75 +252,6 @@
           }
         }
 
-        & .responsibilities {
-          display: grid;
-          grid-template-columns: repeat(11, 1fr);
-          align-items: center;
-          justify-content: flex-start;
-          gap: 0.25rem;
-          width: 100%;
-
-          & .iconSeller {
-            opacity: 1;
-            color: $primary-color;
-          }
-
-          & .iconBuyer {
-            opacity: 0.2;
-          }
-
-          & .responsibilitySeller {
-            grid-row: 3;
-            grid-column: 1 / span 3;
-            justify-self: start;
-            font-size: 0.75rem;
-            white-space: nowrap;
-            color: $secondary-color;
-
-            :global(.dark) & {
-              color: var(--color-text-secondary);
-            }
-          }
-
-          & .responsibilityPercentages {
-            grid-row: 3;
-            grid-column: 4 / span 5;
-            justify-self: center;
-            font-size: 0.75rem;
-            font-weight: 600;
-            white-space: nowrap;
-            color: $secondary-color;
-
-            :global(.dark) & {
-              color: var(--color-text-primary);
-            }
-          }
-
-          & .responsibilityBuyer {
-            grid-row: 3;
-            grid-column: 9 / span 3;
-            justify-self: end;
-            font-size: 0.75rem;
-            white-space: nowrap;
-            color: $secondary-color;
-
-            :global(.dark) & {
-              color: var(--color-text-secondary);
-            }
-          }
-
-          & .responsibilityBar {
-            grid-column: span 11;
-            width: 100%;
-            height: 12px;
-            border-radius: var(--radius-sm);
-            background-color: $border-color;
-            &::-webkit-progress-value {
-              background-color: $primary-color;
-              border-radius: var(--radius-sm);
-            }
-          }
-        }
       }
     }
   }

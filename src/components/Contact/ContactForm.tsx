@@ -4,11 +4,12 @@ import { useState, type FormEvent } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 
 import styles from './ContactForm.module.scss';
+import { getInquiryOutcome, type InquiryOutcome } from '@/lib/inquiry-outcome';
 
 type ContactErrors = Partial<
   Record<'firstName' | 'lastName' | 'email' | 'message' | 'consent', string>
 >;
-type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
+type SubmitState = 'idle' | 'submitting' | InquiryOutcome;
 
 const isValidEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
@@ -45,7 +46,12 @@ const ContactForm = () => {
     setErrors(nextErrors);
 
     if (Object.keys(nextErrors).length > 0) {
-      setSubmitState('error');
+      setSubmitState('invalid_request');
+      const firstInvalidField = Object.keys(nextErrors)[0];
+      requestAnimationFrame(() => {
+        const control = form.elements.namedItem(firstInvalidField);
+        if (control instanceof HTMLElement) control.focus();
+      });
       return;
     }
 
@@ -62,14 +68,19 @@ const ContactForm = () => {
       }),
     }).catch(() => null);
 
-    if (!response?.ok) {
-      setSubmitState('error');
+    if (!response) {
+      setSubmitState('network_error');
       return;
     }
 
-    form.reset();
-    setErrors({});
-    setSubmitState('success');
+    const responseBody = await response.json().catch(() => null);
+    const outcome = getInquiryOutcome(response.ok, responseBody);
+
+    if (outcome === 'accepted_for_delivery') {
+      form.reset();
+      setErrors({});
+    }
+    setSubmitState(outcome);
   };
 
   const fieldError = (field: keyof ContactErrors) => errors[field];
@@ -85,6 +96,7 @@ const ContactForm = () => {
             type="text"
             id="firstName"
             name="firstName"
+            autoComplete="given-name"
             maxLength={100}
             placeholder={translateContact('first_name_placeholder')}
             required
@@ -108,6 +120,7 @@ const ContactForm = () => {
             type="text"
             id="lastName"
             name="lastName"
+            autoComplete="family-name"
             maxLength={100}
             placeholder={translateContact('last_name_placeholder')}
             required
@@ -131,6 +144,7 @@ const ContactForm = () => {
             type="email"
             id="email"
             name="email"
+            autoComplete="email"
             maxLength={254}
             placeholder={translateContact('email_placeholder')}
             required
@@ -155,6 +169,7 @@ const ContactForm = () => {
             type="tel"
             id="phone"
             name="phone"
+            autoComplete="tel"
             maxLength={50}
             placeholder={translateContact('phone_placeholder')}
             className={styles.input}
@@ -170,6 +185,7 @@ const ContactForm = () => {
             type="text"
             id="company"
             name="company"
+            autoComplete="organization"
             maxLength={200}
             placeholder={translateContact('company_placeholder')}
             className={styles.input}
@@ -185,6 +201,8 @@ const ContactForm = () => {
             type="text"
             id="country"
             name="country"
+            autoComplete="country-name"
+            maxLength={100}
             placeholder={translateContact('country_placeholder')}
             className={styles.input}
           />
@@ -199,6 +217,8 @@ const ContactForm = () => {
             type="text"
             id="state"
             name="state"
+            autoComplete="address-level1"
+            maxLength={100}
             placeholder={translateContact('state_placeholder')}
             className={styles.input}
           />
@@ -213,19 +233,21 @@ const ContactForm = () => {
             type="text"
             id="city"
             name="city"
+            autoComplete="address-level2"
+            maxLength={100}
             placeholder={translateContact('city_placeholder')}
             className={styles.input}
           />
         </div>
 
-        <fieldset className={styles.shipmentFields}>
-          <legend className={styles.shipmentLegend}>
-            {translateContact('shipment_details_title')}
-            <span className={styles.labelOptional}> {translateContact('optional_tag')}</span>
-          </legend>
-          <p className={styles.shipmentDescription}>
-            {translateContact('shipment_details_description')}
-          </p>
+        <details className={styles.shipmentFields}>
+          <summary className={styles.shipmentSummary}>
+            <span>
+              {translateContact('shipment_details_title')}{' '}
+              <span className={styles.labelOptional}>{translateContact('optional_tag')}</span>
+            </span>
+            <small>{translateContact('shipment_details_description')}</small>
+          </summary>
           <div className={styles.shipmentGrid}>
             <div>
               <label htmlFor="transportMode" className={styles.label}>
@@ -297,7 +319,7 @@ const ContactForm = () => {
               />
             </div>
           </div>
-        </fieldset>
+        </details>
 
         <div className={styles.fieldGroupSpan}>
           <label htmlFor="subject" className={styles.label}>
@@ -359,10 +381,27 @@ const ContactForm = () => {
         </div>
 
         <div className={styles.statusGroup} aria-live="polite">
-          {submitState === 'success' && (
+          {submitState === 'accepted_for_delivery' && (
             <p className={styles.successMessage}>{translateContact('success_message')}</p>
           )}
-          {submitState === 'error' && (
+          {submitState === 'invalid_request' && (
+            <p className={styles.errorMessage}>{translateContact('invalid_request_message')}</p>
+          )}
+          {submitState === 'rate_limited' && (
+            <p className={styles.errorMessage}>{translateContact('rate_limited_message')}</p>
+          )}
+          {submitState === 'payload_too_large' && (
+            <p className={styles.errorMessage}>{translateContact('payload_too_large_message')}</p>
+          )}
+          {submitState === 'delivery_failed' && (
+            <p className={styles.errorMessage}>{translateContact('delivery_failed_message')}</p>
+          )}
+          {submitState === 'service_unavailable' && (
+            <p className={styles.errorMessage}>
+              {translateContact('service_unavailable_message')}
+            </p>
+          )}
+          {submitState === 'network_error' && (
             <p className={styles.errorMessage}>{translateContact('error_message')}</p>
           )}
         </div>

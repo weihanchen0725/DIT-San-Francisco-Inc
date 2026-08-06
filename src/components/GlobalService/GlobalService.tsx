@@ -59,16 +59,19 @@ const GlobalService = async () => {
       aria-labelledby="global-service-title"
       data-scroll-reveal=""
     >
-      <h2 id="global-service-title" className={styles.srOnly}>
-        {t('title')}
-      </h2>
+      <div className={styles.header}>
+        <p className={styles.eyebrow}>{t('eyebrow')}</p>
+        <h2 id="global-service-title" className={styles.title}>
+          {t('title')}
+        </h2>
+        <p className={styles.description}>{t('description')}</p>
+      </div>
       <div
         className={styles.mapWrap}
         data-testid="global-service-map"
-        role="group"
-        aria-label={t('description')}
+        aria-hidden="true"
       >
-        <aside className={styles.legend} aria-label={t('legend_label')}>
+        <aside className={styles.legend}>
           {COVERAGE_CODES.map((code) => (
             <span key={code} className={styles.legendItem} data-testid="coverage-legend-item">
               <span
@@ -85,26 +88,17 @@ const GlobalService = async () => {
 
         {GLOBAL_SERVICE_LOCATIONS.map((location) => {
           const displayName = location.code ? `${location.name} (${location.code})` : location.name;
-          const coverageText = location.coverage
-            .map((code) => t(coverageTranslationKeys[code]))
-            .join(', ');
 
           return (
-            <button
+            <span
               key={location.id}
-              type="button"
               className={getPinClassName(location)}
               data-hub-pin={location.id}
               data-coverage={location.coverage.join('')}
               style={getPinStyle(location)}
-              aria-label={t('location_label', {
-                location: displayName,
-                country: location.country,
-                coverage: coverageText,
-              })}
             >
               <span className={styles.pinVisual} aria-hidden="true" />
-              <span className={styles.tooltip} role="tooltip">
+              <span className={styles.tooltip}>
                 <strong>{displayName}</strong>
                 <span>
                   {location.countryLevel
@@ -123,10 +117,33 @@ const GlobalService = async () => {
                   ))}
                 </span>
               </span>
-            </button>
+            </span>
           );
         })}
       </div>
+      <details className={styles.directory}>
+        <summary className={styles.directorySummary}>
+          {t('directory_summary', { count: GLOBAL_SERVICE_LOCATIONS.length })}
+        </summary>
+        <ul className={styles.directoryList}>
+          {GLOBAL_SERVICE_LOCATIONS.map((location) => {
+            const displayName = location.code
+              ? `${location.name} (${location.code})`
+              : location.name;
+            const coverageText = location.coverage
+              .map((code) => t(coverageTranslationKeys[code]))
+              .join(', ');
+
+            return (
+              <li key={location.id}>
+                <strong>{displayName}</strong>
+                <span>{location.country}</span>
+                <span>{coverageText}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </details>
     </section>
   );
 };
