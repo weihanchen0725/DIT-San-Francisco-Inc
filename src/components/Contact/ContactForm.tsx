@@ -161,22 +161,6 @@ const ContactForm = () => {
         </div>
 
         <div>
-          <label htmlFor="phone" className={styles.label}>
-            {translateContact('phone_label')}{' '}
-            <span className={styles.labelOptional}>{translateContact('optional_tag')}</span>
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            autoComplete="tel"
-            maxLength={50}
-            placeholder={translateContact('phone_placeholder')}
-            className={styles.input}
-          />
-        </div>
-
-        <div>
           <label htmlFor="company" className={styles.label}>
             {translateContact('company_label')}{' '}
             <span className={styles.labelOptional}>{translateContact('optional_tag')}</span>
@@ -192,63 +176,86 @@ const ContactForm = () => {
           />
         </div>
 
-        <div>
-          <label htmlFor="country" className={styles.label}>
-            {translateContact('country_label')}{' '}
-            <span className={styles.labelOptional}>{translateContact('optional_tag')}</span>
-          </label>
-          <input
-            type="text"
-            id="country"
-            name="country"
-            autoComplete="country-name"
-            maxLength={100}
-            placeholder={translateContact('country_placeholder')}
-            className={styles.input}
-          />
-        </div>
+        <details className={styles.disclosure}>
+          <summary className={styles.disclosureSummary}>
+            <span>
+              {translateContact('optional_contact_title')}{' '}
+              <span className={styles.labelOptional}>{translateContact('optional_tag')}</span>
+            </span>
+            <small>{translateContact('optional_contact_description')}</small>
+          </summary>
+          <div className={styles.disclosureGrid}>
+            <div>
+              <label htmlFor="phone" className={styles.label}>
+                {translateContact('phone_label')}
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                autoComplete="tel"
+                maxLength={50}
+                placeholder={translateContact('phone_placeholder')}
+                className={styles.input}
+              />
+            </div>
 
-        <div>
-          <label htmlFor="state" className={styles.label}>
-            {translateContact('state_label')}{' '}
-            <span className={styles.labelOptional}>{translateContact('optional_tag')}</span>
-          </label>
-          <input
-            type="text"
-            id="state"
-            name="state"
-            autoComplete="address-level1"
-            maxLength={100}
-            placeholder={translateContact('state_placeholder')}
-            className={styles.input}
-          />
-        </div>
+            <div>
+              <label htmlFor="country" className={styles.label}>
+                {translateContact('country_label')}
+              </label>
+              <input
+                type="text"
+                id="country"
+                name="country"
+                autoComplete="country-name"
+                maxLength={100}
+                placeholder={translateContact('country_placeholder')}
+                className={styles.input}
+              />
+            </div>
 
-        <div>
-          <label htmlFor="city" className={styles.label}>
-            {translateContact('city_label')}{' '}
-            <span className={styles.labelOptional}>{translateContact('optional_tag')}</span>
-          </label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            autoComplete="address-level2"
-            maxLength={100}
-            placeholder={translateContact('city_placeholder')}
-            className={styles.input}
-          />
-        </div>
+            <div>
+              <label htmlFor="state" className={styles.label}>
+                {translateContact('state_label')}
+              </label>
+              <input
+                type="text"
+                id="state"
+                name="state"
+                autoComplete="address-level1"
+                maxLength={100}
+                placeholder={translateContact('state_placeholder')}
+                className={styles.input}
+              />
+            </div>
 
-        <details className={styles.shipmentFields}>
-          <summary className={styles.shipmentSummary}>
+            <div>
+              <label htmlFor="city" className={styles.label}>
+                {translateContact('city_label')}
+              </label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                autoComplete="address-level2"
+                maxLength={100}
+                placeholder={translateContact('city_placeholder')}
+                className={styles.input}
+              />
+            </div>
+          </div>
+        </details>
+
+        <details className={styles.disclosure}>
+          <summary className={styles.disclosureSummary}>
             <span>
               {translateContact('shipment_details_title')}{' '}
               <span className={styles.labelOptional}>{translateContact('optional_tag')}</span>
             </span>
             <small>{translateContact('shipment_details_description')}</small>
           </summary>
-          <div className={styles.shipmentGrid}>
+          <div className={styles.disclosureGrid}>
             <div>
               <label htmlFor="transportMode" className={styles.label}>
                 {translateContact('transport_mode_label')}
@@ -397,9 +404,7 @@ const ContactForm = () => {
             <p className={styles.errorMessage}>{translateContact('delivery_failed_message')}</p>
           )}
           {submitState === 'service_unavailable' && (
-            <p className={styles.errorMessage}>
-              {translateContact('service_unavailable_message')}
-            </p>
+            <p className={styles.errorMessage}>{translateContact('service_unavailable_message')}</p>
           )}
           {submitState === 'network_error' && (
             <p className={styles.errorMessage}>{translateContact('error_message')}</p>

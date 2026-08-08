@@ -44,7 +44,6 @@
     align-content: start;
     gap: 0.65rem;
     @include card-surface($padding: 1.25rem, $radius: var(--radius-sm));
-    @include card-interactive($translate-y: -2px, $shadow: var(--shadow-md));
 
     svg {
       width: 1.75rem;

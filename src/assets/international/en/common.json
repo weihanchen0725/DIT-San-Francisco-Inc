@@ -334,6 +334,8 @@
     "country_placeholder": "United States",
     "state_placeholder": "California",
     "city_placeholder": "Fremont",
+    "optional_contact_title": "Additional contact details",
+    "optional_contact_description": "Add a phone number and location if they will help us follow up.",
     "shipment_details_title": "Shipment details for a freight quote",
     "shipment_details_description": "Share what you know so our team can price or route your request more quickly.",
     "transport_mode_label": "Transport Mode",

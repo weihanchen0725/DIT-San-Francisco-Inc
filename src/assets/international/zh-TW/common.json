@@ -165,6 +165,8 @@
     "country_placeholder": "美國",
     "state_placeholder": "加州",
     "city_placeholder": "Fremont",
+    "optional_contact_title": "其他聯絡資料",
+    "optional_contact_description": "如電話號碼與所在地有助於後續聯絡，可在此提供。",
     "shipment_details_title": "貨運報價資料",
     "shipment_details_description": "請提供目前已知資訊，協助團隊更快估價或分派您的需求。",
     "transport_mode_label": "運輸方式",

@@ -30,6 +30,7 @@ const Tools = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
           rel="noopener noreferrer"
           titleLevel={itemHeadingLevel}
           revealIndex={0}
+          variant="featured"
         />
         <Features
           icon={<InventoryManagementIcon className={toolsClass['icon']} />}

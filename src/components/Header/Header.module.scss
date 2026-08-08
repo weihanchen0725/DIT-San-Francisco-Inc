@@ -8,13 +8,11 @@ $menu-ease-duration: 180ms;
 @keyframes header-arrival {
   from {
     opacity: 0.82;
-    clip-path: inset(0 0 22% 0);
     transform: translate3d(0, -0.75rem, 0);
   }
 
   to {
     opacity: 1;
-    clip-path: inset(0 0 0 0);
     transform: translate3d(0, 0, 0);
   }
 }
@@ -117,6 +115,10 @@ $menu-ease-duration: 180ms;
   z-index: 1000;
 
   &MenuOpen {
+    // Finish the arrival immediately so the mobile menu remains stable.
+    transform: none;
+    animation: none;
+
     // box-shadow:
     //   0 2px 8px rgb(6 15 31 / calc(0.08 * var(--header-scroll-progress, 0))),
     //   0 1px 0 rgb(255 255 255 / calc(0.18 * var(--header-scroll-progress, 0))) inset;
@@ -294,6 +296,9 @@ $menu-ease-duration: 180ms;
 
 @media (max-width: 40rem) {
   .header {
+    height: 5rem;
+    min-height: 5rem;
+    margin-top: 0;
     gap: 0.5rem;
     padding-inline: 0.75rem;
 
@@ -304,7 +309,12 @@ $menu-ease-duration: 180ms;
     &Logo {
       min-width: 0;
       flex-shrink: 1;
+      max-height: 3.25rem;
       max-width: min(8rem, calc(100vw - 5rem));
+    }
+
+    &Name {
+      font-size: 0.875rem;
     }
   }
 }

@@ -187,7 +187,8 @@ test('contact page renders the Leaflet map with tiles and a marker', async ({ pa
 
   await page.goto('/en/contact');
 
-  // The map is a client-only dynamic import, so it can take a moment to appear.
+  // The map intentionally loads only when its address card approaches the viewport.
+  await page.getByRole('heading', { name: 'Address' }).scrollIntoViewIfNeeded();
   await expect(page.locator('.leaflet-container')).toBeVisible({ timeout: 15_000 });
 
   await expect

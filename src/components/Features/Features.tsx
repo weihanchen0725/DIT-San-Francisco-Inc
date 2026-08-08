@@ -13,6 +13,7 @@ interface FeaturesProps {
   rel?: string;
   titleLevel?: 2 | 3;
   revealIndex?: number;
+  variant?: 'default' | 'featured';
 }
 
 const Features = (featureProp: FeaturesProps) => {
@@ -26,6 +27,7 @@ const Features = (featureProp: FeaturesProps) => {
     rel,
     titleLevel = 3,
     revealIndex,
+    variant = 'default',
   } = featureProp;
   const revealProps =
     revealIndex === undefined
@@ -48,7 +50,7 @@ const Features = (featureProp: FeaturesProps) => {
   return href && !isDisabled ? (
     <a
       href={href}
-      className={featuresClass['wrapper']}
+      className={`${featuresClass['wrapper']} ${variant === 'featured' ? featuresClass['featured'] : ''}`}
       aria-disabled="false"
       target={target}
       rel={rel}

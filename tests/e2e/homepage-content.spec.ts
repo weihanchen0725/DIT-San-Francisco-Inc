@@ -82,6 +82,50 @@ test('hero omits the duplicate verified proof strip', async ({ page }) => {
   await expect(page.getByTestId('hero-proof-strip')).toHaveCount(0);
 });
 
+test('mobile hero hides the decorative transport scene', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/en');
+
+  const hero = page.locator('#home');
+  await expect(page.getByTestId('hero-motion')).toBeHidden();
+
+  const heroBox = await hero.boundingBox();
+  expect(heroBox?.height ?? Number.POSITIVE_INFINITY).toBeLessThan(844);
+});
+
+test('hero transport scene keeps its composition ratio at smaller non-mobile widths', async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+
+  const ratios: number[] = [];
+  for (const viewport of [
+    { width: 1440, height: 1000 },
+    { width: 1024, height: 768 },
+    { width: 800, height: 900 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await page.goto('/en');
+
+    const collage = page.getByTestId('hero-motion');
+    await expect(collage).toBeVisible();
+    const box = await collage.boundingBox();
+    expect(box).not.toBeNull();
+    ratios.push(box!.width / box!.height);
+  }
+
+  expect(Math.max(...ratios) - Math.min(...ratios)).toBeLessThan(0.12);
+
+  await page.setViewportSize({ width: 768, height: 900 });
+  await page.goto('/en');
+  const copyBox = await page.locator('#home h1').locator('..').boundingBox();
+  const shipBox = await page.locator('[data-hero-motion-layer="ship"]').boundingBox();
+
+  expect(shipBox?.x ?? 0).toBeGreaterThanOrEqual(
+    (copyBox?.x ?? Number.POSITIVE_INFINITY) + (copyBox?.width ?? 0)
+  );
+});
+
 test('hero transport art follows distinct routes as the hero exits', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.goto('/en');
@@ -360,6 +404,37 @@ test('contact form collects optional freight-quote shipment context', async ({ p
   await expect(page.locator('input[name="destination"]')).toBeVisible();
   await expect(page.locator('input[name="cargoReadyDate"]')).toBeVisible();
   await expect(page.locator('input[name="commodity"]')).toBeVisible();
+});
+
+test('contact form progressively discloses optional follow-up details', async ({ page }) => {
+  await page.goto('/en/contact');
+
+  const optionalContact = page.locator('details').filter({
+    hasText: 'Additional contact details',
+  });
+
+  await expect(optionalContact).not.toHaveAttribute('open', '');
+  await expect(optionalContact.locator('input[name="phone"]')).not.toBeVisible();
+  await optionalContact.locator('summary').click();
+  await expect(optionalContact).toHaveAttribute('open', '');
+  await expect(optionalContact.locator('input[name="phone"]')).toBeVisible();
+  await expect(optionalContact.locator('input[name="country"]')).toBeVisible();
+});
+
+test('tools distinguish customer tracking from a balanced reference-tool group', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/en');
+
+  const cards = page.locator('#tools [data-scroll-reveal-item]');
+  const boxes = await cards.evaluateAll((items) =>
+    items.map((item) => item.getBoundingClientRect().toJSON())
+  );
+
+  expect(boxes).toHaveLength(4);
+  expect(boxes[0].width).toBeGreaterThan(boxes[1].width * 2);
+  expect(new Set(boxes.slice(1).map(({ top }) => Math.round(top))).size).toBe(1);
 });
 
 test('footer presents company identity, license, contact, and service links', async ({ page }) => {

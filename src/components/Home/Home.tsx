@@ -44,7 +44,7 @@ const Home = async () => {
             <Image
               src={cargoPlane}
               alt=""
-              sizes="(max-width: 768px) 0px, 38vw"
+              sizes="(max-width: 767px) 0px, (max-width: 960px) 50vw, 25vw"
               className={`${homeClass.image} ${homeClass.cargoPlane}`}
             />
           </div>
@@ -58,7 +58,7 @@ const Home = async () => {
               alt=""
               priority
               fetchPriority="high"
-              sizes="(max-width: 768px) 0px, 50vw"
+              sizes="(max-width: 767px) 0px, (max-width: 960px) 84vw, 50vw"
               className={`${homeClass.image} ${homeClass.goldenGate}`}
             />
           </div>
@@ -70,7 +70,7 @@ const Home = async () => {
             <Image
               src={cargoShip}
               alt=""
-              sizes="(max-width: 768px) 0px, 38vw"
+              sizes="(max-width: 767px) 0px, (max-width: 960px) 57vw, 34vw"
               className={`${homeClass.image} ${homeClass.cargoShip}`}
             />
           </div>

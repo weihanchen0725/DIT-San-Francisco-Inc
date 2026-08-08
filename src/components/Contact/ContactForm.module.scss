@@ -32,7 +32,7 @@
   }
 }
 
-.shipmentFields {
+.disclosure {
   grid-column: 1 / -1;
   min-width: 0;
   border: 1px solid var(--color-border-light);
@@ -43,7 +43,7 @@
   }
 }
 
-.shipmentSummary {
+.disclosureSummary {
   display: grid;
   min-height: 2.75rem;
   cursor: pointer;
@@ -60,7 +60,7 @@
   }
 }
 
-.shipmentGrid {
+.disclosureGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
