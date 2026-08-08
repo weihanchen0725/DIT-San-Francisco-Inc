@@ -5,6 +5,8 @@
   min-height: $max-height;
   @include flex-column-center-start;
   overflow: hidden;
+  view-timeline-name: --home-hero-motion;
+  view-timeline-axis: block;
   background-color: var(--color-bg-warm);
   background-image:
     radial-gradient(at 0% 0%, rgba(255, 204, 0, 0.08) 0px, transparent 50%),
@@ -115,6 +117,7 @@
     min-width: 0;
     position: relative;
     height: clamp(320px, 55vh, 560px);
+    isolation: isolate;
 
     // Hide the entire collage when the title centers (same breakpoint)
     @media (max-width: 768px) {
@@ -123,50 +126,155 @@
   }
 }
 
-// ── Shared base for every image ───────────────────────────────────────────────
+// ── Shared bases for the motion layers and their images ──────────────────────
+
+.imageLayer {
+  position: absolute;
+  pointer-events: none;
+}
 
 .image {
-  position: absolute;
+  display: block;
+  width: 100%;
+  height: auto;
   object-fit: contain;
 }
 
 // ── Individual image placements ───────────────────────────────────────────────
 
-// Cargo plane — top-centre, flies northwest (up + left) as user scrolls
-.cargoPlane {
+// Cargo plane - departs northwest as the hero exits.
+.planeLayer {
   top: -10rem;
   left: 50%;
-  transform: translateX(calc(-50% - var(--plane-offset-x, 0px) * 7.5))
-    translateY(calc(-1 * var(--plane-offset-y, 0px)));
   width: clamp(120px, 75%, 22rem);
-  height: auto;
+  transform: translateX(-50%);
   z-index: 3;
-  will-change: transform;
-  transition: transform 0.1s linear;
 }
 
-// Golden Gate — centred, acts as the mid-layer backdrop
-// Stays visible until the entire collage is hidden
-.goldenGate {
+// Golden Gate - remains the visual anchor while receding slightly for depth.
+.bridgeLayer {
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(-10deg);
   width: clamp(220px, 100%, 55rem);
-  height: auto;
+  transform: translate(-50%, -50%) rotate(-10deg);
   z-index: 1;
 }
 
-// Cargo ship — bottom-centre, sails southeast (down + right) as user scrolls
-.cargoShip {
+// Cargo ship - climbs northeast along a distinct route from the plane.
+.shipLayer {
   bottom: -2rem;
   left: 50%;
-  transform: translateX(calc(-100% - var(--ship-offset-x, 0px) * -7.5))
-    translateY(calc(-1 * var(--ship-offset-y, 0px))) rotate(-25deg);
   width: clamp(160px, 75%, 30rem);
-  height: auto;
+  transform: translateX(-100%) rotate(-25deg);
   z-index: 2;
-  will-change: transform;
-  transition: transform 0.1s linear;
+}
+
+@keyframes plane-arrival {
+  from {
+    opacity: 0;
+    transform: translate3d(1.25rem, 1.5rem, 0) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes bridge-arrival {
+  from {
+    opacity: 0;
+    clip-path: inset(12% 8% 10% 8%);
+    transform: translate3d(0, 1rem, 0) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes ship-arrival {
+  from {
+    opacity: 0;
+    transform: translate3d(-1.5rem, 1.25rem, 0) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes plane-route {
+  from {
+    transform: translateX(-50%) translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  to {
+    transform: translateX(-50%) translate3d(-5.5rem, -7rem, 0) rotate(-4deg);
+  }
+}
+
+@keyframes bridge-perspective {
+  from {
+    transform: translate(-50%, -50%) rotate(-10deg) scale(1);
+  }
+
+  to {
+    transform: translate(-50%, -47%) rotate(-8deg) scale(0.965);
+  }
+}
+
+@keyframes ship-route {
+  from {
+    transform: translateX(-100%) translate3d(0, 0, 0) rotate(-25deg);
+  }
+
+  to {
+    transform: translateX(-100%) translate3d(6rem, -4rem, 0) rotate(-20deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cargoPlane {
+    animation: plane-arrival 700ms cubic-bezier(0.16, 1, 0.3, 1) 80ms both;
+  }
+
+  .goldenGate {
+    animation: bridge-arrival 760ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .cargoShip {
+    animation: ship-arrival 760ms cubic-bezier(0.16, 1, 0.3, 1) 140ms both;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .planeLayer,
+    .bridgeLayer,
+    .shipLayer {
+      animation-duration: 1ms;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: --home-hero-motion;
+      animation-range: exit 0% exit 85%;
+    }
+
+    .planeLayer {
+      animation-name: plane-route;
+    }
+
+    .bridgeLayer {
+      animation-name: bridge-perspective;
+    }
+
+    .shipLayer {
+      animation-name: ship-route;
+    }
+  }
 }
 
 // Trucks — decorative, scattered around the golden gate

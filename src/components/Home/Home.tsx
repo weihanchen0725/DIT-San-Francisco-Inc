@@ -34,34 +34,46 @@ const Home = async () => {
           </div>
         </div>
 
-        {/* Right — image collage (scroll-driven parallax via HomeParallax) */}
+        {/* Right - transport collage with progressive CSS scroll motion */}
         <HomeParallax>
-          {/* Plane: top of the stack — flies upward on scroll */}
-          <Image
-            src={cargoPlane}
-            alt=""
+          <div
+            className={`${homeClass.imageLayer} ${homeClass.planeLayer}`}
+            data-hero-motion-layer="plane"
             aria-hidden="true"
-            sizes="(max-width: 768px) 0px, 38vw"
-            className={`${homeClass.image} ${homeClass.cargoPlane}`}
-          />
-          {/* Golden Gate: centre backdrop — static */}
-          <Image
-            src={goldenGate}
-            alt=""
+          >
+            <Image
+              src={cargoPlane}
+              alt=""
+              sizes="(max-width: 768px) 0px, 38vw"
+              className={`${homeClass.image} ${homeClass.cargoPlane}`}
+            />
+          </div>
+          <div
+            className={`${homeClass.imageLayer} ${homeClass.bridgeLayer}`}
+            data-hero-motion-layer="bridge"
             aria-hidden="true"
-            priority
-            fetchPriority="high"
-            sizes="(max-width: 768px) 0px, 50vw"
-            className={`${homeClass.image} ${homeClass.goldenGate}`}
-          />
-          {/* Ship: below the golden gate — sails downward on scroll */}
-          <Image
-            src={cargoShip}
-            alt=""
+          >
+            <Image
+              src={goldenGate}
+              alt=""
+              priority
+              fetchPriority="high"
+              sizes="(max-width: 768px) 0px, 50vw"
+              className={`${homeClass.image} ${homeClass.goldenGate}`}
+            />
+          </div>
+          <div
+            className={`${homeClass.imageLayer} ${homeClass.shipLayer}`}
+            data-hero-motion-layer="ship"
             aria-hidden="true"
-            sizes="(max-width: 768px) 0px, 38vw"
-            className={`${homeClass.image} ${homeClass.cargoShip}`}
-          />
+          >
+            <Image
+              src={cargoShip}
+              alt=""
+              sizes="(max-width: 768px) 0px, 38vw"
+              className={`${homeClass.image} ${homeClass.cargoShip}`}
+            />
+          </div>
         </HomeParallax>
       </div>
     </section>

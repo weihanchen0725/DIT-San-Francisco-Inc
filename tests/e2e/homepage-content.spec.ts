@@ -82,6 +82,82 @@ test('hero omits the duplicate verified proof strip', async ({ page }) => {
   await expect(page.getByTestId('hero-proof-strip')).toHaveCount(0);
 });
 
+test('hero transport art follows distinct routes as the hero exits', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto('/en');
+
+  const collage = page.getByTestId('hero-motion');
+  await expect(collage).toBeVisible();
+
+  const supportsScrollTimeline = await page.evaluate(() =>
+    CSS.supports('animation-timeline: view()')
+  );
+
+  if (!supportsScrollTimeline) {
+    await expect(collage.locator('[data-hero-motion-layer]')).toHaveCount(3);
+    return;
+  }
+
+  const readTransforms = () =>
+    collage.locator('[data-hero-motion-layer]').evaluateAll((layers) =>
+      Object.fromEntries(
+        layers.map((layer) => {
+          const transform = getComputedStyle(layer).transform;
+          const matrix = new DOMMatrixReadOnly(transform);
+
+          return [
+            layer.getAttribute('data-hero-motion-layer'),
+            { transform, translateX: matrix.e, translateY: matrix.f },
+          ];
+        })
+      )
+    );
+
+  const initial = await readTransforms();
+  await page.evaluate(() => {
+    const home = document.querySelector<HTMLElement>('#home');
+    if (home) window.scrollTo(0, home.offsetTop + home.offsetHeight * 0.65);
+  });
+
+  await expect.poll(readTransforms).not.toEqual(initial);
+  const moved = await readTransforms();
+
+  expect(moved.plane.transform).not.toBe(initial.plane.transform);
+  expect(moved.bridge.transform).not.toBe(initial.bridge.transform);
+  expect(moved.ship.transform).not.toBe(initial.ship.transform);
+  expect(moved.plane.transform).not.toBe(moved.ship.transform);
+  expect(moved.ship.translateX).toBeGreaterThan(initial.ship.translateX);
+  expect(moved.ship.translateY).toBeLessThan(initial.ship.translateY);
+});
+
+test('hero transport motion becomes static when reduced motion is requested', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto('/en');
+
+  const layers = page.getByTestId('hero-motion').locator('[data-hero-motion-layer]');
+  await expect(layers).toHaveCount(3);
+
+  const before = await layers.evaluateAll((items) =>
+    items.map((item) => {
+      const style = getComputedStyle(item);
+      return { animationName: style.animationName, transform: style.transform };
+    })
+  );
+
+  await page.evaluate(() => window.scrollTo(0, document.querySelector('#home')!.scrollHeight));
+
+  const after = await layers.evaluateAll((items) =>
+    items.map((item) => {
+      const style = getComputedStyle(item);
+      return { animationName: style.animationName, transform: style.transform };
+    })
+  );
+
+  expect(before.every(({ animationName }) => animationName === 'none')).toBe(true);
+  expect(after).toEqual(before);
+});
+
 test('production homepage excludes the fictional partner preview', async ({ page }) => {
   await page.goto('/en');
 
@@ -130,9 +206,7 @@ test('services cards explain who each service is for and what to share for a quo
   ).toBeVisible();
 });
 
-test('homepage service cards explain fit and link to the full services page', async ({
-  page,
-}) => {
+test('homepage service cards explain fit and link to the full services page', async ({ page }) => {
   await page.goto('/en');
 
   const services = page.locator('#services');

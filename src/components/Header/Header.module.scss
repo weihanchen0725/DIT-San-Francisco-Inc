@@ -5,6 +5,32 @@ $header-height: 97px;
 $header-ease-duration: 220ms;
 $menu-ease-duration: 180ms;
 
+@keyframes header-arrival {
+  from {
+    opacity: 0.82;
+    clip-path: inset(0 0 22% 0);
+    transform: translate3d(0, -0.75rem, 0);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes header-item-arrival {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -0.4rem, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 .header {
   @include flex-row-start-center;
   position: sticky;
@@ -279,6 +305,47 @@ $menu-ease-duration: 180ms;
       min-width: 0;
       flex-shrink: 1;
       max-width: min(8rem, calc(100vw - 5rem));
+    }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .header {
+    animation: header-arrival 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+
+    &Content {
+      animation: header-item-arrival 380ms cubic-bezier(0.16, 1, 0.3, 1) 80ms both;
+    }
+
+    &Nav {
+      li {
+        animation: header-item-arrival 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      li:nth-child(1) {
+        animation-delay: 120ms;
+      }
+
+      li:nth-child(2) {
+        animation-delay: 155ms;
+      }
+
+      li:nth-child(3) {
+        animation-delay: 190ms;
+      }
+
+      li:nth-child(4) {
+        animation-delay: 225ms;
+      }
+
+      li:nth-child(5) {
+        animation-delay: 260ms;
+      }
+    }
+
+    &Contact,
+    &MenuButtonWrapper {
+      animation: header-item-arrival 420ms cubic-bezier(0.16, 1, 0.3, 1) 300ms both;
     }
   }
 }

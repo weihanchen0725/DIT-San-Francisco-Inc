@@ -66,6 +66,57 @@ test('homepage header actions retain their button treatments', async ({ page }) 
   await expect(quote).toHaveCSS('border-top-color', 'rgb(0, 10, 60)');
 });
 
+test('header load motion reveals navigation in reading order', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto('/en');
+
+  const header = page.getByRole('banner');
+  const navItems = header.locator('nav li');
+  await expect(navItems).toHaveCount(5);
+
+  const motion = await header.evaluate((element) => {
+    const headerStyle = getComputedStyle(element);
+    const items = [...element.querySelectorAll('nav li')].map((item) => {
+      const style = getComputedStyle(item);
+      return { animationName: style.animationName, animationDelay: style.animationDelay };
+    });
+
+    return { headerAnimationName: headerStyle.animationName, items };
+  });
+
+  expect(motion.headerAnimationName).not.toBe('none');
+  expect(motion.items.every(({ animationName }) => animationName !== 'none')).toBe(true);
+  expect(new Set(motion.items.map(({ animationDelay }) => animationDelay)).size).toBeGreaterThan(1);
+});
+
+test('header load motion is disabled when reduced motion is requested', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto('/en');
+
+  const header = page.getByRole('banner');
+  const motion = await header.evaluate((element) => {
+    const headerStyle = getComputedStyle(element);
+    const itemAnimationNames = [...element.querySelectorAll('nav li')].map(
+      (item) => getComputedStyle(item).animationName
+    );
+
+    return {
+      animationName: headerStyle.animationName,
+      opacity: headerStyle.opacity,
+      transform: headerStyle.transform,
+      itemAnimationNames,
+    };
+  });
+
+  expect(motion).toEqual({
+    animationName: 'none',
+    opacity: '1',
+    transform: 'none',
+    itemAnimationNames: ['none', 'none', 'none', 'none', 'none'],
+  });
+});
+
 for (const width of [390, 1280]) {
   test(`first freight-quote anchor jump keeps the Contact heading below the sticky header at ${width}px`, async ({
     page,
