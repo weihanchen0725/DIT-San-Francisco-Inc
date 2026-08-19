@@ -12,13 +12,26 @@ import styles from './GlobalService.module.scss';
 const MAP_TOP_LATITUDE = 85;
 const MAP_BOTTOM_LATITUDE = -60;
 
-type PinStyle = CSSProperties & { '--pin-segments': string };
+type PinStyle = CSSProperties & { '--pin-segments': string; '--pin-drop-index': number };
+
+// San Francisco drops first; every other pin then rains down left to right.
+const PIN_DROP_ORDER = (() => {
+  const order = new Map<string, number>();
+  order.set('san-francisco', 0);
+
+  const rest = GLOBAL_SERVICE_LOCATIONS.filter((location) => location.id !== 'san-francisco').sort(
+    (a, b) => a.longitude - b.longitude
+  );
+  rest.forEach((location, index) => order.set(location.id, index + 1));
+
+  return order;
+})();
 
 const coverageTranslationKeys: Record<CoverageCode, string> = {
   O: 'office_label',
-  S: 'schedule_label',
   D: 'direct_label',
-  N: 'network_label',
+  G: 'gateway_label',
+  W: 'warehouse_label',
 };
 
 const getPinGradient = (coverage: readonly CoverageCode[]) => {
@@ -34,10 +47,11 @@ const getPinGradient = (coverage: readonly CoverageCode[]) => {
     : `conic-gradient(${segments.join(', ')})`;
 };
 
-const getPinStyle = ({ latitude, longitude, coverage }: GlobalServiceLocation): PinStyle => ({
+const getPinStyle = ({ id, latitude, longitude, coverage }: GlobalServiceLocation): PinStyle => ({
   left: `${(((longitude + 180) / 360) * 100).toFixed(3)}%`,
   top: `${(((MAP_TOP_LATITUDE - latitude) / (MAP_TOP_LATITUDE - MAP_BOTTOM_LATITUDE)) * 100).toFixed(3)}%`,
   '--pin-segments': getPinGradient(coverage),
+  '--pin-drop-index': PIN_DROP_ORDER.get(id) ?? 0,
 });
 
 const getPinClassName = ({ latitude, longitude }: GlobalServiceLocation) =>
@@ -73,7 +87,12 @@ const GlobalService = async () => {
       >
         <aside className={styles.legend}>
           {COVERAGE_CODES.map((code) => (
-            <span key={code} className={styles.legendItem} data-testid="coverage-legend-item">
+            <span
+              key={code}
+              className={styles.legendItem}
+              data-testid="coverage-legend-item"
+              data-legend-code={code}
+            >
               <span
                 className={styles.legendCode}
                 style={{ backgroundColor: `var(--coverage-${code.toLowerCase()})` }}
@@ -88,6 +107,9 @@ const GlobalService = async () => {
 
         {GLOBAL_SERVICE_LOCATIONS.map((location) => {
           const displayName = location.code ? `${location.name} (${location.code})` : location.name;
+          const regionText = location.state
+            ? `${location.state}, ${location.country}`
+            : location.country;
 
           return (
             <span
@@ -97,13 +119,21 @@ const GlobalService = async () => {
               data-coverage={location.coverage.join('')}
               style={getPinStyle(location)}
             >
+              {location.id === 'san-francisco' && (
+                <span
+                  className={styles.hqBadge}
+                  data-testid="hq-badge"
+                  aria-hidden="true"
+                  title={t('headquarters_label')}
+                />
+              )}
               <span className={styles.pinVisual} aria-hidden="true" />
               <span className={styles.tooltip}>
                 <strong>{displayName}</strong>
                 <span>
-                  {location.countryLevel
-                    ? t('country_level_detail', { country: location.country })
-                    : location.country}
+                  {location.regionLevel
+                    ? t('region_level_detail', { country: location.country })
+                    : regionText}
                 </span>
                 <span className={styles.tooltipCodes}>
                   {location.coverage.map((code) => (
@@ -121,29 +151,6 @@ const GlobalService = async () => {
           );
         })}
       </div>
-      <details className={styles.directory}>
-        <summary className={styles.directorySummary}>
-          {t('directory_summary', { count: GLOBAL_SERVICE_LOCATIONS.length })}
-        </summary>
-        <ul className={styles.directoryList}>
-          {GLOBAL_SERVICE_LOCATIONS.map((location) => {
-            const displayName = location.code
-              ? `${location.name} (${location.code})`
-              : location.name;
-            const coverageText = location.coverage
-              .map((code) => t(coverageTranslationKeys[code]))
-              .join(', ');
-
-            return (
-              <li key={location.id}>
-                <strong>{displayName}</strong>
-                <span>{location.country}</span>
-                <span>{coverageText}</span>
-              </li>
-            );
-          })}
-        </ul>
-      </details>
     </section>
   );
 };

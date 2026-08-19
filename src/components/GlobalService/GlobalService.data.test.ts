@@ -3,18 +3,22 @@ import { describe, expect, it } from 'vitest';
 import { COVERAGE_CODES, GLOBAL_SERVICE_LOCATIONS } from './GlobalService.data';
 
 describe('Global Service locations', () => {
-  it('contains 86 unique normalized geographic entries', () => {
-    expect(GLOBAL_SERVICE_LOCATIONS).toHaveLength(86);
-    expect(new Set(GLOBAL_SERVICE_LOCATIONS.map((location) => location.id))).toHaveLength(86);
+  it('contains 129 unique normalized geographic entries', () => {
+    expect(GLOBAL_SERVICE_LOCATIONS).toHaveLength(129);
+    expect(new Set(GLOBAL_SERVICE_LOCATIONS.map((location) => location.id))).toHaveLength(129);
   });
 
-  it('contains exactly two country-level office records', () => {
-    const countryLevelLocations = GLOBAL_SERVICE_LOCATIONS.filter(
-      (location) => location.countryLevel
+  it('contains exactly four region-level records', () => {
+    const regionLevelLocations = GLOBAL_SERVICE_LOCATIONS.filter(
+      (location) => location.regionLevel
     );
 
-    expect(countryLevelLocations.map((location) => location.id)).toEqual(['mexico', 'ecuador']);
-    expect(countryLevelLocations.every((location) => location.coverage.includes('O'))).toBe(true);
+    expect(regionLevelLocations.map((location) => location.id)).toEqual([
+      'kedah',
+      'selangor',
+      'binh-duong',
+      'mazowiecki',
+    ]);
   });
 
   it('uses only supported coverage codes and valid map coordinates', () => {

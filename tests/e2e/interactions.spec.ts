@@ -234,10 +234,9 @@ test('production homepage includes global service coverage while omitting fictio
   await expect(page.getByRole('heading', { name: 'Industries We Support' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Global Service', exact: true })).toHaveCount(1);
   await expect(globalServiceMap).toBeVisible();
-  await expect(globalServiceMap.locator('[data-hub-pin]')).toHaveCount(86);
+  await expect(globalServiceMap.locator('[data-hub-pin]')).toHaveCount(129);
   await expect(globalServiceMap.locator('button')).toHaveCount(0);
   await expect(globalServiceMap.getByTestId('coverage-legend-item')).toHaveCount(4);
-  await expect(page.getByText('Browse all 86 coverage locations')).toBeVisible();
 
   const homepageSectionOrder = await page
     .locator('main > section')
