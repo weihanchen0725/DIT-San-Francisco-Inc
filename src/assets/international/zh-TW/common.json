@@ -52,7 +52,7 @@
     "headline": "從舊金山出發的",
     "headline_location": "國際貨運代理服務",
     "description": "由在地團隊為您提供貨運規劃、運輸協調與支援，連結灣區與全球貿易航線。",
-    "contact": "申請貨運報價"
+    "contact": "查看辦公室資訊"
   },
   "About": {
     "title": "關於我們",
@@ -101,7 +101,7 @@
     "direct_routes": "SYD, HKG, JKT, OSA, NRT, TYO, SIN, PUS, BKK, SGN, CHI, ORD, LAX, JFK, NYC, LEH, HAM, VVO, SOU, DXB, DUR",
     "network_title": "服務門戶網絡",
     "network_cities": "SYD, SZX, PVG, HKG, JKT, OSA, NRT, TYO, SIN, PUS, TPE, BKK, SGN, MEX, CHI, ORD, LAX, JFK, NYC, SAN, PRG, LEH, CDG, FRA, HAM, ATH, AMS, MOW, VVO, LHR, SOU, RUH, DXB, DUR, JNB, GRU",
-    "note": "航線與服務可用性會依貨件而異。請申請貨運報價，由我們的團隊確認合適方案。"
+    "note": "航線與服務可用性會依貨件而異。請聯絡我們的辦公室，由團隊確認合適方案。"
   },
   "Services": {
     "title": "我們的服務",
@@ -161,9 +161,9 @@
     "cbm_label": "立方公尺（CBM）"
   },
   "Contact": {
-    "title_1": "聯絡",
-    "title_2": "我們",
-    "description": "申請貨運報價或向我們的團隊提問。完整的申請將由 Fremont 辦公室於營業時間內審閱。",
+    "title": "辦公室",
+    "description": "向我們的團隊提供貨運需求或提出問題。完整的詢問將由 Fremont 辦公室於營業時間內審閱。",
+    "description_contact_details": "如需貨運、倉儲、貨件追蹤或供應鏈支援，請於營業時間致電 Fremont 辦公室。",
     "name_placeholder": "您的姓名",
     "email_placeholder": "您的電子郵件",
     "message_placeholder": "您的訊息",
@@ -242,8 +242,7 @@
     "contact": "聯絡我們"
   },
   "CTABar": {
-    "tracking": "追蹤貨件",
-    "join_us": "聯絡我們"
+    "tracking": "追蹤貨件"
   },
   "Theme": {
     "caption": "外觀"
@@ -368,7 +367,7 @@
     "advisor_r_result_title": "建議的 Incoterm",
     "advisor_r_optimal": "規則式建議",
     "advisor_r_confidence": "啟發式匹配度",
-    "advisor_r_quote_btn": "申請貨運報價",
+    "advisor_r_quote_btn": "查看辦公室資訊",
     "advisor_r_compare_btn": "比較所有貿易條規",
     "advisor_r_why_title": "為何符合您的需求",
     "advisor_r_use_case_title": "此規則可能適用的情境",
@@ -403,7 +402,7 @@
     "tools_calculator": "CBM / CFT 計算機",
     "tools_incoterms": "Incoterms 參考指南",
     "tools_dictionary": "物流字典",
-    "quote_cta": "申請貨運報價"
+    "quote_cta": "查看辦公室資訊"
   },
   "OpenIndicator": {
     "open": "營業中",

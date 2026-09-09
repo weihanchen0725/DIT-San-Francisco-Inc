@@ -268,58 +268,18 @@ test('homepage service cards explain fit and link to the full services page', as
   );
 });
 
-test('normal homepage sections use intrinsic height and the contact form comes first', async ({
+test('normal homepage sections use intrinsic height and contact email stays hidden', async ({
   page,
 }) => {
   await page.goto('/en');
 
   await expect(page.locator('#services')).toHaveCSS('min-height', 'auto');
-  const contactChildren = page.locator('#contact > div').last().locator(':scope > div');
-  await expect(contactChildren.first().locator('form')).toHaveCount(1);
-});
-
-test('contact details sit left of the form on desktop and the form stays first on mobile', async ({
-  page,
-}) => {
-  const getColumnPositions = async () => {
-    const columns = page.locator('#contact > div').last().locator(':scope > div');
-    const form = await columns.nth(0).boundingBox();
-    const details = await columns.nth(1).boundingBox();
-    return { form, details };
-  };
-
-  await page.setViewportSize({ width: 1280, height: 900 });
-  await page.goto('/en/contact');
-  const desktop = await getColumnPositions();
-  expect(desktop.details?.x ?? Infinity).toBeLessThan(desktop.form?.x ?? 0);
-  expect(desktop.form?.width ?? 0).toBeGreaterThan(desktop.details?.width ?? Infinity);
-
-  await page.setViewportSize({ width: 390, height: 844 });
-  const mobile = await getColumnPositions();
-  expect(mobile.form?.y ?? Infinity).toBeLessThan(mobile.details?.y ?? 0);
-});
-
-test('contact form placeholders are visually lighter than entered text in each theme', async ({
-  page,
-}) => {
-  const readInputColors = () =>
-    page.locator('input[name="firstName"]').evaluate((input) => ({
-      text: getComputedStyle(input).color,
-      placeholder: getComputedStyle(input, '::placeholder').color,
-    }));
-
-  await page.goto('/en/contact');
-  await page.evaluate(() => localStorage.setItem('dit-theme', 'light'));
-  await page.reload();
-  const light = await readInputColors();
-
-  await page.evaluate(() => localStorage.setItem('dit-theme', 'dark'));
-  await page.reload();
-  const dark = await readInputColors();
-
-  expect(light.placeholder).not.toBe(light.text);
-  expect(dark.placeholder).not.toBe(dark.text);
-  expect(light.placeholder).not.toBe(dark.placeholder);
+  await expect(page.locator('#contact').getByRole('heading', { name: 'Office' })).toBeVisible();
+  await expect(page.locator('#contact form')).toHaveCount(0);
+  await expect(page.locator('#contact a[href^="mailto:"]')).toHaveCount(0);
+  await expect(
+    page.locator('#contact').getByRole('link', { name: '+1 (510)-771-9968' })
+  ).toBeVisible();
 });
 
 test('dictionary category chips retain their taxonomy colors', async ({ page }) => {
@@ -394,33 +354,6 @@ test('marketing content remains visible when JavaScript is unavailable', async (
   await context.close();
 });
 
-test('contact form collects optional freight-quote shipment context', async ({ page }) => {
-  await page.goto('/en/contact');
-
-  await expect(page.getByText('Shipment details for a freight quote')).toBeVisible();
-  await page.getByText('Shipment details for a freight quote').click();
-  await expect(page.locator('select[name="transportMode"]')).toBeVisible();
-  await expect(page.locator('input[name="origin"]')).toBeVisible();
-  await expect(page.locator('input[name="destination"]')).toBeVisible();
-  await expect(page.locator('input[name="cargoReadyDate"]')).toBeVisible();
-  await expect(page.locator('input[name="commodity"]')).toBeVisible();
-});
-
-test('contact form progressively discloses optional follow-up details', async ({ page }) => {
-  await page.goto('/en/contact');
-
-  const optionalContact = page.locator('details').filter({
-    hasText: 'Additional contact details',
-  });
-
-  await expect(optionalContact).not.toHaveAttribute('open', '');
-  await expect(optionalContact.locator('input[name="phone"]')).not.toBeVisible();
-  await optionalContact.locator('summary').click();
-  await expect(optionalContact).toHaveAttribute('open', '');
-  await expect(optionalContact.locator('input[name="phone"]')).toBeVisible();
-  await expect(optionalContact.locator('input[name="country"]')).toBeVisible();
-});
-
 test('tools distinguish customer tracking from a balanced reference-tool group', async ({
   page,
 }) => {
@@ -452,10 +385,11 @@ test('footer presents company identity, license, contact, and service links', as
     'href',
     '/en/tools/calculator'
   );
-  await expect(footer.getByRole('link', { name: 'Request a Freight Quote' })).toHaveAttribute(
+  await expect(footer.getByRole('link', { name: 'View Office Details' })).toHaveAttribute(
     'href',
     '/en#contact'
   );
+  await expect(footer.locator('a[href^="mailto:"]')).toHaveCount(0);
 });
 
 test('footer follows the selected light and dark theme', async ({ page }) => {

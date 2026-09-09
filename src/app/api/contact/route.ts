@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 import ContactData from '@/components/Contact/ContactData.json';
 import { parseInquiry, type Inquiry } from '@/lib/inquiry';
 import { checkRateLimit } from '@/lib/rate-limit';
+import { featureFlags } from '@/lib/features';
 
 const RESEND_URL = 'https://api.resend.com/emails';
 const MAX_BODY_BYTES = 8_192; // 8 KB
@@ -55,6 +56,10 @@ const formatInquiry = (inquiry: Inquiry) => {
 };
 
 export async function POST(request: Request) {
+  if (!featureFlags.contactEmail) {
+    return new Response(null, { status: 404 });
+  }
+
   let payload: unknown;
 
   try {

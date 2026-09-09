@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 
 import type { AppLocale } from '../i18n/config';
 import { defaultLocale, locales } from '../i18n/config';
+import { featureFlags } from './features';
 
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://ditsanfrancisco.com').replace(
   /\/$/,
@@ -31,7 +32,7 @@ export const localizedRoutes: LocalizedRoute[] = [
   { path: '', pageKey: 'home' },
   { path: '/about', pageKey: 'about' },
   { path: '/services', pageKey: 'services' },
-  { path: '/news', pageKey: 'news' },
+  ...(featureFlags.news ? ([{ path: '/news', pageKey: 'news' }] as LocalizedRoute[]) : []),
   { path: '/tools', pageKey: 'tools' },
   { path: '/contact', pageKey: 'contact' },
   { path: '/tools/dictionary', pageKey: 'dictionary' },

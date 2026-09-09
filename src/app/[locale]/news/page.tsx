@@ -1,5 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 import type { AppLocale } from '@/i18n/config';
+import { featureFlags } from '@/lib/features';
 import { getLocalizedMetadata } from '@/lib/seo';
 import { getNewsArticles } from '@/lib/news';
 import News from '@/components/News/News';
@@ -15,6 +17,8 @@ export const generateMetadata = async ({ params }: PageProps) => {
 };
 
 const NewsPage = async ({ params }: PageProps) => {
+  if (!featureFlags.news) notFound();
+
   const { locale } = await params;
   setRequestLocale(locale);
 

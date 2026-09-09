@@ -37,33 +37,30 @@ test('language switcher navigates to the zh-TW locale', async ({ page }) => {
   await expect(page.locator('html')).toHaveAttribute('lang', 'zh-TW');
 });
 
-test('homepage header actions distinguish shipment tracking from freight quotes', async ({
-  page,
-}) => {
-  await page.setViewportSize({ width: 1280, height: 900 });
+test('homepage actions distinguish shipment tracking from office details', async ({ page }) => {
+  await page.setViewportSize({ width: 1501, height: 900 });
   await page.goto('/en');
 
   await expect(page.getByRole('link', { name: 'Track a Shipment' })).toHaveAttribute(
     'href',
     'https://ditus.gofreight.co/tracking/login'
   );
-  await expect(page.getByRole('link', { name: 'Request a Freight Quote' }).first()).toHaveAttribute(
+  await expect(page.getByRole('link', { name: 'View Office Details' }).first()).toHaveAttribute(
     'href',
     '#contact'
   );
 });
 
-test('homepage header actions retain their button treatments', async ({ page }) => {
+test('header keeps shipment tracking and omits the redundant contact CTA', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/en');
 
   const header = page.getByRole('banner');
   const tracking = header.getByRole('link', { name: 'Track a Shipment', exact: true });
-  const quote = header.getByRole('link', { name: 'Contact Us', exact: true });
 
   await expect(tracking).toHaveCSS('background-color', 'rgb(0, 10, 60)');
   await expect(tracking).toHaveCSS('color', 'rgb(255, 204, 0)');
-  await expect(quote).toHaveCSS('border-top-color', 'rgb(0, 10, 60)');
+  await expect(header.getByRole('link', { name: 'View Office Details' })).toHaveCount(0);
 });
 
 test('header remains within the viewport while resizing in both directions', async ({ page }) => {
@@ -89,7 +86,7 @@ test('header load motion reveals navigation in reading order', async ({ page }) 
 
   const header = page.getByRole('banner');
   const navItems = header.locator('nav li');
-  await expect(navItems).toHaveCount(6);
+  await expect(navItems).toHaveCount(5);
 
   const motion = await header.evaluate((element) => {
     const headerStyle = getComputedStyle(element);
@@ -130,21 +127,21 @@ test('header load motion is disabled when reduced motion is requested', async ({
     animationName: 'none',
     opacity: '1',
     transform: 'none',
-    itemAnimationNames: ['none', 'none', 'none', 'none', 'none', 'none'],
+    itemAnimationNames: ['none', 'none', 'none', 'none', 'none'],
   });
 });
 
 for (const width of [390, 1280]) {
-  test(`first freight-quote anchor jump keeps the Contact heading below the sticky header at ${width}px`, async ({
+  test(`office-details anchor jump keeps the Contact heading below the sticky header at ${width}px`, async ({
     page,
   }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/en');
 
-    const quote = page
+    const officeDetails = page
       .locator('#home')
-      .getByRole('link', { name: 'Request a Freight Quote', exact: true });
-    await quote.click();
+      .getByRole('link', { name: 'View Office Details', exact: true });
+    await officeDetails.click();
 
     await expect(page).toHaveURL(/#contact$/);
     await page.waitForTimeout(1_200);
@@ -171,9 +168,9 @@ test('subpage header section links return to localized homepage sections', async
     'href',
     '/zh-TW#about'
   );
-  // The nav item and the CTA share the '聯絡我們' label; both must resolve to the homepage anchor.
+  // The single Contact nav item returns to the localized homepage anchor.
   const contactLinks = page.getByRole('banner').getByRole('link', { name: '聯絡我們' });
-  await expect(contactLinks).toHaveCount(2);
+  await expect(contactLinks).toHaveCount(1);
   for (const link of await contactLinks.all()) {
     await expect(link).toHaveAttribute('href', '/zh-TW#contact');
   }
@@ -289,22 +286,6 @@ test('responsive menu closes with Escape and restores focus', async ({ page }) =
   await expect(page.locator('header ul[data-style-mode="column"]')).toHaveCount(0);
 });
 
-test('invalid contact submission focuses the first invalid field and shipment details are disclosed', async ({
-  page,
-}) => {
-  await page.goto('/en/contact');
-
-  const shipmentDetails = page.locator('details').filter({
-    hasText: 'Shipment details for a freight quote',
-  });
-  await expect(shipmentDetails).not.toHaveAttribute('open', '');
-  await shipmentDetails.locator('summary').click();
-  await expect(shipmentDetails).toHaveAttribute('open', '');
-
-  await page.getByRole('button', { name: 'Send Message' }).click();
-  await expect(page.locator('input[name="firstName"]')).toBeFocused();
-});
-
 test('desktop header shows the full inline navigation above 1500px', async ({ page }) => {
   await page.setViewportSize({ width: 1501, height: 900 });
   await page.goto('/en');
@@ -319,7 +300,7 @@ for (const width of [1501, 1600]) {
     await page.goto('/en');
 
     // The header renders collapsed server-side and expands on hydration.
-    await expect(page.locator('header nav a')).toHaveCount(6);
+    await expect(page.locator('header nav a')).toHaveCount(5);
 
     const boxes = await page.locator('header nav a').evaluateAll((links) =>
       links.map((link) => {
@@ -349,16 +330,16 @@ test('header moves CTA controls into the menu before equal navigation labels can
 
 // One unified sequence: every header item collapses right-to-left, 100px apart from 1500px.
 const unifiedCollapseCases = [
-  { width: 1600, remaining: 10 },
-  { width: 1501, remaining: 10 },
-  { width: 1500, remaining: 9 },
-  { width: 1400, remaining: 8 },
-  { width: 1300, remaining: 7 },
-  { width: 1200, remaining: 6 },
-  { width: 1100, remaining: 5 },
-  { width: 1000, remaining: 4 },
-  { width: 900, remaining: 3 },
-  { width: 800, remaining: 2 },
+  { width: 1600, remaining: 8 },
+  { width: 1501, remaining: 8 },
+  { width: 1500, remaining: 7 },
+  { width: 1400, remaining: 6 },
+  { width: 1300, remaining: 5 },
+  { width: 1200, remaining: 4 },
+  { width: 1100, remaining: 3 },
+  { width: 1000, remaining: 2 },
+  { width: 900, remaining: 0 },
+  { width: 800, remaining: 0 },
   { width: 700, remaining: 0 },
   { width: 600, remaining: 0 },
   { width: 500, remaining: 0 },
@@ -368,11 +349,9 @@ const ALL_HEADER_ITEMS = [
   'Home',
   'About',
   'Services',
-  'News',
   'Tools',
   'Contact',
   'Track a Shipment',
-  'Contact Us',
   'theme',
   'language',
 ] as const;
@@ -409,43 +388,43 @@ for (const { width, remaining } of unifiedCollapseCases) {
 const progressiveNavigationCases = [
   {
     width: 1100,
-    inline: ['Home', 'About', 'Services', 'News', 'Tools'],
-    overflow: ['Contact'],
-  },
-  {
-    width: 1000,
-    inline: ['Home', 'About', 'Services', 'News'],
+    inline: ['Home', 'About', 'Services'],
     overflow: ['Tools', 'Contact'],
   },
   {
+    width: 1000,
+    inline: ['Home', 'About'],
+    overflow: ['Services', 'Tools', 'Contact'],
+  },
+  {
     width: 900,
-    inline: ['Home', 'About', 'Services'],
-    overflow: ['News', 'Tools', 'Contact'],
+    inline: [],
+    overflow: ['Home', 'About', 'Services', 'Tools', 'Contact'],
   },
   {
     width: 800,
-    inline: ['Home', 'About'],
-    overflow: ['Services', 'News', 'Tools', 'Contact'],
+    inline: [],
+    overflow: ['Home', 'About', 'Services', 'Tools', 'Contact'],
   },
   {
     width: 700,
     inline: [],
-    overflow: ['Home', 'About', 'Services', 'News', 'Tools', 'Contact'],
+    overflow: ['Home', 'About', 'Services', 'Tools', 'Contact'],
   },
   {
     width: 600,
     inline: [],
-    overflow: ['Home', 'About', 'Services', 'News', 'Tools', 'Contact'],
+    overflow: ['Home', 'About', 'Services', 'Tools', 'Contact'],
   },
   {
     width: 500,
     inline: [],
-    overflow: ['Home', 'About', 'Services', 'News', 'Tools', 'Contact'],
+    overflow: ['Home', 'About', 'Services', 'Tools', 'Contact'],
   },
   {
     width: 390,
     inline: [],
-    overflow: ['Home', 'About', 'Services', 'News', 'Tools', 'Contact'],
+    overflow: ['Home', 'About', 'Services', 'Tools', 'Contact'],
   },
 ] as const;
 
@@ -461,7 +440,7 @@ for (const { width, inline, overflow } of progressiveNavigationCases) {
   });
 }
 
-for (const width of [1100, 1000, 900, 800]) {
+for (const width of [1100, 1000]) {
   test(`inline navigation fills its row with equal-width items at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/en');
@@ -506,12 +485,11 @@ test('Traditional Chinese navigation uses the same progressive split', async ({ 
   await expect(page.locator('header ul[data-style-mode="row"] > li > a')).toHaveText([
     '首頁',
     '關於我們',
-    '服務',
-    '最新消息',
   ]);
 
   await page.getByRole('button', { name: '開啟選單' }).click();
   await expect(page.locator('header ul[data-style-mode="column"] > li > a')).toHaveText([
+    '服務',
     '工具',
     '聯絡我們',
   ]);

@@ -7,6 +7,7 @@ import GlobalService from '@/components/GlobalService/GlobalService';
 import Home from '@/components/Home/Home';
 import Industries from '@/components/Industries/Industries';
 import { getNewsArticles } from '@/lib/news';
+import { featureFlags } from '@/lib/features';
 import News from '@/components/News/News';
 import Partners from '@/components/Partners/Partners';
 import Services from '@/components/Services/Services';
@@ -25,7 +26,7 @@ export const generateMetadata = async ({ params }: PageProps) => {
 const HomePage = async ({ params }: PageProps) => {
   const { locale } = await params;
   setRequestLocale(locale);
-  const articles = await getNewsArticles();
+  const articles = featureFlags.news ? await getNewsArticles() : [];
 
   return (
     <React.Fragment>
@@ -35,7 +36,7 @@ const HomePage = async ({ params }: PageProps) => {
       <Services showDetails />
       <GlobalService />
       <Industries />
-      <News articles={articles} headingLevel={2} />
+      {featureFlags.news ? <News articles={articles} headingLevel={2} /> : null}
       <Tools />
       <Contact />
     </React.Fragment>

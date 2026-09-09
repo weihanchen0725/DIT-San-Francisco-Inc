@@ -10,10 +10,6 @@
 
   &Title {
     @include section-heading;
-
-    &Accent {
-      color: var(--color-accent-text);
-    }
   }
 
   &Description {
@@ -42,6 +38,18 @@
     }
   }
 
+  &InfoColumnFull {
+    @media (min-width: 48rem) {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+    }
+
+    @media (min-width: 64rem) {
+      grid-column: 1 / -1;
+    }
+  }
+
   &FormColumn {
     min-width: 0;
 
@@ -53,6 +61,12 @@
 
   &Card {
     @include card-surface;
+  }
+
+  &CardWide {
+    @media (min-width: 48rem) {
+      grid-column: 1 / -1;
+    }
   }
 
   // Variant: card that lays out its own children as a flex column (business hours)

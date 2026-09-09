@@ -15,15 +15,16 @@ npm run dev
 
 Open `http://localhost:3000/en` or `http://localhost:3000/zh-TW`.
 
-## Inquiry flow
+## Optional backend features
 
-1. A visitor selects **Request a Freight Quote**.
-2. The contact form collects contact information, optional shipment context, consent, and a message.
-3. `POST /api/contact` validates and rate-limits the inquiry.
-4. Resend delivers the inquiry to the configured operations inbox.
-5. The Fremont team follows up outside this application during business hours.
+News and contact email delivery are hidden by default while their backends are unfinished. Enable them only when the corresponding backend is ready:
 
-The contact endpoint requires `RESEND_API_KEY` and `RESEND_FROM_EMAIL`. `CONTACT_TO_EMAIL` is optional; without it, the configured public contact email is used. Missing delivery configuration causes the endpoint to fail closed with HTTP 503.
+```bash
+NEXT_PUBLIC_ENABLE_NEWS=true
+NEXT_PUBLIC_ENABLE_CONTACT_EMAIL=true
+```
+
+When contact email is enabled, the endpoint also requires `RESEND_API_KEY` and `RESEND_FROM_EMAIL`. `CONTACT_TO_EMAIL` is optional; without it, the configured public contact email is used. Missing delivery configuration causes the endpoint to fail closed with HTTP 503.
 
 ## Verification
 

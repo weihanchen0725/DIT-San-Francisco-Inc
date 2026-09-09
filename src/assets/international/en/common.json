@@ -52,7 +52,7 @@
     "headline": "International freight forwarding from",
     "headline_location": "San Francisco",
     "description": "Work with a local team for shipment planning, freight coordination, and support across the Bay Area and global trade lanes.",
-    "contact": "Request a Freight Quote"
+    "contact": "View Office Details"
   },
   "About": {
     "title": "About Us",
@@ -191,8 +191,7 @@
     "contact": "Contact"
   },
   "CTABar": {
-    "tracking": "Track a Shipment",
-    "join_us": "Contact Us"
+    "tracking": "Track a Shipment"
   },
   "Theme": {
     "caption": "Theme"
@@ -317,7 +316,7 @@
     "advisor_r_result_title": "Suggested Incoterm",
     "advisor_r_optimal": "Rule-based suggestion",
     "advisor_r_confidence": "Heuristic match",
-    "advisor_r_quote_btn": "Request a Freight Quote",
+    "advisor_r_quote_btn": "View Office Details",
     "advisor_r_compare_btn": "Compare All Incoterms",
     "advisor_r_why_title": "Why this matches your profile",
     "advisor_r_use_case_title": "When this rule may fit",
@@ -331,9 +330,9 @@
     "advisor_r_restart": "Start Over"
   },
   "Contact": {
-    "title_1": "Contact ",
-    "title_2": "Us",
-    "description": "Request a freight quote or send our team a question. Complete requests are reviewed by our Fremont office during business hours.",
+    "title": "Office",
+    "description": "Send shipment details or a question to our team. Complete inquiries are reviewed by our Fremont office during business hours.",
+    "description_contact_details": "Call our Fremont office during business hours for freight, warehousing, tracking, and supply chain support.",
     "name_placeholder": "Your Name",
     "email_placeholder": "Your Email",
     "message_placeholder": "Your Message",
@@ -415,7 +414,7 @@
     "tools_calculator": "CBM / CFT Calculator",
     "tools_incoterms": "Incoterms Reference",
     "tools_dictionary": "Logistics Dictionary",
-    "quote_cta": "Request a Freight Quote"
+    "quote_cta": "View Office Details"
   },
   "OpenIndicator": {
     "open": "Open",

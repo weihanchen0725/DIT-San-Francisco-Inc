@@ -29,3 +29,11 @@ for (const locale of locales) {
     expect(response?.status()).toBe(404);
   });
 }
+
+test('contact email delivery route is unavailable while the feature is hidden', async ({
+  request,
+}) => {
+  const response = await request.post('/api/contact', { data: {} });
+
+  expect(response.status()).toBe(404);
+});

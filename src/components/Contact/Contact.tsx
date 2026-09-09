@@ -4,6 +4,7 @@ import ContactForm from './ContactForm';
 import ContactData from './ContactData.json';
 import { getTranslations } from 'next-intl/server';
 import SectionHeading from '@/components/ui/SectionHeading';
+import { featureFlags } from '@/lib/features';
 import contactClass from './Contact.module.scss';
 
 const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
@@ -16,49 +17,65 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
       {/* Header */}
       <div className={contactClass.contactHeader}>
         <SectionHeading level={headingLevel} className={contactClass.contactTitle}>
-          {translateContact('title_1')}
-          <span className={contactClass.contactTitleAccent}>{translateContact('title_2')}</span>
+          {translateContact('title')}
         </SectionHeading>
-        <p className={contactClass.contactDescription}>{translateContact('description')}</p>
+        <p className={contactClass.contactDescription}>
+          {translateContact(
+            featureFlags.contactEmail ? 'description' : 'description_contact_details'
+          )}
+        </p>
       </div>
 
       <div className={contactClass.contactLayout}>
-        {/* Form stays first in DOM/mobile flow; the desktop grid places contact details left. */}
-        <div className={contactClass.contactFormColumn}>
-          <ContactForm />
-        </div>
+        {featureFlags.contactEmail ? (
+          <div className={contactClass.contactFormColumn}>
+            <ContactForm />
+          </div>
+        ) : null}
 
         {/* Contact Info Cards */}
-        <div className={contactClass.contactInfoColumn}>
-          <div className={contactClass.contactCard}>
-            <div className={contactClass.contactCardHeader}>
-              <div className={contactClass.contactCardIcon}>
-                <svg
-                  className={contactClass.contactCardIconSvg}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
+        <div
+          className={`${contactClass.contactInfoColumn} ${
+            featureFlags.contactEmail ? '' : contactClass.contactInfoColumnFull
+          }`}
+        >
+          {featureFlags.contactEmail ? (
+            <div className={contactClass.contactCard}>
+              <div className={contactClass.contactCardHeader}>
+                <div className={contactClass.contactCardIcon}>
+                  <svg
+                    className={contactClass.contactCardIconSvg}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <SectionHeading level={itemHeadingLevel} className={contactClass.contactCardTitle}>
+                  {translateContact('email_title')}
+                </SectionHeading>
               </div>
-              <SectionHeading level={itemHeadingLevel} className={contactClass.contactCardTitle}>
-                {translateContact('email_title')}
-              </SectionHeading>
+              <a
+                className={contactClass.contactCardDetail}
+                href="mailto:contact@ditsanfrancisco.com"
+              >
+                contact@ditsanfrancisco.com
+              </a>
+              <a
+                className={contactClass.contactCardDetail}
+                href="mailto:support@ditsanfrancisco.com"
+              >
+                support@ditsanfrancisco.com
+              </a>
             </div>
-            <a className={contactClass.contactCardDetail} href="mailto:contact@ditsanfrancisco.com">
-              contact@ditsanfrancisco.com
-            </a>
-            <a className={contactClass.contactCardDetail} href="mailto:support@ditsanfrancisco.com">
-              support@ditsanfrancisco.com
-            </a>
-          </div>
+          ) : null}
 
           <div className={`${contactClass.contactCard} ${contactClass.contactCardFlex}`}>
             <div className={contactClass.contactCardHeader}>
@@ -116,7 +133,11 @@ const Contact = async ({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) => {
             <p className={contactClass.contactCardDetail}>{ContactData.data.business_hours}</p>
           </div>
 
-          <div className={contactClass.contactCard}>
+          <div
+            className={`${contactClass.contactCard} ${
+              featureFlags.contactEmail ? '' : contactClass.contactCardWide
+            }`}
+          >
             <div className={contactClass.contactCardHeaderMb}>
               <div className={contactClass.contactCardIcon}>
                 <svg

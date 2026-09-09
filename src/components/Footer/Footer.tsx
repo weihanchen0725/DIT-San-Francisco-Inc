@@ -3,6 +3,7 @@ import { Linkedin } from 'lucide-react';
 
 import ContactData from '@/components/Contact/ContactData.json';
 import footerClass from './Footer.module.scss';
+import { featureFlags } from '@/lib/features';
 
 const Footer = () => {
   const translateCommon = useTranslations('Common');
@@ -55,11 +56,13 @@ const Footer = () => {
                 {contact.phone}
               </a>
             </p>
-            <p className={footerClass.line}>
-              <a href={`mailto:${contact.email}`} className={footerClass.link}>
-                {contact.email}
-              </a>
-            </p>
+            {featureFlags.contactEmail ? (
+              <p className={footerClass.line}>
+                <a href={`mailto:${contact.email}`} className={footerClass.link}>
+                  {contact.email}
+                </a>
+              </p>
+            ) : null}
             <p className={footerClass.line}>{contact.business_hours}</p>
           </div>
 
