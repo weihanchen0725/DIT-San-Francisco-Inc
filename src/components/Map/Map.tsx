@@ -31,13 +31,8 @@ const Map = () => {
   const position: LatLngExpression = [37.47937797375581, -121.9444590947314];
   //
   const googleMapURL = 'https://maps.app.goo.gl/Gmt7Y9h18K2Hk6xC8';
-  // CARTO Voyager tiles; uses the keyed env URL when configured, otherwise the keyless public endpoint
-  const cartoBasemapURL = process.env.NEXT_PUBLIC_CARTO_BASEMAP;
-  const cartoBasemapKey = process.env.NEXT_PUBLIC_CARTO_BASEMAP_API_KEY;
-  const tileURL =
-    cartoBasemapURL && cartoBasemapKey
-      ? `${cartoBasemapURL}?key=${cartoBasemapKey}`
-      : 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
+  // CARTO Voyager tiles, proxied by /api/tiles so the CARTO key stays on the server
+  const tileURL = '/api/tiles/{z}/{x}/{y}';
 
   return (
     <div className={`${mapClass.map} relative rounded-b-2xl overflow-hidden`}>

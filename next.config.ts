@@ -25,11 +25,11 @@ const productionSecurityHeaders = [
       "frame-ancestors 'none'",
       "form-action 'self'",
       "object-src 'none'",
-      "img-src 'self' data: blob: https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com",
+      "img-src 'self' data: blob:",
       "font-src 'self' data:",
       "style-src 'self' 'unsafe-inline'",
       "script-src 'self' 'unsafe-inline'",
-      "connect-src 'self' https://api.resend.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com",
+      "connect-src 'self' https://api.resend.com",
     ].join('; '),
   },
 ];
