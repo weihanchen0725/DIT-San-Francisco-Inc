@@ -5,7 +5,7 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 
 // LAN hosts used with `next dev -H 0.0.0.0` (HMR / internal endpoints).
 // Host only — Next matches the request Host header, not full origins.
-const devLanHosts = ['10.20.18.7', '10.10.0.156'];
+const devLanHosts = ['10.20.18.7', '10.10.0.156', '127.0.0.1', 'localhost', '10.5.0.2'];
 
 const productionSecurityHeaders = [
   { key: 'X-Content-Type-Options', value: 'nosniff' },
@@ -25,11 +25,11 @@ const productionSecurityHeaders = [
       "frame-ancestors 'none'",
       "form-action 'self'",
       "object-src 'none'",
-      "img-src 'self' data: blob: https://*.basemaps.cartocdn.com",
+      "img-src 'self' data: blob: https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com",
       "font-src 'self' data:",
       "style-src 'self' 'unsafe-inline'",
       "script-src 'self' 'unsafe-inline'",
-      "connect-src 'self' https://api.resend.com https://*.basemaps.cartocdn.com",
+      "connect-src 'self' https://api.resend.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com",
     ].join('; '),
   },
 ];

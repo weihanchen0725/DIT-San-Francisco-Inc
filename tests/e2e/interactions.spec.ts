@@ -214,6 +214,8 @@ test('contact page renders the Leaflet map with tiles and a marker', async ({ pa
   await expect
     .poll(() => page.locator('.leaflet-marker-icon').count(), { timeout: 15_000 })
     .toBeGreaterThan(0);
+  // The address popup opens without the user clicking the marker.
+  await expect(page.locator('.leaflet-popup')).toContainText('DIT San Francisco Inc.');
 });
 
 test('zh-TW homepage renders Traditional Chinese content', async ({ page }) => {

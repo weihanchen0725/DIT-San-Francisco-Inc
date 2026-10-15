@@ -31,6 +31,13 @@ const Map = () => {
   const position: LatLngExpression = [37.47937797375581, -121.9444590947314];
   //
   const googleMapURL = 'https://maps.app.goo.gl/Gmt7Y9h18K2Hk6xC8';
+  // CARTO Voyager tiles; uses the keyed env URL when configured, otherwise the keyless public endpoint
+  const cartoBasemapURL = process.env.NEXT_PUBLIC_CARTO_BASEMAP;
+  const cartoBasemapKey = process.env.NEXT_PUBLIC_CARTO_BASEMAP_API_KEY;
+  const tileURL =
+    cartoBasemapURL && cartoBasemapKey
+      ? `${cartoBasemapURL}?key=${cartoBasemapKey}`
+      : 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
 
   return (
     <div className={`${mapClass.map} relative rounded-b-2xl overflow-hidden`}>
@@ -47,15 +54,18 @@ const Map = () => {
         {/* Using CartoDB Voyager for a cleaner, modern look */}
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+          url={tileURL}
         />
         <Marker
           position={position}
           icon={customIcon}
           title="DIT San Francisco Inc."
           alt="DIT San Francisco Inc."
+          // Show the address popup as soon as the marker is on the map
+          eventHandlers={{ add: (e) => e.target.openPopup() }}
         >
-          <Popup className="custom-popup">
+          {/* minWidth: Leaflet measures before React renders the content, so set a width that fits the address */}
+          <Popup className="custom-popup" minWidth={200}>
             <div className="p-1">
               <h3 className="font-bold text-brand-navy text-base mb-1">DIT San Francisco Inc.</h3>
               <p className="text-sm text-gray-600 mb-2">

@@ -20,7 +20,7 @@
 }
 
 @mixin cq-max($width) {
-  @container (max-width: $width) {
+  @container (max-width: #{$width}) {
     @content;
   }
 }
