@@ -31,10 +31,31 @@ test('language switcher navigates to the zh-TW locale', async ({ page }) => {
   await page.goto('/en/tools/calculator');
   await openResponsiveMenu(page);
 
-  await page.locator('#language-select').selectOption('zh-TW');
+  await page.locator('#language-select').click();
+  await page.getByRole('option', { name: 'ZH-TW' }).click();
 
   await expect(page).toHaveURL(/\/zh-TW\/tools\/calculator$/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'zh-TW');
+});
+
+test('language switcher dropdown works with the keyboard', async ({ page }) => {
+  await page.setViewportSize({ width: 1501, height: 900 });
+  await page.goto('/en/tools/calculator');
+  const trigger = page.locator('#language-select');
+
+  // Escape closes the list and returns focus to the trigger without navigating.
+  await trigger.focus();
+  await page.keyboard.press('ArrowDown');
+  await expect(page.getByRole('listbox')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('listbox')).toHaveCount(0);
+  await expect(trigger).toBeFocused();
+
+  await page.keyboard.press('ArrowDown');
+  await page.keyboard.press('ArrowDown');
+  await page.keyboard.press('Enter');
+
+  await expect(page).toHaveURL(/\/zh-TW\/tools\/calculator$/);
 });
 
 test('homepage actions distinguish shipment tracking from office details', async ({ page }) => {

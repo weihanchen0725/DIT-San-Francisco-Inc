@@ -157,6 +157,7 @@
         gap: 1rem;
         border: 1px solid $border-color;
         padding: 1rem 2rem;
+        width: 100%;
         background-color: $background-color;
 
         :global(.dark) & {
