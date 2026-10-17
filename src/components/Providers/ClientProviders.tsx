@@ -14,6 +14,9 @@ const ClientProviders = ({ children }: ProvidersProps) => {
       enableSystem={true}
       disableTransitionOnChange={false}
       storageKey="dit-theme"
+      // The theme script only needs to run from the server HTML. When a locale switch remounts this
+      // provider, mark the client copy as inert data so React 19 doesn't warn about a client <script>.
+      scriptProps={typeof window === 'undefined' ? undefined : { type: 'application/json' }}
     >
       {children}
     </ThemeProvider>

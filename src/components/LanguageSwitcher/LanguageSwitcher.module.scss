@@ -48,6 +48,8 @@
     border: 0;
     appearance: none;
     background: transparent;
+    font-family: inherit;
+    padding: 0;
     color: $secondary-color;
     font-size: 1rem;
     font-weight: 600;
@@ -91,15 +93,78 @@
       color: $primary-color;
       transform: translateY(1px);
     }
+
+    // Same specificity as the :focus-within rule above, and later, so the flip wins while open
+    .languageSwitcherSelectWrap &[data-open='true'] {
+      color: $primary-color;
+      transform: rotate(180deg);
+    }
+  }
+
+  // ── Dropdown panel ──
+  &Panel {
+    position: absolute;
+    top: calc(100% + 0.375rem);
+    right: 0;
+    z-index: 30;
+    @include flex-column-start-start;
+    gap: 0.125rem;
+    min-width: max(100%, 9rem);
+    margin: 0;
+    padding: 0.375rem;
+    list-style: none;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+    transform-origin: top right;
+    animation: languageSwitcherPanelIn 140ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    // The active option carries the focus ring instead of the whole list
+    &:focus {
+      outline: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
   }
 
   &Option {
-    background-color: var(--color-bg-primary);
-    color: $secondary-color;
+    @include flex-row-between-center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.5rem 0.625rem;
+    border-radius: var(--radius-xs);
+    color: var(--color-text-primary);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: background-color 150ms ease;
+
+    &[data-active='true'] {
+      background-color: var(--color-primary-light);
+    }
+
+    &[aria-selected='true'] {
+      font-weight: 700;
+    }
+
+    .languageSwitcherPanel:focus-visible &[data-active='true'] {
+      outline: 2px solid var(--color-primary);
+      outline-offset: -2px;
+    }
+  }
+
+  &Check {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    color: var(--color-primary-dark);
 
     :global(.dark) & {
-      background-color: #111127;
-      color: #ffffff;
+      color: var(--color-primary);
     }
   }
 
@@ -116,5 +181,17 @@
 
   &ColumnMode {
     @include flex-row-end-center;
+  }
+}
+
+@keyframes languageSwitcherPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
