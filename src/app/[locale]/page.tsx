@@ -26,7 +26,8 @@ export const generateMetadata = async ({ params }: PageProps) => {
 const HomePage = async ({ params }: PageProps) => {
   const { locale } = await params;
   setRequestLocale(locale);
-  const articles = featureFlags.news ? await getNewsArticles() : [];
+  // Homepage shows the four newest posts; the API already returns newest first.
+  const articles = featureFlags.news ? await getNewsArticles(4) : [];
 
   return (
     <React.Fragment>
@@ -36,6 +37,7 @@ const HomePage = async ({ params }: PageProps) => {
       <Services showDetails />
       <GlobalService />
       <Industries />
+      {/* Hidden until NEXT_PUBLIC_ENABLE_NEWS is on, so no empty news card ships by default. */}
       {featureFlags.news ? <News articles={articles} headingLevel={2} /> : null}
       <Tools />
       <Contact />

@@ -85,11 +85,12 @@ const getNewsCollection = (payload: unknown): unknown[] => {
   return [];
 };
 
-export const getNewsArticles = async (): Promise<NewsArticle[]> => {
+export const getNewsArticles = async (limit?: number): Promise<NewsArticle[]> => {
   try {
     const response = await fetch(`${NEWS_API_BASE_URL}/posts`, {
+      method: 'GET',
       next: { revalidate: 300 },
-      headers: { Accept: 'application/json' },
+      headers: { Accept: '*/*' },
     });
 
     if (!response.ok) {
@@ -97,9 +98,11 @@ export const getNewsArticles = async (): Promise<NewsArticle[]> => {
     }
 
     const payload: unknown = await response.json();
+    // The posts API already orders summaries by publication time, newest first.
     return getNewsCollection(payload)
       .map(normalizeNewsItem)
-      .filter((article): article is NewsArticle => Boolean(article));
+      .filter((article): article is NewsArticle => Boolean(article))
+      .slice(0, limit);
   } catch {
     return [];
   }

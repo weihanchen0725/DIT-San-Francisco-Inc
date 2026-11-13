@@ -23,7 +23,8 @@
     }
 
     @media (min-width: 72rem) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      // Homepage lists four posts, so four columns avoid a lone card on a second row.
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
 
@@ -38,7 +39,8 @@
   &Date {
     color: var(--color-text-secondary);
     font-size: var(--text-sm);
-    font-weight: 700;
+    // Hierarchy comes from size and color, not weight.
+    font-weight: 500;
   }
 
   &CardTitle {

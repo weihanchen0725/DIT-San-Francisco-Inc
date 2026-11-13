@@ -24,6 +24,8 @@ NEXT_PUBLIC_ENABLE_NEWS=true
 NEXT_PUBLIC_ENABLE_CONTACT_EMAIL=true
 ```
 
+When news is enabled, the server fetches `GET https://dit-san-francisco-inc-backend.onrender.com/api/v1/posts` with `Accept: */*`. The [API contract](https://dit-san-francisco-inc-backend.onrender.com/v3/api-docs) specifies newest-first publication order. The homepage shows up to four valid posts; `/{locale}/news` shows the full returned list. News requests revalidate every five minutes.
+
 When contact email is enabled, the endpoint also requires `RESEND_API_KEY` and `RESEND_FROM_EMAIL`. `CONTACT_TO_EMAIL` is optional; without it, the configured public contact email is used. Missing delivery configuration causes the endpoint to fail closed with HTTP 503.
 
 ## Verification
@@ -42,6 +44,6 @@ npm run build
 - Shipment tracking is provided by an external GoFreight customer portal.
 - News and partner sections stay absent until approved, real content exists.
 - Incoterms content is general guidance, not legal or insurance advice.
-- Content is currently maintained in localized JSON; no live CMS is wired into the frontend.
+- Marketing copy is maintained in localized JSON; the optional news feed reads from the posts API above.
 
 Product intent and claim decisions are documented in [`_docs/PRODUCT.md`](./_docs/PRODUCT.md) and [`_docs/CLAIM-AUDIT.md`](./_docs/CLAIM-AUDIT.md).
