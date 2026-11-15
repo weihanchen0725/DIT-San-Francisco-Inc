@@ -23,13 +23,18 @@
     }
 
     @media (min-width: 72rem) {
-      // Homepage lists four posts, so four columns avoid a lone card on a second row.
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      // Exactly four posts (the homepage) fill one row; longer lists such as /news stay at three.
+      &:has(> :nth-child(4):last-child) {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
     }
   }
 
   &Card {
-    @include card-surface;
+    // 24px padding (card range) gives titles more room in narrow four-column rows.
+    @include card-surface(1.5rem);
     @include card-interactive;
     display: flex;
     flex-direction: column;
@@ -41,15 +46,24 @@
     font-size: var(--text-sm);
     // Hierarchy comes from size and color, not weight.
     font-weight: 500;
+    // Fixed-width figures so dates read as one aligned dateline across cards.
+    font-variant-numeric: tabular-nums;
   }
 
   &CardTitle {
     @include card-title;
-    margin-top: 1rem;
+    // Date sits tight to its headline; the excerpt keeps its 12px gap below.
+    margin-top: 0.5rem;
 
     & a {
       color: inherit;
       text-decoration: none;
+
+      // A linked title marks itself on hover, not only through the card lift.
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+      }
 
       &:focus-visible {
         outline: 2px solid var(--color-primary);

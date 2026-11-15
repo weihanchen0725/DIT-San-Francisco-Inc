@@ -107,7 +107,8 @@ test('header load motion reveals navigation in reading order', async ({ page }) 
 
   const header = page.getByRole('banner');
   const navItems = header.locator('nav li');
-  await expect(navItems).toHaveCount(5);
+  // Six links: News is always in the nav now that its feature flag is gone.
+  await expect(navItems).toHaveCount(6);
 
   const motion = await header.evaluate((element) => {
     const headerStyle = getComputedStyle(element);
@@ -148,7 +149,8 @@ test('header load motion is disabled when reduced motion is requested', async ({
     animationName: 'none',
     opacity: '1',
     transform: 'none',
-    itemAnimationNames: ['none', 'none', 'none', 'none', 'none'],
+    // One entry per nav link, News included.
+    itemAnimationNames: ['none', 'none', 'none', 'none', 'none', 'none'],
   });
 });
 
@@ -264,7 +266,8 @@ for (const width of [320, 375, 768, 900, 1024, 1239, 1240, 1280, 1300]) {
   });
 }
 
-test('production homepage includes global service coverage while omitting fictional partner and news surfaces', async ({
+// News assertion dropped: the section now depends on the live posts API, not a flag.
+test('production homepage includes global service coverage while omitting fictional partner surfaces', async ({
   page,
 }) => {
   await page.goto('/en');
@@ -293,7 +296,6 @@ test('production homepage includes global service coverage while omitting fictio
     homepageSectionOrder.indexOf('global-service-title') + 1
   );
   await expect(page.getByText('Fictional development preview')).toHaveCount(0);
-  await expect(page.getByRole('heading', { name: 'Latest News' })).toHaveCount(0);
 });
 
 test('responsive menu closes with Escape and restores focus', async ({ page }) => {
@@ -322,8 +324,8 @@ for (const width of [1501, 1600]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/en');
 
-    // The header renders collapsed server-side and expands on hydration.
-    await expect(page.locator('header nav a')).toHaveCount(5);
+    // The header renders collapsed server-side and expands on hydration (six links incl. News).
+    await expect(page.locator('header nav a')).toHaveCount(6);
 
     const boxes = await page.locator('header nav a').evaluateAll((links) =>
       links.map((link) => {
@@ -332,7 +334,7 @@ for (const width of [1501, 1600]) {
       })
     );
 
-    expect(boxes.length).toBeGreaterThanOrEqual(5);
+    expect(boxes.length).toBeGreaterThanOrEqual(6);
     for (let i = 0; i < boxes.length - 1; i += 1) {
       expect(
         boxes[i].right,
@@ -352,16 +354,17 @@ test('header moves CTA controls into the menu before equal navigation labels can
 });
 
 // One unified sequence: every header item collapses right-to-left, 100px apart from 1500px.
+// Nine items now that News is always in the nav, so each step shifts by one.
 const unifiedCollapseCases = [
-  { width: 1600, remaining: 8 },
-  { width: 1501, remaining: 8 },
-  { width: 1500, remaining: 7 },
-  { width: 1400, remaining: 6 },
-  { width: 1300, remaining: 5 },
-  { width: 1200, remaining: 4 },
-  { width: 1100, remaining: 3 },
-  { width: 1000, remaining: 2 },
-  { width: 900, remaining: 0 },
+  { width: 1600, remaining: 9 },
+  { width: 1501, remaining: 9 },
+  { width: 1500, remaining: 8 },
+  { width: 1400, remaining: 7 },
+  { width: 1300, remaining: 6 },
+  { width: 1200, remaining: 5 },
+  { width: 1100, remaining: 4 },
+  { width: 1000, remaining: 3 },
+  { width: 900, remaining: 2 },
   { width: 800, remaining: 0 },
   { width: 700, remaining: 0 },
   { width: 600, remaining: 0 },
@@ -372,6 +375,7 @@ const ALL_HEADER_ITEMS = [
   'Home',
   'About',
   'Services',
+  'News',
   'Tools',
   'Contact',
   'Track a Shipment',
@@ -408,46 +412,47 @@ for (const { width, remaining } of unifiedCollapseCases) {
   });
 }
 
+// News sits between Services and Tools, so each width keeps one more link inline.
 const progressiveNavigationCases = [
   {
     width: 1100,
-    inline: ['Home', 'About', 'Services'],
+    inline: ['Home', 'About', 'Services', 'News'],
     overflow: ['Tools', 'Contact'],
   },
   {
     width: 1000,
-    inline: ['Home', 'About'],
-    overflow: ['Services', 'Tools', 'Contact'],
+    inline: ['Home', 'About', 'Services'],
+    overflow: ['News', 'Tools', 'Contact'],
   },
   {
     width: 900,
-    inline: [],
-    overflow: ['Home', 'About', 'Services', 'Tools', 'Contact'],
+    inline: ['Home', 'About'],
+    overflow: ['Services', 'News', 'Tools', 'Contact'],
   },
   {
     width: 800,
     inline: [],
-    overflow: ['Home', 'About', 'Services', 'Tools', 'Contact'],
+    overflow: ['Home', 'About', 'Services', 'News', 'Tools', 'Contact'],
   },
   {
     width: 700,
     inline: [],
-    overflow: ['Home', 'About', 'Services', 'Tools', 'Contact'],
+    overflow: ['Home', 'About', 'Services', 'News', 'Tools', 'Contact'],
   },
   {
     width: 600,
     inline: [],
-    overflow: ['Home', 'About', 'Services', 'Tools', 'Contact'],
+    overflow: ['Home', 'About', 'Services', 'News', 'Tools', 'Contact'],
   },
   {
     width: 500,
     inline: [],
-    overflow: ['Home', 'About', 'Services', 'Tools', 'Contact'],
+    overflow: ['Home', 'About', 'Services', 'News', 'Tools', 'Contact'],
   },
   {
     width: 390,
     inline: [],
-    overflow: ['Home', 'About', 'Services', 'Tools', 'Contact'],
+    overflow: ['Home', 'About', 'Services', 'News', 'Tools', 'Contact'],
   },
 ] as const;
 
@@ -505,14 +510,16 @@ test('Traditional Chinese navigation uses the same progressive split', async ({ 
   await page.setViewportSize({ width: 960, height: 900 });
   await page.goto('/zh-TW');
 
+  // 960px hides six items (language, theme, CTA, three links), leaving three inline with News.
   await expect(page.locator('header ul[data-style-mode="row"] > li > a')).toHaveText([
     '首頁',
     '關於我們',
+    '服務',
   ]);
 
   await page.getByRole('button', { name: '開啟選單' }).click();
   await expect(page.locator('header ul[data-style-mode="column"] > li > a')).toHaveText([
-    '服務',
+    '最新消息',
     '工具',
     '聯絡我們',
   ]);

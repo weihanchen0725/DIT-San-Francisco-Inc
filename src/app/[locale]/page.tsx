@@ -7,7 +7,6 @@ import GlobalService from '@/components/GlobalService/GlobalService';
 import Home from '@/components/Home/Home';
 import Industries from '@/components/Industries/Industries';
 import { getNewsArticles } from '@/lib/news';
-import { featureFlags } from '@/lib/features';
 import News from '@/components/News/News';
 import Partners from '@/components/Partners/Partners';
 import Services from '@/components/Services/Services';
@@ -26,8 +25,8 @@ export const generateMetadata = async ({ params }: PageProps) => {
 const HomePage = async ({ params }: PageProps) => {
   const { locale } = await params;
   setRequestLocale(locale);
-  // Homepage shows the four newest posts; the API already returns newest first.
-  const articles = featureFlags.news ? await getNewsArticles(4) : [];
+  // Homepage always fetches the four newest posts; the API already returns newest first.
+  const articles = await getNewsArticles(4);
 
   return (
     <React.Fragment>
@@ -37,8 +36,8 @@ const HomePage = async ({ params }: PageProps) => {
       <Services showDetails />
       <GlobalService />
       <Industries />
-      {/* Hidden until NEXT_PUBLIC_ENABLE_NEWS is on, so no empty news card ships by default. */}
-      {featureFlags.news ? <News articles={articles} headingLevel={2} /> : null}
+      {/* Hidden only when the posts API returns nothing (or fails), so no empty news card ships. */}
+      {articles.length > 0 ? <News articles={articles} headingLevel={2} /> : null}
       <Tools />
       <Contact />
     </React.Fragment>

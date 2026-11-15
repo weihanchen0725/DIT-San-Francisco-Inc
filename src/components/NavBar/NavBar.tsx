@@ -7,7 +7,6 @@ import { useLocale, useTranslations } from 'next-intl';
 import navBarData from '@/assets/data/NavBar.data.json';
 import useActiveSection from '@/hooks/useActiveSection';
 import type { LinkProps } from '@/types/LinkProps';
-import { featureFlags } from '@/lib/features';
 
 interface NavBarProps {
   styleMode?: 'row' | 'column';
@@ -16,9 +15,8 @@ interface NavBarProps {
   ariaLabel?: string;
 }
 
-const navigationItems = (navBarData as LinkProps[]).filter(
-  (item) => item.Key !== 'news' || featureFlags.news
-);
+// News link is always shown; the news feature flag was removed.
+const navigationItems = navBarData as LinkProps[];
 
 export const ACTIVE_NAV_ITEM_COUNT = navigationItems.filter((item) => item.isActive).length;
 

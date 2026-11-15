@@ -11,7 +11,8 @@ test('localized SEO route inventory includes all public tool pages', () => {
   expect(paths).toContain('/tools/incoterms');
   expect(paths).toContain('/tools/incoterms/advisor');
   expect(paths).toContain('/tools/incoterms/reference-guide');
-  expect(paths).not.toContain('/news');
+  // News is always public now that the feature flag is gone.
+  expect(paths).toContain('/news');
 });
 
 test('localized SEO URLs preserve locale prefixes', () => {
@@ -23,10 +24,11 @@ test('localized SEO URLs preserve locale prefixes', () => {
 });
 
 for (const locale of locales) {
-  test(`/${locale}/news is not a public route`, async ({ page }) => {
+  // Renders posts or the empty state (API failure returns []), never a 404.
+  test(`/${locale}/news is a public route`, async ({ page }) => {
     const response = await page.goto(`/${locale}/news`);
 
-    expect(response?.status()).toBe(404);
+    expect(response?.status()).toBe(200);
   });
 }
 

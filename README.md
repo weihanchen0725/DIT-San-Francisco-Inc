@@ -17,14 +17,13 @@ Open `http://localhost:3000/en` or `http://localhost:3000/zh-TW`.
 
 ## Optional backend features
 
-News and contact email delivery are hidden by default while their backends are unfinished. Enable them only when the corresponding backend is ready:
+Contact email delivery is hidden by default while its backend is unfinished. Enable it only when the backend is ready:
 
 ```bash
-NEXT_PUBLIC_ENABLE_NEWS=true
 NEXT_PUBLIC_ENABLE_CONTACT_EMAIL=true
 ```
 
-When news is enabled, the server fetches `GET https://dit-san-francisco-inc-backend.onrender.com/api/v1/posts` with `Accept: */*`. The [API contract](https://dit-san-francisco-inc-backend.onrender.com/v3/api-docs) specifies newest-first publication order. The homepage shows up to four valid posts; `/{locale}/news` shows the full returned list. News requests revalidate every five minutes.
+News is always on. The server fetches `GET https://dit-san-francisco-inc-backend.onrender.com/api/v1/posts` with `Accept: */*`. The [API contract](https://dit-san-francisco-inc-backend.onrender.com/v3/api-docs) specifies newest-first publication order. The homepage shows up to four valid posts and hides the section when the API returns none or fails; `/{locale}/news` shows the full returned list, or an empty state. News requests revalidate every five minutes.
 
 When contact email is enabled, the endpoint also requires `RESEND_API_KEY` and `RESEND_FROM_EMAIL`. `CONTACT_TO_EMAIL` is optional; without it, the configured public contact email is used. Missing delivery configuration causes the endpoint to fail closed with HTTP 503.
 
@@ -42,7 +41,7 @@ npm run build
 
 - This repository is not a TMS, WMS, booking platform, or customer dashboard.
 - Shipment tracking is provided by an external GoFreight customer portal.
-- News and partner sections stay absent until approved, real content exists.
+- Partner sections stay absent until approved, real content exists. News appears only when the posts API returns posts.
 - Incoterms content is general guidance, not legal or insurance advice.
 - Marketing copy is maintained in localized JSON; the optional news feed reads from the posts API above.
 
