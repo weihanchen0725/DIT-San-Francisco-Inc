@@ -23,7 +23,7 @@ Contact email delivery is hidden by default while its backend is unfinished. Ena
 NEXT_PUBLIC_ENABLE_CONTACT_EMAIL=true
 ```
 
-News is always on. The server fetches `GET https://dit-san-francisco-inc-backend.onrender.com/api/v1/posts` with `Accept: */*`. The [API contract](https://dit-san-francisco-inc-backend.onrender.com/v3/api-docs) specifies newest-first publication order. The homepage shows up to four valid posts and hides the section when the API returns none or fails; `/{locale}/news` shows the full returned list, or an empty state. News requests revalidate every five minutes.
+News is always on. The server fetches `GET https://dit-san-francisco-inc-backend.onrender.com/api/public/v1/posts?size=<n>` with `Accept: */*` and reads `items` from the returned `PageResponse`. The [API contract](https://dit-san-francisco-inc-backend.onrender.com/v3/api-docs) returns live posts only, newest first. The homepage requests four posts and hides the section when the API returns none or fails. `/{locale}/news` requests up to 100 posts, the API maximum, or shows an empty state. Each card links to `/{locale}/news/{slug}`, which fetches `GET /api/public/v1/posts/{slug}` and returns a 404 page when no live post has that slug. News requests revalidate every five minutes.
 
 When contact email is enabled, the endpoint also requires `RESEND_API_KEY` and `RESEND_FROM_EMAIL`. `CONTACT_TO_EMAIL` is optional; without it, the configured public contact email is used. Missing delivery configuration causes the endpoint to fail closed with HTTP 503.
 

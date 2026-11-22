@@ -1,7 +1,8 @@
-export const NEWS_API_BASE_URL = 'https://dit-san-francisco-inc-backend.onrender.com/api/v1';
+export const NEWS_API_BASE_URL = 'https://dit-san-francisco-inc-backend.onrender.com/api/public/v1';
 
 export type NewsArticle = {
   id: string;
+  slug?: string;
   title: string;
   excerpt?: string;
   publishedAt?: string;
@@ -41,6 +42,7 @@ const normalizeNewsItem = (item: unknown, index: number): NewsArticle | undefine
 
   return {
     id,
+    slug: getString(source.slug),
     title,
     excerpt:
       getString(source.excerpt) ??
@@ -87,7 +89,8 @@ const getNewsCollection = (payload: unknown): unknown[] => {
 
 export const getNewsArticles = async (limit?: number): Promise<NewsArticle[]> => {
   try {
-    const response = await fetch(`${NEWS_API_BASE_URL}/posts`, {
+    // shortcut: without a limit, fetch the API maximum of 100 posts; add pagination past that.
+    const response = await fetch(`${NEWS_API_BASE_URL}/posts?size=${limit ?? 100}`, {
       method: 'GET',
       next: { revalidate: 300 },
       headers: { Accept: '*/*' },
@@ -98,7 +101,7 @@ export const getNewsArticles = async (limit?: number): Promise<NewsArticle[]> =>
     }
 
     const payload: unknown = await response.json();
-    // The posts API already orders summaries by publication time, newest first.
+    // The posts API returns a PageResponse whose items are ordered newest first.
     return getNewsCollection(payload)
       .map(normalizeNewsItem)
       .filter((article): article is NewsArticle => Boolean(article))
@@ -106,4 +109,59 @@ export const getNewsArticles = async (limit?: number): Promise<NewsArticle[]> =>
   } catch {
     return [];
   }
+};
+
+// Fields of the PostResponse that the detail page renders. The API sends null for unset fields.
+export type NewsPost = {
+  slug: string;
+  title: string;
+  excerpt?: string | null;
+  body?: string | null;
+  seoTitle?: string | null;
+  metaDescription?: string | null;
+  ctaLabel?: string | null;
+  ctaUrl?: string | null;
+  publishedAt?: string | null;
+};
+
+// The contract says body is plain text with blank lines between paragraphs, but seeded posts
+// store {"blocks":[{"type":"paragraph","text":"..."}]}. Accept both formats.
+export const getBodyParagraphs = (body?: string | null): string[] => {
+  if (!body) {
+    return [];
+  }
+
+  try {
+    const blocks: unknown = JSON.parse(body)?.blocks;
+
+    if (Array.isArray(blocks)) {
+      return blocks
+        .map((block) => getString(getNestedRecord(block)?.text))
+        .filter((text): text is string => Boolean(text));
+    }
+  } catch {
+    // Not JSON, so treat it as plain text.
+  }
+
+  return body.split(/\n\s*\n/).filter((paragraph) => paragraph.trim());
+};
+
+// Returns undefined when no live post has this slug. Other failures throw, so an outage
+// shows the error page instead of a cached 404.
+export const getNewsPost = async (slug: string): Promise<NewsPost | undefined> => {
+  const response = await fetch(`${NEWS_API_BASE_URL}/posts/${encodeURIComponent(slug)}`, {
+    method: 'GET',
+    next: { revalidate: 300 },
+    headers: { Accept: '*/*' },
+  });
+
+  if (response.status === 404) {
+    return undefined;
+  }
+
+  if (!response.ok) {
+    throw new Error(`Posts API returned ${response.status} for slug "${slug}"`);
+  }
+
+  return (await response.json()) as NewsPost;
 };

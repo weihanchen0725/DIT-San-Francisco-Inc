@@ -141,7 +141,8 @@
   "News": {
     "title": "最新消息",
     "description": "DIT San Francisco 團隊的公司更新、貿易資訊與物流觀點。",
-    "empty": "目前無法取得最新消息，請稍後再查看。"
+    "empty": "目前無法取得最新消息，請稍後再查看。",
+    "back": "返回最新消息"
   },
   "Calculator": {
     "input_dimension": "輸入尺寸",

@@ -153,7 +153,8 @@
   "News": {
     "title": "News",
     "description": "Company updates, trade notes, and logistics insights from the DIT San Francisco team.",
-    "empty": "News updates are not available right now. Please check back soon."
+    "empty": "News updates are not available right now. Please check back soon.",
+    "back": "Back to news"
   },
   "Calculator": {
     "input_dimension": "Input the dimension",

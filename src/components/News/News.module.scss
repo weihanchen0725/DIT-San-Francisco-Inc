@@ -76,6 +76,39 @@
     @include card-description;
   }
 
+  // Detail page (/news/[slug]). Back and CTA links match the Services link style.
+  &Back,
+  &Cta {
+    display: flex;
+    width: fit-content;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--color-text-primary);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+
+  &Back {
+    margin-bottom: 1.5rem;
+  }
+
+  &Cta {
+    margin-top: 2rem;
+  }
+
+  &Body {
+    margin-top: 2rem;
+    max-width: 42rem;
+    color: var(--color-text-primary);
+    font-size: var(--text-lg);
+    line-height: 1.75;
+
+    & p + p {
+      margin-top: 1.25rem;
+    }
+  }
+
   &Empty {
     @include card-surface;
     margin-top: 3rem;

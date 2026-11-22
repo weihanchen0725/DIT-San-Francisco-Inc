@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { getNewsArticles } from './news';
+import { getBodyParagraphs, getNewsArticles, getNewsPost } from './news';
 
 const posts = [
   { id: 'newest', title: 'Newest post', coverCaption: 'Latest shipping update.' },
@@ -22,20 +22,48 @@ describe('getNewsArticles', () => {
     vi.unstubAllGlobals();
   });
 
-  it('uses the exact GET posts request and preserves five-minute revalidation', async () => {
+  it('uses the exact GET public posts request and preserves five-minute revalidation', async () => {
     fetchMock.mockResolvedValue(Response.json(posts));
 
     await getNewsArticles();
 
     expect(fetchMock).toHaveBeenCalledOnce();
     expect(fetchMock).toHaveBeenCalledWith(
-      'https://dit-san-francisco-inc-backend.onrender.com/api/v1/posts',
+      'https://dit-san-francisco-inc-backend.onrender.com/api/public/v1/posts?size=100',
       {
         method: 'GET',
         next: { revalidate: 300 },
         headers: { Accept: '*/*' },
       }
     );
+  });
+
+  it('sends the limit as the page size', async () => {
+    fetchMock.mockResolvedValue(Response.json({ items: posts.slice(0, 4) }));
+
+    await getNewsArticles(4);
+
+    expect(fetchMock.mock.calls[0][0]).toBe(
+      'https://dit-san-francisco-inc-backend.onrender.com/api/public/v1/posts?size=4'
+    );
+  });
+
+  it('reads items from the PageResponse returned by the public posts API', async () => {
+    fetchMock.mockResolvedValue(
+      Response.json({ items: posts, page: 0, size: 100, totalItems: 5, totalPages: 1 })
+    );
+
+    const articles = await getNewsArticles();
+
+    expect(articles.map((article) => article.id)).toEqual(posts.map((post) => post.id));
+  });
+
+  it('keeps the slug so cards can link to the detail page', async () => {
+    fetchMock.mockResolvedValue(
+      Response.json({ items: [{ id: 'a', slug: 'port-update', title: 'Port update' }] })
+    );
+
+    expect((await getNewsArticles())[0]).toMatchObject({ id: 'a', slug: 'port-update' });
   });
 
   // The homepage shows four posts, so the cap cases below use a limit of 4.
@@ -134,5 +162,72 @@ describe('getNewsArticles', () => {
     fetchMock.mockRejectedValue(new Error('Network unavailable'));
 
     expect(await getNewsArticles(4)).toEqual([]);
+  });
+});
+
+describe('getNewsPost', () => {
+  const fetchMock = vi.fn<typeof fetch>();
+
+  beforeEach(() => {
+    vi.stubGlobal('fetch', fetchMock);
+    fetchMock.mockReset();
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('fetches the live post by encoded slug with five-minute revalidation', async () => {
+    const post = { slug: 'a b', title: 'Port update', body: 'Text' };
+    fetchMock.mockResolvedValue(Response.json(post));
+
+    expect(await getNewsPost('a b')).toEqual(post);
+    expect(fetchMock).toHaveBeenCalledWith(
+      'https://dit-san-francisco-inc-backend.onrender.com/api/public/v1/posts/a%20b',
+      {
+        method: 'GET',
+        next: { revalidate: 300 },
+        headers: { Accept: '*/*' },
+      }
+    );
+  });
+
+  it('returns undefined when no live post has the slug', async () => {
+    fetchMock.mockResolvedValue(Response.json({ status: 404 }, { status: 404 }));
+
+    expect(await getNewsPost('missing')).toBeUndefined();
+  });
+
+  it('throws on other failures so an outage is not cached as a 404', async () => {
+    fetchMock.mockResolvedValue(new Response(null, { status: 503 }));
+
+    await expect(getNewsPost('any')).rejects.toThrow('503');
+  });
+});
+
+describe('getBodyParagraphs', () => {
+  it('splits plain text on blank lines', () => {
+    expect(getBodyParagraphs('First.\n\nSecond.\n  \nThird.')).toEqual([
+      'First.',
+      'Second.',
+      'Third.',
+    ]);
+  });
+
+  it('reads paragraph text from the seeded blocks format', () => {
+    const body = JSON.stringify({
+      blocks: [
+        { type: 'paragraph', text: 'First.' },
+        { type: 'paragraph', text: ' ' },
+        { type: 'paragraph', text: 'Second.' },
+      ],
+    });
+
+    expect(getBodyParagraphs(body)).toEqual(['First.', 'Second.']);
+  });
+
+  it('returns no paragraphs for an empty body', () => {
+    expect(getBodyParagraphs(null)).toEqual([]);
+    expect(getBodyParagraphs('')).toEqual([]);
   });
 });

@@ -1,4 +1,5 @@
-import { getFormatter, getTranslations } from 'next-intl/server';
+import { getFormatter, getLocale, getTranslations } from 'next-intl/server';
+import Link from 'next/link';
 import SectionHeading from '@/components/ui/SectionHeading';
 import type { NewsArticle } from '@/lib/news';
 import newsClass from './News.module.scss';
@@ -11,6 +12,7 @@ type NewsProps = {
 const News = async ({ articles, headingLevel = 1 }: NewsProps) => {
   const translateNews = await getTranslations('News');
   const format = await getFormatter();
+  const locale = await getLocale();
   const itemHeadingLevel = headingLevel === 1 ? 2 : 3;
 
   return (
@@ -39,7 +41,11 @@ const News = async ({ articles, headingLevel = 1 }: NewsProps) => {
                 </time>
               )}
               <SectionHeading level={itemHeadingLevel} className={newsClass.newsCardTitle}>
-                {article.sourceUrl ? (
+                {article.slug ? (
+                  <Link href={`/${locale}/news/${encodeURIComponent(article.slug)}`}>
+                    {article.title}
+                  </Link>
+                ) : article.sourceUrl ? (
                   <a href={article.sourceUrl} target="_blank" rel="noopener noreferrer">
                     {article.title}
                   </a>
